@@ -1,30 +1,31 @@
-name: Lottery Runner (updates + analysis + alerts)
+name: LotMix - Intraday Runner
 
 on:
   schedule:
-    - cron: "*/15 * * * *"   # corre cada 15 minutos
+    - cron: "*/15 * * * *"   # cada 15 minutos (UTC)
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 concurrency:
-  group: lottery-runner
+  group: lotmix-runner
   cancel-in-progress: false
 
 jobs:
   run:
     runs-on: ubuntu-latest
-
     env:
       TZ: America/Santo_Domingo
-      PYTHONPATH: src
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 
+      # 🔥 Para pruebas: pon "1" para forzar mensaje aunque no cumpla umbrales
+      # Luego vuelve a "0"
+      FORCE_NOTIFY: "1"
+
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -34,16 +35,31 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            pip install pandas openpyxl requests beautifulsoup4 lxml
+          fi
 
-      - name: Run Lottery System
+      - name: Run runner
         run: |
           python src/runner.py
 
-      - name: Commit updated histories and outputs
+      - name: Commit and push changes (histories/state/outputs)
         run: |
           git config user.name "github-actions"
-          git config user.email "actions@users.noreply.github.com"
-          git add data/histories outputs data/state.json || true
-          git commit -m "Auto update histories + analysis" || echo "No changes"
+          git config user.email "github-actions@github.com"
+
+          # Evita subir pycache
+          rm -rf src/__pycache__ src/scrapers/__pycache__ || true
+
+          git add -A
+
+          # Solo commitea si hay cambios
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Auto update histories + intraday analysis"
           git push
