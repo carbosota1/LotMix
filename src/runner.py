@@ -45,15 +45,15 @@ SCHEDULE = [
 ]
 
 # 🎯 Precisión quirúrgica: jugable real
-TOPK_QUINIELA = 6          # SOLO Top6 para quiniela
-TOPK_FULL     = 12         # el modelo calcula Top12 para ranking/diagnóstico
-PALES_OUT     = 10         # SOLO 10 palés (no dispersión)
+TOPK_QUINIELA = 6
+TOPK_FULL     = 12
+PALES_OUT     = 10
 
 # 🚨 UMBRALES para ALERTA premium (edge real)
 MIN_SIGNAL = 0.010
 MIN_A11    = 10
 
-# Para no “all over the place”: máximo alertas por corrida
+# Para no dispersión: máximo alertas por corrida
 MAX_ALERTS_PER_RUN = 2
 
 # Ventana para evaluar sorteos “cercanos”
@@ -61,7 +61,7 @@ LOOKAHEAD_MINUTES = 16 * 60  # 16h
 
 
 # -----------------------------
-# Utils / State
+# Helpers
 # -----------------------------
 def now_rd() -> datetime:
     return datetime.now(TZ)
@@ -71,18 +71,53 @@ def draw_datetime_today(time_hhmm: str) -> datetime:
     n = now_rd()
     return n.replace(hour=h, minute=m, second=0, microsecond=0)
 
+def _ensure_dir(path: str):
+    os.makedirs(path, exist_ok=True)
+
+def _mk_key(date_str: str, lottery: str, draw: str, time_rd: str) -> str:
+    return f"{date_str}|{lottery}|{draw}|{time_rd}"
+
+def _norm_pair(a: str, b: str) -> str:
+    a = str(a).strip()
+    b = str(b).strip()
+    a = a.zfill(2) if a.isdigit() else a
+    b = b.zfill(2) if b.isdigit() else b
+    aa, bb = sorted([a, b])
+    return f"{aa}-{bb}"
+
+def format_pales(pales_raw):
+    """
+    ✅ Convierte pales (tuples o strings) a lista de strings "AA-BB"
+    para que join/JSON/Telegram nunca fallen.
+    """
+    out = []
+    if not pales_raw:
+        return out
+
+    for p in pales_raw:
+        try:
+            # tuple/list: ("63","45")
+            if isinstance(p, (tuple, list)) and len(p) >= 2:
+                out.append(_norm_pair(p[0], p[1]))
+            else:
+                # string: "63-45"
+                s = str(p).strip()
+                if "-" in s:
+                    a, b = s.split("-", 1)
+                    out.append(_norm_pair(a, b))
+        except Exception:
+            continue
+    return out
+
+
+# -----------------------------
+# State
+# -----------------------------
 def load_state():
-    """
-    last_updates: marca updates hechos hoy por sorteo
-    sent_info: evita spam del INFO por líder
-    sent_alert: evita spam de alerta por target
-    """
     if not os.path.exists(STATE_PATH):
         return {"last_updates": {}, "sent_info": {}, "sent_alert": {}}
-
     with open(STATE_PATH, "r", encoding="utf-8") as f:
         state = json.load(f)
-
     state.setdefault("last_updates", {})
     state.setdefault("sent_info", {})
     state.setdefault("sent_alert", {})
@@ -98,10 +133,6 @@ def save_state(state):
 # Scraper hooks (load by file path)
 # -----------------------------
 def fetch_result(lottery: str, draw: str, date: str):
-    """
-    Carga el scraper por ruta (NO depende de 'scrapers' como paquete).
-    Devuelve (primero, segundo, tercero) como '00'..'99'
-    """
     import importlib.util
 
     file_map = {
@@ -109,7 +140,6 @@ def fetch_result(lottery: str, draw: str, date: str):
         "La Primera": "laprimera_scraper.py",
         "La Nacional": "lanacional_scraper.py",
     }
-
     if lottery not in file_map:
         raise ValueError(f"Lottery no soportada: {lottery}")
 
@@ -130,9 +160,6 @@ def fetch_result(lottery: str, draw: str, date: str):
     return module.get_result(draw, date)
 
 def try_update_one(item, state) -> bool:
-    """
-    Actualiza el historial SOLO cuando ya pasó (hora del sorteo + 30 min).
-    """
     n = now_rd()
     date_str = n.strftime("%Y-%m-%d")
     draw_dt = draw_datetime_today(item["time"])
@@ -169,9 +196,6 @@ def try_update_one(item, state) -> bool:
 # Targets selection (ALL remaining today)
 # -----------------------------
 def upcoming_draws_today():
-    """
-    Devuelve TODOS los sorteos restantes del día dentro del lookahead.
-    """
     n = now_rd()
     out = []
     for item in SCHEDULE:
@@ -189,16 +213,7 @@ def upcoming_draws_today():
 # -----------------------------
 # Tracking (picks_log + performance)
 # -----------------------------
-def _ensure_dir(path: str):
-    os.makedirs(path, exist_ok=True)
-
-def _mk_key(date_str: str, lottery: str, draw: str, time_rd: str) -> str:
-    return f"{date_str}|{lottery}|{draw}|{time_rd}"
-
 def log_candidates(payload: dict):
-    """
-    Guarda candidates del picks.json en data/picks_log.csv para poder evaluarlos luego.
-    """
     _ensure_dir(DATA_DIR)
     log_path = os.path.join(DATA_DIR, "picks_log.csv")
 
@@ -251,11 +266,6 @@ def log_candidates(payload: dict):
         new_df.to_csv(log_path, index=False, encoding="utf-8")
 
 def grade_picks_from_histories():
-    """
-    Revisa data/picks_log.csv, busca el resultado real en los historiales,
-    y calcula hits (quiniela Top6/Top12) + palé (Top10).
-    Guarda en outputs/performance.csv
-    """
     log_path = os.path.join(DATA_DIR, "picks_log.csv")
     if not os.path.exists(log_path):
         return
@@ -295,25 +305,14 @@ def grade_picks_from_histories():
         hist_cache[lottery] = hx
         return hx
 
-    def hits(nums_list, drawn_set, k):
-        return len(set(nums_list[:k]).intersection(drawn_set))
+    def hits(nums_list, drawn_set):
+        return len(set(nums_list).intersection(drawn_set))
 
-    def pale_hits(pales, drawn_nums):
+    def pale_hits(pales_list, drawn_nums):
         drawn = sorted(list(drawn_nums))
         pairs = {f"{drawn[0]}-{drawn[1]}", f"{drawn[0]}-{drawn[2]}", f"{drawn[1]}-{drawn[2]}"}
-
-        norm = []
-        for p in pales:
-            try:
-                a, b = str(p).split("-")
-                a = a.strip().zfill(2)
-                b = b.strip().zfill(2)
-                aa, bb = sorted([a, b])
-                norm.append(f"{aa}-{bb}")
-            except Exception:
-                continue
-
-        return len(set(norm).intersection(pairs))
+        norm = set(format_pales(pales_list))
+        return len(norm.intersection(pairs))
 
     perf_rows = []
     any_graded = False
@@ -340,11 +339,8 @@ def grade_picks_from_histories():
         top6 = json.loads(r.get("top6", "[]") or "[]")
         pales10 = json.loads(r.get("pales10", "[]") or "[]")
 
-        # Quiniela hits
-        h6 = hits(top6, drawn, len(top6))
-        h12 = hits(top12, drawn, 12)
-
-        # Palé hits (cuántos palés pegan algún par real)
+        h6 = hits(top6, drawn)
+        h12 = hits(top12, drawn)
         ph = pale_hits(pales10, drawn)
 
         perf_rows.append({
@@ -393,8 +389,7 @@ def build_exploded_history():
             frames.append(explode(df, lot))
     if not frames:
         return None
-    exp = pd.concat(frames, ignore_index=True).sort_values("fecha_dt").reset_index(drop=True)
-    return exp
+    return pd.concat(frames, ignore_index=True).sort_values("fecha_dt").reset_index(drop=True)
 
 def evaluate_targets(exp: pd.DataFrame, targets):
     candidates = []
@@ -411,14 +406,12 @@ def evaluate_targets(exp: pd.DataFrame, targets):
         top12 = rec0["num"].tolist()[:TOPK_FULL]
         top6 = top12[:TOPK_QUINIELA]
 
-        # palés basados en top12, pero solo entregamos 10
-        pales = top_pales(top12[:10], 20)[:PALES_OUT]
+        pales_raw = top_pales(top12[:10], 20)  # puede venir como tuples
+        pales10 = format_pales(pales_raw)[:PALES_OUT]  # ✅ strings
 
         best_signal = float(rec0["signal"].max()) if "signal" in rec0.columns else None
         best_a11 = int(rec0["a11"].max()) if "a11" in rec0.columns else None
-
         ok_alert = should_alert(rec0, min_signal=MIN_SIGNAL, min_count_hits=MIN_A11)
-
         best_score = float(rec0["score"].max()) if "score" in rec0.columns else (best_signal or 0.0)
 
         candidates.append({
@@ -426,7 +419,7 @@ def evaluate_targets(exp: pd.DataFrame, targets):
             "target": target,
             "top12": top12,
             "top6": top6,
-            "pales10": pales,
+            "pales10": pales10,
             "best_signal": best_signal,
             "best_a11": best_a11,
             "best_score": best_score,
@@ -494,9 +487,9 @@ def run_analysis_and_notify(state):
                 "best_signal": c["best_signal"],
                 "best_a11": c["best_a11"],
                 "ok_alert": c["ok_alert"],
-                "top_nums": c["top12"],     # top12 para auditoría
-                "top6": c["top6"],          # top6 jugable
-                "pales": c["pales10"],      # top10 palés jugable
+                "top_nums": c["top12"],
+                "top6": c["top6"],
+                "pales": c["pales10"],  # ✅ strings
                 "lag1_top5": c["lag1_top5"],
             }
             for c in candidates
@@ -524,7 +517,6 @@ def run_analysis_and_notify(state):
 
     # -----------------------------
     # ℹ️ INFO: SOLO la mejor jugada (Top6 + Top10 palés)
-    # + ranking Top3 para contexto (no para jugar todo)
     # -----------------------------
     leader_key = f"{best['dt'].strftime('%Y-%m-%d %H:%M')}|{best['target']['lottery']}|{best['target']['draw']}"
     try:
@@ -532,13 +524,12 @@ def run_analysis_and_notify(state):
         lines.append("ℹ️ INFO PICKS (Precisión Quirúrgica / Data Real)")
         lines.append("Ranking (Top 3) - contexto:")
         for i, c in enumerate(candidates[:3], start=1):
-            if c["best_signal"] is not None and c["best_a11"] is not None:
-                lines.append(
-                    f"{i}) {c['dt'].strftime('%H:%M')} {c['target']['lottery']} | {c['target']['draw']} "
-                    f"(signal={c['best_signal']:.6f} a11={c['best_a11']} score={c['best_score']:.6f})"
-                )
-            else:
-                lines.append(f"{i}) {c['dt'].strftime('%H:%M')} {c['target']['lottery']} | {c['target']['draw']}")
+            lines.append(
+                f"{i}) {c['dt'].strftime('%H:%M')} {c['target']['lottery']} | {c['target']['draw']} "
+                f"(signal={c['best_signal']:.6f} a11={c['best_a11']} score={c['best_score']:.6f})"
+                if c["best_signal"] is not None and c["best_a11"] is not None
+                else f"{i}) {c['dt'].strftime('%H:%M')} {c['target']['lottery']} | {c['target']['draw']}"
+            )
 
         lines.append("")
         lines.append("🎯 JUGADA PRINCIPAL (JUGAR ESTA):")
@@ -560,7 +551,6 @@ def run_analysis_and_notify(state):
 
     # -----------------------------
     # 🚨 ALERTAS: máximo 2 por corrida (no dispersión)
-    # Solo las mejores por score que cumplen umbrales
     # -----------------------------
     alert_candidates = [c for c in candidates if c["ok_alert"]]
     alert_candidates.sort(key=lambda x: x["best_score"], reverse=True)
