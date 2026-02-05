@@ -12,10 +12,12 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    env:
-      TZ: America/Santo_Domingo
-      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+   env:
+  TZ: America/Santo_Domingo
+  PYTHONPATH: src
+  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+  TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
 
     steps:
       - name: Checkout repo
