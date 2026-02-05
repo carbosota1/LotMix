@@ -2,8 +2,11 @@ name: Lottery Runner (updates + analysis + alerts)
 
 on:
   schedule:
-    - cron: "*/15 * * * *"   # cada 15 minutos
+    - cron: "*/15 * * * *"   # corre cada 15 minutos
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 concurrency:
   group: lottery-runner
@@ -12,15 +15,15 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-   env:
-  TZ: America/Santo_Domingo
-  PYTHONPATH: src
-  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-  TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 
+    env:
+      TZ: America/Santo_Domingo
+      PYTHONPATH: src
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Python
@@ -33,7 +36,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run lottery system
+      - name: Run Lottery System
         run: |
           python src/runner.py
 
