@@ -39,9 +39,9 @@ SCHEDULE = [
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche",    "time": "21:30", "update_after_minutes": 30},
 ]
 
-TOPK_QUINIELA = 6
+TOPK_QUINIELA = 3
 TOPK_FULL     = 12
-PALES_OUT     = 10
+PALES_OUT     = 3
 
 MIN_SIGNAL = 0.010
 MIN_A11    = 10
