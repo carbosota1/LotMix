@@ -1,1 +1,59 @@
-
+{
+  "generated_at": "2026-02-05T17:15:42.932488-04:00",
+  "event_key": "2026-02-05|TEST|NO-UPDATE",
+  "target": {
+    "time_rd": "2026-02-05 18:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 6PM"
+  },
+  "best_play": {
+    "time_rd": "2026-02-05 18:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 6PM",
+    "top12": [
+      "63",
+      "45",
+      "62",
+      "33",
+      "94",
+      "59",
+      "52",
+      "39",
+      "03",
+      "26",
+      "48",
+      "46"
+    ],
+    "top6": [
+      "63",
+      "45",
+      "62",
+      "33",
+      "94",
+      "59"
+    ],
+    "pales10": [
+      "45-63",
+      "62-63",
+      "33-63",
+      "63-94",
+      "59-63",
+      "52-63",
+      "39-63",
+      "03-63",
+      "26-63",
+      "45-62"
+    ],
+    "fingerprint": "0731b227483821b6",
+    "ok_alert": false,
+    "best_signal": 0.008611554574868563,
+    "best_a11": 9,
+    "debug": {
+      "best_signal_hist": 0.008611554574868563,
+      "best_a11_hist": 9,
+      "best_signal_today": null,
+      "best_a11_today": null,
+      "has_intraday_sources": 1
+    }
+  }
+}
