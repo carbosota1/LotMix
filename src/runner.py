@@ -32,41 +32,28 @@ XLSX_FILES = {
 
 # =========================
 # SCHEDULE (NOCHE NACIONAL = 21:30 ✅)
-# draw == EXACTAMENTE columna "sorteo" en tus historiales
 # =========================
 SCHEDULE = [
-    # Anguilla (4)
     {"lottery": "Anguilla", "draw": "Anguila 10AM", "time": "10:00", "update_after_minutes": 30},
     {"lottery": "Anguilla", "draw": "Anguila 1PM",  "time": "13:00", "update_after_minutes": 30},
     {"lottery": "Anguilla", "draw": "Anguila 6PM",  "time": "18:00", "update_after_minutes": 30},
     {"lottery": "Anguilla", "draw": "Anguila 9PM",  "time": "21:00", "update_after_minutes": 30},
 
-    # La Primera (2)
     {"lottery": "La Primera", "draw": "Quiniela La Primera",       "time": "12:00", "update_after_minutes": 30},
     {"lottery": "La Primera", "draw": "Quiniela La Primera Noche", "time": "20:00", "update_after_minutes": 30},
 
-    # La Nacional (2)
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Gana Más", "time": "14:30", "update_after_minutes": 30},
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche",    "time": "21:30", "update_after_minutes": 30},
 ]
 
-# =========================
-# PRECISIÓN QUIRÚRGICA (jugable)
-# =========================
-TOPK_QUINIELA = 6        # Quiniela: solo Top6
-TOPK_FULL     = 12       # Auditoría interna
-PALES_OUT     = 10       # Palé: solo Top10 pales
+TOPK_QUINIELA = 6
+TOPK_FULL     = 12
+PALES_OUT     = 10
 
-# =========================
-# UMBRALES (criterio de enviar mensaje)
-# =========================
 MIN_SIGNAL = 0.010
 MIN_A11    = 10
 
-# Lookahead para encontrar el próximo sorteo
 LOOKAHEAD_MINUTES = 16 * 60
-
-# Modo prueba: FORCE_NOTIFY=1 manda mensaje aunque no cumpla umbral
 FORCE_NOTIFY = os.getenv("FORCE_NOTIFY", "0").strip() == "1"
 
 
@@ -99,10 +86,6 @@ def _norm_pair(a: str, b: str) -> str:
     return f"{aa}-{bb}"
 
 def format_pales(pales_raw):
-    """
-    Convierte pales (tuples o strings) a lista de strings "AA-BB"
-    para JSON/Telegram/Tracking.
-    """
     out = []
     if not pales_raw:
         return out
@@ -125,19 +108,41 @@ def fingerprint(top6, pales10):
 
 
 # -----------------------------
-# State
+# ✅ State (FIX JSON corrupto)
 # -----------------------------
+def _fresh_state():
+    return {"last_updates": {}, "last_event_key": "", "sent_by_target_fp": {}}
+
 def load_state():
     """
-    last_updates: marca updates hechos hoy por sorteo
-    last_event_key: último sorteo NUEVO procesado como señal (intradía)
-    sent_by_target_fp: evita spam (mismo target+misma recomendación)
+    Carga state.json. Si está corrupto o vacío, lo mueve a state.json.bad-<ts>
+    y crea un state limpio (para que el runner NUNCA se caiga).
     """
     if not os.path.exists(STATE_PATH):
-        return {"last_updates": {}, "last_event_key": "", "sent_by_target_fp": {}}
+        return _fresh_state()
 
-    with open(STATE_PATH, "r", encoding="utf-8") as f:
-        state = json.load(f)
+    try:
+        with open(STATE_PATH, "r", encoding="utf-8") as f:
+            raw = f.read().strip()
+            if not raw:
+                raise ValueError("state.json vacío")
+            state = json.loads(raw)
+
+        if not isinstance(state, dict):
+            raise ValueError("state.json no es dict")
+
+    except Exception as e:
+        # mover a .bad para investigar luego
+        try:
+            ensure_dir(DATA_DIR)
+            ts = now_rd().strftime("%Y%m%d-%H%M%S")
+            bad_path = os.path.join(DATA_DIR, f"state.json.bad-{ts}")
+            os.replace(STATE_PATH, bad_path)
+            print(f"[WARN] state.json corrupto -> movido a {bad_path} ({e})")
+        except Exception as e2:
+            print(f"[WARN] state.json corrupto y no se pudo mover ({e2})")
+
+        return _fresh_state()
 
     state.setdefault("last_updates", {})
     state.setdefault("last_event_key", "")
@@ -145,13 +150,19 @@ def load_state():
     return state
 
 def save_state(state):
+    """
+    Escritura atómica: escribe a .tmp y luego replace para evitar corrupción
+    si el job se corta.
+    """
     ensure_dir(DATA_DIR)
-    with open(STATE_PATH, "w", encoding="utf-8") as f:
+    tmp_path = STATE_PATH + ".tmp"
+    with open(tmp_path, "w", encoding="utf-8") as f:
         json.dump(state, f, ensure_ascii=False, indent=2)
+    os.replace(tmp_path, STATE_PATH)
 
 
 # -----------------------------
-# Scraper hooks (load by file path)
+# Scraper hooks
 # -----------------------------
 def fetch_result(lottery: str, draw: str, date: str):
     import importlib.util
@@ -181,9 +192,6 @@ def fetch_result(lottery: str, draw: str, date: str):
     return module.get_result(draw, date)
 
 def try_update_one(item, state) -> bool:
-    """
-    Actualiza el historial SOLO cuando ya pasó (hora del sorteo + 30 min).
-    """
     n = now_rd()
     date_str = n.strftime("%Y-%m-%d")
     draw_dt = draw_datetime_today(item["time"])
@@ -202,7 +210,7 @@ def try_update_one(item, state) -> bool:
 
     new_row = pd.DataFrame([{
         "fecha": date_str,
-        "sorteo": item["draw"],  # ✅ igual al histórico
+        "sorteo": item["draw"],
         "primero": p1,
         "segundo": p2,
         "tercero": p3,
@@ -217,12 +225,9 @@ def try_update_one(item, state) -> bool:
 
 
 # -----------------------------
-# Targets selection (next draw only)
+# Next target (target=1)
 # -----------------------------
 def next_upcoming_draw():
-    """
-    Próximo sorteo (target=1) dentro del lookahead.
-    """
     n = now_rd()
     best = None
     for item in SCHEDULE:
@@ -235,16 +240,13 @@ def next_upcoming_draw():
             continue
         if best is None or dt < best[0]:
             best = (dt, item)
-    return best  # (dt, item) or None
+    return best
 
 
 # -----------------------------
-# Tracking (picks_log + performance)
+# Tracking
 # -----------------------------
 def log_pick(payload: dict):
-    """
-    Guarda solo el target recomendado (quirúrgico) para grading.
-    """
     _ensure_dir(DATA_DIR)
     log_path = os.path.join(DATA_DIR, "picks_log.csv")
 
@@ -264,7 +266,6 @@ def log_pick(payload: dict):
         "lottery": lottery,
         "draw": draw,
         "generated_at": generated_at,
-        "best_score": bp.get("best_score"),
         "best_signal": bp.get("best_signal"),
         "best_a11": bp.get("best_a11"),
         "ok_alert": bp.get("ok_alert"),
@@ -278,7 +279,6 @@ def log_pick(payload: dict):
 
     if os.path.exists(log_path):
         old = pd.read_csv(log_path, dtype=str)
-        # upsert por key
         combined = pd.concat([old, new_df], ignore_index=True)
         combined = combined.drop_duplicates(subset=["key"], keep="last")
         combined.to_csv(log_path, index=False, encoding="utf-8")
@@ -286,9 +286,6 @@ def log_pick(payload: dict):
         new_df.to_csv(log_path, index=False, encoding="utf-8")
 
 def grade_picks_from_histories():
-    """
-    Cuando el resultado aparece en el histórico, calcula hits y guarda en outputs/performance.csv
-    """
     log_path = os.path.join(DATA_DIR, "picks_log.csv")
     if not os.path.exists(log_path):
         return
@@ -321,7 +318,6 @@ def grade_picks_from_histories():
 
         hx["fecha"] = hx["fecha"].astype(str).str.slice(0, 10)
         hx["sorteo"] = hx["sorteo"].astype(str)
-
         for col in ["primero", "segundo", "tercero"]:
             hx[col] = hx[col].astype(str).str.extract(r"(\d{1,2})")[0].fillna("").str.zfill(2)
 
@@ -353,7 +349,7 @@ def grade_picks_from_histories():
 
         match = hx[(hx["fecha"] == date) & (hx["sorteo"] == draw)]
         if match.empty:
-            continue  # resultado aún no está en histórico
+            continue
 
         row = match.iloc[-1]
         drawn = {row["primero"], row["segundo"], row["tercero"]}
@@ -362,10 +358,6 @@ def grade_picks_from_histories():
         top6 = json.loads(r.get("top6", "[]") or "[]")
         pales10 = json.loads(r.get("pales10", "[]") or "[]")
 
-        h6 = hits(top6, drawn)
-        h12 = hits(top12, drawn)
-        ph = pale_hits(pales10, drawn)
-
         perf_rows.append({
             "key": key,
             "date": date,
@@ -373,9 +365,9 @@ def grade_picks_from_histories():
             "lottery": lottery,
             "draw": draw,
             "result": f"{row['primero']}-{row['segundo']}-{row['tercero']}",
-            "hits_quiniela_top6": h6,
-            "hits_quiniela_top12": h12,
-            "pale_hits_top10": ph,
+            "hits_quiniela_top6": hits(top6, drawn),
+            "hits_quiniela_top12": hits(top12, drawn),
+            "pale_hits_top10": pale_hits(pales10, drawn),
             "best_signal": r.get("best_signal"),
             "best_a11": r.get("best_a11"),
             "ok_alert": r.get("ok_alert"),
@@ -402,7 +394,7 @@ def grade_picks_from_histories():
 
 
 # -----------------------------
-# Analysis (HIST + INTRADAY cross-match)
+# Analysis (hist + intradía)
 # -----------------------------
 def build_exploded_history():
     frames = []
@@ -412,22 +404,15 @@ def build_exploded_history():
             frames.append(explode(df, lot))
     if not frames:
         return None
-    exp = pd.concat(frames, ignore_index=True).sort_values("fecha_dt").reset_index(drop=True)
-    return exp
+    return pd.concat(frames, ignore_index=True).sort_values("fecha_dt").reset_index(drop=True)
 
 def combine_hist_and_intraday(rec_hist: pd.DataFrame, rec_today: pd.DataFrame):
-    """
-    Combina ranking histórico + ranking intradía (mismo día antes del target).
-    No inventa: suma scores para priorizar números que:
-      - tienen soporte histórico
-      - y además se activan con señales de hoy
-    """
     if rec_hist is None or rec_hist.empty:
         return rec_today
     if rec_today is None or rec_today.empty:
-        rec_hist = rec_hist.copy()
-        rec_hist["score_combo"] = rec_hist["score"]
-        return rec_hist
+        out = rec_hist.copy()
+        out["score_combo"] = out["score"]
+        return out
 
     h = rec_hist[["num", "score", "signal", "a11"]].copy()
     t = rec_today[["num", "score", "signal", "a11"]].copy()
@@ -435,27 +420,14 @@ def combine_hist_and_intraday(rec_hist: pd.DataFrame, rec_today: pd.DataFrame):
     h = h.rename(columns={"score": "score_hist", "signal": "signal_hist", "a11": "a11_hist"})
     t = t.rename(columns={"score": "score_today", "signal": "signal_today", "a11": "a11_today"})
 
-    m = h.merge(t, on="num", how="outer")
-    for c in ["score_hist", "signal_hist", "a11_hist", "score_today", "signal_today", "a11_today"]:
-        m[c] = m[c].fillna(0)
-
-    # peso: histórico manda, intradía ajusta
-    w_hist = 0.75
-    w_today = 0.25
+    m = h.merge(t, on="num", how="outer").fillna(0)
+    w_hist, w_today = 0.75, 0.25
     m["score_combo"] = w_hist * m["score_hist"] + w_today * m["score_today"]
-
-    # para criterio/diagnóstico
     m["signal_combo"] = m["signal_hist"] + 0.50 * m["signal_today"]
     m["a11_combo"] = m["a11_hist"].astype(int) + m["a11_today"].astype(int)
-
     return m.sort_values("score_combo", ascending=False).reset_index(drop=True)
 
 def run_intraday_next_target(event_key: str, state: dict):
-    """
-    Intradía: usa TODA la data histórica + TODA la data de HOY (sorteos ya salidos)
-    para predecir SOLO el próximo sorteo (target=1).
-    Solo notifica si cumple criterio.
-    """
     exp = build_exploded_history()
     if exp is None:
         print("[INFO] No history data loaded yet.")
@@ -469,44 +441,37 @@ def run_intraday_next_target(event_key: str, state: dict):
     target_dt, target = nxt
     print("[INFO] Next target:", target_dt.strftime("%Y-%m-%d %H:%M"), target["lottery"], target["draw"])
 
-    # 1) Histórico: todos los días, todas las fuentes menos el target mismo
+    # HISTORICO: todas las fuentes menos el target mismo
     src_filter_hist = lambda e: ~((e["lottery"] == target["lottery"]) & (e["sorteo"] == target["draw"]))
     rec_hist = recommend_for_target(exp, src_filter_hist, target["lottery"], target["draw"], lag_days=0, top_n=TOPK_FULL)
-
-    # 2) Intradía: SOLO sorteos de hoy antes del target (cross-match real del mismo día)
-    today = target_dt.date()
-    exp_today_sources = exp[(exp["fecha_dt"].dt.date == today) & (exp["fecha_dt"] < target_dt)].copy()
-
-    rec_today = None
-    if not exp_today_sources.empty:
-        src_filter_today = lambda e, _mask=exp_today_sources.index: e.index.isin(_mask)
-        rec_today = recommend_for_target(exp, src_filter_today, target["lottery"], target["draw"], lag_days=0, top_n=TOPK_FULL)
-
     if rec_hist is None or rec_hist.empty:
         print("[INFO] Not enough data to compute historical recommendations.")
         return
 
+    # INTRADÍA: solo hoy antes del target
+    today = target_dt.date()
+    exp_today = exp[(exp["fecha_dt"].dt.date == today) & (exp["fecha_dt"] < target_dt)].copy()
+
+    rec_today = None
+    if not exp_today.empty:
+        mask_idx = set(exp_today.index.tolist())
+        src_filter_today = lambda e, _m=mask_idx: e.index.isin(_m)
+        rec_today = recommend_for_target(exp, src_filter_today, target["lottery"], target["draw"], lag_days=0, top_n=TOPK_FULL)
+
     combo = combine_hist_and_intraday(rec_hist, rec_today)
 
-    # top12 / top6 / pales10
     top12 = combo["num"].astype(str).tolist()[:TOPK_FULL]
     top6 = top12[:TOPK_QUINIELA]
-    pales_raw = top_pales(top12[:10], 20)
-    pales10 = format_pales(pales_raw)[:PALES_OUT]
+    pales10 = format_pales(top_pales(top12[:10], 20))[:PALES_OUT]
 
-    # criterio: pasa si histórico pasa o intradía pasa (si existe)
     ok_hist = should_alert(rec_hist, min_signal=MIN_SIGNAL, min_count_hits=MIN_A11)
-
     ok_today = False
     if rec_today is not None and not rec_today.empty:
         ok_today = should_alert(rec_today, min_signal=MIN_SIGNAL, min_count_hits=MIN_A11)
-
     ok = bool(ok_hist or ok_today)
 
-    # payload siempre (para auditoría)
-    best_signal = float(rec_hist["signal"].max()) if "signal" in rec_hist.columns else None
-    best_a11 = int(rec_hist["a11"].max()) if "a11" in rec_hist.columns else None
-
+    best_signal_hist = float(rec_hist["signal"].max()) if "signal" in rec_hist.columns else None
+    best_a11_hist = int(rec_hist["a11"].max()) if "a11" in rec_hist.columns else None
     best_signal_today = float(rec_today["signal"].max()) if (rec_today is not None and "signal" in rec_today.columns and not rec_today.empty) else None
     best_a11_today = int(rec_today["a11"].max()) if (rec_today is not None and "a11" in rec_today.columns and not rec_today.empty) else None
 
@@ -520,7 +485,6 @@ def run_intraday_next_target(event_key: str, state: dict):
             "lottery": target["lottery"],
             "draw": target["draw"],
         },
-        "strategy": {"quiniela_topk": TOPK_QUINIELA, "pales_out": PALES_OUT},
         "best_play": {
             "time_rd": target_dt.strftime("%Y-%m-%d %H:%M"),
             "lottery": target["lottery"],
@@ -530,12 +494,14 @@ def run_intraday_next_target(event_key: str, state: dict):
             "pales10": pales10,
             "fingerprint": fp,
             "ok_alert": ok,
+            "best_signal": best_signal_hist,
+            "best_a11": best_a11_hist,
             "debug": {
-                "best_signal_hist": best_signal,
-                "best_a11_hist": best_a11,
+                "best_signal_hist": best_signal_hist,
+                "best_a11_hist": best_a11_hist,
                 "best_signal_today": best_signal_today,
                 "best_a11_today": best_a11_today,
-                "has_intraday_sources": int(not exp_today_sources.empty),
+                "has_intraday_sources": int(not exp_today.empty),
             }
         }
     }
@@ -545,24 +511,18 @@ def run_intraday_next_target(event_key: str, state: dict):
         json.dump(payload, f, ensure_ascii=False, indent=2)
     print("[OK] Wrote outputs/picks.json")
 
-    # Log para grading
     log_pick(payload)
 
-    # NOTIFICACIÓN: solo si cumple criterio (o FORCE_NOTIFY=1)
     if (not ok) and (not FORCE_NOTIFY):
         print("[INFO] No valid opportunity (thresholds not met). No message sent.")
         return
 
-    # Anti-spam: target+fingerprint
     target_key = f"{payload['target']['time_rd']}|{payload['target']['lottery']}|{payload['target']['draw']}"
     sent_map = state.get("sent_by_target_fp", {})
-    prev_fp = sent_map.get(target_key, "")
-
-    if prev_fp == fp and (not FORCE_NOTIFY):
+    if sent_map.get(target_key, "") == fp and (not FORCE_NOTIFY):
         print("[INFO] Same picks fingerprint already sent for this target.")
         return
 
-    # Telegram
     msg = []
     msg.append("🚨 OPV INTRADÍA (Cross-Match Real / Data Real)")
     msg.append(f"🧩 Señal nueva: {event_key}")
@@ -576,7 +536,7 @@ def run_intraday_next_target(event_key: str, state: dict):
     msg.append(" | ".join(pales10))
     msg.append("")
     msg.append("📊 Debug:")
-    msg.append(f"hist best_signal={best_signal} best_a11={best_a11}")
+    msg.append(f"hist best_signal={best_signal_hist} best_a11={best_a11_hist}")
     msg.append(f"today best_signal={best_signal_today} best_a11={best_a11_today}")
 
     send_telegram("\n".join(msg))
@@ -586,9 +546,6 @@ def run_intraday_next_target(event_key: str, state: dict):
     state["sent_by_target_fp"] = sent_map
 
 
-# -----------------------------
-# Main
-# -----------------------------
 def main():
     ensure_dir(DATA_DIR)
     ensure_dir(HIST_DIR)
@@ -596,36 +553,29 @@ def main():
 
     state = load_state()
 
-    # 1) Updates: intenta actualizar TODO lo que ya esté “vencido” (+30 min)
     updated = []
     for item in SCHEDULE:
         try:
-            did = try_update_one(item, state)
-            if did:
+            if try_update_one(item, state):
                 print("[OK] Updated:", item["lottery"], item["draw"])
                 updated.append(item)
         except Exception as e:
             print(f"[WARN] update failed {item['lottery']}|{item['draw']}: {e}")
 
-    # 2) Grading: evaluar picks pasados si ya hay resultados en el histórico
     try:
         grade_picks_from_histories()
         print("[OK] Grading pass completed.")
     except Exception as e:
         print(f"[WARN] grading failed: {e}")
 
-    # 3) Intradía: solo si hubo un update nuevo hoy (evento)
     if not updated:
         print("[INFO] No new updates. Skipping intraday analysis/notify.")
         save_state(state)
         print("[OK] runner finished")
         return
 
-    # Elegir el evento más reciente por hora del schedule (de los actualizados)
-    def _time_of(item):
-        return draw_datetime_today(item["time"])
-
-    updated_sorted = sorted(updated, key=_time_of)
+    # evento más reciente por time del schedule
+    updated_sorted = sorted(updated, key=lambda x: draw_datetime_today(x["time"]))
     last_event = updated_sorted[-1]
     event_key = f"{today_str()}|{last_event['lottery']}|{last_event['draw']}"
 
@@ -635,7 +585,6 @@ def main():
         print("[OK] runner finished")
         return
 
-    # correr intradía para next target
     try:
         run_intraday_next_target(event_key, state)
     except Exception as e:
