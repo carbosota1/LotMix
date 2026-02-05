@@ -24,43 +24,48 @@ OUT_DIR = "outputs"
 XLSX_FILES = {
     "La Primera": os.path.join(HIST_DIR, "La Primera History.xlsx"),
     "Anguilla":   os.path.join(HIST_DIR, "Anguilla history.xlsx"),
-    "La Nacional":os.path.join(HIST_DIR, "La nacional history.xlsx"),
+    "La Nacional": os.path.join(HIST_DIR, "La nacional history.xlsx"),
 }
 
-# ✅ IMPORTANTE:
-# draw == EXACTAMENTE el texto que aparece en la columna "sorteo" de tus historiales XLSX
-# Esto garantiza que el análisis use DATA REAL del histórico que subiste.
+# ✅ draw == EXACTAMENTE lo que tienes en la columna "sorteo" de tus historiales XLSX
 SCHEDULE = [
     # Anguilla (4)
-    {"lottery":"Anguilla", "draw":"Anguila 10AM", "time":"10:00", "update_after_minutes":30},
-    {"lottery":"Anguilla", "draw":"Anguila 1PM",  "time":"13:00", "update_after_minutes":30},
-    {"lottery":"Anguilla", "draw":"Anguila 6PM",  "time":"18:00", "update_after_minutes":30},
-    {"lottery":"Anguilla", "draw":"Anguila 9PM",  "time":"21:00", "update_after_minutes":30},
+    {"lottery": "Anguilla", "draw": "Anguila 10AM", "time": "10:00", "update_after_minutes": 30},
+    {"lottery": "Anguilla", "draw": "Anguila 1PM",  "time": "13:00", "update_after_minutes": 30},
+    {"lottery": "Anguilla", "draw": "Anguila 6PM",  "time": "18:00", "update_after_minutes": 30},
+    {"lottery": "Anguilla", "draw": "Anguila 9PM",  "time": "21:00", "update_after_minutes": 30},
 
     # La Primera (2)
-    {"lottery":"La Primera", "draw":"Quiniela La Primera",       "time":"12:00", "update_after_minutes":30},
-    {"lottery":"La Primera", "draw":"Quiniela La Primera Noche", "time":"20:00", "update_after_minutes":30},
+    {"lottery": "La Primera", "draw": "Quiniela La Primera",       "time": "12:00", "update_after_minutes": 30},
+    {"lottery": "La Primera", "draw": "Quiniela La Primera Noche", "time": "20:00", "update_after_minutes": 30},
 
     # La Nacional (2)
-    {"lottery":"La Nacional", "draw":"Loteria Nacional- Gana Más", "time":"14:30", "update_after_minutes":30},
-    {"lottery":"La Nacional", "draw":"Loteria Nacional- Noche",    "time":"20:30", "update_after_minutes":30},
+    {"lottery": "La Nacional", "draw": "Loteria Nacional- Gana Más", "time": "14:30", "update_after_minutes": 30},
+    {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche",    "time": "20:30", "update_after_minutes": 30},
 ]
 
-# Umbrales para “oportunidad válida” (basado en MI y Chi²)
+# 🚨 UMBRALES para ALERTA premium (edge real)
 MIN_SIGNAL = 0.010
 MIN_A11    = 10
 
 # Ventana para buscar “próximo sorteo cercano”
 LOOKAHEAD_MINUTES = 720  # 12h
 
-def now_rd():
+def now_rd() -> datetime:
     return datetime.now(TZ)
 
 def load_state():
+    # last_updates: marca updates hechos hoy por sorteo
+    # last_info_key: evita spam de INFO por target
+    # last_alert_key: evita spam de ALERTA por target
     if not os.path.exists(STATE_PATH):
-        return {"last_updates": {}, "last_alert_key": ""}
+        return {"last_updates": {}, "last_info_key": "", "last_alert_key": ""}
     with open(STATE_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
+        state = json.load(f)
+    state.setdefault("last_updates", {})
+    state.setdefault("last_info_key", "")
+    state.setdefault("last_alert_key", "")
+    return state
 
 def save_state(state):
     ensure_dir(DATA_DIR)
@@ -148,9 +153,9 @@ def next_upcoming_draw():
         if (dt - n).total_seconds() <= LOOKAHEAD_MINUTES * 60:
             if best is None or dt < best[0]:
                 best = (dt, item)
-    return best
+    return best  # (datetime, item) o None
 
-def run_analysis_and_maybe_alert(state):
+def run_analysis_and_maybe_notify(state):
     # Cargar y explotar historiales (DATA REAL)
     frames = []
     for lot, path in XLSX_FILES.items():
@@ -211,36 +216,68 @@ def run_analysis_and_maybe_alert(state):
 
     print("[OK] Wrote outputs/picks.json")
 
-    # Solo alerta si la señal supera umbrales (DATA REAL, no adivinanza)
-    ok = should_alert(rec0, min_signal=MIN_SIGNAL, min_count_hits=MIN_A11)
-    alert_key = f"{dt.strftime('%Y-%m-%d %H:%M')}|{target['lottery']}|{target['draw']}"
+    # -----------------------------
+    # ℹ️ INFO SIEMPRE (una vez por target)
+    # -----------------------------
+    info_key = f"{dt.strftime('%Y-%m-%d %H:%M')}|{target['lottery']}|{target['draw']}"
+    if state.get("last_info_key") != info_key:
+        try:
+            info = []
+            info.append("ℹ️ INFO PICKS (Data Real)")
+            info.append(f"🎯 Target: {target['lottery']} | {target['draw']}")
+            info.append(f"⏰ Hora: {dt.strftime('%H:%M')} RD")
+            info.append("")
+            info.append("Top 12 (MI + Chi²):")
+            info.append(", ".join(top_nums[:12]))
+            info.append("")
+            info.append("Top Palés (10):")
+            info.append(" | ".join([f"{a}-{b}" for a, b in pales[:10]]))
+            info.append("")
+            info.append(f"best_signal: {picks_payload['debug']['best_signal']}")
+            info.append(f"best_a11: {picks_payload['debug']['best_a11']}")
+            send_telegram("\n".join(info))
+            state["last_info_key"] = info_key
+            print("[OK] Telegram INFO sent.")
+        except Exception as e:
+            print(f"[WARN] Telegram INFO failed: {e}")
+    else:
+        print("[INFO] INFO already sent for this target.")
 
+    # -----------------------------
+    # 🚨 ALERTA PREMIUM solo si hay edge real (una vez por target)
+    # -----------------------------
+    ok = should_alert(rec0, min_signal=MIN_SIGNAL, min_count_hits=MIN_A11)
     if not ok:
         print("[INFO] No valid opportunity (thresholds not met).")
         return
+
+    alert_key = info_key
     if state.get("last_alert_key") == alert_key:
-        print("[INFO] Alert already sent for this target.")
+        print("[INFO] ALERT already sent for this target.")
         return
 
-    msg = []
-    msg.append("🚨 ALERTA OPV (Data Real / Cross-Lottery)")
-    msg.append(f"🎯 Próximo sorteo: {target['lottery']} | {target['draw']}")
-    msg.append(f"⏰ Hora: {dt.strftime('%H:%M')} RD")
-    msg.append("")
-    msg.append("✅ Top números sugeridos (MI + Chi²):")
-    msg.append(", ".join(top_nums[:12]))
-    msg.append("")
-    msg.append("🎲 Palés sugeridos:")
-    msg.append(" | ".join([f"{a}-{b}" for a, b in pales[:10]]))
-
-    if not rec1.empty:
+    try:
+        msg = []
+        msg.append("🚨 ALERTA OPV (EDGE REAL)")
+        msg.append(f"🎯 Target: {target['lottery']} | {target['draw']}")
+        msg.append(f"⏰ Hora: {dt.strftime('%H:%M')} RD")
         msg.append("")
-        msg.append("📌 Next-day (lag 1) top 5:")
-        msg.append(", ".join(rec1["num"].tolist()[:5]))
+        msg.append("✅ Top 12 (MI + Chi²):")
+        msg.append(", ".join(top_nums[:12]))
+        msg.append("")
+        msg.append("🎲 Palés (10):")
+        msg.append(" | ".join([f"{a}-{b}" for a, b in pales[:10]]))
 
-    send_telegram("\n".join(msg))
-    state["last_alert_key"] = alert_key
-    print("[OK] Telegram alert sent.")
+        if picks_payload["debug"]["lag1_top5"]:
+            msg.append("")
+            msg.append("📌 Next-day (lag 1) top 5:")
+            msg.append(", ".join(picks_payload["debug"]["lag1_top5"]))
+
+        send_telegram("\n".join(msg))
+        state["last_alert_key"] = alert_key
+        print("[OK] Telegram ALERT sent.")
+    except Exception as e:
+        print(f"[WARN] Telegram ALERT failed: {e}")
 
 def main():
     ensure_dir(DATA_DIR)
@@ -256,13 +293,14 @@ def main():
             if did:
                 print("[OK] Updated:", item["lottery"], item["draw"])
         except Exception as e:
+            # esto es normal si el resultado aún no está publicado
             print(f"[WARN] update failed {item['lottery']}|{item['draw']}: {e}")
 
-    # Analysis + possible alert
+    # Analysis + notify
     try:
-        run_analysis_and_maybe_alert(state)
+        run_analysis_and_maybe_notify(state)
     except Exception as e:
-        print(f"[WARN] analysis/alert failed: {e}")
+        print(f"[WARN] analysis/notify failed: {e}")
 
     save_state(state)
     print("[OK] runner finished")
