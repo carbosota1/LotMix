@@ -20,36 +20,38 @@ HIST_DIR = os.path.join(DATA_DIR, "histories")
 STATE_PATH = os.path.join(DATA_DIR, "state.json")
 OUT_DIR = "outputs"
 
-# XLSX (tus nombres)
+# Tus XLSX históricos (deben existir en el repo)
 XLSX_FILES = {
     "La Primera": os.path.join(HIST_DIR, "La Primera History.xlsx"),
     "Anguilla":   os.path.join(HIST_DIR, "Anguilla history.xlsx"),
     "La Nacional":os.path.join(HIST_DIR, "La nacional history.xlsx"),
 }
 
-# ✅ AJUSTA horas y nombres EXACTOS de sorteos (como están en tu columna 'sorteo')
+# ✅ IMPORTANTE:
+# draw == EXACTAMENTE el texto que aparece en la columna "sorteo" de tus historiales XLSX
+# Esto garantiza que el análisis use DATA REAL del histórico que subiste.
 SCHEDULE = [
     # Anguilla (4)
-    {"lottery":"Anguilla", "draw":"ANG-10AM", "time":"10:00", "update_after_minutes":30},
-    {"lottery":"Anguilla", "draw":"ANG-1PM",  "time":"13:00", "update_after_minutes":30},
-    {"lottery":"Anguilla", "draw":"ANG-5PM",  "time":"17:00", "update_after_minutes":30},
-    {"lottery":"Anguilla", "draw":"ANG-9PM",  "time":"21:00", "update_after_minutes":30},
+    {"lottery":"Anguilla", "draw":"Anguila 10AM", "time":"10:00", "update_after_minutes":30},
+    {"lottery":"Anguilla", "draw":"Anguila 1PM",  "time":"13:00", "update_after_minutes":30},
+    {"lottery":"Anguilla", "draw":"Anguila 6PM",  "time":"18:00", "update_after_minutes":30},
+    {"lottery":"Anguilla", "draw":"Anguila 9PM",  "time":"21:00", "update_after_minutes":30},
 
     # La Primera (2)
-    {"lottery":"La Primera", "draw":"LP-MediaDia", "time":"12:00", "update_after_minutes":30},
-    {"lottery":"La Primera", "draw":"LP-Noche",    "time":"20:00", "update_after_minutes":30},
+    {"lottery":"La Primera", "draw":"Quiniela La Primera",       "time":"12:00", "update_after_minutes":30},
+    {"lottery":"La Primera", "draw":"Quiniela La Primera Noche", "time":"20:00", "update_after_minutes":30},
 
     # La Nacional (2)
     {"lottery":"La Nacional", "draw":"Loteria Nacional- Gana Más", "time":"14:30", "update_after_minutes":30},
     {"lottery":"La Nacional", "draw":"Loteria Nacional- Noche",    "time":"20:30", "update_after_minutes":30},
 ]
 
-# Umbrales de “oportunidad válida”
+# Umbrales para “oportunidad válida” (basado en MI y Chi²)
 MIN_SIGNAL = 0.010
 MIN_A11    = 10
 
-# Ventana para considerar “próximo sorteo cercano”
-LOOKAHEAD_MINUTES = 720  # 12h (para que casi siempre haya próximo sorteo)
+# Ventana para buscar “próximo sorteo cercano”
+LOOKAHEAD_MINUTES = 720  # 12h
 
 def now_rd():
     return datetime.now(TZ)
@@ -71,22 +73,39 @@ def draw_datetime_today(time_hhmm: str) -> datetime:
     return n.replace(hour=h, minute=m, second=0, microsecond=0)
 
 # -----------------------------
-# SCRAPER HOOKS
+# SCRAPER HOOKS (por archivo)
 # -----------------------------
 def fetch_result(lottery: str, draw: str, date: str):
     """
-    Debe devolver tuple (primero, segundo, tercero) como strings '00'..'99'
+    Carga el scraper por ruta (NO depende de 'scrapers' como paquete).
+    Devuelve (primero, segundo, tercero) como '00'..'99'
     """
-    if lottery == "Anguilla":
-        from scrapers.anguilla_scraper import get_result
-        return get_result(draw, date)
-    if lottery == "La Primera":
-        from scrapers.laprimera_scraper import get_result
-        return get_result(draw, date)
-    if lottery == "La Nacional":
-        from scrapers.lanacional_scraper import get_result
-        return get_result(draw, date)
-    raise ValueError("Lottery no soportada")
+    import importlib.util
+
+    file_map = {
+        "Anguilla": "anguilla_scraper.py",
+        "La Primera": "laprimera_scraper.py",
+        "La Nacional": "lanacional_scraper.py",
+    }
+
+    if lottery not in file_map:
+        raise ValueError(f"Lottery no soportada: {lottery}")
+
+    scrapers_dir = os.path.join(os.path.dirname(__file__), "scrapers")
+    file_path = os.path.join(scrapers_dir, file_map[lottery])
+
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"No existe el scraper en: {file_path}")
+
+    spec = importlib.util.spec_from_file_location(f"{lottery}_scraper", file_path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec and spec.loader
+    spec.loader.exec_module(module)
+
+    if not hasattr(module, "get_result"):
+        raise AttributeError(f"El scraper {file_path} no tiene get_result(draw, date)")
+
+    return module.get_result(draw, date)
 
 def try_update_one(item, state) -> bool:
     n = now_rd()
@@ -106,7 +125,7 @@ def try_update_one(item, state) -> bool:
 
     new_row = pd.DataFrame([{
         "fecha": date_str,
-        "sorteo": item["draw"],
+        "sorteo": item["draw"],  # ✅ guarda el nombre REAL del sorteo (compatible con histórico)
         "primero": p1,
         "segundo": p2,
         "tercero": p3,
@@ -129,10 +148,10 @@ def next_upcoming_draw():
         if (dt - n).total_seconds() <= LOOKAHEAD_MINUTES * 60:
             if best is None or dt < best[0]:
                 best = (dt, item)
-    return best  # (datetime, item) o None
+    return best
 
 def run_analysis_and_maybe_alert(state):
-    # Cargar data
+    # Cargar y explotar historiales (DATA REAL)
     frames = []
     for lot, path in XLSX_FILES.items():
         df = read_history_xlsx(path)
@@ -153,9 +172,10 @@ def run_analysis_and_maybe_alert(state):
     dt, target = nxt
     print("[INFO] Next target:", dt.strftime("%Y-%m-%d %H:%M"), target["lottery"], target["draw"])
 
-    # Fuente = “todos los otros sorteos”
-    src_filter = lambda e: ~((e["lottery"]==target["lottery"]) & (e["sorteo"]==target["draw"]))
+    # Fuente = todos los otros sorteos (cross-lottery)
+    src_filter = lambda e: ~((e["lottery"] == target["lottery"]) & (e["sorteo"] == target["draw"]))
 
+    # Same-day vs Next-day
     rec0 = recommend_for_target(exp, src_filter, target["lottery"], target["draw"], lag_days=0, top_n=12)
     rec1 = recommend_for_target(exp, src_filter, target["lottery"], target["draw"], lag_days=1, top_n=12)
 
@@ -166,7 +186,7 @@ def run_analysis_and_maybe_alert(state):
     top_nums = rec0["num"].tolist()
     pales = top_pales(top_nums[:10], 20)
 
-    # ✅ Guardar picks SIEMPRE (para que puedas revisar)
+    # ✅ Guardar picks SIEMPRE (para revisar)
     picks_payload = {
         "generated_at": now_rd().isoformat(),
         "target": {
@@ -181,6 +201,7 @@ def run_analysis_and_maybe_alert(state):
             "min_a11": MIN_A11,
             "best_signal": float(rec0["signal"].max()) if "signal" in rec0.columns else None,
             "best_a11": int(rec0["a11"].max()) if "a11" in rec0.columns else None,
+            "lag1_top5": rec1["num"].tolist()[:5] if not rec1.empty else [],
         }
     }
 
@@ -190,6 +211,7 @@ def run_analysis_and_maybe_alert(state):
 
     print("[OK] Wrote outputs/picks.json")
 
+    # Solo alerta si la señal supera umbrales (DATA REAL, no adivinanza)
     ok = should_alert(rec0, min_signal=MIN_SIGNAL, min_count_hits=MIN_A11)
     alert_key = f"{dt.strftime('%Y-%m-%d %H:%M')}|{target['lottery']}|{target['draw']}"
 
@@ -201,17 +223,18 @@ def run_analysis_and_maybe_alert(state):
         return
 
     msg = []
-    msg.append("🚨 ALERTA OPV (Cross-Lottery)")
+    msg.append("🚨 ALERTA OPV (Data Real / Cross-Lottery)")
     msg.append(f"🎯 Próximo sorteo: {target['lottery']} | {target['draw']}")
     msg.append(f"⏰ Hora: {dt.strftime('%H:%M')} RD")
     msg.append("")
-    msg.append("✅ Top números sugeridos:")
+    msg.append("✅ Top números sugeridos (MI + Chi²):")
     msg.append(", ".join(top_nums[:12]))
     msg.append("")
     msg.append("🎲 Palés sugeridos:")
-    msg.append(" | ".join([f"{a}-{b}" for a,b in pales[:10]]))
-    msg.append("")
+    msg.append(" | ".join([f"{a}-{b}" for a, b in pales[:10]]))
+
     if not rec1.empty:
+        msg.append("")
         msg.append("📌 Next-day (lag 1) top 5:")
         msg.append(", ".join(rec1["num"].tolist()[:5]))
 
@@ -226,7 +249,7 @@ def main():
 
     state = load_state()
 
-    # Updates
+    # Updates (30 min después de cada sorteo)
     for item in SCHEDULE:
         try:
             did = try_update_one(item, state)
