@@ -568,13 +568,13 @@ def main():
     except Exception as e:
         print(f"[WARN] grading failed: {e}")
 
-    if not updated and (not FORCE_NOTIFY):
+if not updated and (not FORCE_NOTIFY):
     print("[INFO] No new updates. Skipping intraday analysis/notify.")
     save_state(state)
     print("[OK] runner finished")
     return
 
-    if not updated and FORCE_NOTIFY:
+if not updated and FORCE_NOTIFY:
     print("[TEST] FORCE_NOTIFY=1 -> running intraday analysis even without new updates.")
     # crea un event_key de prueba (para disparar el mensaje)
     event_key = f"{today_str()}|TEST|NO-UPDATE"
@@ -582,6 +582,7 @@ def main():
     save_state(state)
     print("[OK] runner finished")
     return
+
 
     # evento más reciente por time del schedule
     updated_sorted = sorted(updated, key=lambda x: draw_datetime_today(x["time"]))
