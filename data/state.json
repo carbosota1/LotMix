@@ -1,8 +1,17 @@
 {
   "last_updates": {
     "2026-02-05|Anguilla|ANG-10AM": "done",
-    "2026-02-05|Anguilla|Anguila 10AM": "done"
+    "2026-02-05|Anguilla|Anguila 10AM": "done",
+    "2026-02-05|La Primera|Quiniela La Primera": "done"
   },
   "last_alert_key": "",
-  "last_info_key": "2026-02-05 13:00|Anguilla|Anguila 1PM"
+  "last_info_key": "2026-02-05 13:00|Anguilla|Anguila 1PM",
+  "sent_info": {
+    "2026-02-05 18:00|Anguilla|Anguila 6PM": "done"
+  },
+  "sent_alert": {
+    "2026-02-05 20:00|La Primera|Quiniela La Primera Noche": "done",
+    "2026-02-05 14:30|La Nacional|Loteria Nacional- Gana Más": "done",
+    "2026-02-05 20:30|La Nacional|Loteria Nacional- Noche": "done"
+  }
 }
