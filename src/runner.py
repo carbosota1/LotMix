@@ -527,7 +527,7 @@ def run_intraday_next_target(event_key: str, state: dict):
     msg.append(f"✅ QUINIELA Top{TOPK_QUINIELA}:")
     msg.append(", ".join(top6))
     msg.append("")
-    msg.append("🎲 PALE Top 10:")
+    msg.append("🎲 PALE Top {len(pale10)}:")
     msg.append(" | ".join(pales10))
     msg.append("")
     msg.append("📊 Debug:")
