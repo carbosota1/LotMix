@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import hashlib
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
@@ -20,14 +21,19 @@ HIST_DIR = os.path.join(DATA_DIR, "histories")
 STATE_PATH = os.path.join(DATA_DIR, "state.json")
 OUT_DIR = "outputs"
 
-# Tus XLSX históricos (deben existir en el repo)
+# =========================
+# HISTORIAL XLSX
+# =========================
 XLSX_FILES = {
     "La Primera": os.path.join(HIST_DIR, "La Primera History.xlsx"),
     "Anguilla":   os.path.join(HIST_DIR, "Anguilla history.xlsx"),
     "La Nacional": os.path.join(HIST_DIR, "La nacional history.xlsx"),
 }
 
-# ✅ draw == EXACTAMENTE lo que tienes en la columna "sorteo" de tus historiales XLSX
+# =========================
+# SCHEDULE (NOCHE NACIONAL = 21:30 ✅)
+# draw == EXACTAMENTE columna "sorteo" en tus historiales
+# =========================
 SCHEDULE = [
     # Anguilla (4)
     {"lottery": "Anguilla", "draw": "Anguila 10AM", "time": "10:00", "update_after_minutes": 30},
@@ -41,23 +47,27 @@ SCHEDULE = [
 
     # La Nacional (2)
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Gana Más", "time": "14:30", "update_after_minutes": 30},
-    {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche",    "time": "20:30", "update_after_minutes": 30},
+    {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche",    "time": "21:30", "update_after_minutes": 30},
 ]
 
-# 🎯 Precisión quirúrgica: jugable real
-TOPK_QUINIELA = 6
-TOPK_FULL     = 12
-PALES_OUT     = 10
+# =========================
+# PRECISIÓN QUIRÚRGICA (jugable)
+# =========================
+TOPK_QUINIELA = 6        # Quiniela: solo Top6
+TOPK_FULL     = 12       # Auditoría interna
+PALES_OUT     = 10       # Palé: solo Top10 pales
 
-# 🚨 UMBRALES para ALERTA premium (edge real)
+# =========================
+# UMBRALES (criterio de enviar mensaje)
+# =========================
 MIN_SIGNAL = 0.010
 MIN_A11    = 10
 
-# Para no dispersión: máximo alertas por corrida
-MAX_ALERTS_PER_RUN = 2
+# Lookahead para encontrar el próximo sorteo
+LOOKAHEAD_MINUTES = 16 * 60
 
-# Ventana para evaluar sorteos “cercanos”
-LOOKAHEAD_MINUTES = 16 * 60  # 16h
+# Modo prueba: FORCE_NOTIFY=1 manda mensaje aunque no cumpla umbral
+FORCE_NOTIFY = os.getenv("FORCE_NOTIFY", "0").strip() == "1"
 
 
 # -----------------------------
@@ -65,6 +75,9 @@ LOOKAHEAD_MINUTES = 16 * 60  # 16h
 # -----------------------------
 def now_rd() -> datetime:
     return datetime.now(TZ)
+
+def today_str() -> str:
+    return now_rd().strftime("%Y-%m-%d")
 
 def draw_datetime_today(time_hhmm: str) -> datetime:
     h, m = map(int, time_hhmm.split(":"))
@@ -87,20 +100,17 @@ def _norm_pair(a: str, b: str) -> str:
 
 def format_pales(pales_raw):
     """
-    ✅ Convierte pales (tuples o strings) a lista de strings "AA-BB"
-    para que join/JSON/Telegram nunca fallen.
+    Convierte pales (tuples o strings) a lista de strings "AA-BB"
+    para JSON/Telegram/Tracking.
     """
     out = []
     if not pales_raw:
         return out
-
     for p in pales_raw:
         try:
-            # tuple/list: ("63","45")
             if isinstance(p, (tuple, list)) and len(p) >= 2:
                 out.append(_norm_pair(p[0], p[1]))
             else:
-                # string: "63-45"
                 s = str(p).strip()
                 if "-" in s:
                     a, b = s.split("-", 1)
@@ -109,18 +119,29 @@ def format_pales(pales_raw):
             continue
     return out
 
+def fingerprint(top6, pales10):
+    s = "|".join(top6) + "||" + "|".join(pales10)
+    return hashlib.sha256(s.encode("utf-8")).hexdigest()[:16]
+
 
 # -----------------------------
 # State
 # -----------------------------
 def load_state():
+    """
+    last_updates: marca updates hechos hoy por sorteo
+    last_event_key: último sorteo NUEVO procesado como señal (intradía)
+    sent_by_target_fp: evita spam (mismo target+misma recomendación)
+    """
     if not os.path.exists(STATE_PATH):
-        return {"last_updates": {}, "sent_info": {}, "sent_alert": {}}
+        return {"last_updates": {}, "last_event_key": "", "sent_by_target_fp": {}}
+
     with open(STATE_PATH, "r", encoding="utf-8") as f:
         state = json.load(f)
+
     state.setdefault("last_updates", {})
-    state.setdefault("sent_info", {})
-    state.setdefault("sent_alert", {})
+    state.setdefault("last_event_key", "")
+    state.setdefault("sent_by_target_fp", {})
     return state
 
 def save_state(state):
@@ -160,6 +181,9 @@ def fetch_result(lottery: str, draw: str, date: str):
     return module.get_result(draw, date)
 
 def try_update_one(item, state) -> bool:
+    """
+    Actualiza el historial SOLO cuando ya pasó (hora del sorteo + 30 min).
+    """
     n = now_rd()
     date_str = n.strftime("%Y-%m-%d")
     draw_dt = draw_datetime_today(item["time"])
@@ -193,11 +217,14 @@ def try_update_one(item, state) -> bool:
 
 
 # -----------------------------
-# Targets selection (ALL remaining today)
+# Targets selection (next draw only)
 # -----------------------------
-def upcoming_draws_today():
+def next_upcoming_draw():
+    """
+    Próximo sorteo (target=1) dentro del lookahead.
+    """
     n = now_rd()
-    out = []
+    best = None
     for item in SCHEDULE:
         dt = draw_datetime_today(item["time"])
         if dt.date() != n.date():
@@ -206,66 +233,62 @@ def upcoming_draws_today():
             continue
         if (dt - n).total_seconds() > LOOKAHEAD_MINUTES * 60:
             continue
-        out.append((dt, item))
-    return sorted(out, key=lambda x: x[0])
+        if best is None or dt < best[0]:
+            best = (dt, item)
+    return best  # (dt, item) or None
 
 
 # -----------------------------
 # Tracking (picks_log + performance)
 # -----------------------------
-def log_candidates(payload: dict):
+def log_pick(payload: dict):
+    """
+    Guarda solo el target recomendado (quirúrgico) para grading.
+    """
     _ensure_dir(DATA_DIR)
     log_path = os.path.join(DATA_DIR, "picks_log.csv")
 
+    bp = payload.get("best_play", {})
     generated_at = payload.get("generated_at")
-    date_str = (generated_at or "")[:10] if generated_at else now_rd().strftime("%Y-%m-%d")
+    date_str = (generated_at or "")[:10] if generated_at else today_str()
 
-    rows = []
-    for c in payload.get("candidates_ranked", []):
-        time_rd = c.get("time_rd", "")
-        lottery = c.get("lottery", "")
-        draw = c.get("draw", "")
-        key = _mk_key(date_str, lottery, draw, time_rd)
+    time_rd = bp.get("time_rd", "")
+    lottery = bp.get("lottery", "")
+    draw = bp.get("draw", "")
+    key = _mk_key(date_str, lottery, draw, time_rd)
 
-        rows.append({
-            "key": key,
-            "date": date_str,
-            "time_rd": time_rd,
-            "lottery": lottery,
-            "draw": draw,
-            "generated_at": generated_at,
-            "best_score": c.get("best_score"),
-            "best_signal": c.get("best_signal"),
-            "best_a11": c.get("best_a11"),
-            "ok_alert": c.get("ok_alert"),
-            "top12": json.dumps(c.get("top_nums", []), ensure_ascii=False),
-            "top6": json.dumps(c.get("top6", []), ensure_ascii=False),
-            "pales10": json.dumps(c.get("pales", []), ensure_ascii=False),
-            "graded": 0,
-        })
+    row = {
+        "key": key,
+        "date": date_str,
+        "time_rd": time_rd,
+        "lottery": lottery,
+        "draw": draw,
+        "generated_at": generated_at,
+        "best_score": bp.get("best_score"),
+        "best_signal": bp.get("best_signal"),
+        "best_a11": bp.get("best_a11"),
+        "ok_alert": bp.get("ok_alert"),
+        "top12": json.dumps(bp.get("top12", []), ensure_ascii=False),
+        "top6": json.dumps(bp.get("top6", []), ensure_ascii=False),
+        "pales10": json.dumps(bp.get("pales10", []), ensure_ascii=False),
+        "graded": 0,
+    }
 
-    if not rows:
-        return
-
-    new_df = pd.DataFrame(rows)
+    new_df = pd.DataFrame([row])
 
     if os.path.exists(log_path):
         old = pd.read_csv(log_path, dtype=str)
-        merged = old.merge(new_df, on="key", how="outer", suffixes=("_old", ""))
-
-        out = pd.DataFrame()
-        out["key"] = merged["key"]
-        for col in ["date", "time_rd", "lottery", "draw", "generated_at",
-                    "best_score", "best_signal", "best_a11", "ok_alert",
-                    "top12", "top6", "pales10"]:
-            out[col] = merged[col].fillna(merged.get(f"{col}_old"))
-
-        out["graded"] = merged["graded"].fillna(merged.get("graded_old")).fillna("0")
-        out.to_csv(log_path, index=False, encoding="utf-8")
+        # upsert por key
+        combined = pd.concat([old, new_df], ignore_index=True)
+        combined = combined.drop_duplicates(subset=["key"], keep="last")
+        combined.to_csv(log_path, index=False, encoding="utf-8")
     else:
         new_df.to_csv(log_path, index=False, encoding="utf-8")
 
 def grade_picks_from_histories():
+    """
+    Cuando el resultado aparece en el histórico, calcula hits y guarda en outputs/performance.csv
+    """
     log_path = os.path.join(DATA_DIR, "picks_log.csv")
     if not os.path.exists(log_path):
         return
@@ -330,7 +353,7 @@ def grade_picks_from_histories():
 
         match = hx[(hx["fecha"] == date) & (hx["sorteo"] == draw)]
         if match.empty:
-            continue  # todavía no hay resultado en el historial
+            continue  # resultado aún no está en histórico
 
         row = match.iloc[-1]
         drawn = {row["primero"], row["segundo"], row["tercero"]}
@@ -379,7 +402,7 @@ def grade_picks_from_histories():
 
 
 # -----------------------------
-# Analysis
+# Analysis (HIST + INTRADAY cross-match)
 # -----------------------------
 def build_exploded_history():
     frames = []
@@ -389,194 +412,178 @@ def build_exploded_history():
             frames.append(explode(df, lot))
     if not frames:
         return None
-    return pd.concat(frames, ignore_index=True).sort_values("fecha_dt").reset_index(drop=True)
+    exp = pd.concat(frames, ignore_index=True).sort_values("fecha_dt").reset_index(drop=True)
+    return exp
 
-def evaluate_targets(exp: pd.DataFrame, targets):
-    candidates = []
+def combine_hist_and_intraday(rec_hist: pd.DataFrame, rec_today: pd.DataFrame):
+    """
+    Combina ranking histórico + ranking intradía (mismo día antes del target).
+    No inventa: suma scores para priorizar números que:
+      - tienen soporte histórico
+      - y además se activan con señales de hoy
+    """
+    if rec_hist is None or rec_hist.empty:
+        return rec_today
+    if rec_today is None or rec_today.empty:
+        rec_hist = rec_hist.copy()
+        rec_hist["score_combo"] = rec_hist["score"]
+        return rec_hist
 
-    for dt, target in targets:
-        src_filter = lambda e, t=target: ~((e["lottery"] == t["lottery"]) & (e["sorteo"] == t["draw"]))
+    h = rec_hist[["num", "score", "signal", "a11"]].copy()
+    t = rec_today[["num", "score", "signal", "a11"]].copy()
 
-        rec0 = recommend_for_target(exp, src_filter, target["lottery"], target["draw"], lag_days=0, top_n=TOPK_FULL)
-        rec1 = recommend_for_target(exp, src_filter, target["lottery"], target["draw"], lag_days=1, top_n=TOPK_FULL)
+    h = h.rename(columns={"score": "score_hist", "signal": "signal_hist", "a11": "a11_hist"})
+    t = t.rename(columns={"score": "score_today", "signal": "signal_today", "a11": "a11_today"})
 
-        if rec0.empty:
-            continue
+    m = h.merge(t, on="num", how="outer")
+    for c in ["score_hist", "signal_hist", "a11_hist", "score_today", "signal_today", "a11_today"]:
+        m[c] = m[c].fillna(0)
 
-        top12 = rec0["num"].tolist()[:TOPK_FULL]
-        top6 = top12[:TOPK_QUINIELA]
+    # peso: histórico manda, intradía ajusta
+    w_hist = 0.75
+    w_today = 0.25
+    m["score_combo"] = w_hist * m["score_hist"] + w_today * m["score_today"]
 
-        pales_raw = top_pales(top12[:10], 20)  # puede venir como tuples
-        pales10 = format_pales(pales_raw)[:PALES_OUT]  # ✅ strings
+    # para criterio/diagnóstico
+    m["signal_combo"] = m["signal_hist"] + 0.50 * m["signal_today"]
+    m["a11_combo"] = m["a11_hist"].astype(int) + m["a11_today"].astype(int)
 
-        best_signal = float(rec0["signal"].max()) if "signal" in rec0.columns else None
-        best_a11 = int(rec0["a11"].max()) if "a11" in rec0.columns else None
-        ok_alert = should_alert(rec0, min_signal=MIN_SIGNAL, min_count_hits=MIN_A11)
-        best_score = float(rec0["score"].max()) if "score" in rec0.columns else (best_signal or 0.0)
+    return m.sort_values("score_combo", ascending=False).reset_index(drop=True)
 
-        candidates.append({
-            "dt": dt,
-            "target": target,
-            "top12": top12,
-            "top6": top6,
-            "pales10": pales10,
-            "best_signal": best_signal,
-            "best_a11": best_a11,
-            "best_score": best_score,
-            "lag1_top5": rec1["num"].tolist()[:5] if not rec1.empty else [],
-            "ok_alert": bool(ok_alert),
-        })
-
-    candidates.sort(key=lambda x: x["best_score"], reverse=True)
-    return candidates
-
-def write_picks_json(payload: dict):
-    ensure_dir(OUT_DIR)
-    with open(os.path.join(OUT_DIR, "picks.json"), "w", encoding="utf-8") as f:
-        json.dump(payload, f, ensure_ascii=False, indent=2)
-
-def send_info_once(state, info_key: str, msg: str):
-    if state["sent_info"].get(info_key) == "done":
-        print("[INFO] INFO already sent for this key.")
-        return
-    send_telegram(msg)
-    state["sent_info"][info_key] = "done"
-    print("[OK] Telegram INFO sent.")
-
-def send_alert_once(state, alert_key: str, msg: str):
-    if state["sent_alert"].get(alert_key) == "done":
-        print("[INFO] ALERT already sent for this target.")
-        return
-    send_telegram(msg)
-    state["sent_alert"][alert_key] = "done"
-    print("[OK] Telegram ALERT sent.")
-
-def run_analysis_and_notify(state):
+def run_intraday_next_target(event_key: str, state: dict):
+    """
+    Intradía: usa TODA la data histórica + TODA la data de HOY (sorteos ya salidos)
+    para predecir SOLO el próximo sorteo (target=1).
+    Solo notifica si cumple criterio.
+    """
     exp = build_exploded_history()
     if exp is None:
         print("[INFO] No history data loaded yet.")
         return
 
-    targets = upcoming_draws_today()
-    if not targets:
-        print("[INFO] No upcoming draws today in lookahead window.")
+    nxt = next_upcoming_draw()
+    if not nxt:
+        print("[INFO] No upcoming draw in lookahead window.")
         return
 
-    candidates = evaluate_targets(exp, targets)
-    if not candidates:
-        print("[INFO] Not enough data to compute recommendations for today’s targets.")
+    target_dt, target = nxt
+    print("[INFO] Next target:", target_dt.strftime("%Y-%m-%d %H:%M"), target["lottery"], target["draw"])
+
+    # 1) Histórico: todos los días, todas las fuentes menos el target mismo
+    src_filter_hist = lambda e: ~((e["lottery"] == target["lottery"]) & (e["sorteo"] == target["draw"]))
+    rec_hist = recommend_for_target(exp, src_filter_hist, target["lottery"], target["draw"], lag_days=0, top_n=TOPK_FULL)
+
+    # 2) Intradía: SOLO sorteos de hoy antes del target (cross-match real del mismo día)
+    today = target_dt.date()
+    exp_today_sources = exp[(exp["fecha_dt"].dt.date == today) & (exp["fecha_dt"] < target_dt)].copy()
+
+    rec_today = None
+    if not exp_today_sources.empty:
+        src_filter_today = lambda e, _mask=exp_today_sources.index: e.index.isin(_mask)
+        rec_today = recommend_for_target(exp, src_filter_today, target["lottery"], target["draw"], lag_days=0, top_n=TOPK_FULL)
+
+    if rec_hist is None or rec_hist.empty:
+        print("[INFO] Not enough data to compute historical recommendations.")
         return
 
-    best = candidates[0]
+    combo = combine_hist_and_intraday(rec_hist, rec_today)
+
+    # top12 / top6 / pales10
+    top12 = combo["num"].astype(str).tolist()[:TOPK_FULL]
+    top6 = top12[:TOPK_QUINIELA]
+    pales_raw = top_pales(top12[:10], 20)
+    pales10 = format_pales(pales_raw)[:PALES_OUT]
+
+    # criterio: pasa si histórico pasa o intradía pasa (si existe)
+    ok_hist = should_alert(rec_hist, min_signal=MIN_SIGNAL, min_count_hits=MIN_A11)
+
+    ok_today = False
+    if rec_today is not None and not rec_today.empty:
+        ok_today = should_alert(rec_today, min_signal=MIN_SIGNAL, min_count_hits=MIN_A11)
+
+    ok = bool(ok_hist or ok_today)
+
+    # payload siempre (para auditoría)
+    best_signal = float(rec_hist["signal"].max()) if "signal" in rec_hist.columns else None
+    best_a11 = int(rec_hist["a11"].max()) if "a11" in rec_hist.columns else None
+
+    best_signal_today = float(rec_today["signal"].max()) if (rec_today is not None and "signal" in rec_today.columns and not rec_today.empty) else None
+    best_a11_today = int(rec_today["a11"].max()) if (rec_today is not None and "a11" in rec_today.columns and not rec_today.empty) else None
+
+    fp = fingerprint(top6, pales10)
 
     payload = {
         "generated_at": now_rd().isoformat(),
-        "min_signal": MIN_SIGNAL,
-        "min_a11": MIN_A11,
-        "strategy": {
-            "quiniela_topk": TOPK_QUINIELA,
-            "pales_out": PALES_OUT,
-            "max_alerts_per_run": MAX_ALERTS_PER_RUN,
+        "event_key": event_key,
+        "target": {
+            "time_rd": target_dt.strftime("%Y-%m-%d %H:%M"),
+            "lottery": target["lottery"],
+            "draw": target["draw"],
         },
-        "candidates_ranked": [
-            {
-                "time_rd": c["dt"].strftime("%Y-%m-%d %H:%M"),
-                "lottery": c["target"]["lottery"],
-                "draw": c["target"]["draw"],
-                "best_score": c["best_score"],
-                "best_signal": c["best_signal"],
-                "best_a11": c["best_a11"],
-                "ok_alert": c["ok_alert"],
-                "top_nums": c["top12"],
-                "top6": c["top6"],
-                "pales": c["pales10"],  # ✅ strings
-                "lag1_top5": c["lag1_top5"],
-            }
-            for c in candidates
-        ],
+        "strategy": {"quiniela_topk": TOPK_QUINIELA, "pales_out": PALES_OUT},
         "best_play": {
-            "time_rd": best["dt"].strftime("%Y-%m-%d %H:%M"),
-            "lottery": best["target"]["lottery"],
-            "draw": best["target"]["draw"],
-            "top12": best["top12"],
-            "top6": best["top6"],
-            "pales10": best["pales10"],
-            "best_signal": best["best_signal"],
-            "best_a11": best["best_a11"],
-            "best_score": best["best_score"],
-            "ok_alert": best["ok_alert"],
-            "lag1_top5": best["lag1_top5"],
+            "time_rd": target_dt.strftime("%Y-%m-%d %H:%M"),
+            "lottery": target["lottery"],
+            "draw": target["draw"],
+            "top12": top12,
+            "top6": top6,
+            "pales10": pales10,
+            "fingerprint": fp,
+            "ok_alert": ok,
+            "debug": {
+                "best_signal_hist": best_signal,
+                "best_a11_hist": best_a11,
+                "best_signal_today": best_signal_today,
+                "best_a11_today": best_a11_today,
+                "has_intraday_sources": int(not exp_today_sources.empty),
+            }
         }
     }
 
-    write_picks_json(payload)
+    ensure_dir(OUT_DIR)
+    with open(os.path.join(OUT_DIR, "picks.json"), "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
     print("[OK] Wrote outputs/picks.json")
 
-    # ✅ Log picks para grading posterior
-    log_candidates(payload)
+    # Log para grading
+    log_pick(payload)
 
-    # -----------------------------
-    # ℹ️ INFO: SOLO la mejor jugada (Top6 + Top10 palés)
-    # -----------------------------
-    leader_key = f"{best['dt'].strftime('%Y-%m-%d %H:%M')}|{best['target']['lottery']}|{best['target']['draw']}"
-    try:
-        lines = []
-        lines.append("ℹ️ INFO PICKS (Precisión Quirúrgica / Data Real)")
-        lines.append("Ranking (Top 3) - contexto:")
-        for i, c in enumerate(candidates[:3], start=1):
-            lines.append(
-                f"{i}) {c['dt'].strftime('%H:%M')} {c['target']['lottery']} | {c['target']['draw']} "
-                f"(signal={c['best_signal']:.6f} a11={c['best_a11']} score={c['best_score']:.6f})"
-                if c["best_signal"] is not None and c["best_a11"] is not None
-                else f"{i}) {c['dt'].strftime('%H:%M')} {c['target']['lottery']} | {c['target']['draw']}"
-            )
+    # NOTIFICACIÓN: solo si cumple criterio (o FORCE_NOTIFY=1)
+    if (not ok) and (not FORCE_NOTIFY):
+        print("[INFO] No valid opportunity (thresholds not met). No message sent.")
+        return
 
-        lines.append("")
-        lines.append("🎯 JUGADA PRINCIPAL (JUGAR ESTA):")
-        lines.append(f"Target: {best['target']['lottery']} | {best['target']['draw']}")
-        lines.append(f"Hora: {best['dt'].strftime('%H:%M')} RD")
-        lines.append("")
-        lines.append(f"✅ QUINIELA Top{TOPK_QUINIELA}:")
-        lines.append(", ".join(best["top6"]))
-        lines.append("")
-        lines.append("🎲 PALE Top 10:")
-        lines.append(" | ".join(best["pales10"]))
-        lines.append("")
-        lines.append(f"best_signal: {best['best_signal']}")
-        lines.append(f"best_a11: {best['best_a11']}")
+    # Anti-spam: target+fingerprint
+    target_key = f"{payload['target']['time_rd']}|{payload['target']['lottery']}|{payload['target']['draw']}"
+    sent_map = state.get("sent_by_target_fp", {})
+    prev_fp = sent_map.get(target_key, "")
 
-        send_info_once(state, leader_key, "\n".join(lines))
-    except Exception as e:
-        print(f"[WARN] Telegram INFO failed: {e}")
+    if prev_fp == fp and (not FORCE_NOTIFY):
+        print("[INFO] Same picks fingerprint already sent for this target.")
+        return
 
-    # -----------------------------
-    # 🚨 ALERTAS: máximo 2 por corrida (no dispersión)
-    # -----------------------------
-    alert_candidates = [c for c in candidates if c["ok_alert"]]
-    alert_candidates.sort(key=lambda x: x["best_score"], reverse=True)
-    alert_candidates = alert_candidates[:MAX_ALERTS_PER_RUN]
+    # Telegram
+    msg = []
+    msg.append("🚨 OPV INTRADÍA (Cross-Match Real / Data Real)")
+    msg.append(f"🧩 Señal nueva: {event_key}")
+    msg.append(f"🎯 Próximo target: {target['lottery']} | {target['draw']}")
+    msg.append(f"⏰ Hora: {target_dt.strftime('%H:%M')} RD")
+    msg.append("")
+    msg.append(f"✅ QUINIELA Top{TOPK_QUINIELA}:")
+    msg.append(", ".join(top6))
+    msg.append("")
+    msg.append("🎲 PALE Top 10:")
+    msg.append(" | ".join(pales10))
+    msg.append("")
+    msg.append("📊 Debug:")
+    msg.append(f"hist best_signal={best_signal} best_a11={best_a11}")
+    msg.append(f"today best_signal={best_signal_today} best_a11={best_a11_today}")
 
-    for c in alert_candidates:
-        alert_key = f"{c['dt'].strftime('%Y-%m-%d %H:%M')}|{c['target']['lottery']}|{c['target']['draw']}"
-        try:
-            msg = []
-            msg.append("🚨 ALERTA OPV (EDGE REAL / Data Real)")
-            msg.append(f"🎯 Target: {c['target']['lottery']} | {c['target']['draw']}")
-            msg.append(f"⏰ Hora: {c['dt'].strftime('%H:%M')} RD")
-            msg.append("")
-            msg.append(f"✅ QUINIELA Top{TOPK_QUINIELA}:")
-            msg.append(", ".join(c["top6"]))
-            msg.append("")
-            msg.append("🎲 PALE Top 10:")
-            msg.append(" | ".join(c["pales10"]))
-            if c["lag1_top5"]:
-                msg.append("")
-                msg.append("📌 Next-day (lag 1) top 5:")
-                msg.append(", ".join(c["lag1_top5"]))
+    send_telegram("\n".join(msg))
+    print("[OK] Telegram sent.")
 
-            send_alert_once(state, alert_key, "\n".join(msg))
-        except Exception as e:
-            print(f"[WARN] Telegram ALERT failed for {alert_key}: {e}")
+    sent_map[target_key] = fp
+    state["sent_by_target_fp"] = sent_map
 
 
 # -----------------------------
@@ -590,29 +597,54 @@ def main():
     state = load_state()
 
     # 1) Updates: intenta actualizar TODO lo que ya esté “vencido” (+30 min)
+    updated = []
     for item in SCHEDULE:
         try:
             did = try_update_one(item, state)
             if did:
                 print("[OK] Updated:", item["lottery"], item["draw"])
+                updated.append(item)
         except Exception as e:
             print(f"[WARN] update failed {item['lottery']}|{item['draw']}: {e}")
 
-    # 2) Grading: si ya existen resultados reales para picks pasados, calcula hits
+    # 2) Grading: evaluar picks pasados si ya hay resultados en el histórico
     try:
         grade_picks_from_histories()
         print("[OK] Grading pass completed.")
     except Exception as e:
         print(f"[WARN] grading failed: {e}")
 
-    # 3) Analysis + notify: evalúa todas las oportunidades restantes del día
-    try:
-        run_analysis_and_notify(state)
-    except Exception as e:
-        print(f"[WARN] analysis/notify failed: {e}")
+    # 3) Intradía: solo si hubo un update nuevo hoy (evento)
+    if not updated:
+        print("[INFO] No new updates. Skipping intraday analysis/notify.")
+        save_state(state)
+        print("[OK] runner finished")
+        return
 
+    # Elegir el evento más reciente por hora del schedule (de los actualizados)
+    def _time_of(item):
+        return draw_datetime_today(item["time"])
+
+    updated_sorted = sorted(updated, key=_time_of)
+    last_event = updated_sorted[-1]
+    event_key = f"{today_str()}|{last_event['lottery']}|{last_event['draw']}"
+
+    if state.get("last_event_key") == event_key and (not FORCE_NOTIFY):
+        print("[INFO] Latest event already processed. Skipping.")
+        save_state(state)
+        print("[OK] runner finished")
+        return
+
+    # correr intradía para next target
+    try:
+        run_intraday_next_target(event_key, state)
+    except Exception as e:
+        print(f"[WARN] intraday analysis/notify failed: {e}")
+
+    state["last_event_key"] = event_key
     save_state(state)
     print("[OK] runner finished")
+
 
 if __name__ == "__main__":
     main()
