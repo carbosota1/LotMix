@@ -168,6 +168,31 @@ def run_analysis_and_maybe_alert(state):
     top_nums = rec0["num"].tolist()
     pales = top_pales(top_nums[:10], 20)
 
+import os, json
+from datetime import datetime
+
+# Guardar picks para revisión
+picks_payload = {
+    "generated_at": datetime.now(TZ).isoformat(),
+    "target": {
+        "lottery": target["lottery"],
+        "draw": target["draw"],
+        "time_rd": dt.strftime("%Y-%m-%d %H:%M"),
+    },
+    "top_nums": top_nums[:12],
+    "pales": pales,
+    "debug": {
+        "min_signal": MIN_SIGNAL,
+        "min_a11": MIN_A11,
+        "best_signal": float(rec0["signal"].max()) if not rec0.empty else None,
+        "best_a11": int(rec0["a11"].max()) if not rec0.empty else None,
+    }
+}
+
+os.makedirs(OUT_DIR, exist_ok=True)
+with open(os.path.join(OUT_DIR, "picks.json"), "w", encoding="utf-8") as f:
+    json.dump(picks_payload, f, ensure_ascii=False, indent=2)
+
     msg = []
     msg.append("🚨 ALERTA OPV (Cross-Lottery)")
     msg.append(f"🎯 Próximo sorteo cercano: {target['lottery']} | {target['draw']}")
