@@ -1,8 +1,4 @@
-import json
-from dataclasses import dataclass
-from typing import Dict, List, Tuple, Optional
-from datetime import datetime, timedelta
-
+from typing import List, Tuple, Optional
 import pandas as pd
 from scipy.stats import chi2_contingency
 from sklearn.metrics import mutual_info_score
@@ -23,11 +19,6 @@ def explode(df: pd.DataFrame, lottery: str) -> pd.DataFrame:
     return x[["fecha_dt","fecha","lottery","sorteo","num"]]
 
 def build_pairs(exp: pd.DataFrame, src_filter, tgt_filter, lag_days: int) -> Optional[pd.DataFrame]:
-    """
-    Eventos binarios por número:
-      src_event = aparece número en SRC en fecha t
-      tgt_event = aparece número en TGT en fecha t+lag
-    """
     src = exp[src_filter(exp)].copy()
     tgt = exp[tgt_filter(exp)].copy()
     if src.empty or tgt.empty:
@@ -65,16 +56,10 @@ def stats_per_num(pairs: pd.DataFrame) -> pd.DataFrame:
 
         mi = mutual_info_score(sub["src_event"], sub["tgt_event"])
         out.append({"num": num, "chi2": float(chi2), "p_value": float(p), "mi": float(mi), "a11": a})
-    df = pd.DataFrame(out)
-    df["signal"] = df["mi"] * (1.0 - df["p_value"].clip(0,1))  # score señal
-    return df
 
-def top_pales(nums: List[str], k: int) -> List[Tuple[str,str]]:
-    pales = []
-    for i in range(len(nums)):
-        for j in range(i+1, len(nums)):
-            pales.append((nums[i], nums[j]))
-    return pales[:k]
+    df = pd.DataFrame(out)
+    df["signal"] = df["mi"] * (1.0 - df["p_value"].clip(0,1))
+    return df
 
 def recommend_for_target(exp: pd.DataFrame,
                          src_filter,
@@ -86,24 +71,26 @@ def recommend_for_target(exp: pd.DataFrame,
 
     pairs = build_pairs(exp, src_filter, tgt_filter, lag_days=lag_days)
     if pairs is None:
-        return pd.DataFrame(columns=["num","signal","mi","p_value"])
+        return pd.DataFrame(columns=["num","signal","mi","p_value","a11","score"])
 
     st = stats_per_num(pairs)
 
-    # base frecuencia en target (estabilidad)
     tgt = exp[tgt_filter(exp)]
     base = tgt.groupby("num").size().reset_index(name="count")
     base["p_base"] = base["count"] / max(len(tgt), 1)
 
     out = st.merge(base[["num","p_base"]], on="num", how="left").fillna({"p_base":0})
-    # score final simple (ajustable)
     out["score"] = 0.70*out["signal"] + 0.30*out["p_base"]
     return out.sort_values("score", ascending=False).head(top_n)
 
+def top_pales(nums: List[str], k: int) -> List[Tuple[str,str]]:
+    pales = []
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            pales.append((nums[i], nums[j]))
+    return pales[:k]
+
 def should_alert(recs: pd.DataFrame, min_signal: float, min_count_hits: int) -> bool:
-    """
-    Oportunidad válida: al menos X números con señal fuerte o hits a11.
-    """
     if recs.empty:
         return False
     strong = recs[(recs["signal"] >= min_signal) | (recs["a11"] >= min_count_hits)]

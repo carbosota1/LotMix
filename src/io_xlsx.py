@@ -17,7 +17,7 @@ def read_history_xlsx(path: str) -> pd.DataFrame:
     if not os.path.exists(path):
         return pd.DataFrame(columns=COLS)
 
-    # intenta 'history', si no existe, usa la primera hoja
+    # Intenta leer hoja "history"; si no existe, lee la primera hoja
     try:
         df = pd.read_excel(path, sheet_name="history", dtype=str, engine="openpyxl")
     except ValueError:
@@ -38,11 +38,15 @@ def read_history_xlsx(path: str) -> pd.DataFrame:
     return df
 
 def upsert_history_xlsx(path: str, new_rows: pd.DataFrame):
+    """
+    new_rows columnas: fecha,sorteo,primero,segundo,tercero (strings)
+    Unicidad por (fecha,sorteo)
+    """
     old = read_history_xlsx(path)
     df = pd.concat([old, new_rows], ignore_index=True).fillna("")
-    df = df.drop_duplicates(subset=["fecha","sorteo"], keep="last")
-    df = df.sort_values(["fecha","sorteo"]).reset_index(drop=True)
+    df = df.drop_duplicates(subset=["fecha", "sorteo"], keep="last")
+    df = df.sort_values(["fecha", "sorteo"]).reset_index(drop=True)
 
-    # siempre escribimos a una hoja llamada 'history' (estandarizamos)
+    # Escribimos SIEMPRE en hoja "history" para estandarizar
     with pd.ExcelWriter(path, engine="openpyxl", mode="w") as w:
         df.to_excel(w, sheet_name="history", index=False)
