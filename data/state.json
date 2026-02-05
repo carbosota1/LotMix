@@ -15,5 +15,7 @@
     "2026-02-05 20:00|La Primera|Quiniela La Primera Noche": "done",
     "2026-02-05 14:30|La Nacional|Loteria Nacional- Gana Más": "done",
     "2026-02-05 20:30|La Nacional|Loteria Nacional- Noche": "done"
-  }
+  },
+  "last_event_key": "",
+  "sent_by_target_fp": {}
 }
