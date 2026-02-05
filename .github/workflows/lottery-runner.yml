@@ -22,6 +22,9 @@ jobs:
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 
+      env:
+        FORCE_NOTIFY: "1"
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
