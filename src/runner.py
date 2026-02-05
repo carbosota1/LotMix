@@ -7,7 +7,6 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 
-# ✅ Asegura que /src esté en el path (funciona local y en Actions)
 sys.path.insert(0, os.path.dirname(__file__))
 
 from io_xlsx import ensure_dir, read_history_xlsx, upsert_history_xlsx, normalize_2d
@@ -21,57 +20,36 @@ HIST_DIR = os.path.join(DATA_DIR, "histories")
 STATE_PATH = os.path.join(DATA_DIR, "state.json")
 OUT_DIR = "outputs"
 
-# =========================
-# HISTORIAL XLSX
-# =========================
 XLSX_FILES = {
     "La Primera": os.path.join(HIST_DIR, "La Primera History.xlsx"),
     "Anguilla":   os.path.join(HIST_DIR, "Anguilla history.xlsx"),
     "La Nacional": os.path.join(HIST_DIR, "La nacional history.xlsx"),
 }
 
-# =========================
-# SCHEDULE (NACIONAL NOCHE = 21:30 ✅)
-# draw == EXACTAMENTE columna "sorteo" en tus historiales
-# =========================
 SCHEDULE = [
-    # Anguilla (4)
     {"lottery": "Anguilla", "draw": "Anguila 10AM", "time": "10:00", "update_after_minutes": 30},
     {"lottery": "Anguilla", "draw": "Anguila 1PM",  "time": "13:00", "update_after_minutes": 30},
     {"lottery": "Anguilla", "draw": "Anguila 6PM",  "time": "18:00", "update_after_minutes": 30},
     {"lottery": "Anguilla", "draw": "Anguila 9PM",  "time": "21:00", "update_after_minutes": 30},
 
-    # La Primera (2)
     {"lottery": "La Primera", "draw": "Quiniela La Primera",       "time": "12:00", "update_after_minutes": 30},
     {"lottery": "La Primera", "draw": "Quiniela La Primera Noche", "time": "20:00", "update_after_minutes": 30},
 
-    # La Nacional (2)
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Gana Más", "time": "14:30", "update_after_minutes": 30},
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche",    "time": "21:30", "update_after_minutes": 30},
 ]
 
-# =========================
-# PRECISIÓN QUIRÚRGICA (jugable)
-# =========================
-TOPK_QUINIELA = 6        # Quiniela: Top6
-TOPK_FULL     = 12       # Auditoría interna
-PALES_OUT     = 10       # Palé: Top10
+TOPK_QUINIELA = 6
+TOPK_FULL     = 12
+PALES_OUT     = 10
 
-# =========================
-# UMBRALES (criterio de enviar)
-# =========================
 MIN_SIGNAL = 0.010
 MIN_A11    = 10
 
 LOOKAHEAD_MINUTES = 16 * 60
-
-# Modo test: FORCE_NOTIFY=1 fuerza notificación aunque no haya update o no cumpla umbral
 FORCE_NOTIFY = os.getenv("FORCE_NOTIFY", "0").strip() == "1"
 
 
-# -----------------------------
-# Helpers
-# -----------------------------
 def now_rd() -> datetime:
     return datetime.now(TZ)
 
@@ -89,29 +67,55 @@ def _ensure_dir(path: str):
 def _mk_key(date_str: str, lottery: str, draw: str, time_rd: str) -> str:
     return f"{date_str}|{lottery}|{draw}|{time_rd}"
 
+def _norm2(x: str) -> str:
+    s = str(x).strip()
+    if s.isdigit():
+        return s.zfill(2)
+    return s
+
 def _norm_pair(a: str, b: str) -> str:
-    a = str(a).strip()
-    b = str(b).strip()
-    a = a.zfill(2) if a.isdigit() else a
-    b = b.zfill(2) if b.isdigit() else b
+    a = _norm2(a)
+    b = _norm2(b)
     aa, bb = sorted([a, b])
     return f"{aa}-{bb}"
 
 def format_pales(pales_raw):
+    """
+    ✅ Palés válidos: a != b (nunca '63-63')
+    Salida: lista de strings "AA-BB"
+    """
     out = []
     if not pales_raw:
         return out
+
+    seen = set()
     for p in pales_raw:
         try:
             if isinstance(p, (tuple, list)) and len(p) >= 2:
-                out.append(_norm_pair(p[0], p[1]))
+                a, b = str(p[0]).strip(), str(p[1]).strip()
             else:
                 s = str(p).strip()
-                if "-" in s:
-                    a, b = s.split("-", 1)
-                    out.append(_norm_pair(a, b))
+                if "-" not in s:
+                    continue
+                a, b = s.split("-", 1)
+                a, b = a.strip(), b.strip()
+
+            a = _norm2(a)
+            b = _norm2(b)
+            if not a or not b:
+                continue
+            if a == b:
+                continue  # ✅ evita palé repetido
+
+            pair = _norm_pair(a, b)
+            if pair in seen:
+                continue
+            seen.add(pair)
+            out.append(pair)
+
         except Exception:
             continue
+
     return out
 
 def fingerprint(top6, pales10):
@@ -119,9 +123,6 @@ def fingerprint(top6, pales10):
     return hashlib.sha256(s.encode("utf-8")).hexdigest()[:16]
 
 
-# -----------------------------
-# ✅ State (robusto + escritura atómica)
-# -----------------------------
 def _fresh_state():
     return {"last_updates": {}, "last_event_key": "", "sent_by_target_fp": {}}
 
@@ -162,9 +163,6 @@ def save_state(state):
     os.replace(tmp_path, STATE_PATH)
 
 
-# -----------------------------
-# Scraper hooks (load by file path)
-# -----------------------------
 def fetch_result(lottery: str, draw: str, date: str):
     import importlib.util
 
@@ -225,9 +223,6 @@ def try_update_one(item, state) -> bool:
     return True
 
 
-# -----------------------------
-# Next target (target=1)
-# -----------------------------
 def next_upcoming_draw():
     n = now_rd()
     best = None
@@ -244,9 +239,6 @@ def next_upcoming_draw():
     return best
 
 
-# -----------------------------
-# Tracking: picks_log + performance
-# -----------------------------
 def log_pick(payload: dict):
     _ensure_dir(DATA_DIR)
     log_path = os.path.join(DATA_DIR, "picks_log.csv")
@@ -277,7 +269,6 @@ def log_pick(payload: dict):
     }
 
     new_df = pd.DataFrame([row])
-
     if os.path.exists(log_path):
         old = pd.read_csv(log_path, dtype=str)
         combined = pd.concat([old, new_df], ignore_index=True)
@@ -285,6 +276,7 @@ def log_pick(payload: dict):
         combined.to_csv(log_path, index=False, encoding="utf-8")
     else:
         new_df.to_csv(log_path, index=False, encoding="utf-8")
+
 
 def grade_picks_from_histories():
     log_path = os.path.join(DATA_DIR, "picks_log.csv")
@@ -394,9 +386,6 @@ def grade_picks_from_histories():
         df.to_csv(log_path, index=False, encoding="utf-8")
 
 
-# -----------------------------
-# Analysis (hist + intradía cross-match)
-# -----------------------------
 def build_exploded_history():
     frames = []
     for lot, path in XLSX_FILES.items():
@@ -406,10 +395,10 @@ def build_exploded_history():
     if not frames:
         return None
     exp = pd.concat(frames, ignore_index=True).sort_values("fecha_dt").reset_index(drop=True)
-    # ✅ blindaje tipo datetime
     exp["fecha_dt"] = pd.to_datetime(exp["fecha_dt"], errors="coerce")
     exp = exp.dropna(subset=["fecha_dt"])
     return exp
+
 
 def combine_hist_and_intraday(rec_hist: pd.DataFrame, rec_today: pd.DataFrame):
     if rec_hist is None or rec_hist.empty:
@@ -432,6 +421,7 @@ def combine_hist_and_intraday(rec_hist: pd.DataFrame, rec_today: pd.DataFrame):
     m["a11_combo"] = m["a11_hist"].astype(int) + m["a11_today"].astype(int)
     return m.sort_values("score_combo", ascending=False).reset_index(drop=True)
 
+
 def run_intraday_next_target(event_key: str, state: dict):
     exp = build_exploded_history()
     if exp is None:
@@ -446,17 +436,14 @@ def run_intraday_next_target(event_key: str, state: dict):
     target_dt, target = nxt
     print("[INFO] Next target:", target_dt.strftime("%Y-%m-%d %H:%M"), target["lottery"], target["draw"])
 
-    # ✅ FIX: target_dt puede ser tz-aware; exp["fecha_dt"] suele ser naive.
     target_dt_naive = target_dt.replace(tzinfo=None)
 
-    # HISTÓRICO
     src_filter_hist = lambda e: ~((e["lottery"] == target["lottery"]) & (e["sorteo"] == target["draw"]))
     rec_hist = recommend_for_target(exp, src_filter_hist, target["lottery"], target["draw"], lag_days=0, top_n=TOPK_FULL)
     if rec_hist is None or rec_hist.empty:
         print("[INFO] Not enough data to compute historical recommendations.")
         return
 
-    # INTRADÍA: solo hoy antes del target
     today = target_dt_naive.date()
     exp_today = exp[(exp["fecha_dt"].dt.date == today) & (exp["fecha_dt"] < target_dt_naive)].copy()
 
@@ -470,7 +457,7 @@ def run_intraday_next_target(event_key: str, state: dict):
 
     top12 = combo["num"].astype(str).tolist()[:TOPK_FULL]
     top6 = top12[:TOPK_QUINIELA]
-    pales10 = format_pales(top_pales(top12[:10], 20))[:PALES_OUT]
+    pales10 = format_pales(top_pales(top12[:10], 30))[:PALES_OUT]  # ✅ más candidatos y filtra inválidos
 
     ok_hist = should_alert(rec_hist, min_signal=MIN_SIGNAL, min_count_hits=MIN_A11)
     ok_today = False
@@ -554,9 +541,6 @@ def run_intraday_next_target(event_key: str, state: dict):
     state["sent_by_target_fp"] = sent_map
 
 
-# -----------------------------
-# Main
-# -----------------------------
 def main():
     ensure_dir(DATA_DIR)
     ensure_dir(HIST_DIR)
