@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-05T20:11:02.369836-04:00",
-  "event_key": "2026-02-05|La Primera|Quiniela La Primera Noche",
+  "generated_at": "2026-02-05T20:24:57.483635-04:00",
+  "event_key": "2026-02-05|TEST|NO-UPDATE",
   "target": {
     "time_rd": "2026-02-05 21:00",
     "lottery": "Anguilla",
@@ -24,12 +24,12 @@
       "32",
       "83"
     ],
-    "top6": [
+    "topq": [
       "57",
       "81",
       "55"
     ],
-    "pales10": [
+    "pales": [
       "57-81",
       "55-57",
       "02-57"
