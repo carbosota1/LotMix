@@ -1,46 +1,46 @@
 {
-  "generated_at": "2026-02-06T17:56:35.855433-04:00",
-  "event_key": "2026-02-06|TEST|NO-UPDATE",
+  "generated_at": "2026-02-06T18:21:12.248649-04:00",
+  "event_key": "2026-02-06|Anguilla|Anguila 6PM",
   "target": {
-    "time_rd": "2026-02-06 18:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 6PM"
+    "time_rd": "2026-02-06 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-02-06 18:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 6PM",
+    "time_rd": "2026-02-06 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "63",
-      "45",
-      "62",
-      "33",
-      "59",
-      "94",
-      "52",
-      "39",
-      "03",
-      "46",
-      "26",
-      "48"
+      "68",
+      "10",
+      "50",
+      "08",
+      "04",
+      "05",
+      "15",
+      "75",
+      "74",
+      "98",
+      "18",
+      "11"
     ],
     "topq": [
-      "63",
-      "45",
-      "62"
+      "68",
+      "10",
+      "50"
     ],
     "pales": [
-      "45-63",
-      "62-63",
-      "33-63"
+      "10-68",
+      "50-68",
+      "08-68"
     ],
-    "fingerprint": "eaf114bf33ceae1f",
-    "ok_alert": false,
-    "best_signal": 0.008586803110560669,
-    "best_a11": 9,
+    "fingerprint": "2a9e2a4be50355ea",
+    "ok_alert": true,
+    "best_signal": 0.004337597120389272,
+    "best_a11": 14,
     "debug": {
-      "best_signal_hist": 0.008586803110560669,
-      "best_a11_hist": 9,
+      "best_signal_hist": 0.004337597120389272,
+      "best_a11_hist": 14,
       "best_signal_today": null,
       "best_a11_today": null,
       "has_intraday_sources": 1
