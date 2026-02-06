@@ -1,46 +1,46 @@
 {
-  "generated_at": "2026-02-05T20:24:57.483635-04:00",
+  "generated_at": "2026-02-05T21:07:53.110355-04:00",
   "event_key": "2026-02-05|TEST|NO-UPDATE",
   "target": {
-    "time_rd": "2026-02-05 21:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 9PM"
+    "time_rd": "2026-02-05 21:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche"
   },
   "best_play": {
-    "time_rd": "2026-02-05 21:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 9PM",
+    "time_rd": "2026-02-05 21:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche",
     "top12": [
-      "57",
-      "81",
-      "55",
-      "02",
-      "63",
-      "18",
-      "53",
-      "28",
-      "90",
+      "67",
+      "87",
+      "47",
+      "49",
+      "61",
       "05",
-      "32",
-      "83"
+      "90",
+      "75",
+      "72",
+      "11",
+      "13",
+      "63"
     ],
     "topq": [
-      "57",
-      "81",
-      "55"
+      "67",
+      "87",
+      "47"
     ],
     "pales": [
-      "57-81",
-      "55-57",
-      "02-57"
+      "67-87",
+      "47-67",
+      "49-67"
     ],
-    "fingerprint": "c39499b05026b2f7",
-    "ok_alert": false,
-    "best_signal": 0.006375577954227729,
-    "best_a11": 8,
+    "fingerprint": "df3cf56ffc811cf3",
+    "ok_alert": true,
+    "best_signal": 0.0015932163027567883,
+    "best_a11": 12,
     "debug": {
-      "best_signal_hist": 0.006375577954227729,
-      "best_a11_hist": 8,
+      "best_signal_hist": 0.0015932163027567883,
+      "best_a11_hist": 12,
       "best_signal_today": null,
       "best_a11_today": null,
       "has_intraday_sources": 1
