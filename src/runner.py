@@ -36,18 +36,18 @@ XLSX_FILES = {
 # =========================
 SCHEDULE = [
     # Anguilla (4)
-    {"lottery": "Anguilla", "draw": "Anguila 10AM", "time": "10:00", "update_after_minutes": 30},
-    {"lottery": "Anguilla", "draw": "Anguila 1PM",  "time": "13:00", "update_after_minutes": 30},
-    {"lottery": "Anguilla", "draw": "Anguila 6PM",  "time": "18:00", "update_after_minutes": 30},
-    {"lottery": "Anguilla", "draw": "Anguila 9PM",  "time": "21:00", "update_after_minutes": 30},
+    {"lottery": "Anguilla", "draw": "Anguila 10AM", "time": "10:00", "update_after_minutes": 15},
+    {"lottery": "Anguilla", "draw": "Anguila 1PM",  "time": "13:00", "update_after_minutes": 15},
+    {"lottery": "Anguilla", "draw": "Anguila 6PM",  "time": "18:00", "update_after_minutes": 15},
+    {"lottery": "Anguilla", "draw": "Anguila 9PM",  "time": "21:00", "update_after_minutes": 15},
 
     # La Primera (2)
-    {"lottery": "La Primera", "draw": "Quiniela La Primera",       "time": "12:00", "update_after_minutes": 30},
-    {"lottery": "La Primera", "draw": "Quiniela La Primera Noche", "time": "19:00", "update_after_minutes": 30},
+    {"lottery": "La Primera", "draw": "Quiniela La Primera",       "time": "12:00", "update_after_minutes": 15},
+    {"lottery": "La Primera", "draw": "Quiniela La Primera Noche", "time": "19:00", "update_after_minutes": 15},
 
     # La Nacional (2)
-    {"lottery": "La Nacional", "draw": "Loteria Nacional- Gana Más", "time": "14:30", "update_after_minutes": 30},
-    {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche",    "time": "21:30", "update_after_minutes": 30},
+    {"lottery": "La Nacional", "draw": "Loteria Nacional- Gana Más", "time": "14:30", "update_after_minutes": 15},
+    {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche",    "time": "21:00", "update_after_minutes": 15},
 ]
 
 # =========================
