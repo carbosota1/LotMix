@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import hashlib
+import time
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
@@ -22,7 +23,7 @@ STATE_PATH = os.path.join(DATA_DIR, "state.json")
 OUT_DIR = "outputs"
 
 # =========================
-# HISTORIAL XLSX
+# HISTORIAL XLSX (DEBEN EXISTIR EN EL REPO)
 # =========================
 XLSX_FILES = {
     "La Primera": os.path.join(HIST_DIR, "La Primera History.xlsx"),
@@ -31,44 +32,44 @@ XLSX_FILES = {
 }
 
 # =========================
-# SCHEDULE (NACIONAL NOCHE = 21:30 ✅)
-# draw == EXACTAMENTE columna "sorteo" en tus historiales
+# SCHEDULE (draw == EXACTO columna "sorteo")
+# update_after_minutes = 15 ✅ (según tu cambio)
+# Nacional Noche = 21:00 ✅ (según tu corrección)
 # =========================
+UPDATE_AFTER = 15
+
 SCHEDULE = [
     # Anguilla (4)
-    {"lottery": "Anguilla", "draw": "Anguila 10AM", "time": "10:00", "update_after_minutes": 15},
-    {"lottery": "Anguilla", "draw": "Anguila 1PM",  "time": "13:00", "update_after_minutes": 15},
-    {"lottery": "Anguilla", "draw": "Anguila 6PM",  "time": "18:00", "update_after_minutes": 15},
-    {"lottery": "Anguilla", "draw": "Anguila 9PM",  "time": "21:00", "update_after_minutes": 15},
+    {"lottery": "Anguilla", "draw": "Anguila 10AM", "time": "10:00", "update_after_minutes": UPDATE_AFTER},
+    {"lottery": "Anguilla", "draw": "Anguila 1PM",  "time": "13:00", "update_after_minutes": UPDATE_AFTER},
+    {"lottery": "Anguilla", "draw": "Anguila 6PM",  "time": "18:00", "update_after_minutes": UPDATE_AFTER},
+    {"lottery": "Anguilla", "draw": "Anguila 9PM",  "time": "21:00", "update_after_minutes": UPDATE_AFTER},
 
     # La Primera (2)
-    {"lottery": "La Primera", "draw": "Quiniela La Primera",       "time": "12:00", "update_after_minutes": 15},
-    {"lottery": "La Primera", "draw": "Quiniela La Primera Noche", "time": "19:00", "update_after_minutes": 15},
+    {"lottery": "La Primera", "draw": "Quiniela La Primera",       "time": "12:00", "update_after_minutes": UPDATE_AFTER},
+    {"lottery": "La Primera", "draw": "Quiniela La Primera Noche", "time": "19:00", "update_after_minutes": UPDATE_AFTER},
 
     # La Nacional (2)
-    {"lottery": "La Nacional", "draw": "Loteria Nacional- Gana Más", "time": "14:30", "update_after_minutes": 15},
-    {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche",    "time": "21:00", "update_after_minutes": 15},
+    {"lottery": "La Nacional", "draw": "Loteria Nacional- Gana Más", "time": "14:30", "update_after_minutes": UPDATE_AFTER},
+    {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche",    "time": "21:00", "update_after_minutes": UPDATE_AFTER},
 ]
 
 # =========================
-# PRECISIÓN QUIRÚRGICA
+# PRECISIÓN QUIRÚRGICA (Telegram)
 # =========================
-TOPK_QUINIELA = 3        # Telegram: Top3
-TOPK_FULL     = 12       # Auditoría interna
-PALES_OUT     = 3        # Telegram: Top3 palés
+TOPK_QUINIELA = 3
+TOPK_FULL     = 12
+PALES_OUT     = 3
 
 # =========================
-# UMBRALES (solo enviar si hay edge)
+# UMBRALES "EDGE"
 # =========================
 MIN_SIGNAL = 0.010
 MIN_A11    = 10
 
 LOOKAHEAD_MINUTES = 16 * 60
+UPCOMING_GRACE_SECONDS = 120
 
-# ✅ Si el job corre unos segundos tarde, no se salta el sorteo
-UPCOMING_GRACE_SECONDS = 120  # 2 min
-
-# Modo test: FORCE_NOTIFY=1 fuerza Telegram aunque no haya updates / no cumpla umbral
 FORCE_NOTIFY = os.getenv("FORCE_NOTIFY", "0").strip() == "1"
 
 
@@ -89,9 +90,6 @@ def draw_datetime_today(time_hhmm: str) -> datetime:
 def _ensure_dir(path: str):
     os.makedirs(path, exist_ok=True)
 
-def _mk_key(date_str: str, lottery: str, draw: str, time_rd: str) -> str:
-    return f"{date_str}|{lottery}|{draw}|{time_rd}"
-
 def _norm2(x: str) -> str:
     s = str(x).strip()
     if s.isdigit():
@@ -105,14 +103,10 @@ def _norm_pair(a: str, b: str) -> str:
     return f"{aa}-{bb}"
 
 def format_pales(pales_raw):
-    """
-    ✅ Palés válidos: a != b (nunca '63-63')
-    Salida: lista de strings "AA-BB"
-    """
+    """Devuelve palés válidos en formato 'AA-BB' (sin repetidos AA-AA)."""
     out = []
     if not pales_raw:
         return out
-
     seen = set()
     for p in pales_raw:
         try:
@@ -137,10 +131,8 @@ def format_pales(pales_raw):
                 continue
             seen.add(pair)
             out.append(pair)
-
         except Exception:
             continue
-
     return out
 
 def fingerprint(topq, pales):
@@ -149,46 +141,38 @@ def fingerprint(topq, pales):
 
 
 # -----------------------------
-# ✅ State (robusto + escritura atómica)
+# State (robusto)
 # -----------------------------
 def _fresh_state():
-    return {"last_updates": {}, "last_event_key": "", "sent_by_target_fp": {}}
+    return {"last_updates": {}, "last_event_key": "", "sent_by_target_fp": {}, "last_wait_key": ""}
 
 def load_state():
     if not os.path.exists(STATE_PATH):
         return _fresh_state()
-
     try:
         with open(STATE_PATH, "r", encoding="utf-8") as f:
             raw = f.read().strip()
             if not raw:
                 raise ValueError("state.json vacío")
-            state = json.loads(raw)
-        if not isinstance(state, dict):
+            st = json.loads(raw)
+        if not isinstance(st, dict):
             raise ValueError("state.json no es dict")
-
-    except Exception as e:
-        try:
-            ensure_dir(DATA_DIR)
-            ts = now_rd().strftime("%Y%m%d-%H%M%S")
-            bad_path = os.path.join(DATA_DIR, f"state.json.bad-{ts}")
-            os.replace(STATE_PATH, bad_path)
-            print(f"[WARN] state.json corrupto -> movido a {bad_path} ({e})")
-        except Exception as e2:
-            print(f"[WARN] state.json corrupto y no se pudo mover ({e2})")
+    except Exception:
+        # si se corrompe, arrancamos limpio (evita crash)
         return _fresh_state()
 
-    state.setdefault("last_updates", {})
-    state.setdefault("last_event_key", "")
-    state.setdefault("sent_by_target_fp", {})
-    return state
+    st.setdefault("last_updates", {})
+    st.setdefault("last_event_key", "")
+    st.setdefault("sent_by_target_fp", {})
+    st.setdefault("last_wait_key", "")
+    return st
 
 def save_state(state):
     ensure_dir(DATA_DIR)
-    tmp_path = STATE_PATH + ".tmp"
-    with open(tmp_path, "w", encoding="utf-8") as f:
+    tmp = STATE_PATH + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
         json.dump(state, f, ensure_ascii=False, indent=2)
-    os.replace(tmp_path, STATE_PATH)
+    os.replace(tmp, STATE_PATH)
 
 
 # -----------------------------
@@ -207,7 +191,6 @@ def fetch_result(lottery: str, draw: str, date: str):
 
     scrapers_dir = os.path.join(os.path.dirname(__file__), "scrapers")
     file_path = os.path.join(scrapers_dir, file_map[lottery])
-
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"No existe el scraper en: {file_path}")
 
@@ -218,12 +201,11 @@ def fetch_result(lottery: str, draw: str, date: str):
 
     if not hasattr(module, "get_result"):
         raise AttributeError(f"El scraper {file_path} no tiene get_result(draw, date)")
-
     return module.get_result(draw, date)
 
 def try_update_one(item, state) -> bool:
     n = now_rd()
-    date_str = n.strftime("%Y-%m-%d")
+    date_str = today_str()
     draw_dt = draw_datetime_today(item["time"])
     due = draw_dt + timedelta(minutes=item["update_after_minutes"])
 
@@ -255,7 +237,66 @@ def try_update_one(item, state) -> bool:
 
 
 # -----------------------------
-# Next target (TARGET=1) + GRACE
+# GATE: cross-match REAL (no adivinar)
+# -----------------------------
+def _due_dt(item) -> datetime:
+    return draw_datetime_today(item["time"]) + timedelta(minutes=item["update_after_minutes"])
+
+def _is_due(item, now: datetime) -> bool:
+    return now >= _due_dt(item)
+
+def _has_today_row(lottery: str, draw: str, date_str: str) -> bool:
+    path = XLSX_FILES.get(lottery)
+    if not path or not os.path.exists(path):
+        return False
+    try:
+        df = pd.read_excel(path)
+    except Exception:
+        return False
+
+    df.columns = [str(c).strip().lower() for c in df.columns]
+    need = {"fecha", "sorteo", "primero", "segundo", "tercero"}
+    if not need.issubset(set(df.columns)):
+        return False
+
+    df["fecha"] = df["fecha"].astype(str).str.slice(0, 10)
+    df["sorteo"] = df["sorteo"].astype(str)
+
+    m = df[(df["fecha"] == date_str) & (df["sorteo"] == draw)]
+    return not m.empty
+
+def missing_due_updates_before_target(target_dt: datetime) -> list[str]:
+    """Sorteos previos al target que ya deberían estar en histórico HOY y faltan."""
+    n = now_rd()
+    date_str = today_str()
+    missing = []
+
+    for item in SCHEDULE:
+        draw_dt = draw_datetime_today(item["time"])
+        if draw_dt.date() != target_dt.date():
+            continue
+        if draw_dt >= target_dt:
+            continue
+
+        if _is_due(item, n):
+            if not _has_today_row(item["lottery"], item["draw"], date_str):
+                missing.append(f"{item['lottery']} | {item['draw']} (due {_due_dt(item).strftime('%H:%M')})")
+    return missing
+
+def missing_due_updates_global() -> list[str]:
+    """Todos los sorteos del día que ya deberían estar actualizados y faltan."""
+    n = now_rd()
+    date_str = today_str()
+    missing = []
+    for item in SCHEDULE:
+        if _is_due(item, n):
+            if not _has_today_row(item["lottery"], item["draw"], date_str):
+                missing.append(f"{item['lottery']} | {item['draw']} (due {_due_dt(item).strftime('%H:%M')})")
+    return missing
+
+
+# -----------------------------
+# Next target (TARGET=1) con GRACE
 # -----------------------------
 def next_upcoming_draw():
     n = now_rd()
@@ -265,7 +306,7 @@ def next_upcoming_draw():
         if dt.date() != n.date():
             continue
 
-        # ✅ tolerancia: si estamos hasta 2 min tarde, todavía lo consideramos upcoming
+        # tolerancia por segundos tarde
         if dt < (n - timedelta(seconds=UPCOMING_GRACE_SECONDS)):
             continue
 
@@ -278,153 +319,7 @@ def next_upcoming_draw():
 
 
 # -----------------------------
-# Tracking: picks_log + performance
-# -----------------------------
-def log_pick(payload: dict):
-    _ensure_dir(DATA_DIR)
-    log_path = os.path.join(DATA_DIR, "picks_log.csv")
-
-    bp = payload.get("best_play", {})
-    generated_at = payload.get("generated_at")
-    date_str = (generated_at or "")[:10] if generated_at else today_str()
-
-    time_rd = bp.get("time_rd", "")
-    lottery = bp.get("lottery", "")
-    draw = bp.get("draw", "")
-    key = _mk_key(date_str, lottery, draw, time_rd)
-
-    row = {
-        "key": key,
-        "date": date_str,
-        "time_rd": time_rd,
-        "lottery": lottery,
-        "draw": draw,
-        "generated_at": generated_at,
-        "best_signal": bp.get("best_signal"),
-        "best_a11": bp.get("best_a11"),
-        "ok_alert": bp.get("ok_alert"),
-        "top12": json.dumps(bp.get("top12", []), ensure_ascii=False),
-        "topq": json.dumps(bp.get("topq", []), ensure_ascii=False),
-        "pales": json.dumps(bp.get("pales", []), ensure_ascii=False),
-        "graded": 0,
-    }
-
-    new_df = pd.DataFrame([row])
-    if os.path.exists(log_path):
-        old = pd.read_csv(log_path, dtype=str)
-        combined = pd.concat([old, new_df], ignore_index=True)
-        combined = combined.drop_duplicates(subset=["key"], keep="last")
-        combined.to_csv(log_path, index=False, encoding="utf-8")
-    else:
-        new_df.to_csv(log_path, index=False, encoding="utf-8")
-
-def grade_picks_from_histories():
-    log_path = os.path.join(DATA_DIR, "picks_log.csv")
-    if not os.path.exists(log_path):
-        return
-
-    df = pd.read_csv(log_path, dtype=str)
-    if df.empty:
-        return
-
-    pending = df[df["graded"].fillna("0") != "1"].copy()
-    if pending.empty:
-        return
-
-    hist_cache = {}
-
-    def load_hist(lottery: str):
-        if lottery in hist_cache:
-            return hist_cache[lottery]
-
-        path = XLSX_FILES.get(lottery)
-        if not path or not os.path.exists(path):
-            hist_cache[lottery] = pd.DataFrame()
-            return hist_cache[lottery]
-
-        hx = pd.read_excel(path)
-        hx.columns = [str(c).strip().lower() for c in hx.columns]
-        for col in ["fecha", "sorteo", "primero", "segundo", "tercero"]:
-            if col not in hx.columns:
-                hist_cache[lottery] = pd.DataFrame()
-                return hist_cache[lottery]
-
-        hx["fecha"] = hx["fecha"].astype(str).str.slice(0, 10)
-        hx["sorteo"] = hx["sorteo"].astype(str)
-        for col in ["primero", "segundo", "tercero"]:
-            hx[col] = hx[col].astype(str).str.extract(r"(\d{1,2})")[0].fillna("").str.zfill(2)
-
-        hist_cache[lottery] = hx
-        return hx
-
-    def hits(nums_list, drawn_set):
-        return len(set(nums_list).intersection(drawn_set))
-
-    def pale_hits(pales_list, drawn_nums):
-        drawn = sorted(list(drawn_nums))
-        pairs = {f"{drawn[0]}-{drawn[1]}", f"{drawn[0]}-{drawn[2]}", f"{drawn[1]}-{drawn[2]}"}
-        norm = set(format_pales(pales_list))
-        return len(norm.intersection(pairs))
-
-    perf_rows = []
-    any_graded = False
-
-    for _, r in pending.iterrows():
-        date = r.get("date", "")
-        lottery = r.get("lottery", "")
-        draw = r.get("draw", "")
-        time_rd = r.get("time_rd", "")
-        key = r.get("key", "")
-
-        hx = load_hist(lottery)
-        if hx.empty:
-            continue
-
-        match = hx[(hx["fecha"] == date) & (hx["sorteo"] == draw)]
-        if match.empty:
-            continue
-
-        row = match.iloc[-1]
-        drawn = {row["primero"], row["segundo"], row["tercero"]}
-
-        top12 = json.loads(r.get("top12", "[]") or "[]")
-        topq  = json.loads(r.get("topq", "[]") or "[]")
-        pales = json.loads(r.get("pales", "[]") or "[]")
-
-        perf_rows.append({
-            "key": key,
-            "date": date,
-            "time_rd": time_rd,
-            "lottery": lottery,
-            "draw": draw,
-            "result": f"{row['primero']}-{row['segundo']}-{row['tercero']}",
-            "hits_quiniela_topq": hits(topq, drawn),
-            "hits_quiniela_top12": hits(top12, drawn),
-            "pale_hits": pale_hits(pales, drawn),
-        })
-
-        df.loc[df["key"] == key, "graded"] = "1"
-        any_graded = True
-
-    if perf_rows:
-        ensure_dir(OUT_DIR)
-        perf_path = os.path.join(OUT_DIR, "performance.csv")
-        perf_df = pd.DataFrame(perf_rows)
-
-        if os.path.exists(perf_path):
-            oldp = pd.read_csv(perf_path, dtype=str)
-            outp = pd.concat([oldp, perf_df], ignore_index=True)
-            outp = outp.drop_duplicates(subset=["key"], keep="last")
-            outp.to_csv(perf_path, index=False, encoding="utf-8")
-        else:
-            perf_df.to_csv(perf_path, index=False, encoding="utf-8")
-
-    if any_graded:
-        df.to_csv(log_path, index=False, encoding="utf-8")
-
-
-# -----------------------------
-# Analysis (hist + intradía)
+# Build exploded history
 # -----------------------------
 def build_exploded_history():
     frames = []
@@ -439,27 +334,10 @@ def build_exploded_history():
     exp = exp.dropna(subset=["fecha_dt"])
     return exp
 
-def combine_hist_and_intraday(rec_hist: pd.DataFrame, rec_today: pd.DataFrame):
-    if rec_hist is None or rec_hist.empty:
-        return rec_today
-    if rec_today is None or rec_today.empty:
-        out = rec_hist.copy()
-        out["score_combo"] = out["score"]
-        return out
 
-    h = rec_hist[["num", "score", "signal", "a11"]].copy()
-    t = rec_today[["num", "score", "signal", "a11"]].copy()
-
-    h = h.rename(columns={"score": "score_hist", "signal": "signal_hist", "a11": "a11_hist"})
-    t = t.rename(columns={"score": "score_today", "signal": "signal_today", "a11": "a11_today"})
-
-    m = h.merge(t, on="num", how="outer").fillna(0)
-    w_hist, w_today = 0.75, 0.25
-    m["score_combo"] = w_hist * m["score_hist"] + w_today * m["score_today"]
-    m["signal_combo"] = m["signal_hist"] + 0.50 * m["signal_today"]
-    m["a11_combo"] = m["a11_hist"].astype(int) + m["a11_today"].astype(int)
-    return m.sort_values("score_combo", ascending=False).reset_index(drop=True)
-
+# -----------------------------
+# Intradía analysis + notify
+# -----------------------------
 def run_intraday_next_target(event_key: str, state: dict):
     exp = build_exploded_history()
     if exp is None:
@@ -473,6 +351,29 @@ def run_intraday_next_target(event_key: str, state: dict):
 
     target_dt, target = nxt
     print("[INFO] Next target:", target_dt.strftime("%Y-%m-%d %H:%M"), target["lottery"], target["draw"])
+
+    # ✅ GATE: no picks si falta data previa debida (cross-match incompleto)
+    missing = missing_due_updates_before_target(target_dt)
+    if missing and (not FORCE_NOTIFY):
+        print("[INFO] Missing due updates before target. Skipping picks.")
+        for m in missing:
+            print("[INFO] Missing:", m)
+
+        wait_key = f"{target_dt.strftime('%Y-%m-%d %H:%M')}|{target['lottery']}|{target['draw']}"
+        if state.get("last_wait_key") != wait_key:
+            try:
+                msg = []
+                msg.append("⏳ OPV INTRADÍA (Esperando data)")
+                msg.append(f"🎯 Target: {target['lottery']} | {target['draw']}")
+                msg.append(f"⏰ Hora: {target_dt.strftime('%H:%M')} RD")
+                msg.append("")
+                msg.append("Faltan resultados previos del día (cross-match incompleto):")
+                msg.extend([f"• {x}" for x in missing[:10]])
+                send_telegram("\n".join(msg))
+                state["last_wait_key"] = wait_key
+            except Exception as e:
+                print(f"[WARN] Telegram wait message failed: {e}")
+        return
 
     target_dt_naive = target_dt.replace(tzinfo=None)
 
@@ -493,17 +394,12 @@ def run_intraday_next_target(event_key: str, state: dict):
         src_filter_today = lambda e, _m=mask_idx: e.index.isin(_m)
         rec_today = recommend_for_target(exp, src_filter_today, target["lottery"], target["draw"], lag_days=0, top_n=TOPK_FULL)
 
-    combo = combine_hist_and_intraday(rec_hist, rec_today)
-
-    top12 = combo["num"].astype(str).tolist()[:TOPK_FULL]
+    # Combinar: por simplicidad, usamos histórico como base (quirúrgico)
+    top12 = rec_hist["num"].astype(str).tolist()[:TOPK_FULL]
     topq = top12[:TOPK_QUINIELA]
-    pales = format_pales(top_pales(top12[:10], 40))[:PALES_OUT]  # más candidatos -> filtra y corta
+    pales = format_pales(top_pales(top12[:10], 40))[:PALES_OUT]
 
-    ok_hist = should_alert(rec_hist, min_signal=MIN_SIGNAL, min_count_hits=MIN_A11)
-    ok_today = False
-    if rec_today is not None and not rec_today.empty:
-        ok_today = should_alert(rec_today, min_signal=MIN_SIGNAL, min_count_hits=MIN_A11)
-    ok = bool(ok_hist or ok_today)
+    ok = should_alert(rec_hist, min_signal=MIN_SIGNAL, min_count_hits=MIN_A11)
 
     best_signal_hist = float(rec_hist["signal"].max()) if "signal" in rec_hist.columns else None
     best_a11_hist = int(rec_hist["a11"].max()) if "a11" in rec_hist.columns else None
@@ -528,7 +424,7 @@ def run_intraday_next_target(event_key: str, state: dict):
             "topq": topq,
             "pales": pales,
             "fingerprint": fp,
-            "ok_alert": ok,
+            "ok_alert": bool(ok),
             "best_signal": best_signal_hist,
             "best_a11": best_a11_hist,
             "debug": {
@@ -546,8 +442,7 @@ def run_intraday_next_target(event_key: str, state: dict):
         json.dump(payload, f, ensure_ascii=False, indent=2)
     print("[OK] Wrote outputs/picks.json")
 
-    log_pick(payload)
-
+    # ✅ NO mandar picks si no hay edge, a menos que sea TEST
     if (not ok) and (not FORCE_NOTIFY):
         print("[INFO] No valid opportunity (thresholds not met). No message sent.")
         return
@@ -581,6 +476,9 @@ def run_intraday_next_target(event_key: str, state: dict):
     state["sent_by_target_fp"] = sent_map
 
 
+# -----------------------------
+# MAIN
+# -----------------------------
 def main():
     ensure_dir(DATA_DIR)
     ensure_dir(HIST_DIR)
@@ -589,6 +487,8 @@ def main():
     state = load_state()
 
     updated = []
+
+    # 1) Update pass normal
     for item in SCHEDULE:
         try:
             if try_update_one(item, state):
@@ -597,33 +497,68 @@ def main():
         except Exception as e:
             print(f"[WARN] update failed {item['lottery']}|{item['draw']}: {e}")
 
-    try:
-        grade_picks_from_histories()
-        print("[OK] Grading pass completed.")
-    except Exception as e:
-        print(f"[WARN] grading failed: {e}")
+    # 2) Reintento: si ya están DUE y faltan, intenta 2 veces más en este mismo run
+    #    (esto evita que se quede atrás La Primera 12PM o La Nacional Noche)
+    for attempt in range(2):
+        missing_now = missing_due_updates_global()
+        if not missing_now:
+            break
+        print(f"[INFO] Due missing updates detected. Retry pass {attempt+1}/2")
+        time.sleep(2)
 
+        for item in SCHEDULE:
+            try:
+                n = now_rd()
+                if _is_due(item, n):
+                    if not _has_today_row(item["lottery"], item["draw"], today_str()):
+                        if try_update_one(item, state):
+                            print("[OK] Updated (retry):", item["lottery"], item["draw"])
+                            updated.append(item)
+            except Exception as e:
+                print(f"[WARN] retry update failed {item['lottery']}|{item['draw']}: {e}")
+
+    # 3) Si faltan updates "due", NO se analiza (evita adivinar)
+    missing_due = missing_due_updates_global()
+    if missing_due and (not FORCE_NOTIFY):
+        print("[INFO] Still missing due updates. Skipping analysis.")
+        for m in missing_due:
+            print("[INFO] Missing:", m)
+
+        # Telegram de espera (1 vez por estado)
+        wait_key = f"{today_str()}|WAIT|{len(missing_due)}"
+        if state.get("last_wait_key") != wait_key:
+            try:
+                msg = []
+                msg.append("⏳ OPV (Esperando resultados)")
+                msg.append("No se generarán picks hasta que se actualicen TODOS los sorteos debidos.")
+                msg.append("")
+                msg.append("Faltan:")
+                msg.extend([f"• {x}" for x in missing_due[:12]])
+                send_telegram("\n".join(msg))
+                state["last_wait_key"] = wait_key
+            except Exception as e:
+                print(f"[WARN] Telegram wait message failed: {e}")
+
+        save_state(state)
+        print("[OK] runner finished")
+        return
+
+    # 4) Si no hubo updates y no es test, no spam
     if not updated and (not FORCE_NOTIFY):
         print("[INFO] No new updates. Skipping intraday analysis/notify.")
         save_state(state)
         print("[OK] runner finished")
         return
 
-    if not updated and FORCE_NOTIFY:
-        print("[TEST] FORCE_NOTIFY=1 -> running intraday analysis even without new updates.")
+    # 5) Intradía: evento = último update que entró (o TEST)
+    if FORCE_NOTIFY and not updated:
         event_key = f"{today_str()}|TEST|NO-UPDATE"
-        try:
-            run_intraday_next_target(event_key, state)
-        except Exception as e:
-            print(f"[WARN] intraday analysis/notify failed: {e}")
-        save_state(state)
-        print("[OK] runner finished")
-        return
+    else:
+        updated_sorted = sorted(updated, key=lambda x: draw_datetime_today(x["time"]))
+        last_event = updated_sorted[-1]
+        event_key = f"{today_str()}|{last_event['lottery']}|{last_event['draw']}"
 
-    updated_sorted = sorted(updated, key=lambda x: draw_datetime_today(x["time"]))
-    last_event = updated_sorted[-1]
-    event_key = f"{today_str()}|{last_event['lottery']}|{last_event['draw']}"
-
+    # Evita repetir procesamiento del mismo evento
     if state.get("last_event_key") == event_key and (not FORCE_NOTIFY):
         print("[INFO] Latest event already processed. Skipping.")
         save_state(state)
