@@ -29,12 +29,14 @@ XLSX_FILES = {
     "La Primera": os.path.join(HIST_DIR, "La Primera History.xlsx"),
     "Anguilla":   os.path.join(HIST_DIR, "Anguilla history.xlsx"),
     "La Nacional": os.path.join(HIST_DIR, "La nacional history.xlsx"),
+    "La Suerte":  os.path.join(HIST_DIR, "La suerte history.xlsx"),
 }
 
 # =========================
 # SCHEDULE (draw == EXACTO columna "sorteo")
 # ✅ Nacional Noche = 21:00
 # ✅ update_after = 15 (según tu ajuste)
+# ✅ La Suerte 6PM = 18:00 (dual target con Anguilla 6PM)
 # =========================
 UPDATE_AFTER = 15
 
@@ -52,6 +54,9 @@ SCHEDULE = [
     # La Nacional (2)
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Gana Más", "time": "14:30", "update_after_minutes": UPDATE_AFTER},
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche",    "time": "21:00", "update_after_minutes": UPDATE_AFTER},
+
+    # La Suerte (1 confirmado)
+    {"lottery": "La Suerte", "draw": "Quiniela La Suerte 6PM", "time": "18:00", "update_after_minutes": UPDATE_AFTER},
 ]
 
 # =========================
@@ -189,6 +194,7 @@ def fetch_result(lottery: str, draw: str, date: str):
         "Anguilla": "anguilla_scraper.py",
         "La Primera": "laprimera_scraper.py",
         "La Nacional": "lanacional_scraper.py",
+        "La Suerte": "lasuerte_scraper.py",
     }
     if lottery not in file_map:
         raise ValueError(f"Lottery no soportada: {lottery}")
@@ -444,12 +450,12 @@ def missing_due_updates_global_today() -> list[str]:
 
 
 # -----------------------------
-# Next targets: si hay empate (21:00), procesa TODOS (Anguilla + Nacional)
+# Next targets: si hay empate (18:00 o 21:00), procesa TODOS
 # -----------------------------
 def next_targets_same_time():
     """
     Devuelve: (dt_min, [items...]) o None
-    Si el próximo horario es 21:00 y hay 2 sorteos, devuelve ambos.
+    Si el próximo horario tiene 2+ sorteos, devuelve todos.
     """
     n = now_rd()
     candidates = []
@@ -481,9 +487,6 @@ def next_targets_same_time():
 # Picks logging + grading
 # -----------------------------
 def log_pick(payload: dict):
-    """
-    Guarda cada target como una fila en data/picks_log.csv (clave única por fecha/lot/draw/time).
-    """
     _ensure_dir(DATA_DIR)
     log_path = os.path.join(DATA_DIR, "picks_log.csv")
 
@@ -524,10 +527,6 @@ def log_pick(payload: dict):
         new_df.to_csv(log_path, index=False, encoding="utf-8")
 
 def grade_picks_from_histories():
-    """
-    Califica picks pendientes usando el XLSX del mismo día/sorteo.
-    Escribe outputs/performance.csv y marca graded=1 en picks_log.
-    """
     log_path = os.path.join(DATA_DIR, "picks_log.csv")
     if not os.path.exists(log_path):
         return
@@ -651,7 +650,7 @@ def build_exploded_history():
 
 
 # -----------------------------
-# Intradía analysis per target
+# Intradía analysis per target (BLEND REAL)
 # -----------------------------
 def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, target_item: dict, state: dict):
     target = target_item
@@ -667,7 +666,7 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
 
     target_dt_naive = target_dt.replace(tzinfo=None)
 
-    # Histórico cross-lottery (base)
+    # ---------- HIST ----------
     src_filter_hist = lambda e: ~((e["lottery"] == target["lottery"]) & (e["sorteo"] == target["draw"]))
     rec_hist = recommend_for_target(exp, src_filter_hist, target["lottery"], target["draw"], lag_days=0, top_n=TOPK_FULL)
 
@@ -675,25 +674,66 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         print("[INFO] Not enough data to compute recommendations for target.")
         return None
 
-    # Intradía (solo para debug)
-    today = target_dt_naive.date()
-    exp_today = exp[(exp["fecha_dt"].dt.date == today) & (exp["fecha_dt"] < target_dt_naive)].copy()
+    # ---------- TODAY (intradía real) ----------
+    today_date = target_dt_naive.date()
+    exp_today = exp[(exp["fecha_dt"].dt.date == today_date) & (exp["fecha_dt"] < target_dt_naive)].copy()
+
     rec_today = None
     if not exp_today.empty:
+        # Usar solo lo que pasó HOY antes del target (cross-match intradía)
         mask_idx = set(exp_today.index.tolist())
         src_filter_today = lambda e, _m=mask_idx: e.index.isin(_m)
         rec_today = recommend_for_target(exp, src_filter_today, target["lottery"], target["draw"], lag_days=0, top_n=TOPK_FULL)
 
-    top12 = rec_hist["num"].astype(str).tolist()[:TOPK_FULL]
+    # ---------- BLEND ----------
+    def _prep(df):
+        d = df.copy()
+        d["num"] = d["num"].astype(str)
+        d["signal"] = pd.to_numeric(d.get("signal", 0), errors="coerce").fillna(0.0)
+        d["a11"] = pd.to_numeric(d.get("a11", 0), errors="coerce").fillna(0).astype(int)
+        return d[["num", "signal", "a11"]]
+
+    hist = _prep(rec_hist)
+
+    use_intraday = (rec_today is not None) and (not rec_today.empty) and (len(exp_today) >= 1)
+
+    if use_intraday:
+        tday = _prep(rec_today)
+
+        def _norm(s):
+            mx = float(s.max()) if len(s) else 0.0
+            return (s / mx) if mx > 0 else s
+
+        hist["sig_n_h"] = _norm(hist["signal"])
+        tday["sig_n_t"] = _norm(tday["signal"])
+
+        m = pd.merge(hist, tday, on="num", how="outer", suffixes=("_h", "_t")).fillna(0)
+
+        # Pesos: intradía manda
+        W_TODAY = 0.70
+        W_HIST  = 0.30
+        m["score"] = W_TODAY*m["sig_n_t"] + W_HIST*m["sig_n_h"]
+
+        # Boost leve por soporte
+        m["score"] = m["score"] + 0.0005*m["a11_t"] + 0.0002*m["a11_h"]
+
+        blended = m.sort_values("score", ascending=False)
+        top12 = blended["num"].tolist()[:TOPK_FULL]
+        best_signal_today = float(tday["signal"].max()) if not tday.empty else None
+        best_a11_today = int(tday["a11"].max()) if not tday.empty else None
+    else:
+        # si no hay intradía suficiente, histórico
+        top12 = hist.sort_values(["signal", "a11"], ascending=False)["num"].tolist()[:TOPK_FULL]
+        best_signal_today = None
+        best_a11_today = None
+
     topq = top12[:TOPK_QUINIELA]
     pales = format_pales(top_pales(top12[:10], 40))[:PALES_OUT]
 
     ok = should_alert(rec_hist, min_signal=MIN_SIGNAL, min_count_hits=MIN_A11)
 
-    best_signal_hist = float(rec_hist["signal"].max()) if "signal" in rec_hist.columns else None
-    best_a11_hist = int(rec_hist["a11"].max()) if "a11" in rec_hist.columns else None
-    best_signal_today = float(rec_today["signal"].max()) if (rec_today is not None and "signal" in rec_today.columns and not rec_today.empty) else None
-    best_a11_today = int(rec_today["a11"].max()) if (rec_today is not None and "a11" in rec_today.columns and not rec_today.empty) else None
+    best_signal_hist = float(hist["signal"].max()) if not hist.empty else None
+    best_a11_hist = int(hist["a11"].max()) if not hist.empty else None
 
     fp = fingerprint(topq, pales)
 
@@ -721,15 +761,16 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
                 "best_a11_hist": best_a11_hist,
                 "best_signal_today": best_signal_today,
                 "best_a11_today": best_a11_today,
-                "has_intraday_sources": int(not exp_today.empty),
+                "has_intraday_sources": int(use_intraday),
+                "intraday_events": int(len(exp_today)),
             }
         }
     }
 
-    # Guardar log SIEMPRE (para grading/performance)
+    # Log SIEMPRE
     log_pick(payload)
 
-    # Enviar Telegram solo si ok o TEST
+    # Telegram solo si cumple o TEST
     if (not ok) and (not FORCE_NOTIFY):
         print("[INFO] Thresholds not met. No message sent for this target.")
         return payload
@@ -755,6 +796,7 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     msg.append("📊 Debug:")
     msg.append(f"hist best_signal={best_signal_hist} best_a11={best_a11_hist}")
     msg.append(f"today best_signal={best_signal_today} best_a11={best_a11_today}")
+    msg.append(f"intraday_sources={int(use_intraday)} intraday_events={len(exp_today)}")
 
     send_telegram("\n".join(msg))
     print("[OK] Telegram sent for target.")
@@ -791,14 +833,14 @@ def main():
     except Exception as e:
         print(f"[WARN] force_refresh_backfill failed: {e}")
 
-    # 3) Grading (performance) siempre
+    # 3) Grading siempre
     try:
         grade_picks_from_histories()
         print("[OK] Grading pass completed.")
     except Exception as e:
         print(f"[WARN] grading failed: {e}")
 
-    # 4) Si faltan updates "due" de HOY, NO se analiza (evita adivinar)
+    # 4) Si faltan updates "due" de HOY, NO se analiza
     missing_due_today = missing_due_updates_global_today()
     if missing_due_today and (not FORCE_NOTIFY):
         print("[INFO] Still missing due updates today. Skipping analysis.")
@@ -844,7 +886,7 @@ def main():
         print("[OK] runner finished")
         return
 
-    # 7) Build history + process next targets (handles 21:00 dual target)
+    # 7) Build history + process next targets (handles 18:00 dual)
     exp = build_exploded_history()
     if exp is None:
         print("[INFO] No history loaded. Exiting.")
@@ -889,10 +931,6 @@ def main():
     state["last_event_key"] = event_key
     save_state(state)
     print("[OK] runner finished")
-
-
-if __name__ == "__main__":
-    main()
 
 
 if __name__ == "__main__":
