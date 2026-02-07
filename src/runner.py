@@ -56,6 +56,7 @@ SCHEDULE = [
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche",    "time": "21:00", "update_after_minutes": UPDATE_AFTER},
 
     # La Suerte (1 confirmado)
+    {"lottery": "La Suerte", "draw": "Quiniela La Suerte", "time": "12:30", "update_after_minutes": UPDATE_AFTER},
     {"lottery": "La Suerte", "draw": "Quiniela La Suerte 6PM", "time": "18:00", "update_after_minutes": UPDATE_AFTER},
 ]
 
