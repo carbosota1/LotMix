@@ -1,3 +1,4 @@
+# src/runner.py
 import os
 import sys
 import json
@@ -35,8 +36,8 @@ XLSX_FILES = {
 # =========================
 # SCHEDULE (draw == EXACTO columna "sorteo")
 # ✅ Nacional Noche = 21:00
-# ✅ update_after = 15 (según tu ajuste)
-# ✅ La Suerte 6PM = 18:00 (dual target con Anguilla 6PM)
+# ✅ update_after = 15 (tu ajuste)
+# ✅ La Suerte 12:30 y La Suerte 6PM
 # =========================
 UPDATE_AFTER = 15
 
@@ -55,8 +56,8 @@ SCHEDULE = [
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Gana Más", "time": "14:30", "update_after_minutes": UPDATE_AFTER},
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche",    "time": "21:00", "update_after_minutes": UPDATE_AFTER},
 
-    # La Suerte (1 confirmado)
-    {"lottery": "La Suerte", "draw": "Quiniela La Suerte", "time": "12:30", "update_after_minutes": UPDATE_AFTER},
+    # La Suerte (2)
+    {"lottery": "La Suerte", "draw": "Quiniela La Suerte",     "time": "12:30", "update_after_minutes": UPDATE_AFTER},
     {"lottery": "La Suerte", "draw": "Quiniela La Suerte 6PM", "time": "18:00", "update_after_minutes": UPDATE_AFTER},
 ]
 
@@ -74,7 +75,7 @@ MIN_SIGNAL = 0.010
 MIN_A11    = 10
 
 LOOKAHEAD_MINUTES = 16 * 60
-UPCOMING_GRACE_SECONDS = 120  # tolerancia por segundos tarde
+UPCOMING_GRACE_SECONDS = 120  # tolerancia si el job llega un poco tarde
 
 FORCE_NOTIFY = os.getenv("FORCE_NOTIFY", "0").strip() == "1"
 
@@ -151,7 +152,7 @@ def fingerprint(topq, pales):
 # -----------------------------
 def _fresh_state():
     return {
-        "last_updates": {},           # keys: date|lottery|draw -> done
+        "last_updates": {},           # date|lottery|draw -> done
         "last_event_key": "",
         "sent_by_target_fp": {},      # target_key -> fingerprint
         "last_wait_key": "",
@@ -226,7 +227,7 @@ def _is_due(item, now: datetime) -> bool:
 
 
 # -----------------------------
-# XLSX row checks (truth source)
+# XLSX truth checks
 # -----------------------------
 def _has_row_for_date(lottery: str, draw: str, date_str: str) -> bool:
     path = XLSX_FILES.get(lottery)
@@ -269,7 +270,7 @@ def _get_row_for_date(lottery: str, draw: str, date_str: str):
 
 
 # -----------------------------
-# Normal update (HOY)
+# Normal update (HOY, solo DUE)
 # -----------------------------
 def try_update_one(item, state) -> bool:
     n = now_rd()
@@ -282,7 +283,7 @@ def try_update_one(item, state) -> bool:
     key = f"{date_str}|{item['lottery']}|{item['draw']}"
     last_updates = state.get("last_updates", {})
     if last_updates.get(key) == "done":
-        # state dice done, pero si el XLSX no tiene fila, no confiamos en state
+        # si state dice done pero XLSX no tiene fila, no confiamos en state
         if _has_row_for_date(item["lottery"], item["draw"], date_str):
             return False
 
@@ -315,15 +316,10 @@ def try_update_one(item, state) -> bool:
 
 # -----------------------------
 # FORCE REFRESH + BACKFILL (HOY + AYER)
-# - HOY: SOLO DUE (no futuros)
-# - AYER: todos los faltantes
-# - Anti-invención HOY incluido
+# HOY: SOLO DUE
+# AYER: todos faltantes
 # -----------------------------
 def _missing_for_date(date_str: str) -> list[dict]:
-    """
-    Para fechas pasadas: todos los sorteos faltantes.
-    Para HOY: SOLO los sorteos DUE (evita inventar resultados futuros).
-    """
     missing = []
     n = now_rd()
     today = today_str()
@@ -334,12 +330,7 @@ def _missing_for_date(date_str: str) -> list[dict]:
             missing.append(item)
     return missing
 
-def _try_update_for_date(item, date_str: str, state: dict, ignore_state_done: bool = True) -> bool:
-    """
-    Backfill: actualiza un sorteo para fecha específica.
-    Para HOY solo se llama si ya está DUE (lo garantiza _missing_for_date).
-    Anti-invención HOY: si trae mismo que ayer, no inserta (ventana 90min).
-    """
+def _try_update_for_date(item, date_str: str, state: dict) -> bool:
     key = f"{date_str}|{item['lottery']}|{item['draw']}"
     last_updates = state.get("last_updates", {})
 
@@ -348,12 +339,10 @@ def _try_update_for_date(item, date_str: str, state: dict, ignore_state_done: bo
         state["last_updates"] = last_updates
         return False
 
-    if (not ignore_state_done) and last_updates.get(key) == "done":
-        return False
-
     p1, p2, p3 = fetch_result(item["lottery"], item["draw"], date_str)
     p1, p2, p3 = normalize_2d(p1), normalize_2d(p2), normalize_2d(p3)
 
+    # Anti-invención solo HOY
     if date_str == today_str():
         n = now_rd()
         yday = (n.date() - timedelta(days=1)).strftime("%Y-%m-%d")
@@ -379,11 +368,6 @@ def _try_update_for_date(item, date_str: str, state: dict, ignore_state_done: bo
     return True
 
 def force_refresh_backfill(state: dict, days_back: int = 1, max_attempts: int = 5, backoff_seconds=None) -> dict:
-    """
-    Fuerza refresh de sorteos faltantes para HOY y días anteriores (hasta days_back).
-    ✅ Para HOY: solo intenta los sorteos DUE (evita inventar futuros).
-    ✅ Para días pasados: intenta todos los faltantes.
-    """
     if backoff_seconds is None:
         backoff_seconds = [2, 5, 10, 20, 30]
 
@@ -401,7 +385,7 @@ def force_refresh_backfill(state: dict, days_back: int = 1, max_attempts: int = 
             print(f"[INFO] FORCE_REFRESH date={ds} missing={len(missing_items)} attempt={attempt+1}/{max_attempts}")
             for item in missing_items:
                 try:
-                    did = _try_update_for_date(item, ds, state, ignore_state_done=True)
+                    did = _try_update_for_date(item, ds, state)
                     if did:
                         any_fixed = True
                         print(f"[OK] Backfilled: {ds} | {item['lottery']} {item['draw']}")
@@ -417,12 +401,9 @@ def force_refresh_backfill(state: dict, days_back: int = 1, max_attempts: int = 
 
 
 # -----------------------------
-# GATE: cross-match REAL (no adivinar)
+# GATE: no adivinar
 # -----------------------------
 def missing_due_updates_before_target(target_dt: datetime) -> list[str]:
-    """
-    Sorteos previos al target que ya deberían estar en histórico HOY y faltan.
-    """
     n = now_rd()
     date_str = today_str()
     missing = []
@@ -451,13 +432,9 @@ def missing_due_updates_global_today() -> list[str]:
 
 
 # -----------------------------
-# Next targets: si hay empate (18:00 o 21:00), procesa TODOS
+# Next targets: si hay empate en hora (18:00 o 21:00), procesa TODOS
 # -----------------------------
 def next_targets_same_time():
-    """
-    Devuelve: (dt_min, [items...]) o None
-    Si el próximo horario tiene 2+ sorteos, devuelve todos.
-    """
     n = now_rd()
     candidates = []
 
@@ -466,7 +443,6 @@ def next_targets_same_time():
         if dt.date() != n.date():
             continue
 
-        # tolerancia por segundos tarde
         if dt < (n - timedelta(seconds=UPCOMING_GRACE_SECONDS)):
             continue
 
@@ -651,7 +627,7 @@ def build_exploded_history():
 
 
 # -----------------------------
-# Intradía analysis per target (BLEND REAL)
+# Intradía analysis per target (BLEND REAL + FALLBACK INTRADÍA)
 # -----------------------------
 def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, target_item: dict, state: dict):
     target = target_item
@@ -681,10 +657,45 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
 
     rec_today = None
     if not exp_today.empty:
-        # Usar solo lo que pasó HOY antes del target (cross-match intradía)
         mask_idx = set(exp_today.index.tolist())
         src_filter_today = lambda e, _m=mask_idx: e.index.isin(_m)
         rec_today = recommend_for_target(exp, src_filter_today, target["lottery"], target["draw"], lag_days=0, top_n=TOPK_FULL)
+
+    # ---------- INTRADAY FALLBACK (DATA REAL) ----------
+    # Si hay eventos hoy pero MI/Chi² no genera rec_today, usamos frecuencia intradía (no adivina).
+    MIN_INTRADAY_EVENTS_FOR_FALLBACK = 5
+    if (rec_today is None or rec_today.empty) and (len(exp_today) >= MIN_INTRADAY_EVENTS_FOR_FALLBACK):
+        try:
+            counts = None
+
+            # Si explode trae columna "num", es lo mejor para contar
+            if "num" in exp_today.columns:
+                nums = exp_today["num"].astype(str).str.extract(r"(\d{1,2})")[0].fillna("").str.zfill(2)
+                nums = nums[nums != ""]
+                counts = nums.value_counts()
+
+            # Si no existe "num", intentamos por columnas de resultados si están
+            elif all(c in exp_today.columns for c in ["primero", "segundo", "tercero"]):
+                nums = pd.concat([
+                    exp_today["primero"].astype(str),
+                    exp_today["segundo"].astype(str),
+                    exp_today["tercero"].astype(str),
+                ], ignore_index=True)
+                nums = nums.str.extract(r"(\d{1,2})")[0].fillna("").str.zfill(2)
+                nums = nums[nums != ""]
+                counts = nums.value_counts()
+
+            if counts is not None and not counts.empty:
+                mx = float(counts.max())
+                sig = (counts / mx) if mx > 0 else counts.astype(float)
+
+                rec_today = pd.DataFrame({
+                    "num": counts.index.astype(str),
+                    "signal": sig.values.astype(float),
+                    "a11": counts.values.astype(int),  # soporte intradía (apariciones)
+                })
+        except Exception:
+            pass
 
     # ---------- BLEND ----------
     def _prep(df):
@@ -695,8 +706,7 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         return d[["num", "signal", "a11"]]
 
     hist = _prep(rec_hist)
-
-    use_intraday = (rec_today is not None) and (not rec_today.empty) and (len(exp_today) >= 1)
+    use_intraday = (rec_today is not None) and (not rec_today.empty)
 
     if use_intraday:
         tday = _prep(rec_today)
@@ -710,20 +720,18 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
 
         m = pd.merge(hist, tday, on="num", how="outer", suffixes=("_h", "_t")).fillna(0)
 
-        # Pesos: intradía manda
+        # intradía manda, histórico respalda
         W_TODAY = 0.70
         W_HIST  = 0.30
         m["score"] = W_TODAY*m["sig_n_t"] + W_HIST*m["sig_n_h"]
-
-        # Boost leve por soporte
         m["score"] = m["score"] + 0.0005*m["a11_t"] + 0.0002*m["a11_h"]
 
         blended = m.sort_values("score", ascending=False)
         top12 = blended["num"].tolist()[:TOPK_FULL]
+
         best_signal_today = float(tday["signal"].max()) if not tday.empty else None
         best_a11_today = int(tday["a11"].max()) if not tday.empty else None
     else:
-        # si no hay intradía suficiente, histórico
         top12 = hist.sort_values(["signal", "a11"], ascending=False)["num"].tolist()[:TOPK_FULL]
         best_signal_today = None
         best_a11_today = None
@@ -797,7 +805,7 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     msg.append("📊 Debug:")
     msg.append(f"hist best_signal={best_signal_hist} best_a11={best_a11_hist}")
     msg.append(f"today best_signal={best_signal_today} best_a11={best_a11_today}")
-    msg.append(f"intraday_sources={int(use_intraday)} intraday_events={len(exp_today)}")
+    msg.append(f"has_intraday_sources={int(use_intraday)} intraday_events={len(exp_today)}")
 
     send_telegram("\n".join(msg))
     print("[OK] Telegram sent for target.")
@@ -841,7 +849,7 @@ def main():
     except Exception as e:
         print(f"[WARN] grading failed: {e}")
 
-    # 4) Si faltan updates "due" de HOY, NO se analiza
+    # 4) Si faltan updates "due" de HOY, NO se analiza (no adivinar)
     missing_due_today = missing_due_updates_global_today()
     if missing_due_today and (not FORCE_NOTIFY):
         print("[INFO] Still missing due updates today. Skipping analysis.")
@@ -856,7 +864,7 @@ def main():
                 msg.append("No se generarán picks hasta que se actualicen TODOS los sorteos debidos de HOY.")
                 msg.append("")
                 msg.append("Faltan:")
-                msg.extend([f"• {x}" for x in missing_due_today[:12]])
+                msg.extend([f"• {x}" for x in missing_due_today[:20]])
                 send_telegram("\n".join(msg))
                 state["last_wait_key"] = wait_key
             except Exception as e:
@@ -887,7 +895,7 @@ def main():
         print("[OK] runner finished")
         return
 
-    # 7) Build history + process next targets (handles 18:00 dual)
+    # 7) Build history + process next targets (handles dual 18:00 y dual 21:00)
     exp = build_exploded_history()
     if exp is None:
         print("[INFO] No history loaded. Exiting.")
