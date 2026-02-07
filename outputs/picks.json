@@ -1,46 +1,46 @@
 {
-  "generated_at": "2026-02-07T13:01:50.746250-04:00",
-  "event_key": "2026-02-07|La Primera|Quiniela La Primera",
+  "generated_at": "2026-02-07T13:12:52.282119-04:00",
+  "event_key": "2026-02-07|TEST|NO-UPDATE",
   "target": {
-    "time_rd": "2026-02-07 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM"
+    "time_rd": "2026-02-07 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más"
   },
   "best_play": {
-    "time_rd": "2026-02-07 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM",
+    "time_rd": "2026-02-07 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más",
     "top12": [
-      "43",
-      "98",
-      "77",
-      "76",
-      "36",
-      "57",
-      "33",
-      "30",
-      "59",
+      "25",
+      "40",
       "65",
+      "29",
       "82",
-      "94"
+      "08",
+      "44",
+      "14",
+      "37",
+      "20",
+      "75",
+      "89"
     ],
     "topq": [
-      "43",
-      "98",
-      "77"
+      "25",
+      "40",
+      "65"
     ],
     "pales": [
-      "43-98",
-      "43-77",
-      "43-76"
+      "25-40",
+      "25-65",
+      "25-29"
     ],
-    "fingerprint": "44418493b5010b1e",
-    "ok_alert": false,
-    "best_signal": 0.005698204204213634,
-    "best_a11": 11,
+    "fingerprint": "babd6bff87b10301",
+    "ok_alert": true,
+    "best_signal": 0.0018315547835724415,
+    "best_a11": 13,
     "debug": {
-      "best_signal_hist": 0.005698204204213634,
-      "best_a11_hist": 11,
+      "best_signal_hist": 0.0018315547835724415,
+      "best_a11_hist": 13,
       "best_signal_today": null,
       "best_a11_today": null,
       "has_intraday_sources": 1
