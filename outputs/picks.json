@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-07T13:12:52.282119-04:00",
-  "event_key": "2026-02-07|TEST|NO-UPDATE",
+  "generated_at": "2026-02-07T13:26:50.664021-04:00",
+  "event_key": "2026-02-07|Anguilla|Anguila 1PM",
   "target": {
     "time_rd": "2026-02-07 14:30",
     "lottery": "La Nacional",
@@ -36,13 +36,13 @@
     ],
     "fingerprint": "babd6bff87b10301",
     "ok_alert": true,
-    "best_signal": 0.0018315547835724415,
+    "best_signal": 0.0018612057069140205,
     "best_a11": 13,
     "debug": {
-      "best_signal_hist": 0.0018315547835724415,
+      "best_signal_hist": 0.0018612057069140205,
       "best_a11_hist": 13,
-      "best_signal_today": null,
-      "best_a11_today": null,
+      "best_signal_today": 0.0,
+      "best_a11_today": 0,
       "has_intraday_sources": 1
     }
   }

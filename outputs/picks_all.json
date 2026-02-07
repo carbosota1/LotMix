@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-02-07T13:26:51.241955-04:00",
+  "event_key": "2026-02-07|Anguilla|Anguila 1PM",
+  "items": [
+    {
+      "generated_at": "2026-02-07T13:26:50.664021-04:00",
+      "event_key": "2026-02-07|Anguilla|Anguila 1PM",
+      "target": {
+        "time_rd": "2026-02-07 14:30",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Gana Más"
+      },
+      "best_play": {
+        "time_rd": "2026-02-07 14:30",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Gana Más",
+        "top12": [
+          "25",
+          "40",
+          "65",
+          "29",
+          "82",
+          "08",
+          "44",
+          "14",
+          "37",
+          "20",
+          "75",
+          "89"
+        ],
+        "topq": [
+          "25",
+          "40",
+          "65"
+        ],
+        "pales": [
+          "25-40",
+          "25-65",
+          "25-29"
+        ],
+        "fingerprint": "babd6bff87b10301",
+        "ok_alert": true,
+        "best_signal": 0.0018612057069140205,
+        "best_a11": 13,
+        "debug": {
+          "best_signal_hist": 0.0018612057069140205,
+          "best_a11_hist": 13,
+          "best_signal_today": 0.0,
+          "best_a11_today": 0,
+          "has_intraday_sources": 1
+        }
+      }
+    }
+  ]
+}
