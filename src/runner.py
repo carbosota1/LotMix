@@ -36,8 +36,6 @@ XLSX_FILES = {
 # =========================
 # SCHEDULE (draw == EXACTO columna "sorteo")
 # ✅ Nacional Noche = 21:00
-# ✅ update_after = 15 (tu ajuste)
-# ✅ La Suerte 12:30 y La Suerte 6PM
 # =========================
 UPDATE_AFTER = 15
 
@@ -627,7 +625,7 @@ def build_exploded_history():
 
 
 # -----------------------------
-# Intradía analysis per target (BLEND REAL + FALLBACK INTRADÍA)
+# Intradía analysis per target (MI/Chi² ONLY for intraday)
 # -----------------------------
 def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, target_item: dict, state: dict):
     target = target_item
@@ -651,7 +649,7 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         print("[INFO] Not enough data to compute recommendations for target.")
         return None
 
-    # ---------- TODAY (intradía real) ----------
+    # ---------- TODAY (intradía SOLO si MI/Chi² da señal) ----------
     today_date = target_dt_naive.date()
     exp_today = exp[(exp["fecha_dt"].dt.date == today_date) & (exp["fecha_dt"] < target_dt_naive)].copy()
 
@@ -659,43 +657,17 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     if not exp_today.empty:
         mask_idx = set(exp_today.index.tolist())
         src_filter_today = lambda e, _m=mask_idx: e.index.isin(_m)
-        rec_today = recommend_for_target(exp, src_filter_today, target["lottery"], target["draw"], lag_days=0, top_n=TOPK_FULL)
+        rec_today = recommend_for_target(
+            exp,
+            src_filter_today,
+            target["lottery"],
+            target["draw"],
+            lag_days=0,
+            top_n=TOPK_FULL
+        )
 
-    # ---------- INTRADAY FALLBACK (DATA REAL) ----------
-    # Si hay eventos hoy pero MI/Chi² no genera rec_today, usamos frecuencia intradía (no adivina).
-    MIN_INTRADAY_EVENTS_FOR_FALLBACK = 5
-    if (rec_today is None or rec_today.empty) and (len(exp_today) >= MIN_INTRADAY_EVENTS_FOR_FALLBACK):
-        try:
-            counts = None
-
-            # Si explode trae columna "num", es lo mejor para contar
-            if "num" in exp_today.columns:
-                nums = exp_today["num"].astype(str).str.extract(r"(\d{1,2})")[0].fillna("").str.zfill(2)
-                nums = nums[nums != ""]
-                counts = nums.value_counts()
-
-            # Si no existe "num", intentamos por columnas de resultados si están
-            elif all(c in exp_today.columns for c in ["primero", "segundo", "tercero"]):
-                nums = pd.concat([
-                    exp_today["primero"].astype(str),
-                    exp_today["segundo"].astype(str),
-                    exp_today["tercero"].astype(str),
-                ], ignore_index=True)
-                nums = nums.str.extract(r"(\d{1,2})")[0].fillna("").str.zfill(2)
-                nums = nums[nums != ""]
-                counts = nums.value_counts()
-
-            if counts is not None and not counts.empty:
-                mx = float(counts.max())
-                sig = (counts / mx) if mx > 0 else counts.astype(float)
-
-                rec_today = pd.DataFrame({
-                    "num": counts.index.astype(str),
-                    "signal": sig.values.astype(float),
-                    "a11": counts.values.astype(int),  # soporte intradía (apariciones)
-                })
-        except Exception:
-            pass
+    # ✅ Solo intradía si hay señal MI/Chi² real (df no vacío)
+    use_intraday = (rec_today is not None) and (not rec_today.empty)
 
     # ---------- BLEND ----------
     def _prep(df):
@@ -706,7 +678,9 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         return d[["num", "signal", "a11"]]
 
     hist = _prep(rec_hist)
-    use_intraday = (rec_today is not None) and (not rec_today.empty)
+
+    best_signal_today = None
+    best_a11_today = None
 
     if use_intraday:
         tday = _prep(rec_today)
@@ -733,8 +707,6 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         best_a11_today = int(tday["a11"].max()) if not tday.empty else None
     else:
         top12 = hist.sort_values(["signal", "a11"], ascending=False)["num"].tolist()[:TOPK_FULL]
-        best_signal_today = None
-        best_a11_today = None
 
     topq = top12[:TOPK_QUINIELA]
     pales = format_pales(top_pales(top12[:10], 40))[:PALES_OUT]
