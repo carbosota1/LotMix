@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-02-07T15:50:44.268738-04:00",
+  "generated_at": "2026-02-07T15:56:43.947078-04:00",
   "event_key": "2026-02-07|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-02-07T15:50:42.055271-04:00",
+      "generated_at": "2026-02-07T15:56:41.877452-04:00",
       "event_key": "2026-02-07|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-02-07 18:00",
@@ -15,45 +15,45 @@
         "lottery": "Anguilla",
         "draw": "Anguila 6PM",
         "top12": [
-          "63",
-          "94",
-          "33",
-          "23",
-          "62",
-          "02",
-          "59",
-          "47",
+          "01",
+          "14",
+          "34",
           "13",
-          "46",
-          "03",
-          "48"
+          "17",
+          "36",
+          "38",
+          "77",
+          "89",
+          "92",
+          "39",
+          "61"
         ],
         "topq": [
-          "63",
-          "94",
-          "33"
+          "01",
+          "14",
+          "34"
         ],
         "pales": [
-          "63-94",
-          "33-63",
-          "23-63"
+          "01-14",
+          "01-34",
+          "01-13"
         ],
-        "fingerprint": "dd1816fb03b2716d",
+        "fingerprint": "7734d7d2a7217d54",
         "ok_alert": false,
         "best_signal": 0.006770338673115292,
         "best_a11": 11,
         "debug": {
           "best_signal_hist": 0.006770338673115292,
           "best_a11_hist": 11,
-          "best_signal_today": null,
-          "best_a11_today": null,
-          "has_intraday_sources": 0,
+          "best_signal_today": 1.0,
+          "best_a11_today": 2,
+          "has_intraday_sources": 1,
           "intraday_events": 15
         }
       }
     },
     {
-      "generated_at": "2026-02-07T15:50:43.794803-04:00",
+      "generated_at": "2026-02-07T15:56:43.513732-04:00",
       "event_key": "2026-02-07|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-02-07 18:00",
@@ -65,39 +65,39 @@
         "lottery": "La Suerte",
         "draw": "Quiniela La Suerte 6PM",
         "top12": [
-          "19",
-          "79",
-          "65",
-          "60",
-          "09",
-          "45",
-          "30",
-          "07",
-          "88",
-          "21",
+          "01",
+          "14",
+          "34",
           "92",
-          "66"
+          "39",
+          "17",
+          "13",
+          "77",
+          "89",
+          "61",
+          "36",
+          "38"
         ],
         "topq": [
-          "19",
-          "79",
-          "65"
+          "01",
+          "14",
+          "34"
         ],
         "pales": [
-          "19-79",
-          "19-65",
-          "19-60"
+          "01-14",
+          "01-34",
+          "01-92"
         ],
-        "fingerprint": "1bb3c4f6b3713143",
+        "fingerprint": "4bcd66a169dcd448",
         "ok_alert": true,
         "best_signal": 0.005025936804481827,
         "best_a11": 14,
         "debug": {
           "best_signal_hist": 0.005025936804481827,
           "best_a11_hist": 14,
-          "best_signal_today": null,
-          "best_a11_today": null,
-          "has_intraday_sources": 0,
+          "best_signal_today": 1.0,
+          "best_a11_today": 2,
+          "has_intraday_sources": 1,
           "intraday_events": 15
         }
       }
