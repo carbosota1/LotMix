@@ -207,37 +207,15 @@ def fetch_result(lottery: str, draw: str, date: str):
         raise AttributeError(f"El scraper {file_path} no tiene get_result(draw, date)")
     return module.get_result(draw, date)
 
-def try_update_one(item, state) -> bool:
-    n = now_rd()
-    date_str = today_str()
-    draw_dt = draw_datetime_today(item["time"])
-    due = draw_dt + timedelta(minutes=item["update_after_minutes"])
 
-    key = f"{date_str}|{item['lottery']}|{item['draw']}"
-    last_updates = state.get("last_updates", {})
+# -----------------------------
+# DUE logic
+# -----------------------------
+def _due_dt(item) -> datetime:
+    return draw_datetime_today(item["time"]) + timedelta(minutes=item["update_after_minutes"])
 
-    if n < due:
-        return False
-    if last_updates.get(key) == "done":
-        return False
-
-    p1, p2, p3 = fetch_result(item["lottery"], item["draw"], date_str)
-    p1, p2, p3 = normalize_2d(p1), normalize_2d(p2), normalize_2d(p3)
-
-    new_row = pd.DataFrame([{
-        "fecha": date_str,
-        "sorteo": item["draw"],
-        "primero": p1,
-        "segundo": p2,
-        "tercero": p3,
-    }])
-
-    ensure_dir(HIST_DIR)
-    upsert_history_xlsx(XLSX_FILES[item["lottery"]], new_row)
-
-    last_updates[key] = "done"
-    state["last_updates"] = last_updates
-    return True
+def _is_due(item, now: datetime) -> bool:
+    return now >= _due_dt(item)
 
 
 # -----------------------------
@@ -262,27 +240,55 @@ def _has_row_for_date(lottery: str, draw: str, date_str: str) -> bool:
     m = df[(df["fecha"] == date_str) & (df["sorteo"] == draw)]
     return not m.empty
 
-def _try_update_for_date(item, date_str: str, state: dict, ignore_state_done: bool = True) -> bool:
-    """
-    Backfill: actualiza un sorteo para una fecha específica.
-    Si ignore_state_done=True, reintenta aunque state diga done si el XLSX no tiene fila.
-    """
+def _get_row_for_date(lottery: str, draw: str, date_str: str):
+    path = XLSX_FILES.get(lottery)
+    if not path or not os.path.exists(path):
+        return None
+    try:
+        df = pd.read_excel(path)
+    except Exception:
+        return None
+    df.columns = [str(c).strip().lower() for c in df.columns]
+    need = {"fecha", "sorteo", "primero", "segundo", "tercero"}
+    if not need.issubset(set(df.columns)):
+        return None
+    df["fecha"] = df["fecha"].astype(str).str.slice(0, 10)
+    df["sorteo"] = df["sorteo"].astype(str)
+    m = df[(df["fecha"] == date_str) & (df["sorteo"] == draw)]
+    if m.empty:
+        return None
+    r = m.iloc[-1]
+    return (normalize_2d(str(r["primero"])), normalize_2d(str(r["segundo"])), normalize_2d(str(r["tercero"])))
+
+
+# -----------------------------
+# Normal update (HOY)
+# -----------------------------
+def try_update_one(item, state) -> bool:
+    n = now_rd()
+    date_str = today_str()
+
+    # Solo cuando está DUE
+    if not _is_due(item, n):
+        return False
+
     key = f"{date_str}|{item['lottery']}|{item['draw']}"
     last_updates = state.get("last_updates", {})
+    if last_updates.get(key) == "done":
+        # state dice done, pero si el XLSX no tiene fila, no confiamos en state
+        if _has_row_for_date(item["lottery"], item["draw"], date_str):
+            return False
 
-    # Si ya existe fila en XLSX, marcamos done y salimos
-    if _has_row_for_date(item["lottery"], item["draw"], date_str):
-        last_updates[key] = "done"
-        state["last_updates"] = last_updates
-        return False
-
-    # Si NO ignoramos state y dice done -> salimos
-    if (not ignore_state_done) and last_updates.get(key) == "done":
-        return False
-
-    # Scrape
     p1, p2, p3 = fetch_result(item["lottery"], item["draw"], date_str)
     p1, p2, p3 = normalize_2d(p1), normalize_2d(p2), normalize_2d(p3)
+
+    # Anti-invención HOY: si devuelve exactamente lo mismo que AYER, no insertamos aún (ventana 90min)
+    yday = (now_rd().date() - timedelta(days=1)).strftime("%Y-%m-%d")
+    yres = _get_row_for_date(item["lottery"], item["draw"], yday)
+    if yres is not None and (p1, p2, p3) == yres:
+        due = _due_dt(item)
+        if n < (due + timedelta(minutes=90)):
+            raise RuntimeError("Resultado aún no publicado (mismo que ayer). Skipping insert.")
 
     new_row = pd.DataFrame([{
         "fecha": date_str,
@@ -299,17 +305,77 @@ def _try_update_for_date(item, date_str: str, state: dict, ignore_state_done: bo
     state["last_updates"] = last_updates
     return True
 
+
+# -----------------------------
+# FORCE REFRESH + BACKFILL (HOY + AYER)
+# - HOY: SOLO DUE (no futuros)
+# - AYER: todos los faltantes
+# - Anti-invención HOY incluido
+# -----------------------------
 def _missing_for_date(date_str: str) -> list[dict]:
+    """
+    Para fechas pasadas: todos los sorteos faltantes.
+    Para HOY: SOLO los sorteos DUE (evita inventar resultados futuros).
+    """
     missing = []
+    n = now_rd()
+    today = today_str()
     for item in SCHEDULE:
+        if date_str == today and (not _is_due(item, n)):
+            continue
         if not _has_row_for_date(item["lottery"], item["draw"], date_str):
             missing.append(item)
     return missing
 
+def _try_update_for_date(item, date_str: str, state: dict, ignore_state_done: bool = True) -> bool:
+    """
+    Backfill: actualiza un sorteo para fecha específica.
+    Para HOY solo se llama si ya está DUE (lo garantiza _missing_for_date).
+    Anti-invención HOY: si trae mismo que ayer, no inserta (ventana 90min).
+    """
+    key = f"{date_str}|{item['lottery']}|{item['draw']}"
+    last_updates = state.get("last_updates", {})
+
+    if _has_row_for_date(item["lottery"], item["draw"], date_str):
+        last_updates[key] = "done"
+        state["last_updates"] = last_updates
+        return False
+
+    if (not ignore_state_done) and last_updates.get(key) == "done":
+        return False
+
+    p1, p2, p3 = fetch_result(item["lottery"], item["draw"], date_str)
+    p1, p2, p3 = normalize_2d(p1), normalize_2d(p2), normalize_2d(p3)
+
+    if date_str == today_str():
+        n = now_rd()
+        yday = (n.date() - timedelta(days=1)).strftime("%Y-%m-%d")
+        yres = _get_row_for_date(item["lottery"], item["draw"], yday)
+        if yres is not None and (p1, p2, p3) == yres:
+            due = _due_dt(item)
+            if n < (due + timedelta(minutes=90)):
+                raise RuntimeError("Resultado aún no publicado (mismo que ayer). Skipping insert.")
+
+    new_row = pd.DataFrame([{
+        "fecha": date_str,
+        "sorteo": item["draw"],
+        "primero": p1,
+        "segundo": p2,
+        "tercero": p3,
+    }])
+
+    ensure_dir(HIST_DIR)
+    upsert_history_xlsx(XLSX_FILES[item["lottery"]], new_row)
+
+    last_updates[key] = "done"
+    state["last_updates"] = last_updates
+    return True
+
 def force_refresh_backfill(state: dict, days_back: int = 1, max_attempts: int = 5, backoff_seconds=None) -> dict:
     """
     Fuerza refresh de sorteos faltantes para HOY y días anteriores (hasta days_back).
-    days_back=1 => hoy + ayer.
+    ✅ Para HOY: solo intenta los sorteos DUE (evita inventar futuros).
+    ✅ Para días pasados: intenta todos los faltantes.
     """
     if backoff_seconds is None:
         backoff_seconds = [2, 5, 10, 20, 30]
@@ -333,7 +399,7 @@ def force_refresh_backfill(state: dict, days_back: int = 1, max_attempts: int = 
                         any_fixed = True
                         print(f"[OK] Backfilled: {ds} | {item['lottery']} {item['draw']}")
                 except Exception as e:
-                    print(f"[WARN] Backfill failed: {ds} | {item['lottery']} {item['draw']}: {e}")
+                    print(f"[WARN] Backfill skip/fail: {ds} | {item['lottery']} {item['draw']}: {e}")
 
         if attempt < max_attempts - 1 and not any_fixed:
             wait = backoff_seconds[min(attempt, len(backoff_seconds) - 1)]
@@ -346,12 +412,6 @@ def force_refresh_backfill(state: dict, days_back: int = 1, max_attempts: int = 
 # -----------------------------
 # GATE: cross-match REAL (no adivinar)
 # -----------------------------
-def _due_dt(item) -> datetime:
-    return draw_datetime_today(item["time"]) + timedelta(minutes=item["update_after_minutes"])
-
-def _is_due(item, now: datetime) -> bool:
-    return now >= _due_dt(item)
-
 def missing_due_updates_before_target(target_dt: datetime) -> list[str]:
     """
     Sorteos previos al target que ya deberían estar en histórico HOY y faltan.
@@ -420,17 +480,17 @@ def next_targets_same_time():
 # -----------------------------
 # Picks logging + grading
 # -----------------------------
-def log_pick(best_play_payload: dict):
+def log_pick(payload: dict):
     """
     Guarda cada target como una fila en data/picks_log.csv (clave única por fecha/lot/draw/time).
     """
     _ensure_dir(DATA_DIR)
     log_path = os.path.join(DATA_DIR, "picks_log.csv")
 
-    generated_at = best_play_payload.get("generated_at")
+    generated_at = payload.get("generated_at")
     date_str = (generated_at or "")[:10] if generated_at else today_str()
 
-    bp = best_play_payload.get("best_play", {})
+    bp = payload.get("best_play", {})
     time_rd = bp.get("time_rd", "")
     lottery = bp.get("lottery", "")
     draw = bp.get("draw", "")
@@ -450,7 +510,7 @@ def log_pick(best_play_payload: dict):
         "top12": json.dumps(bp.get("top12", []), ensure_ascii=False),
         "topq": json.dumps(bp.get("topq", []), ensure_ascii=False),
         "pales": json.dumps(bp.get("pales", []), ensure_ascii=False),
-        "graded": 0,
+        "graded": "0",
     }
 
     new_df = pd.DataFrame([row])
@@ -519,7 +579,7 @@ def grade_picks_from_histories():
     perf_rows = []
     any_graded = False
 
-    for idx, r in pending.iterrows():
+    for _, r in pending.iterrows():
         date_s = r.get("date", "")
         lottery = r.get("lottery", "")
         draw = r.get("draw", "")
@@ -593,10 +653,7 @@ def build_exploded_history():
 # -----------------------------
 # Intradía analysis per target
 # -----------------------------
-def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, target_item: dict, state: dict) -> dict | None:
-    """
-    Procesa un target (lotería+draw). Devuelve payload (para outputs/picks_all.json).
-    """
+def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, target_item: dict, state: dict):
     target = target_item
     print("[INFO] Target:", target_dt.strftime("%Y-%m-%d %H:%M"), target["lottery"], target["draw"])
 
@@ -618,7 +675,7 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         print("[INFO] Not enough data to compute recommendations for target.")
         return None
 
-    # Intradía (solo para debug; el ranking principal se mantiene histórico por estabilidad)
+    # Intradía (solo para debug)
     today = target_dt_naive.date()
     exp_today = exp[(exp["fecha_dt"].dt.date == today) & (exp["fecha_dt"] < target_dt_naive)].copy()
     rec_today = None
@@ -719,7 +776,7 @@ def main():
 
     updated_today = []
 
-    # 1) Update pass normal (solo HOY)
+    # 1) Update pass normal (solo HOY, solo DUE)
     for item in SCHEDULE:
         try:
             if try_update_one(item, state):
@@ -728,8 +785,7 @@ def main():
         except Exception as e:
             print(f"[WARN] update failed {item['lottery']}|{item['draw']}: {e}")
 
-    # 2) FORCE REFRESH + BACKFILL (HOY + AYER) => evita “ayer no se registró”
-    #    OJO: no lo usamos como trigger de picks (solo asegura data completa).
+    # 2) FORCE REFRESH + BACKFILL (HOY + AYER)
     try:
         state = force_refresh_backfill(state, days_back=1, max_attempts=5)
     except Exception as e:
@@ -833,6 +889,10 @@ def main():
     state["last_event_key"] = event_key
     save_state(state)
     print("[OK] runner finished")
+
+
+if __name__ == "__main__":
+    main()
 
 
 if __name__ == "__main__":
