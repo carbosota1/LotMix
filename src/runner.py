@@ -711,8 +711,8 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         m = pd.merge(hist, tday, on="num", how="outer", suffixes=("_h", "_t")).fillna(0)
 
         # Pesos: intradía manda
-        W_TODAY = 0.70
-        W_HIST  = 0.30
+        W_TODAY = 0.50
+        W_HIST  = 0.50
         m["score"] = W_TODAY*m["sig_n_t"] + W_HIST*m["sig_n_h"]
 
         # Boost leve por soporte
