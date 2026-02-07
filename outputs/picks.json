@@ -1,49 +1,49 @@
 {
-  "generated_at": "2026-02-06T20:33:23.907754-04:00",
-  "event_key": "2026-02-06|TEST|NO-UPDATE",
+  "generated_at": "2026-02-07T00:54:12.545422-04:00",
+  "event_key": "2026-02-07|TEST|NO-UPDATE",
   "target": {
-    "time_rd": "2026-02-06 21:00",
+    "time_rd": "2026-02-07 10:00",
     "lottery": "Anguilla",
-    "draw": "Anguila 9PM"
+    "draw": "Anguila 10AM"
   },
   "best_play": {
-    "time_rd": "2026-02-06 21:00",
+    "time_rd": "2026-02-07 10:00",
     "lottery": "Anguilla",
-    "draw": "Anguila 9PM",
+    "draw": "Anguila 10AM",
     "top12": [
-      "57",
-      "81",
-      "55",
-      "02",
-      "63",
-      "18",
-      "53",
-      "28",
-      "90",
+      "35",
+      "58",
+      "85",
+      "23",
+      "92",
+      "21",
+      "89",
+      "78",
+      "27",
       "05",
-      "32",
+      "76",
       "83"
     ],
     "topq": [
-      "57",
-      "81",
-      "55"
+      "35",
+      "58",
+      "85"
     ],
     "pales": [
-      "57-81",
-      "55-57",
-      "02-57"
+      "35-58",
+      "35-85",
+      "23-35"
     ],
-    "fingerprint": "c39499b05026b2f7",
+    "fingerprint": "09164aae75900308",
     "ok_alert": false,
-    "best_signal": 0.006356885230624795,
-    "best_a11": 8,
+    "best_signal": 0.0057754710406482,
+    "best_a11": 10,
     "debug": {
-      "best_signal_hist": 0.006356885230624795,
-      "best_a11_hist": 8,
+      "best_signal_hist": 0.0057754710406482,
+      "best_a11_hist": 10,
       "best_signal_today": null,
       "best_a11_today": null,
-      "has_intraday_sources": 1
+      "has_intraday_sources": 0
     }
   }
 }
