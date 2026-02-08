@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-08T16:21:21.603503-04:00",
+  "generated_at": "2026-02-08T16:31:54.292410-04:00",
   "event_key": "2026-02-08|TEST|NO-UPDATE",
   "target": {
     "time_rd": "2026-02-08 18:00",
@@ -11,40 +11,41 @@
     "lottery": "La Suerte",
     "draw": "Quiniela La Suerte 6PM",
     "top12": [
-      "19",
-      "79",
-      "65",
-      "60",
-      "09",
-      "45",
       "30",
-      "07",
-      "88",
-      "21",
+      "13",
+      "87",
       "92",
-      "66"
+      "66",
+      "21",
+      "07",
+      "53",
+      "88",
+      "35",
+      "02",
+      "73"
     ],
     "topq": [
-      "19",
-      "79",
-      "65"
+      "30",
+      "13",
+      "87"
     ],
     "pales": [
-      "19-79",
-      "19-65",
-      "19-60"
+      "13-30",
+      "30-87",
+      "30-92"
     ],
-    "fingerprint": "1ff945a44470103c",
-    "ok_alert": true,
-    "best_signal": 0.005014118502398624,
-    "best_a11": 14,
+    "fingerprint": "ad6ac775a5608907",
+    "ok_alert": false,
+    "best_signal": 0.0017500920717078616,
+    "best_a11": 7,
     "debug": {
-      "best_signal_hist": 0.005014118502398624,
-      "best_a11_hist": 14,
-      "best_signal_today": null,
-      "best_a11_today": null,
+      "best_signal_hist": 0.0017500920717078616,
+      "best_a11_hist": 7,
       "has_intraday_sources": 0,
-      "intraday_events": 0
+      "intraday_events": 0,
+      "today_observed_nums": 12,
+      "source_pairs_today": 5,
+      "source_rows_hist_used": 1966
     }
   }
 }

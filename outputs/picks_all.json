@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-02-08T16:21:22.072710-04:00",
+  "generated_at": "2026-02-08T16:31:54.753579-04:00",
   "event_key": "2026-02-08|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-02-08T16:21:19.631299-04:00",
+      "generated_at": "2026-02-08T16:31:45.667899-04:00",
       "event_key": "2026-02-08|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-02-08 18:00",
@@ -15,45 +15,97 @@
         "lottery": "Anguilla",
         "draw": "Anguila 6PM",
         "top12": [
-          "63",
-          "94",
           "33",
-          "23",
-          "62",
-          "02",
-          "59",
-          "47",
-          "57",
-          "46",
+          "30",
+          "75",
+          "87",
           "03",
-          "48"
+          "46",
+          "48",
+          "63",
+          "45",
+          "59",
+          "66",
+          "70"
         ],
         "topq": [
-          "63",
-          "94",
-          "33"
+          "33",
+          "30",
+          "75"
         ],
         "pales": [
-          "63-94",
-          "33-63",
-          "23-63"
+          "30-33",
+          "33-75",
+          "33-87"
         ],
-        "fingerprint": "a9776ca0f71045d4",
+        "fingerprint": "7656fb953071f884",
         "ok_alert": false,
-        "best_signal": 0.0067461890479448,
-        "best_a11": 11,
+        "best_signal": 0.008315417196843936,
+        "best_a11": 10,
         "debug": {
-          "best_signal_hist": 0.0067461890479448,
-          "best_a11_hist": 11,
-          "best_signal_today": null,
-          "best_a11_today": null,
+          "best_signal_hist": 0.008315417196843936,
+          "best_a11_hist": 10,
           "has_intraday_sources": 0,
-          "intraday_events": 0
+          "intraday_events": 0,
+          "today_observed_nums": 12,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 1966
         }
       }
     },
     {
-      "generated_at": "2026-02-08T16:21:21.603503-04:00",
+      "generated_at": "2026-02-08T16:31:50.097335-04:00",
+      "event_key": "2026-02-08|TEST|NO-UPDATE",
+      "target": {
+        "time_rd": "2026-02-08 18:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche"
+      },
+      "best_play": {
+        "time_rd": "2026-02-08 18:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche",
+        "top12": [
+          "47",
+          "91",
+          "87",
+          "13",
+          "11",
+          "90",
+          "61",
+          "80",
+          "38",
+          "49",
+          "03",
+          "84"
+        ],
+        "topq": [
+          "47",
+          "91",
+          "87"
+        ],
+        "pales": [
+          "47-91",
+          "47-87",
+          "13-47"
+        ],
+        "fingerprint": "e696e04f8b4e2aea",
+        "ok_alert": false,
+        "best_signal": 0.0016173902795636654,
+        "best_a11": 10,
+        "debug": {
+          "best_signal_hist": 0.0016173902795636654,
+          "best_a11_hist": 10,
+          "has_intraday_sources": 0,
+          "intraday_events": 0,
+          "today_observed_nums": 12,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 1966
+        }
+      }
+    },
+    {
+      "generated_at": "2026-02-08T16:31:54.292410-04:00",
       "event_key": "2026-02-08|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-02-08 18:00",
@@ -65,40 +117,41 @@
         "lottery": "La Suerte",
         "draw": "Quiniela La Suerte 6PM",
         "top12": [
-          "19",
-          "79",
-          "65",
-          "60",
-          "09",
-          "45",
           "30",
-          "07",
-          "88",
-          "21",
+          "13",
+          "87",
           "92",
-          "66"
+          "66",
+          "21",
+          "07",
+          "53",
+          "88",
+          "35",
+          "02",
+          "73"
         ],
         "topq": [
-          "19",
-          "79",
-          "65"
+          "30",
+          "13",
+          "87"
         ],
         "pales": [
-          "19-79",
-          "19-65",
-          "19-60"
+          "13-30",
+          "30-87",
+          "30-92"
         ],
-        "fingerprint": "1ff945a44470103c",
-        "ok_alert": true,
-        "best_signal": 0.005014118502398624,
-        "best_a11": 14,
+        "fingerprint": "ad6ac775a5608907",
+        "ok_alert": false,
+        "best_signal": 0.0017500920717078616,
+        "best_a11": 7,
         "debug": {
-          "best_signal_hist": 0.005014118502398624,
-          "best_a11_hist": 14,
-          "best_signal_today": null,
-          "best_a11_today": null,
+          "best_signal_hist": 0.0017500920717078616,
+          "best_a11_hist": 7,
           "has_intraday_sources": 0,
-          "intraday_events": 0
+          "intraday_events": 0,
+          "today_observed_nums": 12,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 1966
         }
       }
     }
