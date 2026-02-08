@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-02-08T15:56:22.564127-04:00",
+  "generated_at": "2026-02-08T16:21:22.072710-04:00",
   "event_key": "2026-02-08|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-02-08T15:56:17.903702-04:00",
+      "generated_at": "2026-02-08T16:21:19.631299-04:00",
       "event_key": "2026-02-08|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-02-08 18:00",
@@ -38,7 +38,7 @@
           "33-63",
           "23-63"
         ],
-        "fingerprint": "dd1816fb03b2716d",
+        "fingerprint": "a9776ca0f71045d4",
         "ok_alert": false,
         "best_signal": 0.0067461890479448,
         "best_a11": 11,
@@ -48,62 +48,12 @@
           "best_signal_today": null,
           "best_a11_today": null,
           "has_intraday_sources": 0,
-          "intraday_events": 15
+          "intraday_events": 0
         }
       }
     },
     {
-      "generated_at": "2026-02-08T15:56:20.035040-04:00",
-      "event_key": "2026-02-08|TEST|NO-UPDATE",
-      "target": {
-        "time_rd": "2026-02-08 18:00",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Noche"
-      },
-      "best_play": {
-        "time_rd": "2026-02-08 18:00",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Noche",
-        "top12": [
-          "65",
-          "49",
-          "72",
-          "91",
-          "03",
-          "87",
-          "63",
-          "61",
-          "13",
-          "11",
-          "80",
-          "90"
-        ],
-        "topq": [
-          "65",
-          "49",
-          "72"
-        ],
-        "pales": [
-          "49-65",
-          "65-72",
-          "65-91"
-        ],
-        "fingerprint": "e69148e560b6f8e9",
-        "ok_alert": true,
-        "best_signal": 0.0017171614106259651,
-        "best_a11": 14,
-        "debug": {
-          "best_signal_hist": 0.0017171614106259651,
-          "best_a11_hist": 14,
-          "best_signal_today": null,
-          "best_a11_today": null,
-          "has_intraday_sources": 0,
-          "intraday_events": 15
-        }
-      }
-    },
-    {
-      "generated_at": "2026-02-08T15:56:22.060094-04:00",
+      "generated_at": "2026-02-08T16:21:21.603503-04:00",
       "event_key": "2026-02-08|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-02-08 18:00",
@@ -138,7 +88,7 @@
           "19-65",
           "19-60"
         ],
-        "fingerprint": "1bb3c4f6b3713143",
+        "fingerprint": "1ff945a44470103c",
         "ok_alert": true,
         "best_signal": 0.005014118502398624,
         "best_a11": 14,
@@ -148,7 +98,7 @@
           "best_signal_today": null,
           "best_a11_today": null,
           "has_intraday_sources": 0,
-          "intraday_events": 15
+          "intraday_events": 0
         }
       }
     }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-08T15:56:22.060094-04:00",
+  "generated_at": "2026-02-08T16:21:21.603503-04:00",
   "event_key": "2026-02-08|TEST|NO-UPDATE",
   "target": {
     "time_rd": "2026-02-08 18:00",
@@ -34,7 +34,7 @@
       "19-65",
       "19-60"
     ],
-    "fingerprint": "1bb3c4f6b3713143",
+    "fingerprint": "1ff945a44470103c",
     "ok_alert": true,
     "best_signal": 0.005014118502398624,
     "best_a11": 14,
@@ -44,7 +44,7 @@
       "best_signal_today": null,
       "best_a11_today": null,
       "has_intraday_sources": 0,
-      "intraday_events": 15
+      "intraday_events": 0
     }
   }
 }
