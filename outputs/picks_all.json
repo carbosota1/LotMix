@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-02-08T19:02:48.884229-04:00",
-  "event_key": "2026-02-08|TEST|NO-UPDATE",
+  "generated_at": "2026-02-08T19:18:33.662948-04:00",
+  "event_key": "2026-02-08|La Primera|Quiniela La Primera Noche",
   "items": [
     {
-      "generated_at": "2026-02-08T19:02:48.183806-04:00",
-      "event_key": "2026-02-08|TEST|NO-UPDATE",
+      "generated_at": "2026-02-08T19:18:32.978556-04:00",
+      "event_key": "2026-02-08|La Primera|Quiniela La Primera Noche",
       "target": {
         "time_rd": "2026-02-08 19:00",
         "lottery": "La Primera",
@@ -18,15 +18,15 @@
           "33",
           "68",
           "08",
+          "47",
           "65",
           "15",
           "14",
           "18",
           "31",
           "99",
-          "79",
           "41",
-          "17"
+          "79"
         ],
         "topq": [
           "33",
@@ -36,14 +36,14 @@
         "pales": [
           "33-68",
           "08-33",
-          "33-65"
+          "33-47"
         ],
-        "fingerprint": "b7684983c63fad22",
+        "fingerprint": "538c91aa5a5a2297",
         "ok_alert": false,
-        "best_signal": 0.0023625598315458467,
+        "best_signal": 0.0023837769084595803,
         "best_a11": 12,
         "debug": {
-          "best_signal_hist": 0.0023625598315458467,
+          "best_signal_hist": 0.0023837769084595803,
           "best_a11_hist": 12,
           "has_intraday_sources": 0,
           "intraday_events": 0,
