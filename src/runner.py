@@ -36,7 +36,7 @@ XLSX_FILES = {
 # =========================
 # SCHEDULE (draw == EXACTO columna "sorteo")
 # =========================
-UPDATE_AFTER = 15  # ya lo cambiaste, lo dejamos
+UPDATE_AFTER = 15
 
 SCHEDULE = [
     # Anguilla (4)
@@ -49,11 +49,12 @@ SCHEDULE = [
     {"lottery": "La Primera", "draw": "Quiniela La Primera",       "time": "12:00", "update_after_minutes": UPDATE_AFTER},
     {"lottery": "La Primera", "draw": "Quiniela La Primera Noche", "time": "19:00", "update_after_minutes": UPDATE_AFTER},
 
-    # La Nacional (2)  ✅ Nacional Noche 21:00
+    # La Nacional (2)
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Gana Más", "time": "14:30", "update_after_minutes": UPDATE_AFTER},
+    # 👇 Nacional Noche cambia los domingos a 18:00 (se maneja dinámico abajo)
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche",    "time": "21:00", "update_after_minutes": UPDATE_AFTER},
 
-    # La Suerte (2) ✅ 12:30 y 18:00
+    # La Suerte (2)
     {"lottery": "La Suerte", "draw": "Quiniela La Suerte",     "time": "12:30", "update_after_minutes": UPDATE_AFTER},
     {"lottery": "La Suerte", "draw": "Quiniela La Suerte 6PM", "time": "18:00", "update_after_minutes": UPDATE_AFTER},
 ]
@@ -66,15 +67,13 @@ TOPK_FULL     = 12
 PALES_OUT     = 3
 
 # =========================
-# UMBRALES "EDGE" (VOLVEMOS A MODO GANADOR)
+# UMBRALES "EDGE" (modo ganador)
 # =========================
-# Ajustados para “no hablar cuando no hay edge”.
 MIN_SIGNAL = 0.0075
 MIN_A11    = 11
 
 LOOKAHEAD_MINUTES = 16 * 60
-# ✅ Si el job se ejecuta tarde (manual), igual procesa el target si no pasó mucho tiempo.
-UPCOMING_GRACE_SECONDS = 45 * 60  # 45 min
+UPCOMING_GRACE_SECONDS = 45 * 60  # si ejecutas tarde manual, aún procesa
 
 FORCE_NOTIFY = os.getenv("FORCE_NOTIFY", "0").strip() == "1"
 
@@ -87,11 +86,6 @@ def now_rd() -> datetime:
 
 def today_str() -> str:
     return now_rd().strftime("%Y-%m-%d")
-
-def draw_datetime_today(time_hhmm: str) -> datetime:
-    h, m = map(int, time_hhmm.split(":"))
-    n = now_rd()
-    return n.replace(hour=h, minute=m, second=0, microsecond=0)
 
 def _ensure_dir(path: str):
     os.makedirs(path, exist_ok=True)
@@ -109,7 +103,6 @@ def _norm_pair(a: str, b: str) -> str:
     return f"{aa}-{bb}"
 
 def format_pales(pales_raw):
-    """Devuelve palés válidos 'AA-BB' (sin AA-AA), sin repetidos."""
     out = []
     if not pales_raw:
         return out
@@ -186,6 +179,30 @@ def save_state(state):
 
 
 # -----------------------------
+# Dynamic time: Nacional Noche domingo = 18:00
+# -----------------------------
+def item_time(item: dict) -> str:
+    """
+    Ajusta horarios por reglas especiales.
+    - Nacional Noche: domingo 18:00 (6PM), otros días usa el time definido.
+    """
+    try:
+        n = now_rd()
+        is_sun = (n.weekday() == 6)  # Monday=0 ... Sunday=6
+        if item["lottery"] == "La Nacional" and item["draw"] == "Loteria Nacional- Noche" and is_sun:
+            return "18:00"
+    except Exception:
+        pass
+    return item["time"]
+
+def draw_datetime_today_from_item(item: dict) -> datetime:
+    hhmm = item_time(item)
+    h, m = map(int, hhmm.split(":"))
+    n = now_rd()
+    return n.replace(hour=h, minute=m, second=0, microsecond=0)
+
+
+# -----------------------------
 # Scraper hooks (load by file path)
 # -----------------------------
 def fetch_result(lottery: str, draw: str, date: str):
@@ -219,7 +236,7 @@ def fetch_result(lottery: str, draw: str, date: str):
 # DUE logic
 # -----------------------------
 def _due_dt(item) -> datetime:
-    return draw_datetime_today(item["time"]) + timedelta(minutes=item["update_after_minutes"])
+    return draw_datetime_today_from_item(item) + timedelta(minutes=item["update_after_minutes"])
 
 def _is_due(item, now: datetime) -> bool:
     return now >= _due_dt(item)
@@ -283,7 +300,6 @@ def try_update_one(item, state) -> bool:
     key = f"{date_str}|{item['lottery']}|{item['draw']}"
     last_updates = state.get("last_updates", {})
     if last_updates.get(key) == "done":
-        # state dice done pero XLSX no tiene fila => no confiamos en state
         if _has_row_for_date(item["lottery"], item["draw"], date_str):
             return False
 
@@ -316,8 +332,6 @@ def try_update_one(item, state) -> bool:
 
 # -----------------------------
 # FORCE REFRESH + BACKFILL (HOY + AYER)
-# HOY: SOLO DUE
-# AYER: todos faltantes
 # -----------------------------
 def _missing_for_date(date_str: str) -> list[dict]:
     missing = []
@@ -342,7 +356,6 @@ def _try_update_for_date(item, date_str: str, state: dict) -> bool:
     p1, p2, p3 = fetch_result(item["lottery"], item["draw"], date_str)
     p1, p2, p3 = normalize_2d(p1), normalize_2d(p2), normalize_2d(p3)
 
-    # Anti-invención solo HOY
     if date_str == today_str():
         n = now_rd()
         yday = (n.date() - timedelta(days=1)).strftime("%Y-%m-%d")
@@ -409,7 +422,7 @@ def missing_due_updates_before_target(target_dt: datetime) -> list[str]:
     missing = []
 
     for item in SCHEDULE:
-        draw_dt = draw_datetime_today(item["time"])
+        draw_dt = draw_datetime_today_from_item(item)
         if draw_dt.date() != target_dt.date():
             continue
         if draw_dt >= target_dt:
@@ -432,18 +445,17 @@ def missing_due_updates_global_today() -> list[str]:
 
 
 # -----------------------------
-# Next targets: si hay empate en hora (18:00 o 21:00), procesa TODOS
+# Next targets: empate en hora => procesa TODOS
 # -----------------------------
 def next_targets_same_time():
     n = now_rd()
     candidates = []
 
     for item in SCHEDULE:
-        dt = draw_datetime_today(item["time"])
+        dt = draw_datetime_today_from_item(item)
         if dt.date() != n.date():
             continue
 
-        # ✅ si llega tarde, aún lo aceptamos dentro del grace
         if dt < (n - timedelta(seconds=UPCOMING_GRACE_SECONDS)):
             continue
 
@@ -462,7 +474,7 @@ def next_targets_same_time():
 
 
 # -----------------------------
-# Picks logging + grading
+# Picks logging + grading (performance incluye ganadores + best_signal)
 # -----------------------------
 def log_pick(payload: dict):
     _ensure_dir(DATA_DIR)
@@ -575,12 +587,10 @@ def grade_picks_from_histories():
         row = match.iloc[-1]
         drawn = {row["primero"], row["segundo"], row["tercero"]}
 
-        # leer picks del log
         top12 = json.loads(r.get("top12", "[]") or "[]")
         topq  = json.loads(r.get("topq", "[]") or "[]")
         pales = json.loads(r.get("pales", "[]") or "[]")
 
-        # ✅ ahora performance incluye best_signal + ok_alert del pick
         try:
             bs = float(r.get("best_signal")) if r.get("best_signal") not in (None, "", "nan") else None
         except Exception:
@@ -596,7 +606,7 @@ def grade_picks_from_histories():
             "time_rd": time_rd,
             "lottery": lottery,
             "draw": draw,
-            "result": f"{row['primero']}-{row['segundo']}-{row['tercero']}",  # ganadores
+            "result": f"{row['primero']}-{row['segundo']}-{row['tercero']}",
             "best_signal": bs,
             "best_a11": ba,
             "ok_alert": r.get("ok_alert", ""),
@@ -643,7 +653,27 @@ def build_exploded_history():
 
 
 # -----------------------------
-# Analysis per target (MODO GANADOR: HISTÓRICO PURO MI/Chi²)
+# NEW: obtener números observados HOY en sorteos previos (cross-match real)
+# -----------------------------
+def observed_nums_today_before(target_dt: datetime) -> set[str]:
+    date_str = today_str()
+    obs = set()
+    for it in SCHEDULE:
+        dt = draw_datetime_today_from_item(it)
+        if dt.date() != target_dt.date():
+            continue
+        if dt >= target_dt:
+            continue
+        if not _has_row_for_date(it["lottery"], it["draw"], date_str):
+            continue
+        r = _get_row_for_date(it["lottery"], it["draw"], date_str)
+        if r:
+            obs.update({r[0], r[1], r[2]})
+    return obs
+
+
+# -----------------------------
+# Analysis per target (MI/Chi² histórico pero CONDICIONADO por secuencia de HOY)
 # -----------------------------
 def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, target_item: dict, state: dict):
     target = target_item
@@ -657,11 +687,45 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
             print("[INFO] Missing:", m)
         return None
 
-    # ✅ HISTÓRICO PURO: excluye solo el mismo sorteo target como fuente
-    src_filter_hist = lambda e: ~((e["lottery"] == target["lottery"]) & (e["sorteo"] == target["draw"]))
+    # 1) Fuentes permitidas = sorteos previos DEL DÍA (por hora) (secuencia)
+    prior_pairs = set()
+    for it in SCHEDULE:
+        dt = draw_datetime_today_from_item(it)
+        if dt.date() != target_dt.date():
+            continue
+        if dt >= target_dt:
+            continue
+        prior_pairs.add((it["lottery"], it["draw"]))
+
+    # 2) Números observados HOY en esos sorteos previos
+    obs_nums = observed_nums_today_before(target_dt)
+
+    # 3) Construir máscara de fuentes dentro del histórico:
+    #    - SOLO eventos cuyo (lottery,sorteo) está en prior_pairs
+    #    - y además num ∈ obs_nums (si existe) para forzar cross-match real
+    base_mask = exp.apply(lambda r: (r.get("lottery"), r.get("sorteo")) in prior_pairs, axis=1)
+    if obs_nums:
+        num_mask = exp["num"].astype(str).isin(obs_nums)
+        mask = base_mask & num_mask
+    else:
+        mask = base_mask
+
+    mask_idx = set(exp[mask].index.tolist())
+
+    # Fallback: si no hay suficiente fuente, usa solo prior_pairs sin filtrar por num
+    if len(mask_idx) < 10 and prior_pairs:
+        mask2 = base_mask
+        mask_idx = set(exp[mask2].index.tolist())
+
+    # Fallback final: si sigue vacío, vuelve a lo clásico (excluir solo el mismo target)
+    if not mask_idx:
+        src_filter = lambda e: ~((e["lottery"] == target["lottery"]) & (e["sorteo"] == target["draw"]))
+    else:
+        src_filter = lambda e, _m=mask_idx: e.index.isin(_m)
+
     rec_hist = recommend_for_target(
         exp,
-        src_filter_hist,
+        src_filter,
         target["lottery"],
         target["draw"],
         lag_days=0,
@@ -672,7 +736,6 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         print("[INFO] Not enough data to compute recommendations for target.")
         return None
 
-    # Top12 por señal y soporte (histórico)
     rec = rec_hist.copy()
     rec["num"] = rec["num"].astype(str)
     rec["signal"] = pd.to_numeric(rec.get("signal", 0), errors="coerce").fillna(0.0)
@@ -687,7 +750,6 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     best_a11_hist = int(rec["a11"].max()) if not rec.empty else None
 
     ok = should_alert(rec_hist, min_signal=MIN_SIGNAL, min_count_hits=MIN_A11)
-
     fp = fingerprint(topq, top12, pales)
 
     payload = {
@@ -712,10 +774,11 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
             "debug": {
                 "best_signal_hist": best_signal_hist,
                 "best_a11_hist": best_a11_hist,
-                "best_signal_today": None,
-                "best_a11_today": None,
                 "has_intraday_sources": 0,
                 "intraday_events": 0,
+                "today_observed_nums": len(obs_nums),
+                "source_pairs_today": len(prior_pairs),
+                "source_rows_hist_used": len(mask_idx),
             }
         }
     }
@@ -734,9 +797,8 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         print("[INFO] Same fingerprint already sent for this target.")
         return payload
 
-    # ✅ Telegram con Top12 incluido
     msg = []
-    msg.append("🚨 OPV (MI + Chi² HISTÓRICO / Data Real)")
+    msg.append("🚨 OPV (Cross-Match SECUENCIAL / MI + Chi² HISTÓRICO)")
     msg.append(f"🧩 Señal nueva: {event_key}")
     msg.append(f"🎯 Target: {target['lottery']} | {target['draw']}")
     msg.append(f"⏰ Hora: {target_dt.strftime('%H:%M')} RD")
@@ -752,6 +814,7 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     msg.append("")
     msg.append("📊 Debug:")
     msg.append(f"best_signal={best_signal_hist} best_a11={best_a11_hist} ok_alert={bool(ok)}")
+    msg.append(f"today_observed_nums={len(obs_nums)} source_rows_hist_used={len(mask_idx)}")
 
     send_telegram("\n".join(msg))
     print("[OK] Telegram sent for target.")
@@ -770,7 +833,6 @@ def main():
     ensure_dir(OUT_DIR)
 
     state = load_state()
-
     updated_today = []
 
     # 1) Update pass normal (solo HOY, solo DUE)
@@ -831,7 +893,7 @@ def main():
     if FORCE_NOTIFY and not updated_today:
         event_key = f"{today_str()}|TEST|NO-UPDATE"
     else:
-        updated_sorted = sorted(updated_today, key=lambda x: draw_datetime_today(x["time"]))
+        updated_sorted = sorted(updated_today, key=lambda x: draw_datetime_today_from_item(x))
         last_event = updated_sorted[-1]
         event_key = f"{today_str()}|{last_event['lottery']}|{last_event['draw']}"
 
@@ -876,7 +938,6 @@ def main():
             json.dump({"generated_at": now_rd().isoformat(), "event_key": event_key, "items": picks_all},
                       f, ensure_ascii=False, indent=2)
 
-        # compat: picks.json = último payload
         with open(os.path.join(OUT_DIR, "picks.json"), "w", encoding="utf-8") as f:
             json.dump(picks_all[-1], f, ensure_ascii=False, indent=2)
 
