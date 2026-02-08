@@ -35,9 +35,8 @@ XLSX_FILES = {
 
 # =========================
 # SCHEDULE (draw == EXACTO columna "sorteo")
-# ✅ Nacional Noche = 21:00 (DEFAULT) / DOMINGO = 18:00
 # =========================
-UPDATE_AFTER = 15
+UPDATE_AFTER = 15  # ya lo cambiaste, lo dejamos
 
 SCHEDULE = [
     # Anguilla (4)
@@ -50,19 +49,11 @@ SCHEDULE = [
     {"lottery": "La Primera", "draw": "Quiniela La Primera",       "time": "12:00", "update_after_minutes": UPDATE_AFTER},
     {"lottery": "La Primera", "draw": "Quiniela La Primera Noche", "time": "19:00", "update_after_minutes": UPDATE_AFTER},
 
-    # La Nacional (2)
+    # La Nacional (2)  ✅ Nacional Noche 21:00
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Gana Más", "time": "14:30", "update_after_minutes": UPDATE_AFTER},
+    {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche",    "time": "21:00", "update_after_minutes": UPDATE_AFTER},
 
-    # ✅ Domingo override (sun -> 18:00)
-    {
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Noche",
-        "time": "21:00",
-        "time_weekday": {"sun": "18:00"},
-        "update_after_minutes": UPDATE_AFTER
-    },
-
-    # La Suerte (2)
+    # La Suerte (2) ✅ 12:30 y 18:00
     {"lottery": "La Suerte", "draw": "Quiniela La Suerte",     "time": "12:30", "update_after_minutes": UPDATE_AFTER},
     {"lottery": "La Suerte", "draw": "Quiniela La Suerte 6PM", "time": "18:00", "update_after_minutes": UPDATE_AFTER},
 ]
@@ -75,13 +66,15 @@ TOPK_FULL     = 12
 PALES_OUT     = 3
 
 # =========================
-# UMBRALES "EDGE"
+# UMBRALES "EDGE" (VOLVEMOS A MODO GANADOR)
 # =========================
-MIN_SIGNAL = 0.010
-MIN_A11    = 10
+# Ajustados para “no hablar cuando no hay edge”.
+MIN_SIGNAL = 0.0075
+MIN_A11    = 11
 
 LOOKAHEAD_MINUTES = 16 * 60
-UPCOMING_GRACE_SECONDS = 120  # tolerancia si el job llega un poco tarde
+# ✅ Si el job se ejecuta tarde (manual), igual procesa el target si no pasó mucho tiempo.
+UPCOMING_GRACE_SECONDS = 45 * 60  # 45 min
 
 FORCE_NOTIFY = os.getenv("FORCE_NOTIFY", "0").strip() == "1"
 
@@ -95,33 +88,10 @@ def now_rd() -> datetime:
 def today_str() -> str:
     return now_rd().strftime("%Y-%m-%d")
 
-def draw_datetime_today(time_hhmm: str, ref_dt: datetime | None = None) -> datetime:
-    """
-    Devuelve datetime con la FECHA de ref_dt (o hoy RD) y la HORA HH:MM.
-    """
-    if ref_dt is None:
-        ref_dt = now_rd()
+def draw_datetime_today(time_hhmm: str) -> datetime:
     h, m = map(int, time_hhmm.split(":"))
-    return ref_dt.replace(hour=h, minute=m, second=0, microsecond=0)
-
-def _weekday_key(dt: datetime) -> str:
-    # Monday=0 ... Sunday=6
-    keys = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
-    return keys[dt.weekday()]
-
-def item_time_for_dt(item: dict, ref_dt: datetime | None = None) -> str:
-    """
-    Resuelve time HH:MM aplicando override por día si existe:
-    item["time_weekday"] = {"sun": "18:00"}
-    """
-    if ref_dt is None:
-        ref_dt = now_rd()
-    base = item.get("time")
-    tw = item.get("time_weekday") or {}
-    if isinstance(tw, dict):
-        wk = _weekday_key(ref_dt)
-        return tw.get(wk, base)
-    return base
+    n = now_rd()
+    return n.replace(hour=h, minute=m, second=0, microsecond=0)
 
 def _ensure_dir(path: str):
     os.makedirs(path, exist_ok=True)
@@ -139,7 +109,7 @@ def _norm_pair(a: str, b: str) -> str:
     return f"{aa}-{bb}"
 
 def format_pales(pales_raw):
-    """Devuelve palés válidos en formato 'AA-BB' (sin repetidos AA-AA)."""
+    """Devuelve palés válidos 'AA-BB' (sin AA-AA), sin repetidos."""
     out = []
     if not pales_raw:
         return out
@@ -171,8 +141,8 @@ def format_pales(pales_raw):
             continue
     return out
 
-def fingerprint(topq, pales):
-    s = "|".join(topq) + "||" + "|".join(pales)
+def fingerprint(topq, top12, pales):
+    s = "|".join(topq) + "||" + "|".join(top12) + "||" + "|".join(pales)
     return hashlib.sha256(s.encode("utf-8")).hexdigest()[:16]
 
 
@@ -246,16 +216,13 @@ def fetch_result(lottery: str, draw: str, date: str):
 
 
 # -----------------------------
-# DUE logic (✅ usa time override)
+# DUE logic
 # -----------------------------
-def _due_dt(item, ref_dt: datetime | None = None) -> datetime:
-    if ref_dt is None:
-        ref_dt = now_rd()
-    hhmm = item_time_for_dt(item, ref_dt)
-    return draw_datetime_today(hhmm, ref_dt) + timedelta(minutes=item["update_after_minutes"])
+def _due_dt(item) -> datetime:
+    return draw_datetime_today(item["time"]) + timedelta(minutes=item["update_after_minutes"])
 
 def _is_due(item, now: datetime) -> bool:
-    return now >= _due_dt(item, now)
+    return now >= _due_dt(item)
 
 
 # -----------------------------
@@ -292,8 +259,10 @@ def _get_row_for_date(lottery: str, draw: str, date_str: str):
     need = {"fecha", "sorteo", "primero", "segundo", "tercero"}
     if not need.issubset(set(df.columns)):
         return None
+
     df["fecha"] = df["fecha"].astype(str).str.slice(0, 10)
     df["sorteo"] = df["sorteo"].astype(str)
+
     m = df[(df["fecha"] == date_str) & (df["sorteo"] == draw)]
     if m.empty:
         return None
@@ -308,25 +277,24 @@ def try_update_one(item, state) -> bool:
     n = now_rd()
     date_str = today_str()
 
-    # Solo cuando está DUE
     if not _is_due(item, n):
         return False
 
     key = f"{date_str}|{item['lottery']}|{item['draw']}"
     last_updates = state.get("last_updates", {})
     if last_updates.get(key) == "done":
-        # si state dice done pero XLSX no tiene fila, no confiamos en state
+        # state dice done pero XLSX no tiene fila => no confiamos en state
         if _has_row_for_date(item["lottery"], item["draw"], date_str):
             return False
 
     p1, p2, p3 = fetch_result(item["lottery"], item["draw"], date_str)
     p1, p2, p3 = normalize_2d(p1), normalize_2d(p2), normalize_2d(p3)
 
-    # Anti-invención HOY: si devuelve exactamente lo mismo que AYER, no insertamos aún (ventana 90min)
+    # Anti-invención HOY: si devuelve exactamente lo mismo que AYER antes de tiempo, no insertamos.
     yday = (now_rd().date() - timedelta(days=1)).strftime("%Y-%m-%d")
     yres = _get_row_for_date(item["lottery"], item["draw"], yday)
     if yres is not None and (p1, p2, p3) == yres:
-        due = _due_dt(item, n)
+        due = _due_dt(item)
         if n < (due + timedelta(minutes=90)):
             raise RuntimeError("Resultado aún no publicado (mismo que ayer). Skipping insert.")
 
@@ -380,7 +348,7 @@ def _try_update_for_date(item, date_str: str, state: dict) -> bool:
         yday = (n.date() - timedelta(days=1)).strftime("%Y-%m-%d")
         yres = _get_row_for_date(item["lottery"], item["draw"], yday)
         if yres is not None and (p1, p2, p3) == yres:
-            due = _due_dt(item, n)
+            due = _due_dt(item)
             if n < (due + timedelta(minutes=90)):
                 raise RuntimeError("Resultado aún no publicado (mismo que ayer). Skipping insert.")
 
@@ -422,7 +390,7 @@ def force_refresh_backfill(state: dict, days_back: int = 1, max_attempts: int = 
                         any_fixed = True
                         print(f"[OK] Backfilled: {ds} | {item['lottery']} {item['draw']}")
                 except Exception as e:
-                    print(f"[WARN] Backfill skip/fail: {ds} | {item['lottery']} | {item['draw']}: {e}")
+                    print(f"[WARN] Backfill skip/fail: {ds} | {item['lottery']} {item['draw']}: {e}")
 
         if attempt < max_attempts - 1 and not any_fixed:
             wait = backoff_seconds[min(attempt, len(backoff_seconds) - 1)]
@@ -433,7 +401,7 @@ def force_refresh_backfill(state: dict, days_back: int = 1, max_attempts: int = 
 
 
 # -----------------------------
-# GATE: no adivinar (✅ usa time override)
+# GATE: no adivinar
 # -----------------------------
 def missing_due_updates_before_target(target_dt: datetime) -> list[str]:
     n = now_rd()
@@ -441,9 +409,7 @@ def missing_due_updates_before_target(target_dt: datetime) -> list[str]:
     missing = []
 
     for item in SCHEDULE:
-        hhmm = item_time_for_dt(item, target_dt)
-        draw_dt = draw_datetime_today(hhmm, target_dt)
-
+        draw_dt = draw_datetime_today(item["time"])
         if draw_dt.date() != target_dt.date():
             continue
         if draw_dt >= target_dt:
@@ -451,7 +417,7 @@ def missing_due_updates_before_target(target_dt: datetime) -> list[str]:
 
         if _is_due(item, n):
             if not _has_row_for_date(item["lottery"], item["draw"], date_str):
-                missing.append(f"{item['lottery']} | {item['draw']} (due {_due_dt(item, n).strftime('%H:%M')})")
+                missing.append(f"{item['lottery']} | {item['draw']} (due {_due_dt(item).strftime('%H:%M')})")
     return missing
 
 def missing_due_updates_global_today() -> list[str]:
@@ -461,25 +427,23 @@ def missing_due_updates_global_today() -> list[str]:
     for item in SCHEDULE:
         if _is_due(item, n):
             if not _has_row_for_date(item["lottery"], item["draw"], date_str):
-                missing.append(f"{item['lottery']} | {item['draw']} (due {_due_dt(item, n).strftime('%H:%M')})")
+                missing.append(f"{item['lottery']} | {item['draw']} (due {_due_dt(item).strftime('%H:%M')})")
     return missing
 
 
 # -----------------------------
 # Next targets: si hay empate en hora (18:00 o 21:00), procesa TODOS
-# ✅ usa time override
 # -----------------------------
 def next_targets_same_time():
     n = now_rd()
     candidates = []
 
     for item in SCHEDULE:
-        hhmm = item_time_for_dt(item, n)
-        dt = draw_datetime_today(hhmm, n)
-
+        dt = draw_datetime_today(item["time"])
         if dt.date() != n.date():
             continue
 
+        # ✅ si llega tarde, aún lo aceptamos dentro del grace
         if dt < (n - timedelta(seconds=UPCOMING_GRACE_SECONDS)):
             continue
 
@@ -527,6 +491,7 @@ def log_pick(payload: dict):
         "top12": json.dumps(bp.get("top12", []), ensure_ascii=False),
         "topq": json.dumps(bp.get("topq", []), ensure_ascii=False),
         "pales": json.dumps(bp.get("pales", []), ensure_ascii=False),
+        "fingerprint": bp.get("fingerprint", ""),
         "graded": "0",
     }
 
@@ -610,9 +575,20 @@ def grade_picks_from_histories():
         row = match.iloc[-1]
         drawn = {row["primero"], row["segundo"], row["tercero"]}
 
+        # leer picks del log
         top12 = json.loads(r.get("top12", "[]") or "[]")
         topq  = json.loads(r.get("topq", "[]") or "[]")
         pales = json.loads(r.get("pales", "[]") or "[]")
+
+        # ✅ ahora performance incluye best_signal + ok_alert del pick
+        try:
+            bs = float(r.get("best_signal")) if r.get("best_signal") not in (None, "", "nan") else None
+        except Exception:
+            bs = None
+        try:
+            ba = int(float(r.get("best_a11"))) if r.get("best_a11") not in (None, "", "nan") else None
+        except Exception:
+            ba = None
 
         perf_rows.append({
             "key": key,
@@ -620,7 +596,10 @@ def grade_picks_from_histories():
             "time_rd": time_rd,
             "lottery": lottery,
             "draw": draw,
-            "result": f"{row['primero']}-{row['segundo']}-{row['tercero']}",
+            "result": f"{row['primero']}-{row['segundo']}-{row['tercero']}",  # ganadores
+            "best_signal": bs,
+            "best_a11": ba,
+            "ok_alert": r.get("ok_alert", ""),
             "hits_quiniela_topq": hits(topq, drawn),
             "hits_quiniela_top12": hits(top12, drawn),
             "pale_hits": pale_hits(pales, drawn),
@@ -664,7 +643,7 @@ def build_exploded_history():
 
 
 # -----------------------------
-# Intradía analysis per target (MI/Chi² ONLY for intraday)
+# Analysis per target (MODO GANADOR: HISTÓRICO PURO MI/Chi²)
 # -----------------------------
 def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, target_item: dict, state: dict):
     target = target_item
@@ -678,84 +657,38 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
             print("[INFO] Missing:", m)
         return None
 
-    target_dt_naive = target_dt.replace(tzinfo=None)
-
-    # ---------- HIST ----------
+    # ✅ HISTÓRICO PURO: excluye solo el mismo sorteo target como fuente
     src_filter_hist = lambda e: ~((e["lottery"] == target["lottery"]) & (e["sorteo"] == target["draw"]))
-    rec_hist = recommend_for_target(exp, src_filter_hist, target["lottery"], target["draw"], lag_days=0, top_n=TOPK_FULL)
+    rec_hist = recommend_for_target(
+        exp,
+        src_filter_hist,
+        target["lottery"],
+        target["draw"],
+        lag_days=0,
+        top_n=TOPK_FULL
+    )
 
     if rec_hist is None or rec_hist.empty:
         print("[INFO] Not enough data to compute recommendations for target.")
         return None
 
-    # ---------- TODAY (intradía SOLO si MI/Chi² da señal) ----------
-    today_date = target_dt_naive.date()
-    exp_today = exp[(exp["fecha_dt"].dt.date == today_date) & (exp["fecha_dt"] < target_dt_naive)].copy()
+    # Top12 por señal y soporte (histórico)
+    rec = rec_hist.copy()
+    rec["num"] = rec["num"].astype(str)
+    rec["signal"] = pd.to_numeric(rec.get("signal", 0), errors="coerce").fillna(0.0)
+    rec["a11"] = pd.to_numeric(rec.get("a11", 0), errors="coerce").fillna(0).astype(int)
 
-    rec_today = None
-    if not exp_today.empty:
-        mask_idx = set(exp_today.index.tolist())
-        src_filter_today = lambda e, _m=mask_idx: e.index.isin(_m)
-        rec_today = recommend_for_target(
-            exp,
-            src_filter_today,
-            target["lottery"],
-            target["draw"],
-            lag_days=0,
-            top_n=TOPK_FULL
-        )
-
-    # ✅ Solo intradía si hay señal MI/Chi² real (df no vacío)
-    use_intraday = (rec_today is not None) and (not rec_today.empty)
-
-    # ---------- BLEND ----------
-    def _prep(df):
-        d = df.copy()
-        d["num"] = d["num"].astype(str)
-        d["signal"] = pd.to_numeric(d.get("signal", 0), errors="coerce").fillna(0.0)
-        d["a11"] = pd.to_numeric(d.get("a11", 0), errors="coerce").fillna(0).astype(int)
-        return d[["num", "signal", "a11"]]
-
-    hist = _prep(rec_hist)
-
-    best_signal_today = None
-    best_a11_today = None
-
-    if use_intraday:
-        tday = _prep(rec_today)
-
-        def _norm(s):
-            mx = float(s.max()) if len(s) else 0.0
-            return (s / mx) if mx > 0 else s
-
-        hist["sig_n_h"] = _norm(hist["signal"])
-        tday["sig_n_t"] = _norm(tday["signal"])
-
-        m = pd.merge(hist, tday, on="num", how="outer", suffixes=("_h", "_t")).fillna(0)
-
-        # intradía manda, histórico respalda
-        W_TODAY = 0.70
-        W_HIST  = 0.30
-        m["score"] = W_TODAY*m["sig_n_t"] + W_HIST*m["sig_n_h"]
-        m["score"] = m["score"] + 0.0005*m["a11_t"] + 0.0002*m["a11_h"]
-
-        blended = m.sort_values("score", ascending=False)
-        top12 = blended["num"].tolist()[:TOPK_FULL]
-
-        best_signal_today = float(tday["signal"].max()) if not tday.empty else None
-        best_a11_today = int(tday["a11"].max()) if not tday.empty else None
-    else:
-        top12 = hist.sort_values(["signal", "a11"], ascending=False)["num"].tolist()[:TOPK_FULL]
-
+    rec = rec.sort_values(["signal", "a11"], ascending=False)
+    top12 = rec["num"].tolist()[:TOPK_FULL]
     topq = top12[:TOPK_QUINIELA]
     pales = format_pales(top_pales(top12[:10], 40))[:PALES_OUT]
 
+    best_signal_hist = float(rec["signal"].max()) if not rec.empty else None
+    best_a11_hist = int(rec["a11"].max()) if not rec.empty else None
+
     ok = should_alert(rec_hist, min_signal=MIN_SIGNAL, min_count_hits=MIN_A11)
 
-    best_signal_hist = float(hist["signal"].max()) if not hist.empty else None
-    best_a11_hist = int(hist["a11"].max()) if not hist.empty else None
-
-    fp = fingerprint(topq, pales)
+    fp = fingerprint(topq, top12, pales)
 
     payload = {
         "generated_at": now_rd().isoformat(),
@@ -779,10 +712,10 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
             "debug": {
                 "best_signal_hist": best_signal_hist,
                 "best_a11_hist": best_a11_hist,
-                "best_signal_today": best_signal_today,
-                "best_a11_today": best_a11_today,
-                "has_intraday_sources": int(use_intraday),
-                "intraday_events": int(len(exp_today)),
+                "best_signal_today": None,
+                "best_a11_today": None,
+                "has_intraday_sources": 0,
+                "intraday_events": 0,
             }
         }
     }
@@ -801,8 +734,9 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         print("[INFO] Same fingerprint already sent for this target.")
         return payload
 
+    # ✅ Telegram con Top12 incluido
     msg = []
-    msg.append("🚨 OPV INTRADÍA (Cross-Match Real / Data Real)")
+    msg.append("🚨 OPV (MI + Chi² HISTÓRICO / Data Real)")
     msg.append(f"🧩 Señal nueva: {event_key}")
     msg.append(f"🎯 Target: {target['lottery']} | {target['draw']}")
     msg.append(f"⏰ Hora: {target_dt.strftime('%H:%M')} RD")
@@ -810,13 +744,14 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     msg.append(f"✅ QUINIELA Top{len(topq)}:")
     msg.append(", ".join(topq))
     msg.append("")
+    msg.append("📌 Top12:")
+    msg.append(", ".join(top12))
+    msg.append("")
     msg.append(f"🎲 PALE Top{len(pales)}:")
     msg.append(" | ".join(pales))
     msg.append("")
     msg.append("📊 Debug:")
-    msg.append(f"hist best_signal={best_signal_hist} best_a11={best_a11_hist}")
-    msg.append(f"today best_signal={best_signal_today} best_a11={best_a11_today}")
-    msg.append(f"has_intraday_sources={int(use_intraday)} intraday_events={len(exp_today)}")
+    msg.append(f"best_signal={best_signal_hist} best_a11={best_a11_hist} ok_alert={bool(ok)}")
 
     send_telegram("\n".join(msg))
     print("[OK] Telegram sent for target.")
@@ -887,19 +822,16 @@ def main():
 
     # 5) Si no hubo updates hoy y no es test, no spam
     if not updated_today and (not FORCE_NOTIFY):
-        print("[INFO] No new updates today. Skipping intraday analysis/notify.")
+        print("[INFO] No new updates today. Skipping analysis/notify.")
         save_state(state)
         print("[OK] runner finished")
         return
 
-    # 6) Evento (✅ ordena usando time override)
+    # 6) Evento
     if FORCE_NOTIFY and not updated_today:
         event_key = f"{today_str()}|TEST|NO-UPDATE"
     else:
-        updated_sorted = sorted(
-            updated_today,
-            key=lambda x: draw_datetime_today(item_time_for_dt(x, now_rd()), now_rd())
-        )
+        updated_sorted = sorted(updated_today, key=lambda x: draw_datetime_today(x["time"]))
         last_event = updated_sorted[-1]
         event_key = f"{today_str()}|{last_event['lottery']}|{last_event['draw']}"
 
@@ -941,7 +873,8 @@ def main():
     ensure_dir(OUT_DIR)
     if picks_all:
         with open(os.path.join(OUT_DIR, "picks_all.json"), "w", encoding="utf-8") as f:
-            json.dump({"generated_at": now_rd().isoformat(), "event_key": event_key, "items": picks_all}, f, ensure_ascii=False, indent=2)
+            json.dump({"generated_at": now_rd().isoformat(), "event_key": event_key, "items": picks_all},
+                      f, ensure_ascii=False, indent=2)
 
         # compat: picks.json = último payload
         with open(os.path.join(OUT_DIR, "picks.json"), "w", encoding="utf-8") as f:
