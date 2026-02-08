@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-02-08T13:03:00.974053-04:00",
-  "event_key": "2026-02-08|La Suerte|Quiniela La Suerte",
+  "generated_at": "2026-02-08T13:59:33.335953-04:00",
+  "event_key": "2026-02-08|Anguilla|Anguila 1PM",
   "items": [
     {
-      "generated_at": "2026-02-08T13:03:00.418162-04:00",
-      "event_key": "2026-02-08|La Suerte|Quiniela La Suerte",
+      "generated_at": "2026-02-08T13:59:32.807890-04:00",
+      "event_key": "2026-02-08|Anguilla|Anguila 1PM",
       "target": {
         "time_rd": "2026-02-08 14:30",
         "lottery": "La Nacional",
@@ -48,7 +48,7 @@
           "best_signal_today": null,
           "best_a11_today": null,
           "has_intraday_sources": 0,
-          "intraday_events": 9
+          "intraday_events": 12
         }
       }
     }
