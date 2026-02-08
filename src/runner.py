@@ -35,7 +35,7 @@ XLSX_FILES = {
 
 # =========================
 # SCHEDULE (draw == EXACTO columna "sorteo")
-# ✅ Nacional Noche = 21:00
+# ✅ Nacional Noche = 21:00 (DEFAULT) / DOMINGO = 18:00
 # =========================
 UPDATE_AFTER = 15
 
@@ -52,7 +52,15 @@ SCHEDULE = [
 
     # La Nacional (2)
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Gana Más", "time": "14:30", "update_after_minutes": UPDATE_AFTER},
-    {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche",    "time": "21:00", "update_after_minutes": UPDATE_AFTER},
+
+    # ✅ Domingo override (sun -> 18:00)
+    {
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche",
+        "time": "21:00",
+        "time_weekday": {"sun": "18:00"},
+        "update_after_minutes": UPDATE_AFTER
+    },
 
     # La Suerte (2)
     {"lottery": "La Suerte", "draw": "Quiniela La Suerte",     "time": "12:30", "update_after_minutes": UPDATE_AFTER},
@@ -87,10 +95,33 @@ def now_rd() -> datetime:
 def today_str() -> str:
     return now_rd().strftime("%Y-%m-%d")
 
-def draw_datetime_today(time_hhmm: str) -> datetime:
+def draw_datetime_today(time_hhmm: str, ref_dt: datetime | None = None) -> datetime:
+    """
+    Devuelve datetime con la FECHA de ref_dt (o hoy RD) y la HORA HH:MM.
+    """
+    if ref_dt is None:
+        ref_dt = now_rd()
     h, m = map(int, time_hhmm.split(":"))
-    n = now_rd()
-    return n.replace(hour=h, minute=m, second=0, microsecond=0)
+    return ref_dt.replace(hour=h, minute=m, second=0, microsecond=0)
+
+def _weekday_key(dt: datetime) -> str:
+    # Monday=0 ... Sunday=6
+    keys = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+    return keys[dt.weekday()]
+
+def item_time_for_dt(item: dict, ref_dt: datetime | None = None) -> str:
+    """
+    Resuelve time HH:MM aplicando override por día si existe:
+    item["time_weekday"] = {"sun": "18:00"}
+    """
+    if ref_dt is None:
+        ref_dt = now_rd()
+    base = item.get("time")
+    tw = item.get("time_weekday") or {}
+    if isinstance(tw, dict):
+        wk = _weekday_key(ref_dt)
+        return tw.get(wk, base)
+    return base
 
 def _ensure_dir(path: str):
     os.makedirs(path, exist_ok=True)
@@ -215,13 +246,16 @@ def fetch_result(lottery: str, draw: str, date: str):
 
 
 # -----------------------------
-# DUE logic
+# DUE logic (✅ usa time override)
 # -----------------------------
-def _due_dt(item) -> datetime:
-    return draw_datetime_today(item["time"]) + timedelta(minutes=item["update_after_minutes"])
+def _due_dt(item, ref_dt: datetime | None = None) -> datetime:
+    if ref_dt is None:
+        ref_dt = now_rd()
+    hhmm = item_time_for_dt(item, ref_dt)
+    return draw_datetime_today(hhmm, ref_dt) + timedelta(minutes=item["update_after_minutes"])
 
 def _is_due(item, now: datetime) -> bool:
-    return now >= _due_dt(item)
+    return now >= _due_dt(item, now)
 
 
 # -----------------------------
@@ -292,7 +326,7 @@ def try_update_one(item, state) -> bool:
     yday = (now_rd().date() - timedelta(days=1)).strftime("%Y-%m-%d")
     yres = _get_row_for_date(item["lottery"], item["draw"], yday)
     if yres is not None and (p1, p2, p3) == yres:
-        due = _due_dt(item)
+        due = _due_dt(item, n)
         if n < (due + timedelta(minutes=90)):
             raise RuntimeError("Resultado aún no publicado (mismo que ayer). Skipping insert.")
 
@@ -346,7 +380,7 @@ def _try_update_for_date(item, date_str: str, state: dict) -> bool:
         yday = (n.date() - timedelta(days=1)).strftime("%Y-%m-%d")
         yres = _get_row_for_date(item["lottery"], item["draw"], yday)
         if yres is not None and (p1, p2, p3) == yres:
-            due = _due_dt(item)
+            due = _due_dt(item, n)
             if n < (due + timedelta(minutes=90)):
                 raise RuntimeError("Resultado aún no publicado (mismo que ayer). Skipping insert.")
 
@@ -388,7 +422,7 @@ def force_refresh_backfill(state: dict, days_back: int = 1, max_attempts: int = 
                         any_fixed = True
                         print(f"[OK] Backfilled: {ds} | {item['lottery']} {item['draw']}")
                 except Exception as e:
-                    print(f"[WARN] Backfill skip/fail: {ds} | {item['lottery']} {item['draw']}: {e}")
+                    print(f"[WARN] Backfill skip/fail: {ds} | {item['lottery']} | {item['draw']}: {e}")
 
         if attempt < max_attempts - 1 and not any_fixed:
             wait = backoff_seconds[min(attempt, len(backoff_seconds) - 1)]
@@ -399,7 +433,7 @@ def force_refresh_backfill(state: dict, days_back: int = 1, max_attempts: int = 
 
 
 # -----------------------------
-# GATE: no adivinar
+# GATE: no adivinar (✅ usa time override)
 # -----------------------------
 def missing_due_updates_before_target(target_dt: datetime) -> list[str]:
     n = now_rd()
@@ -407,7 +441,9 @@ def missing_due_updates_before_target(target_dt: datetime) -> list[str]:
     missing = []
 
     for item in SCHEDULE:
-        draw_dt = draw_datetime_today(item["time"])
+        hhmm = item_time_for_dt(item, target_dt)
+        draw_dt = draw_datetime_today(hhmm, target_dt)
+
         if draw_dt.date() != target_dt.date():
             continue
         if draw_dt >= target_dt:
@@ -415,7 +451,7 @@ def missing_due_updates_before_target(target_dt: datetime) -> list[str]:
 
         if _is_due(item, n):
             if not _has_row_for_date(item["lottery"], item["draw"], date_str):
-                missing.append(f"{item['lottery']} | {item['draw']} (due {_due_dt(item).strftime('%H:%M')})")
+                missing.append(f"{item['lottery']} | {item['draw']} (due {_due_dt(item, n).strftime('%H:%M')})")
     return missing
 
 def missing_due_updates_global_today() -> list[str]:
@@ -425,19 +461,22 @@ def missing_due_updates_global_today() -> list[str]:
     for item in SCHEDULE:
         if _is_due(item, n):
             if not _has_row_for_date(item["lottery"], item["draw"], date_str):
-                missing.append(f"{item['lottery']} | {item['draw']} (due {_due_dt(item).strftime('%H:%M')})")
+                missing.append(f"{item['lottery']} | {item['draw']} (due {_due_dt(item, n).strftime('%H:%M')})")
     return missing
 
 
 # -----------------------------
 # Next targets: si hay empate en hora (18:00 o 21:00), procesa TODOS
+# ✅ usa time override
 # -----------------------------
 def next_targets_same_time():
     n = now_rd()
     candidates = []
 
     for item in SCHEDULE:
-        dt = draw_datetime_today(item["time"])
+        hhmm = item_time_for_dt(item, n)
+        dt = draw_datetime_today(hhmm, n)
+
         if dt.date() != n.date():
             continue
 
@@ -853,11 +892,14 @@ def main():
         print("[OK] runner finished")
         return
 
-    # 6) Evento
+    # 6) Evento (✅ ordena usando time override)
     if FORCE_NOTIFY and not updated_today:
         event_key = f"{today_str()}|TEST|NO-UPDATE"
     else:
-        updated_sorted = sorted(updated_today, key=lambda x: draw_datetime_today(x["time"]))
+        updated_sorted = sorted(
+            updated_today,
+            key=lambda x: draw_datetime_today(item_time_for_dt(x, now_rd()), now_rd())
+        )
         last_event = updated_sorted[-1]
         event_key = f"{today_str()}|{last_event['lottery']}|{last_event['draw']}"
 
