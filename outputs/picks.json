@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-08T17:57:25.853476-04:00",
-  "event_key": "2026-02-08|TEST|NO-UPDATE",
+  "generated_at": "2026-02-08T18:19:21.356716-04:00",
+  "event_key": "2026-02-08|La Suerte|Quiniela La Suerte 6PM",
   "target": {
     "time_rd": "2026-02-08 18:00",
     "lottery": "La Suerte",
@@ -36,10 +36,10 @@
     ],
     "fingerprint": "ad6ac775a5608907",
     "ok_alert": false,
-    "best_signal": 0.0017500920717078616,
+    "best_signal": 0.0017804364917019828,
     "best_a11": 7,
     "debug": {
-      "best_signal_hist": 0.0017500920717078616,
+      "best_signal_hist": 0.0017804364917019828,
       "best_a11_hist": 7,
       "has_intraday_sources": 0,
       "intraday_events": 0,
