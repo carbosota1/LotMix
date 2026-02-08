@@ -36,7 +36,7 @@ XLSX_FILES = {
 # =========================
 # SCHEDULE (draw == EXACTO columna "sorteo")
 # =========================
-UPDATE_AFTER = 5
+UPDATE_AFTER = 15
 
 SCHEDULE = [
     # Anguilla (4)
@@ -76,6 +76,9 @@ LOOKAHEAD_MINUTES = 16 * 60
 UPCOMING_GRACE_SECONDS = 45 * 60  # si ejecutas tarde manual, aún procesa
 
 FORCE_NOTIFY = os.getenv("FORCE_NOTIFY", "0").strip() == "1"
+
+# ✅ MANUAL RUN: solo para forzar update/backfill; NO debe saltarse el gate de "no picks sin updates"
+MANUAL_RUN = os.getenv("MANUAL_RUN", "0").strip() == "1"
 
 
 # -----------------------------
@@ -701,8 +704,6 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     obs_nums = observed_nums_today_before(target_dt)
 
     # 3) Construir máscara de fuentes dentro del histórico:
-    #    - SOLO eventos cuyo (lottery,sorteo) está en prior_pairs
-    #    - y además num ∈ obs_nums (si existe) para forzar cross-match real
     base_mask = exp.apply(lambda r: (r.get("lottery"), r.get("sorteo")) in prior_pairs, axis=1)
     if obs_nums:
         num_mask = exp["num"].astype(str).isin(obs_nums)
@@ -717,7 +718,7 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         mask2 = base_mask
         mask_idx = set(exp[mask2].index.tolist())
 
-    # Fallback final: si sigue vacío, vuelve a lo clásico (excluir solo el mismo target)
+    # Fallback final: si sigue vacío, vuelve a lo clásico
     if not mask_idx:
         src_filter = lambda e: ~((e["lottery"] == target["lottery"]) & (e["sorteo"] == target["draw"]))
     else:
@@ -845,8 +846,12 @@ def main():
             print(f"[WARN] update failed {item['lottery']}|{item['draw']}: {e}")
 
     # 2) FORCE REFRESH + BACKFILL (HOY + AYER)
+    # ✅ Manual: más agresivo para “ponerse al día” cuando el cron falló.
     try:
-        state = force_refresh_backfill(state, days_back=1, max_attempts=5)
+        if MANUAL_RUN:
+            state = force_refresh_backfill(state, days_back=1, max_attempts=8, backoff_seconds=[2, 5, 10, 20, 30, 45, 60, 90])
+        else:
+            state = force_refresh_backfill(state, days_back=1, max_attempts=5)
     except Exception as e:
         print(f"[WARN] force_refresh_backfill failed: {e}")
 
@@ -882,14 +887,16 @@ def main():
         print("[OK] runner finished")
         return
 
-    # 5) Si no hubo updates hoy y no es test, no spam
+    # ✅ REGLA CLAVE (se mantiene):
+    # Si no hubo updates HOY (data nueva), NO generamos picks (ni cron ni manual),
+    # porque sin eso no hay cross-match real del día.
     if not updated_today and (not FORCE_NOTIFY):
         print("[INFO] No new updates today. Skipping analysis/notify.")
         save_state(state)
         print("[OK] runner finished")
         return
 
-    # 6) Evento
+    # 6) Evento (solo cuando hubo update real hoy o test)
     if FORCE_NOTIFY and not updated_today:
         event_key = f"{today_str()}|TEST|NO-UPDATE"
     else:
@@ -903,7 +910,7 @@ def main():
         print("[OK] runner finished")
         return
 
-    # 7) Build history + process next targets (handles dual 18:00 y dual 21:00)
+    # 7) Build history + process next targets
     exp = build_exploded_history()
     if exp is None:
         print("[INFO] No history loaded. Exiting.")
