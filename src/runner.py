@@ -36,7 +36,7 @@ XLSX_FILES = {
 # =========================
 # SCHEDULE (draw == EXACTO columna "sorteo")
 # =========================
-UPDATE_AFTER = 15
+UPDATE_AFTER = 5
 
 SCHEDULE = [
     # Anguilla (4)
@@ -73,7 +73,7 @@ MIN_SIGNAL = 0.0075
 MIN_A11    = 11
 
 LOOKAHEAD_MINUTES = 16 * 60
-UPCOMING_GRACE_SECONDS = 45 * 60  # si ejecutas tarde manual, aún procesa
+UPCOMING_GRACE_SECONDS = 30 * 60  # si ejecutas tarde manual, aún procesa
 
 FORCE_NOTIFY = os.getenv("FORCE_NOTIFY", "0").strip() == "1"
 MANUAL_RUN   = os.getenv("MANUAL_RUN", "0").strip() == "1"
