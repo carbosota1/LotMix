@@ -1,55 +1,55 @@
 {
-  "generated_at": "2026-02-08T20:00:15.215799-04:00",
-  "event_key": "2026-02-08|TEST|NO-UPDATE",
+  "generated_at": "2026-02-09T00:16:00.409517-04:00",
+  "event_key": "2026-02-09|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-02-08T20:00:14.750926-04:00",
-      "event_key": "2026-02-08|TEST|NO-UPDATE",
+      "generated_at": "2026-02-09T00:15:59.918262-04:00",
+      "event_key": "2026-02-09|TEST|NO-UPDATE",
       "target": {
-        "time_rd": "2026-02-08 21:00",
+        "time_rd": "2026-02-09 10:00",
         "lottery": "Anguilla",
-        "draw": "Anguila 9PM"
+        "draw": "Anguila 10AM"
       },
       "best_play": {
-        "time_rd": "2026-02-08 21:00",
+        "time_rd": "2026-02-09 10:00",
         "lottery": "Anguilla",
-        "draw": "Anguila 9PM",
+        "draw": "Anguila 10AM",
         "top12": [
-          "57",
-          "55",
-          "33",
-          "63",
-          "15",
-          "83",
-          "18",
+          "85",
+          "08",
+          "40",
           "05",
-          "48",
+          "58",
+          "35",
           "76",
           "28",
-          "34"
+          "23",
+          "61",
+          "92",
+          "89"
         ],
         "topq": [
-          "57",
-          "55",
-          "33"
+          "85",
+          "08",
+          "40"
         ],
         "pales": [
-          "55-57",
-          "33-57",
-          "57-63"
+          "08-85",
+          "40-85",
+          "05-85"
         ],
-        "fingerprint": "29afe9e8db7cc965",
-        "ok_alert": false,
-        "best_signal": 0.007886849583949284,
-        "best_a11": 10,
+        "fingerprint": "8169e383a5b74c54",
+        "ok_alert": true,
+        "best_signal": 0.00579626535003592,
+        "best_a11": 13,
         "debug": {
-          "best_signal_hist": 0.007886849583949284,
-          "best_a11_hist": 10,
+          "best_signal_hist": 0.00579626535003592,
+          "best_a11_hist": 13,
           "has_intraday_sources": 0,
           "intraday_events": 0,
-          "today_observed_nums": 21,
-          "source_pairs_today": 9,
-          "source_rows_hist_used": 6502
+          "today_observed_nums": 0,
+          "source_pairs_today": 0,
+          "source_rows_hist_used": 0
         }
       }
     }
