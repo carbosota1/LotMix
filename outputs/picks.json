@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-09T18:31:25.254019-04:00",
-  "event_key": "2026-02-09|TEST|NO-UPDATE",
+  "generated_at": "2026-02-09T19:17:04.722341-04:00",
+  "event_key": "2026-02-09|La Primera|Quiniela La Primera Noche",
   "target": {
     "time_rd": "2026-02-09 19:00",
     "lottery": "La Primera",
@@ -36,10 +36,10 @@
     ],
     "fingerprint": "2c75d174b852599f",
     "ok_alert": false,
-    "best_signal": 0.0017930892303839507,
+    "best_signal": 0.0018136404181469418,
     "best_a11": 10,
     "debug": {
-      "best_signal_hist": 0.0017930892303839507,
+      "best_signal_hist": 0.0018136404181469418,
       "best_a11_hist": 10,
       "has_intraday_sources": 0,
       "intraday_events": 0,
