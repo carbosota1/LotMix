@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-02-09T16:08:02.560486-04:00",
-  "event_key": "2026-02-09|TEST|NO-UPDATE",
+  "generated_at": "2026-02-09T18:07:20.541804-04:00",
+  "event_key": "2026-02-09|La Suerte|Quiniela La Suerte 6PM",
   "items": [
     {
-      "generated_at": "2026-02-09T16:07:58.102535-04:00",
-      "event_key": "2026-02-09|TEST|NO-UPDATE",
+      "generated_at": "2026-02-09T18:07:15.415975-04:00",
+      "event_key": "2026-02-09|La Suerte|Quiniela La Suerte 6PM",
       "target": {
         "time_rd": "2026-02-09 18:00",
         "lottery": "Anguilla",
@@ -40,10 +40,10 @@
         ],
         "fingerprint": "89d41cb6bdf08d0c",
         "ok_alert": false,
-        "best_signal": 0.005970071514614113,
+        "best_signal": 0.005883951564310479,
         "best_a11": 10,
         "debug": {
-          "best_signal_hist": 0.005970071514614113,
+          "best_signal_hist": 0.005883951564310479,
           "best_a11_hist": 10,
           "has_intraday_sources": 0,
           "intraday_events": 0,
@@ -54,8 +54,8 @@
       }
     },
     {
-      "generated_at": "2026-02-09T16:08:01.993135-04:00",
-      "event_key": "2026-02-09|TEST|NO-UPDATE",
+      "generated_at": "2026-02-09T18:07:19.914650-04:00",
+      "event_key": "2026-02-09|La Suerte|Quiniela La Suerte 6PM",
       "target": {
         "time_rd": "2026-02-09 18:00",
         "lottery": "La Suerte",
@@ -91,10 +91,10 @@
         ],
         "fingerprint": "dc1eebd7463c216e",
         "ok_alert": false,
-        "best_signal": 0.0021767898264045886,
+        "best_signal": 0.0021973884056979477,
         "best_a11": 3,
         "debug": {
-          "best_signal_hist": 0.0021767898264045886,
+          "best_signal_hist": 0.0021973884056979477,
           "best_a11_hist": 3,
           "has_intraday_sources": 0,
           "intraday_events": 0,
