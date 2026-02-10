@@ -72,8 +72,8 @@ PALES_OUT     = 3
 MIN_SIGNAL = 0.0075
 MIN_A11    = 11
 
-LOOKAHEAD_MINUTES = 16 * 60
-UPCOMING_GRACE_SECONDS = 30 * 60  # si ejecutas tarde manual, aún procesa
+LOOKAHEAD_MINUTES = 10 * 60
+UPCOMING_GRACE_SECONDS = 15 * 60  # si ejecutas tarde manual, aún procesa
 
 FORCE_NOTIFY = os.getenv("FORCE_NOTIFY", "0").strip() == "1"
 MANUAL_RUN   = os.getenv("MANUAL_RUN", "0").strip() == "1"
