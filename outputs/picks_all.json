@@ -1,106 +1,55 @@
 {
-  "generated_at": "2026-02-10T15:46:57.903179-04:00",
-  "event_key": "2026-02-10|TEST|NO-UPDATE",
+  "generated_at": "2026-02-10T18:10:29.763508-04:00",
+  "event_key": "2026-02-10|La Suerte|Quiniela La Suerte 6PM",
   "items": [
     {
-      "generated_at": "2026-02-10T15:46:52.833757-04:00",
-      "event_key": "2026-02-10|TEST|NO-UPDATE",
+      "generated_at": "2026-02-10T18:10:29.244540-04:00",
+      "event_key": "2026-02-10|La Suerte|Quiniela La Suerte 6PM",
       "target": {
-        "time_rd": "2026-02-10 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM"
+        "time_rd": "2026-02-10 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche"
       },
       "best_play": {
-        "time_rd": "2026-02-10 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM",
+        "time_rd": "2026-02-10 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche",
         "top12": [
-          "63",
-          "02",
-          "30",
-          "70",
-          "36",
-          "48",
-          "03",
-          "46",
-          "59",
-          "66",
-          "45",
-          "87"
+          "50",
+          "88",
+          "99",
+          "31",
+          "18",
+          "15",
+          "14",
+          "41",
+          "79",
+          "17",
+          "98",
+          "05"
         ],
         "topq": [
-          "63",
-          "02",
-          "30"
+          "50",
+          "88",
+          "99"
         ],
         "pales": [
-          "02-63",
-          "30-63",
-          "63-70"
+          "50-88",
+          "50-99",
+          "31-50"
         ],
-        "fingerprint": "ed67a019e2a68f09",
+        "fingerprint": "5f947724a7be6516",
         "ok_alert": false,
-        "best_signal": 0.003365764306752403,
+        "best_signal": 0.0032044380629247145,
         "best_a11": 7,
         "debug": {
-          "best_signal_hist": 0.003365764306752403,
+          "best_signal_hist": 0.0032044380629247145,
           "best_a11_hist": 7,
           "has_intraday_sources": 0,
           "intraday_events": 0,
-          "today_observed_nums": 15,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2551
-        }
-      }
-    },
-    {
-      "generated_at": "2026-02-10T15:46:57.272204-04:00",
-      "event_key": "2026-02-10|TEST|NO-UPDATE",
-      "target": {
-        "time_rd": "2026-02-10 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM"
-      },
-      "best_play": {
-        "time_rd": "2026-02-10 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM",
-        "top12": [
-          "30",
-          "52",
-          "71",
-          "88",
-          "02",
-          "92",
-          "66",
-          "21",
-          "07",
-          "53",
-          "87",
-          "35"
-        ],
-        "topq": [
-          "30",
-          "52",
-          "71"
-        ],
-        "pales": [
-          "30-52",
-          "30-71",
-          "30-88"
-        ],
-        "fingerprint": "8b8529434a973ed3",
-        "ok_alert": false,
-        "best_signal": 0.0017585577131590964,
-        "best_a11": 5,
-        "debug": {
-          "best_signal_hist": 0.0017585577131590964,
-          "best_a11_hist": 5,
-          "has_intraday_sources": 0,
-          "intraday_events": 0,
-          "today_observed_nums": 15,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2551
+          "today_observed_nums": 21,
+          "source_pairs_today": 7,
+          "source_rows_hist_used": 4765
         }
       }
     }
