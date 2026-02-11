@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-02-11T18:24:00.169588-04:00",
-  "event_key": "2026-02-11|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-02-11T19:06:15.693488-04:00",
+  "event_key": "2026-02-11|La Primera|Quiniela La Primera Noche",
   "items": [
     {
-      "generated_at": "2026-02-11T18:23:59.658674-04:00",
-      "event_key": "2026-02-11|La Suerte|Quiniela La Suerte 6PM",
+      "generated_at": "2026-02-11T19:06:15.003083-04:00",
+      "event_key": "2026-02-11|La Primera|Quiniela La Primera Noche",
       "target": {
         "time_rd": "2026-02-11 19:00",
         "lottery": "La Primera",
@@ -17,33 +17,33 @@
         "top12": [
           "68",
           "17",
+          "76",
           "65",
           "18",
           "14",
           "31",
           "99",
           "15",
-          "41",
           "79",
-          "98",
+          "41",
           "05"
         ],
         "topq": [
           "68",
           "17",
-          "65"
+          "76"
         ],
         "pales": [
           "17-68",
-          "65-68",
-          "18-68"
+          "68-76",
+          "65-68"
         ],
-        "fingerprint": "3df37819f7815d32",
+        "fingerprint": "82e2474f9026745c",
         "ok_alert": false,
-        "best_signal": 0.0016412577617748452,
+        "best_signal": 0.0016137057218810074,
         "best_a11": 11,
         "debug": {
-          "best_signal_hist": 0.0016412577617748452,
+          "best_signal_hist": 0.0016137057218810074,
           "best_a11_hist": 11,
           "has_intraday_sources": 0,
           "intraday_events": 0,
