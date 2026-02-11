@@ -1,106 +1,55 @@
 {
-  "generated_at": "2026-02-10T20:05:04.050263-04:00",
-  "event_key": "2026-02-10|TEST|NO-UPDATE",
+  "generated_at": "2026-02-11T07:14:10.568239-04:00",
+  "event_key": "2026-02-11|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-02-10T20:04:57.279641-04:00",
-      "event_key": "2026-02-10|TEST|NO-UPDATE",
+      "generated_at": "2026-02-11T07:14:09.912418-04:00",
+      "event_key": "2026-02-11|TEST|NO-UPDATE",
       "target": {
-        "time_rd": "2026-02-10 21:00",
+        "time_rd": "2026-02-11 10:00",
         "lottery": "Anguilla",
-        "draw": "Anguila 9PM"
+        "draw": "Anguila 10AM"
       },
       "best_play": {
-        "time_rd": "2026-02-10 21:00",
+        "time_rd": "2026-02-11 10:00",
         "lottery": "Anguilla",
-        "draw": "Anguila 9PM",
+        "draw": "Anguila 10AM",
         "top12": [
-          "18",
-          "63",
-          "02",
-          "15",
-          "48",
-          "24",
+          "85",
+          "08",
+          "40",
           "05",
-          "83",
-          "55",
-          "28",
+          "58",
+          "35",
           "76",
-          "34"
-        ],
-        "topq": [
-          "18",
-          "63",
-          "02"
-        ],
-        "pales": [
-          "18-63",
-          "02-18",
-          "15-18"
-        ],
-        "fingerprint": "8b206d07bf08b18e",
-        "ok_alert": false,
-        "best_signal": 0.0007540697562754837,
-        "best_a11": 11,
-        "debug": {
-          "best_signal_hist": 0.0007540697562754837,
-          "best_a11_hist": 11,
-          "has_intraday_sources": 0,
-          "intraday_events": 0,
-          "today_observed_nums": 21,
-          "source_pairs_today": 8,
-          "source_rows_hist_used": 5481
-        }
-      }
-    },
-    {
-      "generated_at": "2026-02-10T20:05:03.629289-04:00",
-      "event_key": "2026-02-10|TEST|NO-UPDATE",
-      "target": {
-        "time_rd": "2026-02-10 21:00",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Noche"
-      },
-      "best_play": {
-        "time_rd": "2026-02-10 21:00",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Noche",
-        "top12": [
-          "12",
-          "63",
-          "88",
-          "80",
-          "84",
-          "11",
-          "90",
+          "28",
+          "23",
           "61",
-          "13",
-          "38",
-          "49",
-          "03"
+          "92",
+          "89"
         ],
         "topq": [
-          "12",
-          "63",
-          "88"
+          "85",
+          "08",
+          "40"
         ],
         "pales": [
-          "12-63",
-          "12-88",
-          "12-80"
+          "08-85",
+          "40-85",
+          "05-85"
         ],
-        "fingerprint": "e71f79679f5122da",
-        "ok_alert": false,
-        "best_signal": 0.00417934130608191,
-        "best_a11": 10,
+        "fingerprint": "8169e383a5b74c54",
+        "ok_alert": true,
+        "best_signal": 0.005762172997447448,
+        "best_a11": 13,
         "debug": {
-          "best_signal_hist": 0.00417934130608191,
-          "best_a11_hist": 10,
+          "best_signal_hist": 0.005762172997447448,
+          "best_a11_hist": 13,
           "has_intraday_sources": 0,
           "intraday_events": 0,
-          "today_observed_nums": 21,
-          "source_pairs_today": 8,
-          "source_rows_hist_used": 5481
+          "today_observed_nums": 0,
+          "source_pairs_today": 0,
+          "source_rows_hist_used": 0
         }
       }
     }
