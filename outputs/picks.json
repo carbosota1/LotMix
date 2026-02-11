@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-11T12:40:29.365656-04:00",
-  "event_key": "2026-02-11|La Suerte|Quiniela La Suerte",
+  "generated_at": "2026-02-11T13:07:52.823086-04:00",
+  "event_key": "2026-02-11|Anguilla|Anguila 1PM",
   "target": {
     "time_rd": "2026-02-11 13:00",
     "lottery": "Anguilla",
@@ -36,10 +36,10 @@
     ],
     "fingerprint": "07c8362e6d84f5b5",
     "ok_alert": false,
-    "best_signal": 0.0016608802401041802,
+    "best_signal": 0.0017134621768058382,
     "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.0016608802401041802,
+      "best_signal_hist": 0.0017134621768058382,
       "best_a11_hist": 4,
       "has_intraday_sources": 0,
       "intraday_events": 0,
