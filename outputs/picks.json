@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-02-12T10:09:41.557939-04:00",
-  "event_key": "2026-02-12|Anguilla|Anguila 10AM",
+  "generated_at": "2026-02-12T10:28:40.283240-04:00",
+  "event_key": "2026-02-12|TEST|NO-UPDATE",
   "target": {
-    "time_rd": "2026-02-12 10:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 10AM"
+    "time_rd": "2026-02-12 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera"
   },
   "best_play": {
-    "time_rd": "2026-02-12 10:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 10AM",
+    "time_rd": "2026-02-12 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera",
     "top12": [
-      "85",
-      "08",
-      "40",
-      "05",
-      "58",
-      "76",
-      "35",
-      "23",
-      "28",
-      "61",
-      "89",
-      "92"
+      "63",
+      "70",
+      "91",
+      "80",
+      "24",
+      "10",
+      "96",
+      "90",
+      "14",
+      "97",
+      "25",
+      "26"
     ],
     "topq": [
-      "85",
-      "08",
-      "40"
+      "63",
+      "70",
+      "91"
     ],
     "pales": [
-      "08-85",
-      "40-85",
-      "05-85"
+      "63-70",
+      "63-91",
+      "63-80"
     ],
-    "fingerprint": "917afc61c118c491",
-    "ok_alert": true,
-    "best_signal": 0.005745234814480511,
-    "best_a11": 13,
+    "fingerprint": "0e8f4c19eb1e0798",
+    "ok_alert": false,
+    "best_signal": 0.0033441032510593575,
+    "best_a11": 0,
     "debug": {
-      "best_signal_hist": 0.005745234814480511,
-      "best_a11_hist": 13,
+      "best_signal_hist": 0.0033441032510593575,
+      "best_a11_hist": 0,
       "has_intraday_sources": 0,
       "intraday_events": 0,
-      "today_observed_nums": 0,
-      "source_pairs_today": 0,
-      "source_rows_hist_used": 0
+      "today_observed_nums": 3,
+      "source_pairs_today": 1,
+      "source_rows_hist_used": 76
     }
   }
 }
