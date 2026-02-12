@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-11T19:59:45.936930-04:00",
-  "event_key": "2026-02-11|TEST|NO-UPDATE",
+  "generated_at": "2026-02-11T21:07:17.787551-04:00",
+  "event_key": "2026-02-11|La Nacional|Loteria Nacional- Noche",
   "target": {
     "time_rd": "2026-02-11 21:00",
     "lottery": "La Nacional",
@@ -36,10 +36,10 @@
     ],
     "fingerprint": "92e5b9be366bb28e",
     "ok_alert": false,
-    "best_signal": 0.0012353306777907924,
+    "best_signal": 0.0012453966991760235,
     "best_a11": 7,
     "debug": {
-      "best_signal_hist": 0.0012353306777907924,
+      "best_signal_hist": 0.0012453966991760235,
       "best_a11_hist": 7,
       "has_intraday_sources": 0,
       "intraday_events": 0,

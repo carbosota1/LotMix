@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-02-11T19:59:46.355281-04:00",
-  "event_key": "2026-02-11|TEST|NO-UPDATE",
+  "generated_at": "2026-02-11T21:07:18.227710-04:00",
+  "event_key": "2026-02-11|La Nacional|Loteria Nacional- Noche",
   "items": [
     {
-      "generated_at": "2026-02-11T19:59:40.180292-04:00",
-      "event_key": "2026-02-11|TEST|NO-UPDATE",
+      "generated_at": "2026-02-11T21:07:11.714425-04:00",
+      "event_key": "2026-02-11|La Nacional|Loteria Nacional- Noche",
       "target": {
         "time_rd": "2026-02-11 21:00",
         "lottery": "Anguilla",
@@ -40,10 +40,10 @@
         ],
         "fingerprint": "a5e47de67faa056a",
         "ok_alert": false,
-        "best_signal": 0.007001480116648215,
+        "best_signal": 0.007030824660614601,
         "best_a11": 8,
         "debug": {
-          "best_signal_hist": 0.007001480116648215,
+          "best_signal_hist": 0.007030824660614601,
           "best_a11_hist": 8,
           "has_intraday_sources": 0,
           "intraday_events": 0,
@@ -54,8 +54,8 @@
       }
     },
     {
-      "generated_at": "2026-02-11T19:59:45.936930-04:00",
-      "event_key": "2026-02-11|TEST|NO-UPDATE",
+      "generated_at": "2026-02-11T21:07:17.787551-04:00",
+      "event_key": "2026-02-11|La Nacional|Loteria Nacional- Noche",
       "target": {
         "time_rd": "2026-02-11 21:00",
         "lottery": "La Nacional",
@@ -91,10 +91,10 @@
         ],
         "fingerprint": "92e5b9be366bb28e",
         "ok_alert": false,
-        "best_signal": 0.0012353306777907924,
+        "best_signal": 0.0012453966991760235,
         "best_a11": 7,
         "debug": {
-          "best_signal_hist": 0.0012353306777907924,
+          "best_signal_hist": 0.0012453966991760235,
           "best_a11_hist": 7,
           "has_intraday_sources": 0,
           "intraday_events": 0,
