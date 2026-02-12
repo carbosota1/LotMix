@@ -1,55 +1,55 @@
 {
-  "generated_at": "2026-02-12T12:54:50.239912-04:00",
-  "event_key": "2026-02-12|TEST|NO-UPDATE",
+  "generated_at": "2026-02-12T13:13:20.732629-04:00",
+  "event_key": "2026-02-12|Anguilla|Anguila 1PM",
   "items": [
     {
-      "generated_at": "2026-02-12T12:54:49.716103-04:00",
-      "event_key": "2026-02-12|TEST|NO-UPDATE",
+      "generated_at": "2026-02-12T13:13:20.254778-04:00",
+      "event_key": "2026-02-12|Anguilla|Anguila 1PM",
       "target": {
-        "time_rd": "2026-02-12 13:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 1PM"
+        "time_rd": "2026-02-12 14:30",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Gana Más"
       },
       "best_play": {
-        "time_rd": "2026-02-12 13:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 1PM",
+        "time_rd": "2026-02-12 14:30",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Gana Más",
         "top12": [
-          "63",
-          "77",
-          "65",
-          "94",
-          "33",
-          "57",
+          "32",
+          "34",
+          "20",
+          "40",
           "89",
-          "83",
+          "64",
+          "95",
+          "13",
+          "14",
+          "22",
           "82",
-          "60",
-          "23",
-          "81"
+          "41"
         ],
         "topq": [
-          "63",
-          "77",
-          "65"
+          "32",
+          "34",
+          "20"
         ],
         "pales": [
-          "63-77",
-          "63-65",
-          "63-94"
+          "32-34",
+          "20-32",
+          "32-40"
         ],
-        "fingerprint": "07ff3c7b59ca9370",
+        "fingerprint": "d896e3d4389c55c1",
         "ok_alert": false,
-        "best_signal": 6.050536730699021e-05,
-        "best_a11": 2,
+        "best_signal": 0.0010906091596714134,
+        "best_a11": 5,
         "debug": {
-          "best_signal_hist": 6.050536730699021e-05,
-          "best_a11_hist": 2,
+          "best_signal_hist": 0.0010906091596714134,
+          "best_a11_hist": 5,
           "has_intraday_sources": 0,
           "intraday_events": 0,
-          "today_observed_nums": 9,
-          "source_pairs_today": 3,
-          "source_rows_hist_used": 840
+          "today_observed_nums": 12,
+          "source_pairs_today": 4,
+          "source_rows_hist_used": 1346
         }
       }
     }
