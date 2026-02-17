@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-02-17T11:04:02.781568-04:00",
-  "event_key": "2026-02-17|TEST|NO-UPDATE",
+  "generated_at": "2026-02-17T12:20:43.225002-04:00",
+  "event_key": "2026-02-17|La Primera|Quiniela La Primera",
   "items": [
     {
-      "generated_at": "2026-02-17T11:04:02.194150-04:00",
-      "event_key": "2026-02-17|TEST|NO-UPDATE",
+      "generated_at": "2026-02-17T12:20:42.640187-04:00",
+      "event_key": "2026-02-17|La Primera|Quiniela La Primera",
       "target": {
         "time_rd": "2026-02-17 12:00",
         "lottery": "La Primera",
@@ -40,10 +40,10 @@
         ],
         "fingerprint": "b86e55c3dca1eb72",
         "ok_alert": false,
-        "best_signal": 0.012414548123422676,
+        "best_signal": 0.012872605333774718,
         "best_a11": 0,
         "debug": {
-          "best_signal_hist": 0.012414548123422676,
+          "best_signal_hist": 0.012872605333774718,
           "best_a11_hist": 0,
           "has_intraday_sources": 0,
           "intraday_events": 0,
