@@ -36,7 +36,7 @@ XLSX_FILES = {
 # =========================
 # SCHEDULE (draw == EXACTO columna "sorteo")
 # =========================
-UPDATE_AFTER = 15
+UPDATE_AFTER = 5
 
 SCHEDULE = [
     # Anguilla (4)
