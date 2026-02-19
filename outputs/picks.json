@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-19T12:17:59.595838-04:00",
-  "event_key": "2026-02-19|La Primera|Quiniela La Primera",
+  "generated_at": "2026-02-19T12:37:45.584437-04:00",
+  "event_key": "2026-02-19|La Suerte|Quiniela La Suerte",
   "target": {
     "time_rd": "2026-02-19 12:30",
     "lottery": "La Suerte",
@@ -36,10 +36,10 @@
     ],
     "fingerprint": "dbcbd970c5163e2d",
     "ok_alert": false,
-    "best_signal": 0.005105476214658897,
+    "best_signal": 0.005204416955959158,
     "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.005105476214658897,
+      "best_signal_hist": 0.005204416955959158,
       "best_a11_hist": 4,
       "has_intraday_sources": 0,
       "intraday_events": 0,
