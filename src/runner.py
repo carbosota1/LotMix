@@ -513,6 +513,7 @@ def log_pick(payload: dict):
         "topq": json.dumps(bp.get("topq", []), ensure_ascii=False),
         "pales": json.dumps(bp.get("pales", []), ensure_ascii=False),
         "fingerprint": bp.get("fingerprint", ""),
+        "source_rows_hist_used": bp.get("debug", {}).get("source_rows_hist_used"),
         "graded": "0",
     }
 
@@ -525,6 +526,7 @@ def log_pick(payload: dict):
         combined.to_csv(log_path, index=False, encoding="utf-8")
     else:
         new_df.to_csv(log_path, index=False, encoding="utf-8")
+
 
 def grade_picks_from_histories():
     log_path = os.path.join(DATA_DIR, "picks_log.csv")
@@ -622,6 +624,9 @@ def grade_picks_from_histories():
             "hits_quiniela_topq": hits(topq, drawn),
             "hits_quiniela_top12": hits(top12, drawn),
             "pale_hits": pale_hits(pales, drawn),
+            "source_rows_hist_used": float(r.get("source_rows_hist_used")) 
+              if r.get("source_rows_hist_used") not in (None, "", "nan") else None,
+            
         })
 
         df.loc[df["key"] == key, "graded"] = "1"
