@@ -1,122 +1,123 @@
-key,date,time_rd,lottery,draw,result,hits_quiniela_top6,hits_quiniela_top12,pale_hits_top10,best_signal,best_a11,ok_alert,hits_quiniela_topq,pale_hits
-2026-02-05|Anguilla|Anguila 6PM|2026-02-05 18:00,2026-02-05,2026-02-05 18:00,Anguilla,Anguila 6PM,36-33-46,0,2,0,0.008611554574868563,9,False,,
-2026-02-05|La Primera|Quiniela La Primera Noche|2026-02-05 20:00,2026-02-05,2026-02-05 20:00,La Primera,Quiniela La Primera Noche,35-72-17,0,0,0,0.004346122948401492,14,True,,
-2026-02-05|Anguilla|Anguila 9PM|2026-02-05 21:00,2026-02-05,2026-02-05 21:00,Anguilla,Anguila 9PM,89-06-39,,0,,,,,0.0,0.0
-2026-02-05|La Nacional|Loteria Nacional- Noche|2026-02-05 21:30,2026-02-05,2026-02-05 21:30,La Nacional,Loteria Nacional- Noche,54-32-21,,0,,,,,0.0,0.0
-2026-02-06|Anguilla|Anguila 10AM|2026-02-06 10:00,2026-02-06,2026-02-06 10:00,Anguilla,Anguila 10AM,43-90-62,,0,,,,,0,0
-2026-02-06|La Primera|Quiniela La Primera|2026-02-06 12:00,2026-02-06,2026-02-06 12:00,La Primera,Quiniela La Primera,78-98-34,,1,,,,,0,0
-2026-02-06|Anguilla|Anguila 1PM|2026-02-06 13:00,2026-02-06,2026-02-06 13:00,Anguilla,Anguila 1PM,65-55-21,,1,,,,,0,0
-2026-02-06|La Nacional|Loteria Nacional- Gana Más|2026-02-06 14:30,2026-02-06,2026-02-06 14:30,La Nacional,Loteria Nacional- Gana Más,25-60-12,,1,,,,,1,0
-2026-02-06|Anguilla|Anguila 6PM|2026-02-06 18:00,2026-02-06,2026-02-06 18:00,Anguilla,Anguila 6PM,94-89-59,,2,,,,,0,0
-2026-02-06|La Primera|Quiniela La Primera Noche|2026-02-06 19:00,2026-02-06,2026-02-06 19:00,La Primera,Quiniela La Primera Noche,42-20-21,,0,,,,,0,0
-2026-02-07|Anguilla|Anguila 10AM|2026-02-07 10:00,2026-02-07,2026-02-07 10:00,Anguilla,Anguila 10AM,34-14-61,,0,,,,,0,0
-2026-02-07|La Primera|Quiniela La Primera|2026-02-07 12:00,2026-02-07,2026-02-07 12:00,La Primera,Quiniela La Primera,36-39-92,,0,,,,,0,0
-2026-02-06|Anguilla|Anguila 9PM|2026-02-06 21:00,2026-02-06,2026-02-06 21:00,Anguilla,Anguila 9PM,08-01-69,,0,,,,,0,0
-2026-02-07|Anguilla|Anguila 1PM|2026-02-07 13:00,2026-02-07,2026-02-07 13:00,Anguilla,Anguila 1PM,13-77-01,,1,,,,,1,0
-2026-02-07|La Nacional|Loteria Nacional- Gana Más|2026-02-07 14:30,2026-02-07,2026-02-07 14:30,La Nacional,Loteria Nacional- Gana Más,01-89-34,,1,,,,,0,0
-2026-02-07|Anguilla|Anguila 6PM|2026-02-07 18:00,2026-02-07,2026-02-07 18:00,Anguilla,Anguila 6PM,57-85-15,,0,,,,,0,0
-2026-02-07|La Suerte|Quiniela La Suerte 6PM|2026-02-07 18:00,2026-02-07,2026-02-07 18:00,La Suerte,Quiniela La Suerte 6PM,27-62-62,,0,,,,,0,0
-2026-02-07|La Primera|Quiniela La Primera Noche|2026-02-07 19:00,2026-02-07,2026-02-07 19:00,La Primera,Quiniela La Primera Noche,12-45-55,,0,,,,,0,0
-2026-02-07|Anguilla|Anguila 9PM|2026-02-07 21:00,2026-02-07,2026-02-07 21:00,Anguilla,Anguila 9PM,16-37-91,,0,,,,,0,0
-2026-02-07|La Nacional|Loteria Nacional- Noche|2026-02-07 21:00,2026-02-07,2026-02-07 21:00,La Nacional,Loteria Nacional- Noche,79-28-66,,0,,,,,0,0
-2026-02-08|Anguilla|Anguila 10AM|2026-02-08 10:00,2026-02-08,2026-02-08 10:00,Anguilla,Anguila 10AM,55-55-13,,0,,,,,0,0
-2026-02-08|La Primera|Quiniela La Primera|2026-02-08 12:00,2026-02-08,2026-02-08 12:00,La Primera,Quiniela La Primera,75-83-87,,0,,,,,0,0
-2026-02-08|La Nacional|Loteria Nacional- Gana Más|2026-02-08 14:30,2026-02-08,2026-02-08 14:30,La Nacional,Loteria Nacional- Gana Más,74-33-15,,0,,,,,0,0
-2026-02-08|Anguilla|Anguila 6PM|2026-02-08 18:00,2026-02-08,2026-02-08 18:00,Anguilla,Anguila 6PM,63-65-95,,1,,0.008212096618222173,10,False,0,0
-2026-02-08|La Nacional|Loteria Nacional- Noche|2026-02-08 18:00,2026-02-08,2026-02-08 18:00,La Nacional,Loteria Nacional- Noche,33-08-10,,0,,0.0015894492628954413,10,False,0,0
-2026-02-08|La Suerte|Quiniela La Suerte 6PM|2026-02-08 18:00,2026-02-08,2026-02-08 18:00,La Suerte,Quiniela La Suerte 6PM,59-68-66,,1,,0.0017804364917019828,7,False,0,0
-2026-02-08|La Primera|Quiniela La Primera Noche|2026-02-08 19:00,2026-02-08,2026-02-08 19:00,La Primera,Quiniela La Primera Noche,12-63-47,,1,,0.0023837769084595803,12,False,0,0
-2026-02-08|Anguilla|Anguila 9PM|2026-02-08 21:00,2026-02-08,2026-02-08 21:00,Anguilla,Anguila 9PM,90-93-68,,0,,0.007886849583949284,10,False,0,0
-2026-02-09|Anguilla|Anguila 10AM|2026-02-09 10:00,2026-02-09,2026-02-09 10:00,Anguilla,Anguila 10AM,91-14-24,,0,,0.00579626535003592,13,True,0,0
-2026-02-09|La Primera|Quiniela La Primera|2026-02-09 12:00,2026-02-09,2026-02-09 12:00,La Primera,Quiniela La Primera,24-64-64,,1,,0.017123082448297806,3,False,1,0
-2026-02-09|Anguilla|Anguila 1PM|2026-02-09 13:00,2026-02-09,2026-02-09 13:00,Anguilla,Anguila 1PM,05-13-63,,0,,0.007744909863661969,7,False,0,0
-2026-02-09|La Nacional|Loteria Nacional- Gana Más|2026-02-09 14:30,2026-02-09,2026-02-09 14:30,La Nacional,Loteria Nacional- Gana Más,93-39-73,,0,,0.0004195387637084494,5,False,0,0
-2026-02-09|Anguilla|Anguila 6PM|2026-02-09 18:00,2026-02-09,2026-02-09 18:00,Anguilla,Anguila 6PM,27-03-42,,1,,0.005883951564310479,10,False,0,0
-2026-02-09|La Suerte|Quiniela La Suerte 6PM|2026-02-09 18:00,2026-02-09,2026-02-09 18:00,La Suerte,Quiniela La Suerte 6PM,78-95-39,,0,,0.0021973884056979477,3,False,0,0
-2026-02-09|La Primera|Quiniela La Primera Noche|2026-02-09 19:00,2026-02-09,2026-02-09 19:00,La Primera,Quiniela La Primera Noche,32-18-60,,1,,0.0018136404181469418,10,False,0,0
-2026-02-09|Anguilla|Anguila 9PM|2026-02-09 21:00,2026-02-09,2026-02-09 21:00,Anguilla,Anguila 9PM,45-36-63,,1,,0.003953399503596895,10,False,0,0
-2026-02-09|La Nacional|Loteria Nacional- Noche|2026-02-09 21:00,2026-02-09,2026-02-09 21:00,La Nacional,Loteria Nacional- Noche,34-36-80,,1,,0.0016321163955496998,13,True,0,0
-2026-02-10|Anguilla|Anguila 10AM|2026-02-10 10:00,2026-02-10,2026-02-10 10:00,Anguilla,Anguila 10AM,48-31-36,,0,,0.005779183041162478,13,True,0,0
-2026-02-10|La Primera|Quiniela La Primera|2026-02-10 12:00,2026-02-10,2026-02-10 12:00,La Primera,Quiniela La Primera,88-71-02,,0,,0.006398231809884077,2,False,0,0
-2026-02-10|La Suerte|Quiniela La Suerte|2026-02-10 12:30,2026-02-10,2026-02-10 12:30,La Suerte,Quiniela La Suerte,52-30-50,,0,,0.002977272281954319,4,False,0,0
-2026-02-10|Anguilla|Anguila 1PM|2026-02-10 13:00,2026-02-10,2026-02-10 13:00,Anguilla,Anguila 1PM,12-84-24,,0,,0.004169619938343157,3,False,0,0
-2026-02-10|La Nacional|Loteria Nacional- Gana Más|2026-02-10 14:30,2026-02-10,2026-02-10 14:30,La Nacional,Loteria Nacional- Gana Más,70-63-80,,0,,0.00453878101713503,7,False,0,0
-2026-02-10|Anguilla|Anguila 6PM|2026-02-10 18:00,2026-02-10,2026-02-10 18:00,Anguilla,Anguila 6PM,00-21-26,,0,,0.003365764306752403,7,False,0,0
-2026-02-10|La Suerte|Quiniela La Suerte 6PM|2026-02-10 18:00,2026-02-10,2026-02-10 18:00,La Suerte,Quiniela La Suerte 6PM,99-15-18,,0,,0.0017585577131590964,5,False,0,0
-2026-02-10|La Primera|Quiniela La Primera Noche|2026-02-10 19:00,2026-02-10,2026-02-10 19:00,La Primera,Quiniela La Primera Noche,84-00-00,,0,,0.0032044380629247145,7,False,0,0
-2026-02-10|Anguilla|Anguila 9PM|2026-02-10 21:00,2026-02-10,2026-02-10 21:00,Anguilla,Anguila 9PM,33-69-09,,0,,0.0007540697562754837,11,False,0,0
-2026-02-10|La Nacional|Loteria Nacional- Noche|2026-02-10 21:00,2026-02-10,2026-02-10 21:00,La Nacional,Loteria Nacional- Noche,02-36-08,,0,,0.00417934130608191,10,False,0,0
-2026-02-11|Anguilla|Anguila 10AM|2026-02-11 10:00,2026-02-11,2026-02-11 10:00,Anguilla,Anguila 10AM,76-23-57,,2,,0.005762172997447448,13,True,0,0
-2026-02-11|La Primera|Quiniela La Primera|2026-02-11 12:00,2026-02-11,2026-02-11 12:00,La Primera,Quiniela La Primera,32-90-23,,1,,0.03845906359523112,3,False,1,0
-2026-02-11|La Suerte|Quiniela La Suerte|2026-02-11 12:30,2026-02-11,2026-02-11 12:30,La Suerte,Quiniela La Suerte,69-65-17,,1,,0.0036781473437977256,3,False,0,0
-2026-02-11|Anguilla|Anguila 1PM|2026-02-11 13:00,2026-02-11,2026-02-11 13:00,Anguilla,Anguila 1PM,25-18-52,,0,,0.0017134621768058382,4,False,0,0
-2026-02-11|La Nacional|Loteria Nacional- Gana Más|2026-02-11 14:30,2026-02-11,2026-02-11 14:30,La Nacional,Loteria Nacional- Gana Más,93-68-02,,0,,0.0008996817008009201,6,False,0,0
-2026-02-11|Anguilla|Anguila 6PM|2026-02-11 18:00,2026-02-11,2026-02-11 18:00,Anguilla,Anguila 6PM,52-65-30,,0,,0.0035039604351485144,7,False,0,0
-2026-02-11|La Suerte|Quiniela La Suerte 6PM|2026-02-11 18:00,2026-02-11,2026-02-11 18:00,La Suerte,Quiniela La Suerte 6PM,39-20-69,,1,,0.0022217632409714254,5,False,1,0
-2026-02-11|La Primera|Quiniela La Primera Noche|2026-02-11 19:00,2026-02-11,2026-02-11 19:00,La Primera,Quiniela La Primera Noche,95-76-39,,1,,0.0016137057218810074,11,False,1,0
-2026-02-11|Anguilla|Anguila 9PM|2026-02-11 21:00,2026-02-11,2026-02-11 21:00,Anguilla,Anguila 9PM,97-63-40,,1,,0.007030824660614601,8,False,0,0
-2026-02-11|La Nacional|Loteria Nacional- Noche|2026-02-11 21:00,2026-02-11,2026-02-11 21:00,La Nacional,Loteria Nacional- Noche,42-48-26,,0,,0.0012453966991760235,7,False,0,0
-2026-02-12|Anguilla|Anguila 10AM|2026-02-12 10:00,2026-02-12,2026-02-12 10:00,Anguilla,Anguila 10AM,63-70-31,,0,,0.005745234814480511,13,True,0,0
-2026-02-12|La Primera|Quiniela La Primera|2026-02-12 12:00,2026-02-12,2026-02-12 12:00,La Primera,Quiniela La Primera,27-75-74,,0,,0.0033441032510593575,0,False,0,0
-2026-02-12|La Suerte|Quiniela La Suerte|2026-02-12 12:30,2026-02-12,2026-02-12 12:30,La Suerte,Quiniela La Suerte,32-34-61,,0,,0.005276323545704926,4,False,0,0
-2026-02-12|Anguilla|Anguila 1PM|2026-02-12 13:00,2026-02-12,2026-02-12 13:00,Anguilla,Anguila 1PM,21-20-28,,0,,6.050536730699021e-05,2,False,0,0
-2026-02-12|La Nacional|Loteria Nacional- Gana Más|2026-02-12 14:30,2026-02-12,2026-02-12 14:30,La Nacional,Loteria Nacional- Gana Más,45-19-65,,0,,0.0010906091596714134,5,False,0,0
-2026-02-12|Anguilla|Anguila 6PM|2026-02-12 18:00,2026-02-12,2026-02-12 18:00,Anguilla,Anguila 6PM,68-56-16,,0,,0.0029414822582411117,5,False,0,0
-2026-02-12|La Suerte|Quiniela La Suerte 6PM|2026-02-12 18:00,2026-02-12,2026-02-12 18:00,La Suerte,Quiniela La Suerte 6PM,90-06-79,,0,,0.002277266728608942,8,False,0,0
-2026-02-12|La Primera|Quiniela La Primera Noche|2026-02-12 19:00,2026-02-12,2026-02-12 19:00,La Primera,Quiniela La Primera Noche,50-50-07,,0,,0.00123453576113786,10,False,0,0
-2026-02-12|Anguilla|Anguila 9PM|2026-02-12 21:00,2026-02-12,2026-02-12 21:00,Anguilla,Anguila 9PM,40-34-59,,1,,0.0039052605442960386,11,False,0,0
-2026-02-12|La Nacional|Loteria Nacional- Noche|2026-02-12 21:00,2026-02-12,2026-02-12 21:00,La Nacional,Loteria Nacional- Noche,02-94-37,,0,,0.001835507843211743,8,False,0,0
-2026-02-13|Anguilla|Anguila 10AM|2026-02-13 10:00,2026-02-13,2026-02-13 10:00,Anguilla,Anguila 10AM,65-94-58,,1,,0.005728368090693307,13,True,0,0
-2026-02-13|La Primera|Quiniela La Primera|2026-02-13 12:00,2026-02-13,2026-02-13 12:00,La Primera,Quiniela La Primera,04-16-52,,0,,0.006050461260739004,1,False,0,0
-2026-02-13|La Suerte|Quiniela La Suerte|2026-02-13 12:30,2026-02-13,2026-02-13 12:30,La Suerte,Quiniela La Suerte,87-26-59,,0,,0.0056410032819367755,1,False,0,0
-2026-02-13|Anguilla|Anguila 1PM|2026-02-13 13:00,2026-02-13,2026-02-13 13:00,Anguilla,Anguila 1PM,88-66-11,,0,,0.006080501786089773,4,False,0,0
-2026-02-13|La Nacional|Loteria Nacional- Gana Más|2026-02-13 14:30,2026-02-13,2026-02-13 14:30,La Nacional,Loteria Nacional- Gana Más,99-60-26,,0,,0.0035856285621081087,0,False,0,0
-2026-02-13|Anguilla|Anguila 6PM|2026-02-13 18:00,2026-02-13,2026-02-13 18:00,Anguilla,Anguila 6PM,63-25-65,,1,,0.008051326099074434,9,False,0,0
-2026-02-13|La Suerte|Quiniela La Suerte 6PM|2026-02-13 18:00,2026-02-13,2026-02-13 18:00,La Suerte,Quiniela La Suerte 6PM,52-48-79,,0,,0.0031574395892947755,10,False,0,0
-2026-02-13|La Primera|Quiniela La Primera Noche|2026-02-13 19:00,2026-02-13,2026-02-13 19:00,La Primera,Quiniela La Primera Noche,61-71-19,,0,,0.0024372285223052035,7,False,0,0
-2026-02-13|Anguilla|Anguila 9PM|2026-02-13 21:00,2026-02-13,2026-02-13 21:00,Anguilla,Anguila 9PM,46-27-77,,0,,0.002418837281775494,11,False,0,0
-2026-02-13|La Nacional|Loteria Nacional- Noche|2026-02-13 21:00,2026-02-13,2026-02-13 21:00,La Nacional,Loteria Nacional- Noche,24-65-91,,1,,0.0013666929022469118,11,False,1,0
-2026-02-14|Anguilla|Anguila 1PM|2026-02-14 13:00,2026-02-14,2026-02-14 13:00,Anguilla,Anguila 1PM,74-84-64,,0,,0.00785596226847262,6,False,0,0
-2026-02-14|La Nacional|Loteria Nacional- Gana Más|2026-02-14 14:30,2026-02-14,2026-02-14 14:30,La Nacional,Loteria Nacional- Gana Más,23-80-14,,1,,0.00039561686287199554,3,False,0,0
-2026-02-14|Anguilla|Anguila 6PM|2026-02-14 18:00,2026-02-14,2026-02-14 18:00,Anguilla,Anguila 6PM,00-75-59,,2,,0.008004984678401545,9,False,0,0
-2026-02-14|La Suerte|Quiniela La Suerte 6PM|2026-02-14 18:00,2026-02-14,2026-02-14 18:00,La Suerte,Quiniela La Suerte 6PM,12-88-30,,2,,0.002103106478203985,7,False,0,0
-2026-02-14|La Primera|Quiniela La Primera Noche|2026-02-14 19:00,2026-02-14,2026-02-14 19:00,La Primera,Quiniela La Primera Noche,55-53-79,,1,,0.002313466456956891,7,False,0,0
-2026-02-14|Anguilla|Anguila 9PM|2026-02-14 21:00,2026-02-14,2026-02-14 21:00,Anguilla,Anguila 9PM,66-07-25,,1,,0.0014774314610555592,3,False,0,0
-2026-02-14|La Nacional|Loteria Nacional- Noche|2026-02-14 21:00,2026-02-14,2026-02-14 21:00,La Nacional,Loteria Nacional- Noche,24-25-03,,0,,0.004583362297670238,10,False,0,0
-2026-02-15|La Suerte|Quiniela La Suerte|2026-02-15 12:30,2026-02-15,2026-02-15 12:30,La Suerte,Quiniela La Suerte,12-28-51,,0,,0.004031344827062776,3,False,0,0
-2026-02-15|Anguilla|Anguila 1PM|2026-02-15 13:00,2026-02-15,2026-02-15 13:00,Anguilla,Anguila 1PM,83-87-73,,1,,0.0031106837161660604,5,False,0,0
-2026-02-15|La Nacional|Loteria Nacional- Gana Más|2026-02-15 14:30,2026-02-15,2026-02-15 14:30,La Nacional,Loteria Nacional- Gana Más,39-59-68,,0,,0.0012883813130184208,7,False,0,0
-2026-02-15|Anguilla|Anguila 6PM|2026-02-15 18:00,2026-02-15,2026-02-15 18:00,Anguilla,Anguila 6PM,44-15-72,,0,,0.003534351258357915,7,False,0,0
-2026-02-15|La Nacional|Loteria Nacional- Noche|2026-02-15 18:00,2026-02-15,2026-02-15 18:00,La Nacional,Loteria Nacional- Noche,38-74-79,,1,,0.0033707955959761922,8,False,0,0
-2026-02-15|La Suerte|Quiniela La Suerte 6PM|2026-02-15 18:00,2026-02-15,2026-02-15 18:00,La Suerte,Quiniela La Suerte 6PM,24-09-80,,0,,0.001641024324719359,9,False,0,0
-2026-02-15|La Primera|Quiniela La Primera Noche|2026-02-15 19:00,2026-02-15,2026-02-15 19:00,La Primera,Quiniela La Primera Noche,68-88-90,,1,,0.0029247763049922984,12,False,1,0
-2026-02-15|Anguilla|Anguila 9PM|2026-02-15 21:00,2026-02-15,2026-02-15 21:00,Anguilla,Anguila 9PM,10-15-81,,0,,0.007804666212854862,10,False,0,0
-2026-02-16|La Primera|Quiniela La Primera|2026-02-16 12:00,2026-02-16,2026-02-16 12:00,La Primera,Quiniela La Primera,63-61-91,,1,,0.0237867050137513,1,False,1,0
-2026-02-16|La Suerte|Quiniela La Suerte|2026-02-16 12:30,2026-02-16,2026-02-16 12:30,La Suerte,Quiniela La Suerte,35-49-30,,0,,0.0023417365903444895,4,False,0,0
-2026-02-16|Anguilla|Anguila 1PM|2026-02-16 13:00,2026-02-16,2026-02-16 13:00,Anguilla,Anguila 1PM,66-14-04,,0,,0.00845024947599544,7,False,0,0
-2026-02-16|La Nacional|Loteria Nacional- Gana Más|2026-02-16 14:30,2026-02-16,2026-02-16 14:30,La Nacional,Loteria Nacional- Gana Más,09-71-04,,0,,0.003102971694805069,2,False,0,0
-2026-02-16|Anguilla|Anguila 6PM|2026-02-16 18:00,2026-02-16,2026-02-16 18:00,Anguilla,Anguila 6PM,06-94-54,,0,,0.002872171102743386,4,False,0,0
-2026-02-16|La Suerte|Quiniela La Suerte 6PM|2026-02-16 18:00,2026-02-16,2026-02-16 18:00,La Suerte,Quiniela La Suerte 6PM,70-57-14,,0,,0.0014687780681969579,9,False,0,0
-2026-02-16|La Primera|Quiniela La Primera Noche|2026-02-16 19:00,2026-02-16,2026-02-16 19:00,La Primera,Quiniela La Primera Noche,93-54-50,,1,,0.0004738549443791336,9,False,1,0
-2026-02-16|Anguilla|Anguila 9PM|2026-02-16 21:00,2026-02-16,2026-02-16 21:00,Anguilla,Anguila 9PM,02-23-67,,0,,0.006586207878405331,11,False,0,0
-2026-02-16|La Nacional|Loteria Nacional- Noche|2026-02-16 21:00,2026-02-16,2026-02-16 21:00,La Nacional,Loteria Nacional- Noche,83-68-12,,0,,0.00176359520575989,13,False,0,0
-2026-02-17|Anguilla|Anguila 10AM|2026-02-17 10:00,2026-02-17,2026-02-17 10:00,Anguilla,Anguila 10AM,92-95-83,,0,,0.034572028971374055,5,True,0,0
-2026-02-17|La Primera|Quiniela La Primera|2026-02-17 12:00,2026-02-17,2026-02-17 12:00,La Primera,Quiniela La Primera,54-68-67,,0,,0.012872605333774718,0,False,0,0
-2026-02-17|La Suerte|Quiniela La Suerte|2026-02-17 12:30,2026-02-17,2026-02-17 12:30,La Suerte,Quiniela La Suerte,72-73-91,,0,,0.006035951459030913,3,False,0,0
-2026-02-17|Anguilla|Anguila 1PM|2026-02-17 13:00,2026-02-17,2026-02-17 13:00,Anguilla,Anguila 1PM,21-66-94,,1,,0.009994722181424488,7,False,0,0
-2026-02-17|La Nacional|Loteria Nacional- Gana Más|2026-02-17 14:30,2026-02-17,2026-02-17 14:30,La Nacional,Loteria Nacional- Gana Más,08-73-51,,0,,0.0017122652602855938,3,False,0,0
-2026-02-17|Anguilla|Anguila 6PM|2026-02-17 18:00,2026-02-17,2026-02-17 18:00,Anguilla,Anguila 6PM,29-35-39,,0,,0.006619377467148574,9,False,0,0
-2026-02-17|La Suerte|Quiniela La Suerte 6PM|2026-02-17 18:00,2026-02-17,2026-02-17 18:00,La Suerte,Quiniela La Suerte 6PM,70-55-04,,0,,0.0013968564780359113,8,False,0,0
-2026-02-17|La Primera|Quiniela La Primera Noche|2026-02-17 19:00,2026-02-17,2026-02-17 19:00,La Primera,Quiniela La Primera Noche,00-90-06,,0,,0.01436255473050899,4,True,0,0
-2026-02-17|Anguilla|Anguila 9PM|2026-02-17 21:00,2026-02-17,2026-02-17 21:00,Anguilla,Anguila 9PM,94-98-00,,1,,0.00844509499990421,4,False,0,0
-2026-02-17|La Nacional|Loteria Nacional- Noche|2026-02-17 21:00,2026-02-17,2026-02-17 21:00,La Nacional,Loteria Nacional- Noche,57-79-00,,1,,0.011466969779210173,3,True,0,0
-2026-02-18|La Primera|Quiniela La Primera|2026-02-18 12:00,2026-02-18,2026-02-18 12:00,La Primera,Quiniela La Primera,79-97-23,,1,,0.01401040676448165,0,False,0,0
-2026-02-18|La Suerte|Quiniela La Suerte|2026-02-18 12:30,2026-02-18,2026-02-18 12:30,La Suerte,Quiniela La Suerte,62-75-81,,0,,0.0015081728778218425,1,False,0,0
-2026-02-18|Anguilla|Anguila 1PM|2026-02-18 13:00,2026-02-18,2026-02-18 13:00,Anguilla,Anguila 1PM,21-30-17,,0,,0.005713702233015929,6,False,0,0
-2026-02-18|La Nacional|Loteria Nacional- Gana Más|2026-02-18 14:30,2026-02-18,2026-02-18 14:30,La Nacional,Loteria Nacional- Gana Más,29-07-41,,0,,0.003061666009413011,1,False,0,0
-2026-02-18|Anguilla|Anguila 6PM|2026-02-18 18:00,2026-02-18,2026-02-18 18:00,Anguilla,Anguila 6PM,93-74-58,,0,,0.004453898449095883,1,False,0,0
-2026-02-18|La Suerte|Quiniela La Suerte 6PM|2026-02-18 18:00,2026-02-18,2026-02-18 18:00,La Suerte,Quiniela La Suerte 6PM,88-14-89,,1,,0.0017788753237691977,9,False,0,0
-2026-02-18|La Primera|Quiniela La Primera Noche|2026-02-18 19:00,2026-02-18,2026-02-18 19:00,La Primera,Quiniela La Primera Noche,74-99-45,,1,,0.018262017538642976,4,False,1,0
-2026-02-18|Anguilla|Anguila 9PM|2026-02-18 21:00,2026-02-18,2026-02-18 21:00,Anguilla,Anguila 9PM,78-81-03,,0,,0.01113584644845973,3,False,0,0
-2026-02-18|La Nacional|Loteria Nacional- Noche|2026-02-18 21:00,2026-02-18,2026-02-18 21:00,La Nacional,Loteria Nacional- Noche,21-99-21,,1,,0.008113797343025714,2,False,0,0
-2026-02-19|Anguilla|Anguila 10AM|2026-02-19 10:00,2026-02-19,2026-02-19 10:00,Anguilla,Anguila 10AM,45-24-26,,2,,0.0358682621943778,5,True,0,0
+key,date,time_rd,lottery,draw,result,hits_quiniela_top6,hits_quiniela_top12,pale_hits_top10,best_signal,best_a11,ok_alert,hits_quiniela_topq,pale_hits,source_rows_hist_used
+2026-02-05|Anguilla|Anguila 6PM|2026-02-05 18:00,2026-02-05,2026-02-05 18:00,Anguilla,Anguila 6PM,36-33-46,0,2,0,0.008611554574868563,9,False,,,
+2026-02-05|La Primera|Quiniela La Primera Noche|2026-02-05 20:00,2026-02-05,2026-02-05 20:00,La Primera,Quiniela La Primera Noche,35-72-17,0,0,0,0.004346122948401492,14,True,,,
+2026-02-05|Anguilla|Anguila 9PM|2026-02-05 21:00,2026-02-05,2026-02-05 21:00,Anguilla,Anguila 9PM,89-06-39,,0,,,,,0.0,0.0,
+2026-02-05|La Nacional|Loteria Nacional- Noche|2026-02-05 21:30,2026-02-05,2026-02-05 21:30,La Nacional,Loteria Nacional- Noche,54-32-21,,0,,,,,0.0,0.0,
+2026-02-06|Anguilla|Anguila 10AM|2026-02-06 10:00,2026-02-06,2026-02-06 10:00,Anguilla,Anguila 10AM,43-90-62,,0,,,,,0,0,
+2026-02-06|La Primera|Quiniela La Primera|2026-02-06 12:00,2026-02-06,2026-02-06 12:00,La Primera,Quiniela La Primera,78-98-34,,1,,,,,0,0,
+2026-02-06|Anguilla|Anguila 1PM|2026-02-06 13:00,2026-02-06,2026-02-06 13:00,Anguilla,Anguila 1PM,65-55-21,,1,,,,,0,0,
+2026-02-06|La Nacional|Loteria Nacional- Gana Más|2026-02-06 14:30,2026-02-06,2026-02-06 14:30,La Nacional,Loteria Nacional- Gana Más,25-60-12,,1,,,,,1,0,
+2026-02-06|Anguilla|Anguila 6PM|2026-02-06 18:00,2026-02-06,2026-02-06 18:00,Anguilla,Anguila 6PM,94-89-59,,2,,,,,0,0,
+2026-02-06|La Primera|Quiniela La Primera Noche|2026-02-06 19:00,2026-02-06,2026-02-06 19:00,La Primera,Quiniela La Primera Noche,42-20-21,,0,,,,,0,0,
+2026-02-07|Anguilla|Anguila 10AM|2026-02-07 10:00,2026-02-07,2026-02-07 10:00,Anguilla,Anguila 10AM,34-14-61,,0,,,,,0,0,
+2026-02-07|La Primera|Quiniela La Primera|2026-02-07 12:00,2026-02-07,2026-02-07 12:00,La Primera,Quiniela La Primera,36-39-92,,0,,,,,0,0,
+2026-02-06|Anguilla|Anguila 9PM|2026-02-06 21:00,2026-02-06,2026-02-06 21:00,Anguilla,Anguila 9PM,08-01-69,,0,,,,,0,0,
+2026-02-07|Anguilla|Anguila 1PM|2026-02-07 13:00,2026-02-07,2026-02-07 13:00,Anguilla,Anguila 1PM,13-77-01,,1,,,,,1,0,
+2026-02-07|La Nacional|Loteria Nacional- Gana Más|2026-02-07 14:30,2026-02-07,2026-02-07 14:30,La Nacional,Loteria Nacional- Gana Más,01-89-34,,1,,,,,0,0,
+2026-02-07|Anguilla|Anguila 6PM|2026-02-07 18:00,2026-02-07,2026-02-07 18:00,Anguilla,Anguila 6PM,57-85-15,,0,,,,,0,0,
+2026-02-07|La Suerte|Quiniela La Suerte 6PM|2026-02-07 18:00,2026-02-07,2026-02-07 18:00,La Suerte,Quiniela La Suerte 6PM,27-62-62,,0,,,,,0,0,
+2026-02-07|La Primera|Quiniela La Primera Noche|2026-02-07 19:00,2026-02-07,2026-02-07 19:00,La Primera,Quiniela La Primera Noche,12-45-55,,0,,,,,0,0,
+2026-02-07|Anguilla|Anguila 9PM|2026-02-07 21:00,2026-02-07,2026-02-07 21:00,Anguilla,Anguila 9PM,16-37-91,,0,,,,,0,0,
+2026-02-07|La Nacional|Loteria Nacional- Noche|2026-02-07 21:00,2026-02-07,2026-02-07 21:00,La Nacional,Loteria Nacional- Noche,79-28-66,,0,,,,,0,0,
+2026-02-08|Anguilla|Anguila 10AM|2026-02-08 10:00,2026-02-08,2026-02-08 10:00,Anguilla,Anguila 10AM,55-55-13,,0,,,,,0,0,
+2026-02-08|La Primera|Quiniela La Primera|2026-02-08 12:00,2026-02-08,2026-02-08 12:00,La Primera,Quiniela La Primera,75-83-87,,0,,,,,0,0,
+2026-02-08|La Nacional|Loteria Nacional- Gana Más|2026-02-08 14:30,2026-02-08,2026-02-08 14:30,La Nacional,Loteria Nacional- Gana Más,74-33-15,,0,,,,,0,0,
+2026-02-08|Anguilla|Anguila 6PM|2026-02-08 18:00,2026-02-08,2026-02-08 18:00,Anguilla,Anguila 6PM,63-65-95,,1,,0.008212096618222173,10,False,0,0,
+2026-02-08|La Nacional|Loteria Nacional- Noche|2026-02-08 18:00,2026-02-08,2026-02-08 18:00,La Nacional,Loteria Nacional- Noche,33-08-10,,0,,0.0015894492628954413,10,False,0,0,
+2026-02-08|La Suerte|Quiniela La Suerte 6PM|2026-02-08 18:00,2026-02-08,2026-02-08 18:00,La Suerte,Quiniela La Suerte 6PM,59-68-66,,1,,0.0017804364917019828,7,False,0,0,
+2026-02-08|La Primera|Quiniela La Primera Noche|2026-02-08 19:00,2026-02-08,2026-02-08 19:00,La Primera,Quiniela La Primera Noche,12-63-47,,1,,0.0023837769084595803,12,False,0,0,
+2026-02-08|Anguilla|Anguila 9PM|2026-02-08 21:00,2026-02-08,2026-02-08 21:00,Anguilla,Anguila 9PM,90-93-68,,0,,0.007886849583949284,10,False,0,0,
+2026-02-09|Anguilla|Anguila 10AM|2026-02-09 10:00,2026-02-09,2026-02-09 10:00,Anguilla,Anguila 10AM,91-14-24,,0,,0.00579626535003592,13,True,0,0,
+2026-02-09|La Primera|Quiniela La Primera|2026-02-09 12:00,2026-02-09,2026-02-09 12:00,La Primera,Quiniela La Primera,24-64-64,,1,,0.017123082448297806,3,False,1,0,
+2026-02-09|Anguilla|Anguila 1PM|2026-02-09 13:00,2026-02-09,2026-02-09 13:00,Anguilla,Anguila 1PM,05-13-63,,0,,0.007744909863661969,7,False,0,0,
+2026-02-09|La Nacional|Loteria Nacional- Gana Más|2026-02-09 14:30,2026-02-09,2026-02-09 14:30,La Nacional,Loteria Nacional- Gana Más,93-39-73,,0,,0.0004195387637084494,5,False,0,0,
+2026-02-09|Anguilla|Anguila 6PM|2026-02-09 18:00,2026-02-09,2026-02-09 18:00,Anguilla,Anguila 6PM,27-03-42,,1,,0.005883951564310479,10,False,0,0,
+2026-02-09|La Suerte|Quiniela La Suerte 6PM|2026-02-09 18:00,2026-02-09,2026-02-09 18:00,La Suerte,Quiniela La Suerte 6PM,78-95-39,,0,,0.0021973884056979477,3,False,0,0,
+2026-02-09|La Primera|Quiniela La Primera Noche|2026-02-09 19:00,2026-02-09,2026-02-09 19:00,La Primera,Quiniela La Primera Noche,32-18-60,,1,,0.0018136404181469418,10,False,0,0,
+2026-02-09|Anguilla|Anguila 9PM|2026-02-09 21:00,2026-02-09,2026-02-09 21:00,Anguilla,Anguila 9PM,45-36-63,,1,,0.003953399503596895,10,False,0,0,
+2026-02-09|La Nacional|Loteria Nacional- Noche|2026-02-09 21:00,2026-02-09,2026-02-09 21:00,La Nacional,Loteria Nacional- Noche,34-36-80,,1,,0.0016321163955496998,13,True,0,0,
+2026-02-10|Anguilla|Anguila 10AM|2026-02-10 10:00,2026-02-10,2026-02-10 10:00,Anguilla,Anguila 10AM,48-31-36,,0,,0.005779183041162478,13,True,0,0,
+2026-02-10|La Primera|Quiniela La Primera|2026-02-10 12:00,2026-02-10,2026-02-10 12:00,La Primera,Quiniela La Primera,88-71-02,,0,,0.006398231809884077,2,False,0,0,
+2026-02-10|La Suerte|Quiniela La Suerte|2026-02-10 12:30,2026-02-10,2026-02-10 12:30,La Suerte,Quiniela La Suerte,52-30-50,,0,,0.002977272281954319,4,False,0,0,
+2026-02-10|Anguilla|Anguila 1PM|2026-02-10 13:00,2026-02-10,2026-02-10 13:00,Anguilla,Anguila 1PM,12-84-24,,0,,0.004169619938343157,3,False,0,0,
+2026-02-10|La Nacional|Loteria Nacional- Gana Más|2026-02-10 14:30,2026-02-10,2026-02-10 14:30,La Nacional,Loteria Nacional- Gana Más,70-63-80,,0,,0.00453878101713503,7,False,0,0,
+2026-02-10|Anguilla|Anguila 6PM|2026-02-10 18:00,2026-02-10,2026-02-10 18:00,Anguilla,Anguila 6PM,00-21-26,,0,,0.003365764306752403,7,False,0,0,
+2026-02-10|La Suerte|Quiniela La Suerte 6PM|2026-02-10 18:00,2026-02-10,2026-02-10 18:00,La Suerte,Quiniela La Suerte 6PM,99-15-18,,0,,0.0017585577131590964,5,False,0,0,
+2026-02-10|La Primera|Quiniela La Primera Noche|2026-02-10 19:00,2026-02-10,2026-02-10 19:00,La Primera,Quiniela La Primera Noche,84-00-00,,0,,0.0032044380629247145,7,False,0,0,
+2026-02-10|Anguilla|Anguila 9PM|2026-02-10 21:00,2026-02-10,2026-02-10 21:00,Anguilla,Anguila 9PM,33-69-09,,0,,0.0007540697562754837,11,False,0,0,
+2026-02-10|La Nacional|Loteria Nacional- Noche|2026-02-10 21:00,2026-02-10,2026-02-10 21:00,La Nacional,Loteria Nacional- Noche,02-36-08,,0,,0.00417934130608191,10,False,0,0,
+2026-02-11|Anguilla|Anguila 10AM|2026-02-11 10:00,2026-02-11,2026-02-11 10:00,Anguilla,Anguila 10AM,76-23-57,,2,,0.005762172997447448,13,True,0,0,
+2026-02-11|La Primera|Quiniela La Primera|2026-02-11 12:00,2026-02-11,2026-02-11 12:00,La Primera,Quiniela La Primera,32-90-23,,1,,0.03845906359523112,3,False,1,0,
+2026-02-11|La Suerte|Quiniela La Suerte|2026-02-11 12:30,2026-02-11,2026-02-11 12:30,La Suerte,Quiniela La Suerte,69-65-17,,1,,0.0036781473437977256,3,False,0,0,
+2026-02-11|Anguilla|Anguila 1PM|2026-02-11 13:00,2026-02-11,2026-02-11 13:00,Anguilla,Anguila 1PM,25-18-52,,0,,0.0017134621768058382,4,False,0,0,
+2026-02-11|La Nacional|Loteria Nacional- Gana Más|2026-02-11 14:30,2026-02-11,2026-02-11 14:30,La Nacional,Loteria Nacional- Gana Más,93-68-02,,0,,0.0008996817008009201,6,False,0,0,
+2026-02-11|Anguilla|Anguila 6PM|2026-02-11 18:00,2026-02-11,2026-02-11 18:00,Anguilla,Anguila 6PM,52-65-30,,0,,0.0035039604351485144,7,False,0,0,
+2026-02-11|La Suerte|Quiniela La Suerte 6PM|2026-02-11 18:00,2026-02-11,2026-02-11 18:00,La Suerte,Quiniela La Suerte 6PM,39-20-69,,1,,0.0022217632409714254,5,False,1,0,
+2026-02-11|La Primera|Quiniela La Primera Noche|2026-02-11 19:00,2026-02-11,2026-02-11 19:00,La Primera,Quiniela La Primera Noche,95-76-39,,1,,0.0016137057218810074,11,False,1,0,
+2026-02-11|Anguilla|Anguila 9PM|2026-02-11 21:00,2026-02-11,2026-02-11 21:00,Anguilla,Anguila 9PM,97-63-40,,1,,0.007030824660614601,8,False,0,0,
+2026-02-11|La Nacional|Loteria Nacional- Noche|2026-02-11 21:00,2026-02-11,2026-02-11 21:00,La Nacional,Loteria Nacional- Noche,42-48-26,,0,,0.0012453966991760235,7,False,0,0,
+2026-02-12|Anguilla|Anguila 10AM|2026-02-12 10:00,2026-02-12,2026-02-12 10:00,Anguilla,Anguila 10AM,63-70-31,,0,,0.005745234814480511,13,True,0,0,
+2026-02-12|La Primera|Quiniela La Primera|2026-02-12 12:00,2026-02-12,2026-02-12 12:00,La Primera,Quiniela La Primera,27-75-74,,0,,0.0033441032510593575,0,False,0,0,
+2026-02-12|La Suerte|Quiniela La Suerte|2026-02-12 12:30,2026-02-12,2026-02-12 12:30,La Suerte,Quiniela La Suerte,32-34-61,,0,,0.005276323545704926,4,False,0,0,
+2026-02-12|Anguilla|Anguila 1PM|2026-02-12 13:00,2026-02-12,2026-02-12 13:00,Anguilla,Anguila 1PM,21-20-28,,0,,6.050536730699021e-05,2,False,0,0,
+2026-02-12|La Nacional|Loteria Nacional- Gana Más|2026-02-12 14:30,2026-02-12,2026-02-12 14:30,La Nacional,Loteria Nacional- Gana Más,45-19-65,,0,,0.0010906091596714134,5,False,0,0,
+2026-02-12|Anguilla|Anguila 6PM|2026-02-12 18:00,2026-02-12,2026-02-12 18:00,Anguilla,Anguila 6PM,68-56-16,,0,,0.0029414822582411117,5,False,0,0,
+2026-02-12|La Suerte|Quiniela La Suerte 6PM|2026-02-12 18:00,2026-02-12,2026-02-12 18:00,La Suerte,Quiniela La Suerte 6PM,90-06-79,,0,,0.002277266728608942,8,False,0,0,
+2026-02-12|La Primera|Quiniela La Primera Noche|2026-02-12 19:00,2026-02-12,2026-02-12 19:00,La Primera,Quiniela La Primera Noche,50-50-07,,0,,0.00123453576113786,10,False,0,0,
+2026-02-12|Anguilla|Anguila 9PM|2026-02-12 21:00,2026-02-12,2026-02-12 21:00,Anguilla,Anguila 9PM,40-34-59,,1,,0.0039052605442960386,11,False,0,0,
+2026-02-12|La Nacional|Loteria Nacional- Noche|2026-02-12 21:00,2026-02-12,2026-02-12 21:00,La Nacional,Loteria Nacional- Noche,02-94-37,,0,,0.001835507843211743,8,False,0,0,
+2026-02-13|Anguilla|Anguila 10AM|2026-02-13 10:00,2026-02-13,2026-02-13 10:00,Anguilla,Anguila 10AM,65-94-58,,1,,0.005728368090693307,13,True,0,0,
+2026-02-13|La Primera|Quiniela La Primera|2026-02-13 12:00,2026-02-13,2026-02-13 12:00,La Primera,Quiniela La Primera,04-16-52,,0,,0.006050461260739004,1,False,0,0,
+2026-02-13|La Suerte|Quiniela La Suerte|2026-02-13 12:30,2026-02-13,2026-02-13 12:30,La Suerte,Quiniela La Suerte,87-26-59,,0,,0.0056410032819367755,1,False,0,0,
+2026-02-13|Anguilla|Anguila 1PM|2026-02-13 13:00,2026-02-13,2026-02-13 13:00,Anguilla,Anguila 1PM,88-66-11,,0,,0.006080501786089773,4,False,0,0,
+2026-02-13|La Nacional|Loteria Nacional- Gana Más|2026-02-13 14:30,2026-02-13,2026-02-13 14:30,La Nacional,Loteria Nacional- Gana Más,99-60-26,,0,,0.0035856285621081087,0,False,0,0,
+2026-02-13|Anguilla|Anguila 6PM|2026-02-13 18:00,2026-02-13,2026-02-13 18:00,Anguilla,Anguila 6PM,63-25-65,,1,,0.008051326099074434,9,False,0,0,
+2026-02-13|La Suerte|Quiniela La Suerte 6PM|2026-02-13 18:00,2026-02-13,2026-02-13 18:00,La Suerte,Quiniela La Suerte 6PM,52-48-79,,0,,0.0031574395892947755,10,False,0,0,
+2026-02-13|La Primera|Quiniela La Primera Noche|2026-02-13 19:00,2026-02-13,2026-02-13 19:00,La Primera,Quiniela La Primera Noche,61-71-19,,0,,0.0024372285223052035,7,False,0,0,
+2026-02-13|Anguilla|Anguila 9PM|2026-02-13 21:00,2026-02-13,2026-02-13 21:00,Anguilla,Anguila 9PM,46-27-77,,0,,0.002418837281775494,11,False,0,0,
+2026-02-13|La Nacional|Loteria Nacional- Noche|2026-02-13 21:00,2026-02-13,2026-02-13 21:00,La Nacional,Loteria Nacional- Noche,24-65-91,,1,,0.0013666929022469118,11,False,1,0,
+2026-02-14|Anguilla|Anguila 1PM|2026-02-14 13:00,2026-02-14,2026-02-14 13:00,Anguilla,Anguila 1PM,74-84-64,,0,,0.00785596226847262,6,False,0,0,
+2026-02-14|La Nacional|Loteria Nacional- Gana Más|2026-02-14 14:30,2026-02-14,2026-02-14 14:30,La Nacional,Loteria Nacional- Gana Más,23-80-14,,1,,0.00039561686287199554,3,False,0,0,
+2026-02-14|Anguilla|Anguila 6PM|2026-02-14 18:00,2026-02-14,2026-02-14 18:00,Anguilla,Anguila 6PM,00-75-59,,2,,0.008004984678401545,9,False,0,0,
+2026-02-14|La Suerte|Quiniela La Suerte 6PM|2026-02-14 18:00,2026-02-14,2026-02-14 18:00,La Suerte,Quiniela La Suerte 6PM,12-88-30,,2,,0.002103106478203985,7,False,0,0,
+2026-02-14|La Primera|Quiniela La Primera Noche|2026-02-14 19:00,2026-02-14,2026-02-14 19:00,La Primera,Quiniela La Primera Noche,55-53-79,,1,,0.002313466456956891,7,False,0,0,
+2026-02-14|Anguilla|Anguila 9PM|2026-02-14 21:00,2026-02-14,2026-02-14 21:00,Anguilla,Anguila 9PM,66-07-25,,1,,0.0014774314610555592,3,False,0,0,
+2026-02-14|La Nacional|Loteria Nacional- Noche|2026-02-14 21:00,2026-02-14,2026-02-14 21:00,La Nacional,Loteria Nacional- Noche,24-25-03,,0,,0.004583362297670238,10,False,0,0,
+2026-02-15|La Suerte|Quiniela La Suerte|2026-02-15 12:30,2026-02-15,2026-02-15 12:30,La Suerte,Quiniela La Suerte,12-28-51,,0,,0.004031344827062776,3,False,0,0,
+2026-02-15|Anguilla|Anguila 1PM|2026-02-15 13:00,2026-02-15,2026-02-15 13:00,Anguilla,Anguila 1PM,83-87-73,,1,,0.0031106837161660604,5,False,0,0,
+2026-02-15|La Nacional|Loteria Nacional- Gana Más|2026-02-15 14:30,2026-02-15,2026-02-15 14:30,La Nacional,Loteria Nacional- Gana Más,39-59-68,,0,,0.0012883813130184208,7,False,0,0,
+2026-02-15|Anguilla|Anguila 6PM|2026-02-15 18:00,2026-02-15,2026-02-15 18:00,Anguilla,Anguila 6PM,44-15-72,,0,,0.003534351258357915,7,False,0,0,
+2026-02-15|La Nacional|Loteria Nacional- Noche|2026-02-15 18:00,2026-02-15,2026-02-15 18:00,La Nacional,Loteria Nacional- Noche,38-74-79,,1,,0.0033707955959761922,8,False,0,0,
+2026-02-15|La Suerte|Quiniela La Suerte 6PM|2026-02-15 18:00,2026-02-15,2026-02-15 18:00,La Suerte,Quiniela La Suerte 6PM,24-09-80,,0,,0.001641024324719359,9,False,0,0,
+2026-02-15|La Primera|Quiniela La Primera Noche|2026-02-15 19:00,2026-02-15,2026-02-15 19:00,La Primera,Quiniela La Primera Noche,68-88-90,,1,,0.0029247763049922984,12,False,1,0,
+2026-02-15|Anguilla|Anguila 9PM|2026-02-15 21:00,2026-02-15,2026-02-15 21:00,Anguilla,Anguila 9PM,10-15-81,,0,,0.007804666212854862,10,False,0,0,
+2026-02-16|La Primera|Quiniela La Primera|2026-02-16 12:00,2026-02-16,2026-02-16 12:00,La Primera,Quiniela La Primera,63-61-91,,1,,0.0237867050137513,1,False,1,0,
+2026-02-16|La Suerte|Quiniela La Suerte|2026-02-16 12:30,2026-02-16,2026-02-16 12:30,La Suerte,Quiniela La Suerte,35-49-30,,0,,0.0023417365903444895,4,False,0,0,
+2026-02-16|Anguilla|Anguila 1PM|2026-02-16 13:00,2026-02-16,2026-02-16 13:00,Anguilla,Anguila 1PM,66-14-04,,0,,0.00845024947599544,7,False,0,0,
+2026-02-16|La Nacional|Loteria Nacional- Gana Más|2026-02-16 14:30,2026-02-16,2026-02-16 14:30,La Nacional,Loteria Nacional- Gana Más,09-71-04,,0,,0.003102971694805069,2,False,0,0,
+2026-02-16|Anguilla|Anguila 6PM|2026-02-16 18:00,2026-02-16,2026-02-16 18:00,Anguilla,Anguila 6PM,06-94-54,,0,,0.002872171102743386,4,False,0,0,
+2026-02-16|La Suerte|Quiniela La Suerte 6PM|2026-02-16 18:00,2026-02-16,2026-02-16 18:00,La Suerte,Quiniela La Suerte 6PM,70-57-14,,0,,0.0014687780681969579,9,False,0,0,
+2026-02-16|La Primera|Quiniela La Primera Noche|2026-02-16 19:00,2026-02-16,2026-02-16 19:00,La Primera,Quiniela La Primera Noche,93-54-50,,1,,0.0004738549443791336,9,False,1,0,
+2026-02-16|Anguilla|Anguila 9PM|2026-02-16 21:00,2026-02-16,2026-02-16 21:00,Anguilla,Anguila 9PM,02-23-67,,0,,0.006586207878405331,11,False,0,0,
+2026-02-16|La Nacional|Loteria Nacional- Noche|2026-02-16 21:00,2026-02-16,2026-02-16 21:00,La Nacional,Loteria Nacional- Noche,83-68-12,,0,,0.00176359520575989,13,False,0,0,
+2026-02-17|Anguilla|Anguila 10AM|2026-02-17 10:00,2026-02-17,2026-02-17 10:00,Anguilla,Anguila 10AM,92-95-83,,0,,0.034572028971374055,5,True,0,0,
+2026-02-17|La Primera|Quiniela La Primera|2026-02-17 12:00,2026-02-17,2026-02-17 12:00,La Primera,Quiniela La Primera,54-68-67,,0,,0.012872605333774718,0,False,0,0,
+2026-02-17|La Suerte|Quiniela La Suerte|2026-02-17 12:30,2026-02-17,2026-02-17 12:30,La Suerte,Quiniela La Suerte,72-73-91,,0,,0.006035951459030913,3,False,0,0,
+2026-02-17|Anguilla|Anguila 1PM|2026-02-17 13:00,2026-02-17,2026-02-17 13:00,Anguilla,Anguila 1PM,21-66-94,,1,,0.009994722181424488,7,False,0,0,
+2026-02-17|La Nacional|Loteria Nacional- Gana Más|2026-02-17 14:30,2026-02-17,2026-02-17 14:30,La Nacional,Loteria Nacional- Gana Más,08-73-51,,0,,0.0017122652602855938,3,False,0,0,
+2026-02-17|Anguilla|Anguila 6PM|2026-02-17 18:00,2026-02-17,2026-02-17 18:00,Anguilla,Anguila 6PM,29-35-39,,0,,0.006619377467148574,9,False,0,0,
+2026-02-17|La Suerte|Quiniela La Suerte 6PM|2026-02-17 18:00,2026-02-17,2026-02-17 18:00,La Suerte,Quiniela La Suerte 6PM,70-55-04,,0,,0.0013968564780359113,8,False,0,0,
+2026-02-17|La Primera|Quiniela La Primera Noche|2026-02-17 19:00,2026-02-17,2026-02-17 19:00,La Primera,Quiniela La Primera Noche,00-90-06,,0,,0.01436255473050899,4,True,0,0,
+2026-02-17|Anguilla|Anguila 9PM|2026-02-17 21:00,2026-02-17,2026-02-17 21:00,Anguilla,Anguila 9PM,94-98-00,,1,,0.00844509499990421,4,False,0,0,
+2026-02-17|La Nacional|Loteria Nacional- Noche|2026-02-17 21:00,2026-02-17,2026-02-17 21:00,La Nacional,Loteria Nacional- Noche,57-79-00,,1,,0.011466969779210173,3,True,0,0,
+2026-02-18|La Primera|Quiniela La Primera|2026-02-18 12:00,2026-02-18,2026-02-18 12:00,La Primera,Quiniela La Primera,79-97-23,,1,,0.01401040676448165,0,False,0,0,
+2026-02-18|La Suerte|Quiniela La Suerte|2026-02-18 12:30,2026-02-18,2026-02-18 12:30,La Suerte,Quiniela La Suerte,62-75-81,,0,,0.0015081728778218425,1,False,0,0,
+2026-02-18|Anguilla|Anguila 1PM|2026-02-18 13:00,2026-02-18,2026-02-18 13:00,Anguilla,Anguila 1PM,21-30-17,,0,,0.005713702233015929,6,False,0,0,
+2026-02-18|La Nacional|Loteria Nacional- Gana Más|2026-02-18 14:30,2026-02-18,2026-02-18 14:30,La Nacional,Loteria Nacional- Gana Más,29-07-41,,0,,0.003061666009413011,1,False,0,0,
+2026-02-18|Anguilla|Anguila 6PM|2026-02-18 18:00,2026-02-18,2026-02-18 18:00,Anguilla,Anguila 6PM,93-74-58,,0,,0.004453898449095883,1,False,0,0,
+2026-02-18|La Suerte|Quiniela La Suerte 6PM|2026-02-18 18:00,2026-02-18,2026-02-18 18:00,La Suerte,Quiniela La Suerte 6PM,88-14-89,,1,,0.0017788753237691977,9,False,0,0,
+2026-02-18|La Primera|Quiniela La Primera Noche|2026-02-18 19:00,2026-02-18,2026-02-18 19:00,La Primera,Quiniela La Primera Noche,74-99-45,,1,,0.018262017538642976,4,False,1,0,
+2026-02-18|Anguilla|Anguila 9PM|2026-02-18 21:00,2026-02-18,2026-02-18 21:00,Anguilla,Anguila 9PM,78-81-03,,0,,0.01113584644845973,3,False,0,0,
+2026-02-18|La Nacional|Loteria Nacional- Noche|2026-02-18 21:00,2026-02-18,2026-02-18 21:00,La Nacional,Loteria Nacional- Noche,21-99-21,,1,,0.008113797343025714,2,False,0,0,
+2026-02-19|Anguilla|Anguila 10AM|2026-02-19 10:00,2026-02-19,2026-02-19 10:00,Anguilla,Anguila 10AM,45-24-26,,2,,0.0358682621943778,5,True,0,0,
+2026-02-19|La Primera|Quiniela La Primera|2026-02-19 12:00,2026-02-19,2026-02-19 12:00,La Primera,Quiniela La Primera,46-17-71,,0,,0.011283983313158628,3,False,0,0,74.0
