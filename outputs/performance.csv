@@ -288,3 +288,5 @@ key,date,time_rd,lottery,draw,result,hits_quiniela_top6,hits_quiniela_top12,pale
 2026-03-10|Anguilla|Anguila 6PM|2026-03-10 18:00,2026-03-10,2026-03-10 18:00,Anguilla,Anguila 6PM,37-11-06,,0,,0.006445466743467091,10,False,0,0,2381.0
 2026-03-10|La Suerte|Quiniela La Suerte 6PM|2026-03-10 18:00,2026-03-10,2026-03-10 18:00,La Suerte,Quiniela La Suerte 6PM,46-60-92,,1,,0.001407531383166474,7,False,0,0,2381.0
 2026-03-10|La Primera|Quiniela La Primera Noche|2026-03-10 19:00,2026-03-10,2026-03-10 19:00,La Primera,Quiniela La Primera Noche,93-54-17,,1,,0.014251249464239061,4,True,0,0,751.0
+2026-03-10|Anguilla|Anguila 9PM|2026-03-10 21:00,2026-03-10,2026-03-10 21:00,Anguilla,Anguila 9PM,46-40-29,,1,,0.010633437987211175,2,True,1,0,954.0
+2026-03-10|La Nacional|Loteria Nacional- Noche|2026-03-10 21:00,2026-03-10,2026-03-10 21:00,La Nacional,Loteria Nacional- Noche,79-07-78,,0,,0.010885918376575963,4,False,0,0,954.0
