@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-03-13T11:25:50.157601-04:00",
-  "event_key": "2026-03-13|Anguilla|Anguila 10AM",
+  "generated_at": "2026-03-13T12:06:48.401842-04:00",
+  "event_key": "2026-03-13|La Primera|Quiniela La Primera",
   "items": [
     {
-      "generated_at": "2026-03-13T11:25:49.685746-04:00",
-      "event_key": "2026-03-13|Anguilla|Anguila 10AM",
+      "generated_at": "2026-03-13T12:06:47.885483-04:00",
+      "event_key": "2026-03-13|La Primera|Quiniela La Primera",
       "target": {
         "time_rd": "2026-03-13 12:00",
         "lottery": "La Primera",
@@ -25,7 +25,7 @@
           "96",
           "25",
           "14",
-          "90",
+          "26",
           "64"
         ],
         "topq": [
@@ -38,12 +38,12 @@
           "23-91",
           "23-24"
         ],
-        "fingerprint": "5d7c3761884670e5",
+        "fingerprint": "92bbe5db8ce19e1a",
         "ok_alert": false,
-        "best_signal": 0.022514566765250498,
+        "best_signal": 0.021186700434833214,
         "best_a11": 4,
         "debug": {
-          "best_signal_hist": 0.022514566765250498,
+          "best_signal_hist": 0.021186700434833214,
           "best_a11_hist": 4,
           "has_intraday_sources": 0,
           "intraday_events": 0,
