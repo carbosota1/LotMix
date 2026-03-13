@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-03-13T12:29:02.232112-04:00",
-  "event_key": "2026-03-13|TEST|NO-UPDATE",
+  "generated_at": "2026-03-13T12:52:14.913291-04:00",
+  "event_key": "2026-03-13|La Suerte|Quiniela La Suerte",
   "target": {
-    "time_rd": "2026-03-13 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte"
+    "time_rd": "2026-03-13 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM"
   },
   "best_play": {
-    "time_rd": "2026-03-13 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte",
+    "time_rd": "2026-03-13 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM",
     "top12": [
-      "26",
       "30",
-      "99",
-      "18",
-      "07",
-      "60",
-      "63",
+      "23",
+      "33",
+      "94",
+      "77",
       "65",
-      "38",
-      "42",
-      "31",
-      "50"
+      "57",
+      "83",
+      "82",
+      "89",
+      "41",
+      "81"
     ],
     "topq": [
-      "26",
       "30",
-      "99"
+      "23",
+      "33"
     ],
     "pales": [
-      "26-30",
-      "26-99",
-      "18-26"
+      "23-30",
+      "30-33",
+      "30-94"
     ],
-    "fingerprint": "03dafa4fe283f0ba",
+    "fingerprint": "a9b147f86f0a677b",
     "ok_alert": false,
-    "best_signal": 0.003915569749727414,
-    "best_a11": 4,
+    "best_signal": 0.002480634898524937,
+    "best_a11": 1,
     "debug": {
-      "best_signal_hist": 0.003915569749727414,
-      "best_a11_hist": 4,
+      "best_signal_hist": 0.002480634898524937,
+      "best_a11_hist": 1,
       "has_intraday_sources": 0,
       "intraday_events": 0,
-      "today_observed_nums": 6,
-      "source_pairs_today": 2,
-      "source_rows_hist_used": 364
+      "today_observed_nums": 9,
+      "source_pairs_today": 3,
+      "source_rows_hist_used": 884
     }
   }
 }
