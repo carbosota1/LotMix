@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-03-15T14:49:23.208954-04:00",
-  "event_key": "2026-03-15|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-03-15T17:54:45.955381-04:00",
+  "event_key": "2026-03-15|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-03-15T14:49:13.968229-04:00",
-      "event_key": "2026-03-15|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-03-15T17:54:37.171151-04:00",
+      "event_key": "2026-03-15|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-03-15 18:00",
         "lottery": "Anguilla",
@@ -54,8 +54,8 @@
       }
     },
     {
-      "generated_at": "2026-03-15T14:49:18.313049-04:00",
-      "event_key": "2026-03-15|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-03-15T17:54:41.386626-04:00",
+      "event_key": "2026-03-15|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-03-15 18:00",
         "lottery": "La Nacional",
@@ -90,7 +90,7 @@
           "03-23"
         ],
         "fingerprint": "0f29465cb72970b8",
-        "ok_alert": false,
+        "ok_alert": true,
         "best_signal": 0.0029390945799909326,
         "best_a11": 9,
         "debug": {
@@ -105,8 +105,8 @@
       }
     },
     {
-      "generated_at": "2026-03-15T14:49:22.589556-04:00",
-      "event_key": "2026-03-15|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-03-15T17:54:45.506364-04:00",
+      "event_key": "2026-03-15|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-03-15 18:00",
         "lottery": "La Suerte",
