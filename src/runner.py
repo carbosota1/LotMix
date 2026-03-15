@@ -818,7 +818,31 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     best_signal_hist = float(rec["signal"].max()) if not rec.empty else None
     best_a11_hist = int(rec["a11"].max()) if not rec.empty else None
 
-    ok = should_alert(rec_hist, min_signal=MIN_SIGNAL, min_count_hits=MIN_A11)
+    # -------------------------------------------------
+    # THRESHOLDS DINÁMICOS POR LOTERÍA
+    # -------------------------------------------------
+
+    lottery_name = target["lottery"]
+
+    min_signal = MIN_SIGNAL
+    min_a11 = MIN_A11
+
+    if lottery_name == "La Nacional":
+       min_signal = 0.007
+       min_a11 = 6
+
+    elif lottery_name == "Anguilla":
+         min_signal = 0.018
+         min_a11 = 7
+
+    elif lottery_name == "La Primera":
+        min_signal = 0.020
+        min_a11 = 3
+
+    elif lottery_name == "La Suerte":
+        min_a11 = 8
+
+    ok = should_alert(rec_hist, min_signal=min_signal, min_count_hits=min_a11)
     fp = fingerprint(topq, top12, pales)
 
     payload = {
