@@ -1,112 +1,58 @@
 {
-  "generated_at": "2026-03-16T15:14:12.285558-04:00",
-  "event_key": "2026-03-16|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-03-16T18:16:06.002257-04:00",
+  "event_key": "2026-03-16|La Suerte|Quiniela La Suerte 6PM",
   "items": [
     {
-      "generated_at": "2026-03-16T15:14:07.239328-04:00",
-      "event_key": "2026-03-16|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-03-16T18:16:05.345839-04:00",
+      "event_key": "2026-03-16|La Suerte|Quiniela La Suerte 6PM",
       "target": {
-        "time_rd": "2026-03-16 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM"
+        "time_rd": "2026-03-16 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche"
       },
       "best_play": {
-        "time_rd": "2026-03-16 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM",
+        "time_rd": "2026-03-16 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche",
         "top12": [
-          "42",
-          "45",
-          "54",
-          "26",
-          "72",
-          "75",
-          "48",
-          "46",
-          "59",
-          "03",
-          "63",
-          "66"
-        ],
-        "topq": [
-          "42",
-          "45",
-          "54"
-        ],
-        "pales": [
-          "42-45",
-          "42-54",
-          "26-42"
-        ],
-        "fingerprint": "2aa0bf51c069fd6e",
-        "ok_alert": false,
-        "best_signal": 0.0027387231268053815,
-        "best_a11": 5,
-        "debug": {
-          "best_signal_hist": 0.0047387231268053815,
-          "best_a11_hist": 5,
-          "effective_signal": 0.0027387231268053815,
-          "signal_boost": 0.0,
-          "event_memory_penalty": 0.002,
-          "has_intraday_sources": 0,
-          "intraday_events": 0,
-          "today_observed_nums": 15,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2623
-        }
-      }
-    },
-    {
-      "generated_at": "2026-03-16T15:14:11.656673-04:00",
-      "event_key": "2026-03-16|La Nacional|Loteria Nacional- Gana Más",
-      "target": {
-        "time_rd": "2026-03-16 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM"
-      },
-      "best_play": {
-        "time_rd": "2026-03-16 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM",
-        "top12": [
-          "79",
-          "11",
-          "02",
-          "92",
-          "88",
-          "53",
-          "30",
+          "68",
+          "49",
+          "76",
           "21",
-          "87",
-          "07",
-          "35",
-          "66"
+          "80",
+          "81",
+          "86",
+          "44",
+          "53",
+          "50",
+          "18",
+          "63"
         ],
         "topq": [
-          "79",
-          "11",
-          "02"
+          "68",
+          "49",
+          "76"
         ],
         "pales": [
-          "11-79",
-          "02-79",
-          "79-92"
+          "49-68",
+          "68-76",
+          "21-68"
         ],
-        "fingerprint": "437e6e961ccd7495",
-        "ok_alert": false,
-        "best_signal": -8.851825195152463e-05,
-        "best_a11": 9,
+        "fingerprint": "bc2ad17ff0a95acf",
+        "ok_alert": true,
+        "best_signal": 0.02871652795148605,
+        "best_a11": 4,
         "debug": {
-          "best_signal_hist": 0.0019114817480484754,
-          "best_a11_hist": 9,
-          "effective_signal": -8.851825195152463e-05,
+          "best_signal_hist": 0.02871652795148605,
+          "best_a11_hist": 4,
+          "effective_signal": 0.02871652795148605,
           "signal_boost": 0.0,
-          "event_memory_penalty": 0.002,
+          "event_memory_penalty": 0.0,
           "has_intraday_sources": 0,
           "intraday_events": 0,
-          "today_observed_nums": 15,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2623
+          "today_observed_nums": 20,
+          "source_pairs_today": 7,
+          "source_rows_hist_used": 3500
         }
       }
     }
