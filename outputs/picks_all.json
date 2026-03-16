@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-03-15T19:40:49.304031-04:00",
+  "generated_at": "2026-03-15T20:35:09.073561-04:00",
   "event_key": "2026-03-15|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-03-15T19:40:48.820038-04:00",
+      "generated_at": "2026-03-15T20:35:08.355875-04:00",
       "event_key": "2026-03-15|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-03-15 21:00",
@@ -15,41 +15,44 @@
         "lottery": "Anguilla",
         "draw": "Anguila 9PM",
         "top12": [
-          "63",
-          "40",
+          "25",
           "78",
-          "65",
-          "89",
-          "10",
-          "03",
-          "47",
-          "62",
-          "68",
-          "15",
-          "76"
+          "09",
+          "32",
+          "06",
+          "79",
+          "34",
+          "48",
+          "82",
+          "40",
+          "76",
+          "14"
         ],
         "topq": [
-          "63",
-          "40",
-          "78"
+          "25",
+          "78",
+          "09"
         ],
         "pales": [
-          "40-63",
-          "63-78",
-          "63-65"
+          "25-78",
+          "09-25",
+          "25-32"
         ],
-        "fingerprint": "f854c5ec9e389991",
+        "fingerprint": "696eb2ba5ad7364a",
         "ok_alert": false,
-        "best_signal": 0.014683277597191981,
-        "best_a11": 6,
+        "best_signal": 0.020742978102235313,
+        "best_a11": 4,
         "debug": {
-          "best_signal_hist": 0.014683277597191981,
-          "best_a11_hist": 6,
+          "best_signal_hist": 0.020742978102235313,
+          "best_a11_hist": 4,
+          "effective_signal": 0.020742978102235313,
+          "signal_boost": 0.0,
+          "event_memory_penalty": 0.0,
           "has_intraday_sources": 0,
           "intraday_events": 0,
           "today_observed_nums": 25,
           "source_pairs_today": 9,
-          "source_rows_hist_used": 1238
+          "source_rows_hist_used": 3500
         }
       }
     }
