@@ -93,5 +93,10 @@ def top_pales(nums: List[str], k: int) -> List[Tuple[str,str]]:
 def should_alert(recs: pd.DataFrame, min_signal: float, min_count_hits: int) -> bool:
     if recs.empty:
         return False
-    strong = recs[(recs["signal"] >= min_signal) | (recs["a11"] >= min_count_hits)]
-    return len(strong) >= 3
+
+    strong = recs[
+        (recs["signal"] >= min_signal) &
+        (recs["a11"] >= min_count_hits)
+    ]
+
+    return len(strong) >= 2
