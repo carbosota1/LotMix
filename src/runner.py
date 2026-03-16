@@ -67,7 +67,7 @@ TOPK_FULL     = 12
 PALES_OUT     = 3
 
 # =========================
-# UMBRALES "EDGE" (modo ganador)
+# UMBRALES BASE
 # =========================
 MIN_SIGNAL = 0.0075
 MIN_A11    = 11
@@ -78,13 +78,23 @@ UPCOMING_GRACE_SECONDS = 10 * 60  # si ejecutas tarde manual, aún procesa
 FORCE_NOTIFY = os.getenv("FORCE_NOTIFY", "0").strip() == "1"
 
 # =========================
-# ✅ NUEVO (SIN TOCAR LO DEMÁS):
-# - Recorta histórico cuando se “diluye” por demasiadas filas usadas
-# - Regla especial para el PRIMER target del día (ej Anguilla 10AM)
+# AJUSTES DE MEJORA
 # =========================
-MAX_SOURCE_ROWS = 3000          # cap duro de filas usadas en histórico
-RECENT_DAYS_CAP = 180           # si hay demasiadas filas, limitar a últimos N días
-FIRST_TARGET_RECENT_DAYS = 120  # primer sorteo del día usa recencia para variar picks
+MIN_SOURCE_ROWS = 1500
+MAX_SOURCE_ROWS = 3500
+RECENT_DAYS_CAP = 180
+FIRST_TARGET_RECENT_DAYS = 120
+MIN_OBSERVED_NUMS = 18
+
+FREQ_PENALTY_PER_HIT = 0.0003
+A11_PENALTY_LT3 = 0.004
+A11_PENALTY_LT5 = 0.0015
+A11_BONUS_FACTOR = 0.0002
+
+SIGNAL_ACCEL_BOOST = 0.003
+
+EVENT_MEMORY_OVERLAP_THRESHOLD = 6
+EVENT_MEMORY_PENALTY = 0.002
 
 
 # -----------------------------
@@ -146,6 +156,96 @@ def format_pales(pales_raw):
 def fingerprint(topq, top12, pales):
     s = "|".join(topq) + "||" + "|".join(top12) + "||" + "|".join(pales)
     return hashlib.sha256(s.encode("utf-8")).hexdigest()[:16]
+
+def _parse_top12_entry(val):
+    try:
+        if isinstance(val, list):
+            return [_norm2(x) for x in val]
+        s = str(val).strip()
+        if not s:
+            return []
+        arr = json.loads(s)
+        if isinstance(arr, list):
+            return [_norm2(x) for x in arr]
+    except Exception:
+        pass
+    try:
+        s = str(val).replace("[", "").replace("]", "").replace('"', "").replace("'", "")
+        parts = [p.strip() for p in s.split(",") if p.strip()]
+        return [_norm2(x) for x in parts]
+    except Exception:
+        return []
+
+def _frequency_penalty_map():
+    log_path = os.path.join(DATA_DIR, "picks_log.csv")
+    penalties = {}
+    if not os.path.exists(log_path):
+        return penalties
+    try:
+        recent = pd.read_csv(log_path, dtype=str).tail(200)
+        freq = {}
+        if "top12" in recent.columns:
+            for val in recent["top12"].tolist():
+                for num in _parse_top12_entry(val):
+                    freq[num] = freq.get(num, 0) + 1
+        penalties = {num: cnt * FREQ_PENALTY_PER_HIT for num, cnt in freq.items()}
+    except Exception as e:
+        print("[INFO] Frequency penalty skipped:", e)
+    return penalties
+
+def _signal_acceleration_boost():
+    log_path = os.path.join(DATA_DIR, "picks_log.csv")
+    if not os.path.exists(log_path):
+        return 0.0
+    try:
+        recent = pd.read_csv(log_path, dtype=str).tail(6)
+        if "best_signal" not in recent.columns:
+            return 0.0
+        last_signals = pd.to_numeric(recent["best_signal"], errors="coerce").dropna().astype(float).tolist()
+        if len(last_signals) >= 3:
+            s1, s2, s3 = last_signals[-3:]
+            if s1 < s2 < s3:
+                print("[INFO] Signal acceleration detected")
+                return SIGNAL_ACCEL_BOOST
+    except Exception as e:
+        print("[INFO] Signal acceleration check skipped:", e)
+    return 0.0
+
+def _event_memory_penalty(lottery: str, draw: str, current_top12):
+    perf_path = os.path.join(OUT_DIR, "performance.csv")
+    log_path = os.path.join(DATA_DIR, "picks_log.csv")
+    if not (os.path.exists(perf_path) and os.path.exists(log_path)):
+        return 0.0
+    try:
+        perf = pd.read_csv(perf_path, dtype=str)
+        perf = perf[(perf["lottery"] == lottery) & (perf["draw"] == draw)].copy()
+        if perf.empty:
+            return 0.0
+
+        perf["date"] = pd.to_datetime(perf["date"], errors="coerce")
+        perf = perf.sort_values("date")
+        last_perf = perf.iloc[-1]
+
+        last_hit = pd.to_numeric(last_perf.get("hits_quiniela_top12"), errors="coerce")
+        if pd.isna(last_hit) or last_hit > 0:
+            return 0.0
+
+        key = last_perf["key"]
+
+        plog = pd.read_csv(log_path, dtype=str)
+        match = plog[plog["key"] == key]
+        if match.empty:
+            return 0.0
+
+        prev_top12 = _parse_top12_entry(match.iloc[-1].get("top12"))
+        overlap = len(set(prev_top12).intersection(set(current_top12)))
+
+        if overlap >= EVENT_MEMORY_OVERLAP_THRESHOLD:
+            print(f"[INFO] Event memory penalty applied overlap={overlap}")
+            return EVENT_MEMORY_PENALTY
+    except Exception as e:
+        print("[INFO] Event memory penalty skipped:", e)
+    return 0.0
 
 
 # -----------------------------
@@ -527,7 +627,6 @@ def log_pick(payload: dict):
     else:
         new_df.to_csv(log_path, index=False, encoding="utf-8")
 
-
 def grade_picks_from_histories():
     log_path = os.path.join(DATA_DIR, "picks_log.csv")
     if not os.path.exists(log_path):
@@ -610,6 +709,10 @@ def grade_picks_from_histories():
             ba = int(float(r.get("best_a11"))) if r.get("best_a11") not in (None, "", "nan") else None
         except Exception:
             ba = None
+        try:
+            sr = float(r.get("source_rows_hist_used")) if r.get("source_rows_hist_used") not in (None, "", "nan") else None
+        except Exception:
+            sr = None
 
         perf_rows.append({
             "key": key,
@@ -624,9 +727,7 @@ def grade_picks_from_histories():
             "hits_quiniela_topq": hits(topq, drawn),
             "hits_quiniela_top12": hits(top12, drawn),
             "pale_hits": pale_hits(pales, drawn),
-            "source_rows_hist_used": float(r.get("source_rows_hist_used")) 
-              if r.get("source_rows_hist_used") not in (None, "", "nan") else None,
-            
+            "source_rows_hist_used": sr,
         })
 
         df.loc[df["key"] == key, "graded"] = "1"
@@ -714,6 +815,11 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     # 2) Números observados HOY en esos sorteos previos
     obs_nums = observed_nums_today_before(target_dt)
 
+    # Filtro temprano: no atacar con poca data intradía
+    if prior_pairs and len(obs_nums) < MIN_OBSERVED_NUMS and (not FORCE_NOTIFY):
+        print(f"[INFO] Only {len(obs_nums)} observed nums for target. Skipping weak signal.")
+        return None
+
     # ✅ Regla especial: PRIMER target del día (no hay prior_pairs / obs)
     #    -> usa MI/Chi² pero con recencia fija para evitar repetición eterna.
     if not prior_pairs:
@@ -745,10 +851,10 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         else:
             mask = base_mask
 
-        # ✅ CAP anti-dilución (si hay demasiado histórico usado)
         target_dt_naive = target_dt.replace(tzinfo=None)
         used_pairs = len(prior_pairs)
 
+        # Cap de filas por recencia si se dispara demasiado
         if mask.sum() > MAX_SOURCE_ROWS:
             cutoff = target_dt_naive - timedelta(days=RECENT_DAYS_CAP)
             mask = mask & (exp["fecha_dt"] >= cutoff)
@@ -761,12 +867,14 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         mask_idx = set(exp[mask].index.tolist())
         used_rows = len(mask_idx)
 
-        # Fallback: si no hay suficiente fuente, usa solo prior_pairs sin filtrar por num
-        if len(mask_idx) < 10 and prior_pairs:
+        # Si quedó por debajo del rango ideal, abre a base_mask
+        if len(mask_idx) < MIN_SOURCE_ROWS and prior_pairs:
             mask2 = base_mask
+
             if mask2.sum() > MAX_SOURCE_ROWS:
                 cutoff = target_dt_naive - timedelta(days=RECENT_DAYS_CAP)
                 mask2 = mask2 & (exp["fecha_dt"] >= cutoff)
+
             if mask2.sum() > MAX_SOURCE_ROWS:
                 tmp2 = exp[mask2].sort_values("fecha_dt")
                 tail_idx2 = tmp2.tail(MAX_SOURCE_ROWS).index
@@ -779,8 +887,10 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         if not mask_idx:
             cutoff = target_dt_naive - timedelta(days=RECENT_DAYS_CAP)
             recent_mask = exp["fecha_dt"] >= cutoff
+
             def src_filter(e, _rm=recent_mask):
                 return _rm & ~((e["lottery"] == target["lottery"]) & (e["sorteo"] == target["draw"]))
+
             rec_hist = recommend_for_target(
                 exp,
                 src_filter,
@@ -806,43 +916,67 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         return None
 
     rec = rec_hist.copy()
-    rec["num"] = rec["num"].astype(str)
+    rec["num"] = rec["num"].astype(str).map(_norm2)
     rec["signal"] = pd.to_numeric(rec.get("signal", 0), errors="coerce").fillna(0.0)
     rec["a11"] = pd.to_numeric(rec.get("a11", 0), errors="coerce").fillna(0).astype(int)
 
-    rec = rec.sort_values(["signal", "a11"], ascending=False)
+    # A11 manda y signal confirma
+    rec["score"] = rec["signal"] + (rec["a11"] * A11_BONUS_FACTOR)
+    rec.loc[rec["a11"] < 3, "score"] = rec.loc[rec["a11"] < 3, "score"] - A11_PENALTY_LT3
+    rec.loc[(rec["a11"] >= 3) & (rec["a11"] < 5), "score"] = rec.loc[(rec["a11"] >= 3) & (rec["a11"] < 5), "score"] - A11_PENALTY_LT5
+
+    # Frequency penalty
+    freq_penalty_map = _frequency_penalty_map()
+    if freq_penalty_map:
+        rec["freq_penalty"] = rec["num"].map(lambda x: freq_penalty_map.get(x, 0.0))
+        rec["score"] = rec["score"] - rec["freq_penalty"]
+    else:
+        rec["freq_penalty"] = 0.0
+
+    rec = rec.sort_values(["score", "a11", "signal"], ascending=False)
     top12 = rec["num"].tolist()[:TOPK_FULL]
+
+    # Event memory penalty
+    event_memory_penalty = _event_memory_penalty(target["lottery"], target["draw"], top12)
+    if event_memory_penalty > 0:
+        rec["score"] = rec["score"] - rec["num"].isin(top12).astype(float) * event_memory_penalty
+        rec = rec.sort_values(["score", "a11", "signal"], ascending=False)
+        top12 = rec["num"].tolist()[:TOPK_FULL]
+
     topq = top12[:TOPK_QUINIELA]
     pales = format_pales(top_pales(top12[:10], 40))[:PALES_OUT]
 
     best_signal_hist = float(rec["signal"].max()) if not rec.empty else None
     best_a11_hist = int(rec["a11"].max()) if not rec.empty else None
 
+    # Signal acceleration
+    signal_boost = _signal_acceleration_boost()
+    effective_signal = (best_signal_hist or 0.0) + signal_boost - event_memory_penalty
+
     # -------------------------------------------------
     # THRESHOLDS DINÁMICOS POR LOTERÍA
     # -------------------------------------------------
-
     lottery_name = target["lottery"]
-
     min_signal = MIN_SIGNAL
     min_a11 = MIN_A11
 
     if lottery_name == "La Nacional":
-       min_signal = 0.007
-       min_a11 = 6
-
+        min_signal = 0.007
+        min_a11 = 6
     elif lottery_name == "Anguilla":
-         min_signal = 0.018
-         min_a11 = 7
-
+        min_signal = 0.018
+        min_a11 = 7
     elif lottery_name == "La Primera":
         min_signal = 0.020
         min_a11 = 3
-
     elif lottery_name == "La Suerte":
         min_a11 = 8
 
-    ok = should_alert(rec_hist, min_signal=min_signal, min_count_hits=min_a11)
+    rec_hist_alert = rec_hist.copy()
+    if "signal" in rec_hist_alert.columns:
+        rec_hist_alert["signal"] = pd.to_numeric(rec_hist_alert["signal"], errors="coerce").fillna(0.0) + signal_boost - event_memory_penalty
+
+    ok = should_alert(rec_hist_alert, min_signal=min_signal, min_count_hits=min_a11)
     fp = fingerprint(topq, top12, pales)
 
     payload = {
@@ -862,11 +996,14 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
             "pales": pales,
             "fingerprint": fp,
             "ok_alert": bool(ok),
-            "best_signal": best_signal_hist,
+            "best_signal": effective_signal,
             "best_a11": best_a11_hist,
             "debug": {
                 "best_signal_hist": best_signal_hist,
                 "best_a11_hist": best_a11_hist,
+                "effective_signal": effective_signal,
+                "signal_boost": signal_boost,
+                "event_memory_penalty": event_memory_penalty,
                 "has_intraday_sources": 0,
                 "intraday_events": 0,
                 "today_observed_nums": len(obs_nums),
@@ -906,7 +1043,7 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     msg.append(" | ".join(pales))
     msg.append("")
     msg.append("📊 Debug:")
-    msg.append(f"best_signal={best_signal_hist} best_a11={best_a11_hist} ok_alert={bool(ok)}")
+    msg.append(f"best_signal={effective_signal} best_a11={best_a11_hist} ok_alert={bool(ok)}")
     msg.append(f"today_observed_nums={len(obs_nums)} source_rows_hist_used={int(used_rows)}")
 
     send_telegram("\n".join(msg))
