@@ -1,54 +1,54 @@
 {
-  "generated_at": "2026-03-17T13:35:45.788833-04:00",
-  "event_key": "2026-03-17|TEST|NO-UPDATE",
+  "generated_at": "2026-03-17T14:51:36.115783-04:00",
+  "event_key": "2026-03-17|La Nacional|Loteria Nacional- Gana Más",
   "target": {
-    "time_rd": "2026-03-17 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más"
+    "time_rd": "2026-03-17 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM"
   },
   "best_play": {
-    "time_rd": "2026-03-17 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más",
+    "time_rd": "2026-03-17 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM",
     "top12": [
-      "73",
       "78",
-      "98",
-      "61",
-      "13",
-      "28",
-      "44",
-      "42",
-      "25",
-      "20",
-      "82",
-      "80"
+      "92",
+      "38",
+      "00",
+      "88",
+      "53",
+      "30",
+      "87",
+      "21",
+      "64",
+      "07",
+      "66"
     ],
     "topq": [
-      "73",
       "78",
-      "98"
+      "92",
+      "38"
     ],
     "pales": [
-      "73-78",
-      "73-98",
-      "61-73"
+      "78-92",
+      "38-78",
+      "00-78"
     ],
-    "fingerprint": "1a8bbcbd9847f1e8",
+    "fingerprint": "90cc45269213f14b",
     "ok_alert": false,
-    "best_signal": 0.02102426698366759,
-    "best_a11": 3,
+    "best_signal": 0.001012466569095513,
+    "best_a11": 7,
     "debug": {
-      "best_signal_hist": 0.02302426698366759,
-      "best_a11_hist": 3,
-      "effective_signal": 0.02102426698366759,
+      "best_signal_hist": 0.003012466569095513,
+      "best_a11_hist": 7,
+      "effective_signal": 0.001012466569095513,
       "signal_boost": 0.0,
       "event_memory_penalty": 0.002,
       "has_intraday_sources": 0,
       "intraday_events": 0,
-      "today_observed_nums": 12,
-      "source_pairs_today": 4,
-      "source_rows_hist_used": 2148
+      "today_observed_nums": 14,
+      "source_pairs_today": 5,
+      "source_rows_hist_used": 2420
     }
   }
 }
