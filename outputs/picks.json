@@ -1,54 +1,54 @@
 {
-  "generated_at": "2026-03-17T14:51:36.115783-04:00",
-  "event_key": "2026-03-17|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-03-17T18:13:38.017635-04:00",
+  "event_key": "2026-03-17|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-03-17 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-03-17 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-03-17 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-03-17 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "78",
-      "92",
-      "38",
-      "00",
-      "88",
-      "53",
-      "30",
-      "87",
+      "68",
+      "76",
       "21",
-      "64",
-      "07",
-      "66"
+      "80",
+      "81",
+      "49",
+      "86",
+      "44",
+      "53",
+      "50",
+      "18",
+      "63"
     ],
     "topq": [
-      "78",
-      "92",
-      "38"
+      "68",
+      "76",
+      "21"
     ],
     "pales": [
-      "78-92",
-      "38-78",
-      "00-78"
+      "68-76",
+      "21-68",
+      "68-80"
     ],
-    "fingerprint": "90cc45269213f14b",
-    "ok_alert": false,
-    "best_signal": 0.001012466569095513,
-    "best_a11": 7,
+    "fingerprint": "acaa214f311fc4c0",
+    "ok_alert": true,
+    "best_signal": 0.02871652795148605,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.003012466569095513,
-      "best_a11_hist": 7,
-      "effective_signal": 0.001012466569095513,
+      "best_signal_hist": 0.02871652795148605,
+      "best_a11_hist": 4,
+      "effective_signal": 0.02871652795148605,
       "signal_boost": 0.0,
-      "event_memory_penalty": 0.002,
+      "event_memory_penalty": 0.0,
       "has_intraday_sources": 0,
       "intraday_events": 0,
-      "today_observed_nums": 14,
-      "source_pairs_today": 5,
-      "source_rows_hist_used": 2420
+      "today_observed_nums": 19,
+      "source_pairs_today": 7,
+      "source_rows_hist_used": 3500
     }
   }
 }
