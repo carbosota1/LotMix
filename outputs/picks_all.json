@@ -1,112 +1,58 @@
 {
-  "generated_at": "2026-03-18T14:51:44.164733-04:00",
-  "event_key": "2026-03-18|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-03-18T18:25:44.575651-04:00",
+  "event_key": "2026-03-18|La Suerte|Quiniela La Suerte 6PM",
   "items": [
     {
-      "generated_at": "2026-03-18T14:51:39.571524-04:00",
-      "event_key": "2026-03-18|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-03-18T18:25:44.065438-04:00",
+      "event_key": "2026-03-18|La Suerte|Quiniela La Suerte 6PM",
       "target": {
-        "time_rd": "2026-03-18 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM"
+        "time_rd": "2026-03-18 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche"
       },
       "best_play": {
-        "time_rd": "2026-03-18 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM",
+        "time_rd": "2026-03-18 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche",
         "top12": [
-          "70",
-          "90",
-          "54",
-          "26",
-          "72",
-          "75",
-          "46",
-          "03",
-          "59",
-          "48",
-          "66",
+          "68",
+          "76",
+          "21",
+          "80",
+          "81",
+          "49",
+          "86",
+          "44",
+          "53",
+          "34",
+          "18",
           "63"
         ],
         "topq": [
-          "70",
-          "90",
-          "54"
+          "68",
+          "76",
+          "21"
         ],
         "pales": [
-          "70-90",
-          "54-70",
-          "26-70"
+          "68-76",
+          "21-68",
+          "68-80"
         ],
-        "fingerprint": "6be96ea0e710a027",
-        "ok_alert": false,
-        "best_signal": 0.0007249348854496225,
-        "best_a11": 6,
+        "fingerprint": "a45119edaa784ae3",
+        "ok_alert": true,
+        "best_signal": 0.026716527951486047,
+        "best_a11": 4,
         "debug": {
-          "best_signal_hist": 0.0027249348854496225,
-          "best_a11_hist": 6,
-          "effective_signal": 0.0007249348854496225,
+          "best_signal_hist": 0.02871652795148605,
+          "best_a11_hist": 4,
+          "effective_signal": 0.026716527951486047,
           "signal_boost": 0.0,
           "event_memory_penalty": 0.002,
           "has_intraday_sources": 0,
           "intraday_events": 0,
-          "today_observed_nums": 13,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2206
-        }
-      }
-    },
-    {
-      "generated_at": "2026-03-18T14:51:43.733549-04:00",
-      "event_key": "2026-03-18|La Nacional|Loteria Nacional- Gana Más",
-      "target": {
-        "time_rd": "2026-03-18 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM"
-      },
-      "best_play": {
-        "time_rd": "2026-03-18 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM",
-        "top12": [
-          "78",
-          "11",
-          "98",
-          "21",
-          "92",
-          "88",
-          "07",
-          "30",
-          "53",
-          "87",
-          "64",
-          "66"
-        ],
-        "topq": [
-          "78",
-          "11",
-          "98"
-        ],
-        "pales": [
-          "11-78",
-          "78-98",
-          "21-78"
-        ],
-        "fingerprint": "a5bdab9fd59ac38f",
-        "ok_alert": false,
-        "best_signal": 0.0002097374411938989,
-        "best_a11": 9,
-        "debug": {
-          "best_signal_hist": 0.002209737441193899,
-          "best_a11_hist": 9,
-          "effective_signal": 0.0002097374411938989,
-          "signal_boost": 0.0,
-          "event_memory_penalty": 0.002,
-          "has_intraday_sources": 0,
-          "intraday_events": 0,
-          "today_observed_nums": 13,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2206
+          "today_observed_nums": 18,
+          "source_pairs_today": 7,
+          "source_rows_hist_used": 3500
         }
       }
     }
