@@ -1,8 +1,7 @@
 name: LotMix - Intraday Runner
 
 on:     
-  schedule:
-    - cron: "0 13 * * *"
+
   workflow_dispatch:
 
 concurrency:
