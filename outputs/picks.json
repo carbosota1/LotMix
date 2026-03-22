@@ -1,54 +1,54 @@
 {
-  "generated_at": "2026-03-22T14:42:39.796125-04:00",
-  "event_key": "2026-03-22|TEST|NO-UPDATE",
+  "generated_at": "2026-03-22T18:29:34.126415-04:00",
+  "event_key": "2026-03-22|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-03-22 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-03-22 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-03-22 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-03-22 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "78",
-      "88",
-      "73",
-      "98",
-      "92",
-      "35",
-      "07",
-      "53",
-      "30",
-      "87",
+      "68",
       "21",
-      "66"
+      "47",
+      "81",
+      "76",
+      "49",
+      "86",
+      "20",
+      "34",
+      "18",
+      "63",
+      "87"
     ],
     "topq": [
-      "78",
-      "88",
-      "73"
+      "68",
+      "21",
+      "47"
     ],
     "pales": [
-      "78-88",
-      "73-78",
-      "78-98"
+      "21-68",
+      "47-68",
+      "68-81"
     ],
-    "fingerprint": "e6a6828b4ce789fb",
-    "ok_alert": false,
-    "best_signal": -0.0007268177209185838,
-    "best_a11": 9,
+    "fingerprint": "42651a088018cc27",
+    "ok_alert": true,
+    "best_signal": 0.02742816455556607,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.0012731822790814163,
-      "best_a11_hist": 9,
-      "effective_signal": -0.0007268177209185838,
+      "best_signal_hist": 0.029428164555566072,
+      "best_a11_hist": 4,
+      "effective_signal": 0.02742816455556607,
       "signal_boost": 0.0,
       "event_memory_penalty": 0.002,
       "has_intraday_sources": 0,
       "intraday_events": 0,
-      "today_observed_nums": 15,
-      "source_pairs_today": 5,
-      "source_rows_hist_used": 2541
+      "today_observed_nums": 23,
+      "source_pairs_today": 8,
+      "source_rows_hist_used": 3500
     }
   }
 }
