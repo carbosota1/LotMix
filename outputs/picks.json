@@ -1,54 +1,54 @@
 {
-  "generated_at": "2026-03-23T12:52:40.687955-04:00",
-  "event_key": "2026-03-23|La Suerte|Quiniela La Suerte",
+  "generated_at": "2026-03-23T13:45:40.865661-04:00",
+  "event_key": "2026-03-23|Anguilla|Anguila 1PM",
   "target": {
-    "time_rd": "2026-03-23 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM"
+    "time_rd": "2026-03-23 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más"
   },
   "best_play": {
-    "time_rd": "2026-03-23 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM",
+    "time_rd": "2026-03-23 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más",
     "top12": [
-      "69",
-      "52",
-      "16",
-      "68",
-      "02",
-      "78",
-      "77",
-      "11",
       "73",
-      "21",
-      "87",
-      "63"
+      "61",
+      "13",
+      "84",
+      "78",
+      "98",
+      "42",
+      "68",
+      "44",
+      "25",
+      "94",
+      "21"
     ],
     "topq": [
-      "69",
-      "52",
-      "16"
+      "73",
+      "61",
+      "13"
     ],
     "pales": [
-      "52-69",
-      "16-69",
-      "68-69"
+      "61-73",
+      "13-73",
+      "73-84"
     ],
-    "fingerprint": "39a833c25b2f6d86",
+    "fingerprint": "f7f3c5361b485ad0",
     "ok_alert": false,
-    "best_signal": 0.009536874743649884,
-    "best_a11": 2,
+    "best_signal": 0.022988112295018084,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.009536874743649884,
-      "best_a11_hist": 2,
-      "effective_signal": 0.009536874743649884,
+      "best_signal_hist": 0.022988112295018084,
+      "best_a11_hist": 3,
+      "effective_signal": 0.022988112295018084,
       "signal_boost": 0.0,
       "event_memory_penalty": 0.0,
       "has_intraday_sources": 0,
       "intraday_events": 0,
-      "today_observed_nums": 9,
-      "source_pairs_today": 3,
-      "source_rows_hist_used": 1614
+      "today_observed_nums": 12,
+      "source_pairs_today": 4,
+      "source_rows_hist_used": 2148
     }
   }
 }
