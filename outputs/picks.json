@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-03-23T18:12:44.734033-04:00",
-  "event_key": "2026-03-23|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-03-23T19:16:18.049089-04:00",
+  "event_key": "2026-03-23|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-03-23 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-03-23 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche"
   },
   "best_play": {
-    "time_rd": "2026-03-23 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-03-23 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche",
     "top12": [
-      "68",
-      "76",
-      "21",
-      "80",
-      "81",
-      "49",
-      "86",
-      "53",
+      "04",
+      "40",
+      "56",
       "44",
-      "34",
-      "18",
+      "21",
+      "82",
+      "37",
+      "95",
+      "13",
+      "35",
+      "90",
       "63"
     ],
     "topq": [
-      "68",
-      "76",
-      "21"
+      "04",
+      "40",
+      "56"
     ],
     "pales": [
-      "68-76",
-      "21-68",
-      "68-80"
+      "04-40",
+      "04-56",
+      "04-44"
     ],
-    "fingerprint": "dd4a71364a9dccf4",
-    "ok_alert": true,
-    "best_signal": 0.027571718433280087,
+    "fingerprint": "06577f92c49e6c65",
+    "ok_alert": false,
+    "best_signal": 0.015048402134514112,
     "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.02957171843328009,
+      "best_signal_hist": 0.015048402134514112,
       "best_a11_hist": 4,
-      "effective_signal": 0.027571718433280087,
+      "effective_signal": 0.015048402134514112,
       "signal_boost": 0.0,
-      "event_memory_penalty": 0.002,
+      "event_memory_penalty": 0.0,
       "has_intraday_sources": 0,
       "intraday_events": 0,
-      "today_observed_nums": 20,
-      "source_pairs_today": 7,
+      "today_observed_nums": 22,
+      "source_pairs_today": 8,
       "source_rows_hist_used": 3500
     }
   }
