@@ -1,54 +1,54 @@
 {
-  "generated_at": "2026-03-23T11:16:09.229881-04:00",
-  "event_key": "2026-03-23|Anguilla|Anguila 10AM",
+  "generated_at": "2026-03-23T12:52:40.687955-04:00",
+  "event_key": "2026-03-23|La Suerte|Quiniela La Suerte",
   "target": {
-    "time_rd": "2026-03-23 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera"
+    "time_rd": "2026-03-23 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM"
   },
   "best_play": {
-    "time_rd": "2026-03-23 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera",
+    "time_rd": "2026-03-23 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM",
     "top12": [
-      "23",
-      "10",
-      "24",
-      "96",
-      "91",
-      "97",
-      "45",
-      "64",
-      "83",
-      "25",
-      "80",
-      "14"
+      "69",
+      "52",
+      "16",
+      "68",
+      "02",
+      "78",
+      "77",
+      "11",
+      "73",
+      "21",
+      "87",
+      "63"
     ],
     "topq": [
-      "23",
-      "10",
-      "24"
+      "69",
+      "52",
+      "16"
     ],
     "pales": [
-      "10-23",
-      "23-24",
-      "23-96"
+      "52-69",
+      "16-69",
+      "68-69"
     ],
-    "fingerprint": "5394656934947e79",
+    "fingerprint": "39a833c25b2f6d86",
     "ok_alert": false,
-    "best_signal": 0.0023606302313897206,
-    "best_a11": 4,
+    "best_signal": 0.009536874743649884,
+    "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.004360630231389721,
-      "best_a11_hist": 4,
-      "effective_signal": 0.0023606302313897206,
+      "best_signal_hist": 0.009536874743649884,
+      "best_a11_hist": 2,
+      "effective_signal": 0.009536874743649884,
       "signal_boost": 0.0,
-      "event_memory_penalty": 0.002,
+      "event_memory_penalty": 0.0,
       "has_intraday_sources": 0,
       "intraday_events": 0,
-      "today_observed_nums": 3,
-      "source_pairs_today": 1,
-      "source_rows_hist_used": 2406
+      "today_observed_nums": 9,
+      "source_pairs_today": 3,
+      "source_rows_hist_used": 1614
     }
   }
 }
