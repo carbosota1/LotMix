@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-03-24T19:09:04.360395-04:00",
-  "event_key": "2026-03-24|La Primera|Quiniela La Primera Noche",
+  "generated_at": "2026-03-24T19:12:32.056033-04:00",
+  "event_key": "2026-03-24|TEST|NO-UPDATE",
   "target": {
-    "time_rd": "2026-03-24 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-03-24 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche"
   },
   "best_play": {
-    "time_rd": "2026-03-24 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-03-24 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche",
     "top12": [
-      "68",
-      "76",
-      "21",
-      "80",
-      "81",
-      "49",
-      "86",
-      "18",
-      "53",
+      "04",
+      "40",
+      "56",
       "44",
-      "34",
+      "21",
+      "82",
+      "37",
+      "95",
+      "13",
+      "35",
+      "90",
       "63"
     ],
     "topq": [
-      "68",
-      "76",
-      "21"
+      "04",
+      "40",
+      "56"
     ],
     "pales": [
-      "68-76",
-      "21-68",
-      "68-80"
+      "04-40",
+      "04-56",
+      "04-44"
     ],
-    "fingerprint": "b1995bd5125a1084",
-    "ok_alert": true,
-    "best_signal": 0.03053626499062373,
-    "best_a11": 5,
+    "fingerprint": "06577f92c49e6c65",
+    "ok_alert": false,
+    "best_signal": 0.013048402134514112,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.029536264990623732,
-      "best_a11_hist": 5,
-      "effective_signal": 0.03053626499062373,
-      "signal_boost": 0.003,
+      "best_signal_hist": 0.015048402134514112,
+      "best_a11_hist": 4,
+      "effective_signal": 0.013048402134514112,
+      "signal_boost": 0.0,
       "event_memory_penalty": 0.002,
       "has_intraday_sources": 0,
       "intraday_events": 0,
-      "today_observed_nums": 21,
-      "source_pairs_today": 7,
+      "today_observed_nums": 24,
+      "source_pairs_today": 8,
       "source_rows_hist_used": 3500
     }
   }
