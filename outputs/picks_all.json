@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-03-24T18:11:47.270193-04:00",
-  "event_key": "2026-03-24|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-03-24T19:09:04.950780-04:00",
+  "event_key": "2026-03-24|La Primera|Quiniela La Primera Noche",
   "items": [
     {
-      "generated_at": "2026-03-24T18:11:46.680007-04:00",
-      "event_key": "2026-03-24|La Suerte|Quiniela La Suerte 6PM",
+      "generated_at": "2026-03-24T19:09:04.360395-04:00",
+      "event_key": "2026-03-24|La Primera|Quiniela La Primera Noche",
       "target": {
         "time_rd": "2026-03-24 19:00",
         "lottery": "La Primera",
@@ -40,14 +40,14 @@
         ],
         "fingerprint": "b1995bd5125a1084",
         "ok_alert": true,
-        "best_signal": 0.02957171843328009,
+        "best_signal": 0.03053626499062373,
         "best_a11": 5,
         "debug": {
-          "best_signal_hist": 0.02957171843328009,
+          "best_signal_hist": 0.029536264990623732,
           "best_a11_hist": 5,
-          "effective_signal": 0.02957171843328009,
-          "signal_boost": 0.0,
-          "event_memory_penalty": 0.0,
+          "effective_signal": 0.03053626499062373,
+          "signal_boost": 0.003,
+          "event_memory_penalty": 0.002,
           "has_intraday_sources": 0,
           "intraday_events": 0,
           "today_observed_nums": 21,
