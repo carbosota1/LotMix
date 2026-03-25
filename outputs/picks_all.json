@@ -1,107 +1,55 @@
 {
-  "generated_at": "2026-03-25T14:56:37.938881-04:00",
-  "event_key": "2026-03-25|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-03-25T18:20:20.885352-04:00",
+  "event_key": "2026-03-25|La Suerte|Quiniela La Suerte 6PM",
   "items": [
     {
-      "generated_at": "2026-03-25T14:56:32.831068-04:00",
-      "event_key": "2026-03-25|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-03-25T18:20:20.442899-04:00",
+      "event_key": "2026-03-25|La Suerte|Quiniela La Suerte 6PM",
       "target": {
-        "time_rd": "2026-03-25 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM"
+        "time_rd": "2026-03-25 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche"
       },
       "best_play": {
-        "time_rd": "2026-03-25 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM",
+        "time_rd": "2026-03-25 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche",
         "top12": [
-          "94",
-          "90",
-          "34",
-          "86",
-          "03",
-          "46",
+          "18",
+          "80",
           "63",
-          "66",
-          "48",
-          "59",
-          "70",
-          "54"
-        ],
-        "topq": [
-          "94",
-          "90",
+          "53",
+          "21",
+          "68",
+          "76",
+          "81",
+          "49",
+          "86",
+          "44",
           "34"
         ],
-        "pales": [
-          "90-94",
-          "34-94",
-          "86-94"
-        ],
-        "fingerprint": "326edd0108a1ff6c",
-        "ok_alert": false,
-        "best_signal": 0.006072929078808603,
-        "best_a11": 9,
-        "debug": {
-          "best_signal_hist": 0.006072929078808603,
-          "best_a11_hist": 9,
-          "has_intraday_sources": 0,
-          "intraday_events": 0,
-          "today_observed_nums": 12,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2098,
-          "top12_overlap_prev": 1
-        }
-      }
-    },
-    {
-      "generated_at": "2026-03-25T14:56:37.320452-04:00",
-      "event_key": "2026-03-25|La Nacional|Loteria Nacional- Gana Más",
-      "target": {
-        "time_rd": "2026-03-25 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM"
-      },
-      "best_play": {
-        "time_rd": "2026-03-25 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM",
-        "top12": [
-          "14",
-          "94",
-          "92",
-          "66",
-          "07",
-          "21",
-          "88",
-          "53",
-          "30",
-          "35",
-          "87",
-          "02"
-        ],
         "topq": [
-          "14",
-          "94",
-          "92"
+          "18",
+          "80",
+          "63"
         ],
         "pales": [
-          "14-94",
-          "14-92",
-          "14-66"
+          "18-80",
+          "18-63",
+          "18-53"
         ],
-        "fingerprint": "0053eb728aa294c8",
-        "ok_alert": false,
-        "best_signal": 0.0019032600494563968,
-        "best_a11": 9,
+        "fingerprint": "10a91db852d96973",
+        "ok_alert": true,
+        "best_signal": 0.02738698618894382,
+        "best_a11": 5,
         "debug": {
-          "best_signal_hist": 0.0019032600494563968,
-          "best_a11_hist": 9,
+          "best_signal_hist": 0.02738698618894382,
+          "best_a11_hist": 5,
           "has_intraday_sources": 0,
           "intraday_events": 0,
-          "today_observed_nums": 12,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2098,
+          "today_observed_nums": 18,
+          "source_pairs_today": 7,
+          "source_rows_hist_used": 3500,
           "top12_overlap_prev": 2
         }
       }
