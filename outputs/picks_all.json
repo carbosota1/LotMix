@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-03-25T05:33:26.980932-04:00",
+  "generated_at": "2026-03-25T07:41:48.831487-04:00",
   "event_key": "2026-03-25|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-03-25T05:33:26.521385-04:00",
+      "generated_at": "2026-03-25T07:41:48.323025-04:00",
       "event_key": "2026-03-25|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-03-25 10:00",
@@ -16,44 +16,41 @@
         "draw": "Anguila 10AM",
         "top12": [
           "08",
-          "39",
           "34",
           "76",
+          "39",
           "15",
           "69",
           "19",
+          "83",
           "74",
           "56",
           "30",
-          "83",
           "07"
         ],
         "topq": [
           "08",
-          "39",
-          "34"
+          "34",
+          "76"
         ],
         "pales": [
-          "08-39",
           "08-34",
-          "08-76"
+          "08-76",
+          "08-39"
         ],
-        "fingerprint": "bfd9248bb161e153",
+        "fingerprint": "d5d8a64eb39c1f90",
         "ok_alert": false,
-        "best_signal": 0.020081772934560316,
+        "best_signal": 0.022081772934560318,
         "best_a11": 4,
         "debug": {
           "best_signal_hist": 0.022081772934560318,
           "best_a11_hist": 4,
-          "effective_signal": 0.020081772934560316,
-          "signal_boost": 0.0,
-          "event_memory_penalty": 0.002,
           "has_intraday_sources": 0,
           "intraday_events": 0,
           "today_observed_nums": 0,
           "source_pairs_today": 0,
           "source_rows_hist_used": 3513,
-          "top12_overlap_prev": 0
+          "top12_overlap_prev": 12
         }
       }
     }
