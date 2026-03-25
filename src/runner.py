@@ -84,17 +84,23 @@ MIN_SOURCE_ROWS = 1500
 MAX_SOURCE_ROWS = 3500
 RECENT_DAYS_CAP = 180
 FIRST_TARGET_RECENT_DAYS = 120
-MIN_OBSERVED_NUMS = 18
 
+# Cross-match flexible
+MIN_OBS_FOR_STRICT_NUM_MASK = 5
+
+# Anti-bias / score
 FREQ_PENALTY_PER_HIT = 0.0003
-A11_PENALTY_LT3 = 0.004
-A11_PENALTY_LT5 = 0.0015
-A11_BONUS_FACTOR = 0.0002
+A11_BONUS_FACTOR = 0.00025
 
+# Signal acceleration
 SIGNAL_ACCEL_BOOST = 0.003
 
+# Event memory penalty
 EVENT_MEMORY_OVERLAP_THRESHOLD = 6
 EVENT_MEMORY_PENALTY = 0.002
+
+# Anti-repetición live
+TOP12_REPEAT_THRESHOLD = 8
 
 
 # -----------------------------
@@ -257,6 +263,7 @@ def _fresh_state():
         "last_event_key": "",
         "sent_by_target_fp": {},      # target_key -> fingerprint
         "last_wait_key": "",
+        "last_top12": [],
     }
 
 def load_state():
@@ -277,6 +284,7 @@ def load_state():
     st.setdefault("last_event_key", "")
     st.setdefault("sent_by_target_fp", {})
     st.setdefault("last_wait_key", "")
+    st.setdefault("last_top12", [])
     return st
 
 def save_state(state):
@@ -815,11 +823,6 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     # 2) Números observados HOY en esos sorteos previos
     obs_nums = observed_nums_today_before(target_dt)
 
-    # Filtro temprano: no atacar con poca data intradía
-    if prior_pairs and len(obs_nums) < MIN_OBSERVED_NUMS and (not FORCE_NOTIFY):
-        print(f"[INFO] Only {len(obs_nums)} observed nums for target. Skipping weak signal.")
-        return None
-
     # ✅ Regla especial: PRIMER target del día (no hay prior_pairs / obs)
     #    -> usa MI/Chi² pero con recencia fija para evitar repetición eterna.
     if not prior_pairs:
@@ -843,9 +846,10 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     else:
         # 3) Construir máscara de fuentes dentro del histórico:
         #    - SOLO eventos cuyo (lottery,sorteo) está en prior_pairs
-        #    - y además num ∈ obs_nums (si existe) para forzar cross-match real
+        #    - y además num ∈ obs_nums (si hay suficiente data) para forzar cross-match real
         base_mask = exp.apply(lambda r: (r.get("lottery"), r.get("sorteo")) in prior_pairs, axis=1)
-        if obs_nums:
+
+        if obs_nums and len(obs_nums) >= MIN_OBS_FOR_STRICT_NUM_MASK:
             num_mask = exp["num"].astype(str).isin(obs_nums)
             mask = base_mask & num_mask
         else:
@@ -920,12 +924,10 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     rec["signal"] = pd.to_numeric(rec.get("signal", 0), errors="coerce").fillna(0.0)
     rec["a11"] = pd.to_numeric(rec.get("a11", 0), errors="coerce").fillna(0).astype(int)
 
-    # A11 manda y signal confirma
-    rec["score"] = rec["signal"] + (rec["a11"] * A11_BONUS_FACTOR)
-    rec.loc[rec["a11"] < 3, "score"] = rec.loc[rec["a11"] < 3, "score"] - A11_PENALTY_LT3
-    rec.loc[(rec["a11"] >= 3) & (rec["a11"] < 5), "score"] = rec.loc[(rec["a11"] >= 3) & (rec["a11"] < 5), "score"] - A11_PENALTY_LT5
+    # Score híbrido: balance viejo + nuevo
+    rec["score"] = (rec["signal"] * 0.6) + (rec["a11"] * 0.4)
 
-    # Frequency penalty
+    # Penalty por frecuencia reciente
     freq_penalty_map = _frequency_penalty_map()
     if freq_penalty_map:
         rec["freq_penalty"] = rec["num"].map(lambda x: freq_penalty_map.get(x, 0.0))
@@ -933,14 +935,22 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     else:
         rec["freq_penalty"] = 0.0
 
-    rec = rec.sort_values(["score", "a11", "signal"], ascending=False)
+    rec = rec.sort_values(["score", "signal", "a11"], ascending=False)
     top12 = rec["num"].tolist()[:TOPK_FULL]
+
+    # Anti-repetición con último top12 guardado en state
+    last_top12 = [_norm2(x) for x in state.get("last_top12", [])]
+    overlap = len(set(top12).intersection(set(last_top12)))
+    if overlap >= TOP12_REPEAT_THRESHOLD:
+        print(f"[INFO] Anti-repeat triggered overlap={overlap}")
+        rec = rec.sort_values(["a11", "signal", "score"], ascending=False)
+        top12 = rec["num"].tolist()[:TOPK_FULL]
 
     # Event memory penalty
     event_memory_penalty = _event_memory_penalty(target["lottery"], target["draw"], top12)
     if event_memory_penalty > 0:
         rec["score"] = rec["score"] - rec["num"].isin(top12).astype(float) * event_memory_penalty
-        rec = rec.sort_values(["score", "a11", "signal"], ascending=False)
+        rec = rec.sort_values(["score", "signal", "a11"], ascending=False)
         top12 = rec["num"].tolist()[:TOPK_FULL]
 
     topq = top12[:TOPK_QUINIELA]
@@ -1009,6 +1019,7 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
                 "today_observed_nums": len(obs_nums),
                 "source_pairs_today": int(used_pairs),
                 "source_rows_hist_used": int(used_rows),
+                "top12_overlap_prev": overlap,
             }
         }
     }
@@ -1019,12 +1030,14 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     # Telegram solo si cumple o TEST
     if (not ok) and (not FORCE_NOTIFY):
         print("[INFO] Thresholds not met. No message sent for this target.")
+        state["last_top12"] = top12
         return payload
 
     target_key = f"{payload['target']['time_rd']}|{payload['target']['lottery']}|{payload['target']['draw']}"
     sent_map = state.get("sent_by_target_fp", {})
     if sent_map.get(target_key, "") == fp and (not FORCE_NOTIFY):
         print("[INFO] Same fingerprint already sent for this target.")
+        state["last_top12"] = top12
         return payload
 
     msg = []
@@ -1051,6 +1064,7 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
 
     sent_map[target_key] = fp
     state["sent_by_target_fp"] = sent_map
+    state["last_top12"] = top12
     return payload
 
 
