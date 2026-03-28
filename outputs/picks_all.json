@@ -1,107 +1,107 @@
 {
-  "generated_at": "2026-03-28T14:52:48.368317-04:00",
-  "event_key": "2026-03-28|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-03-28T19:22:15.464143-04:00",
+  "event_key": "2026-03-28|La Primera|Quiniela La Primera Noche",
   "items": [
     {
-      "generated_at": "2026-03-28T14:52:43.420812-04:00",
-      "event_key": "2026-03-28|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-03-28T19:22:08.953837-04:00",
+      "event_key": "2026-03-28|La Primera|Quiniela La Primera Noche",
       "target": {
-        "time_rd": "2026-03-28 18:00",
+        "time_rd": "2026-03-28 21:00",
         "lottery": "Anguilla",
-        "draw": "Anguila 6PM"
+        "draw": "Anguila 9PM"
       },
       "best_play": {
-        "time_rd": "2026-03-28 18:00",
+        "time_rd": "2026-03-28 21:00",
         "lottery": "Anguilla",
-        "draw": "Anguila 6PM",
+        "draw": "Anguila 9PM",
         "top12": [
-          "94",
-          "46",
-          "54",
-          "75",
-          "03",
+          "80",
+          "09",
+          "68",
+          "08",
+          "34",
           "63",
-          "59",
-          "70",
-          "66",
+          "78",
           "48",
-          "72",
-          "26"
+          "14",
+          "76",
+          "06",
+          "29"
         ],
         "topq": [
-          "94",
-          "46",
-          "54"
+          "80",
+          "09",
+          "68"
         ],
         "pales": [
-          "46-94",
-          "54-94",
-          "75-94"
+          "09-80",
+          "68-80",
+          "08-80"
         ],
-        "fingerprint": "44dc7750300a17ae",
+        "fingerprint": "b8a30c6dff0eca70",
         "ok_alert": false,
-        "best_signal": 0.0056580823856767146,
-        "best_a11": 9,
+        "best_signal": 0.016695716841201257,
+        "best_a11": 3,
         "debug": {
-          "best_signal_hist": 0.0056580823856767146,
-          "best_a11_hist": 9,
+          "best_signal_hist": 0.016695716841201257,
+          "best_a11_hist": 3,
           "has_intraday_sources": 0,
           "intraday_events": 0,
-          "today_observed_nums": 14,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2474,
+          "today_observed_nums": 21,
+          "source_pairs_today": 8,
+          "source_rows_hist_used": 3500,
           "top12_overlap_prev": 1
         }
       }
     },
     {
-      "generated_at": "2026-03-28T14:52:47.925645-04:00",
-      "event_key": "2026-03-28|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-03-28T19:22:14.898382-04:00",
+      "event_key": "2026-03-28|La Primera|Quiniela La Primera Noche",
       "target": {
-        "time_rd": "2026-03-28 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM"
+        "time_rd": "2026-03-28 21:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche"
       },
       "best_play": {
-        "time_rd": "2026-03-28 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM",
+        "time_rd": "2026-03-28 21:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche",
         "top12": [
-          "09",
-          "11",
-          "07",
-          "65",
-          "98",
-          "92",
-          "66",
           "21",
-          "30",
-          "88",
-          "53",
-          "35"
+          "44",
+          "40",
+          "13",
+          "04",
+          "62",
+          "35",
+          "08",
+          "56",
+          "59",
+          "37",
+          "90"
         ],
         "topq": [
-          "09",
-          "11",
-          "07"
+          "21",
+          "44",
+          "40"
         ],
         "pales": [
-          "09-11",
-          "07-09",
-          "09-65"
+          "21-44",
+          "21-40",
+          "13-21"
         ],
-        "fingerprint": "dd30e656b01dc77e",
+        "fingerprint": "35941cbc519cec0b",
         "ok_alert": false,
-        "best_signal": 0.0019149220916337049,
-        "best_a11": 9,
+        "best_signal": 0.021369674229835697,
+        "best_a11": 4,
         "debug": {
-          "best_signal_hist": 0.0019149220916337049,
-          "best_a11_hist": 9,
+          "best_signal_hist": 0.021369674229835697,
+          "best_a11_hist": 4,
           "has_intraday_sources": 0,
           "intraday_events": 0,
-          "today_observed_nums": 14,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2474,
+          "today_observed_nums": 21,
+          "source_pairs_today": 8,
+          "source_rows_hist_used": 3500,
           "top12_overlap_prev": 1
         }
       }
