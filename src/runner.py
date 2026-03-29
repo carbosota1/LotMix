@@ -6,6 +6,7 @@ import hashlib
 import time
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
+from collections import Counter
 
 import pandas as pd
 
@@ -28,9 +29,9 @@ OUT_DIR = "outputs"
 # =========================
 XLSX_FILES = {
     "La Primera": os.path.join(HIST_DIR, "La Primera History.xlsx"),
-    "Anguilla":   os.path.join(HIST_DIR, "Anguilla history.xlsx"),
+    "Anguilla": os.path.join(HIST_DIR, "Anguilla history.xlsx"),
     "La Nacional": os.path.join(HIST_DIR, "La nacional history.xlsx"),
-    "La Suerte":  os.path.join(HIST_DIR, "La suerte history.xlsx"),
+    "La Suerte": os.path.join(HIST_DIR, "La suerte history.xlsx"),
 }
 
 # =========================
@@ -41,21 +42,20 @@ UPDATE_AFTER = 2
 SCHEDULE = [
     # Anguilla (4)
     {"lottery": "Anguilla", "draw": "Anguila 10AM", "time": "10:00", "update_after_minutes": UPDATE_AFTER},
-    {"lottery": "Anguilla", "draw": "Anguila 1PM",  "time": "13:00", "update_after_minutes": UPDATE_AFTER},
-    {"lottery": "Anguilla", "draw": "Anguila 6PM",  "time": "18:00", "update_after_minutes": UPDATE_AFTER},
-    {"lottery": "Anguilla", "draw": "Anguila 9PM",  "time": "21:00", "update_after_minutes": UPDATE_AFTER},
+    {"lottery": "Anguilla", "draw": "Anguila 1PM", "time": "13:00", "update_after_minutes": UPDATE_AFTER},
+    {"lottery": "Anguilla", "draw": "Anguila 6PM", "time": "18:00", "update_after_minutes": UPDATE_AFTER},
+    {"lottery": "Anguilla", "draw": "Anguila 9PM", "time": "21:00", "update_after_minutes": UPDATE_AFTER},
 
     # La Primera (2)
-    {"lottery": "La Primera", "draw": "Quiniela La Primera",       "time": "12:00", "update_after_minutes": UPDATE_AFTER},
+    {"lottery": "La Primera", "draw": "Quiniela La Primera", "time": "12:00", "update_after_minutes": UPDATE_AFTER},
     {"lottery": "La Primera", "draw": "Quiniela La Primera Noche", "time": "19:00", "update_after_minutes": UPDATE_AFTER},
 
     # La Nacional (2)
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Gana Más", "time": "14:30", "update_after_minutes": UPDATE_AFTER},
-    # 👇 Nacional Noche cambia los domingos a 18:00 (se maneja dinámico abajo)
-    {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche",    "time": "21:00", "update_after_minutes": UPDATE_AFTER},
+    {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche", "time": "21:00", "update_after_minutes": UPDATE_AFTER},
 
     # La Suerte (2)
-    {"lottery": "La Suerte", "draw": "Quiniela La Suerte",     "time": "12:30", "update_after_minutes": UPDATE_AFTER},
+    {"lottery": "La Suerte", "draw": "Quiniela La Suerte", "time": "12:30", "update_after_minutes": UPDATE_AFTER},
     {"lottery": "La Suerte", "draw": "Quiniela La Suerte 6PM", "time": "18:00", "update_after_minutes": UPDATE_AFTER},
 ]
 
@@ -63,14 +63,14 @@ SCHEDULE = [
 # PRECISIÓN QUIRÚRGICA (Telegram)
 # =========================
 TOPK_QUINIELA = 3
-TOPK_FULL     = 12
-PALES_OUT     = 3
+TOPK_FULL = 12
+PALES_OUT = 3
 
 # =========================
 # UMBRALES BASE
 # =========================
 MIN_SIGNAL = 0.0075
-MIN_A11    = 11
+MIN_A11 = 11
 
 LOOKAHEAD_MINUTES = 5 * 60
 UPCOMING_GRACE_SECONDS = 10 * 60  # si ejecutas tarde manual, aún procesa
@@ -81,24 +81,44 @@ FORCE_NOTIFY = os.getenv("FORCE_NOTIFY", "0").strip() == "1"
 # AJUSTES DE MEJORA
 # =========================
 MIN_SOURCE_ROWS = 1500
-MAX_SOURCE_ROWS = 3500
+MAX_SOURCE_ROWS = 2600          # antes 3500; lo bajamos por lo visto en performance
 RECENT_DAYS_CAP = 180
 FIRST_TARGET_RECENT_DAYS = 120
 
-# solo usar obs_nums si hay suficiente data intradía
+# Solo usar obs_nums si hay suficiente data intradía
 MIN_OBS_FOR_STRICT_NUM_MASK = 5
 
-# score híbrido
-SIGNAL_WEIGHT = 0.60
-A11_WEIGHT = 0.40
+# Score híbrido
+SIGNAL_WEIGHT = 1.00            # signal manda más
+A11_WEIGHT = 0.08               # a11 acompaña, no manda
 
-# anti repetición
+# Anti repetición
 TOP12_REPEAT_THRESHOLD = 8
 
+# Filtro de día
+NO_PLAY_OBS_THRESHOLD = 16      # días caóticos
+NO_PLAY_MIN_A11 = 4
 
-# -----------------------------
+# Penalizaciones / boosts
+REPEAT_PENALTY = 0.22
+FAKE_SIGNAL_PENALTY = 0.35
+HOT_NUM_BOOST = 0.20
+POWER_COMBO_BOOST = 0.20
+FRESH_NUM_BOOST = 0.05
+
+# Frecuencia reciente
+RECENT_LOG_WINDOW = 80
+FREQ_PENALTY_PER_HIT = 0.0008
+MAX_RECENT_FREQ = 3             # si un número salió mucho, lo castigamos fuerte
+
+# Reglas de calidad
+STRUCTURED_SIGNAL_THRESHOLD = 0.018
+STRUCTURED_ROWS_MAX = 2600
+WEAK_SIGNAL_HARD_BLOCK = 0.015  # cuando el día está limpio y el signal es muy bajo, mejor no jugar
+
+# =========================
 # Helpers
-# -----------------------------
+# =========================
 def now_rd() -> datetime:
     return datetime.now(TZ)
 
@@ -156,10 +176,38 @@ def fingerprint(topq, top12, pales):
     s = "|".join(topq) + "||" + "|".join(top12) + "||" + "|".join(pales)
     return hashlib.sha256(s.encode("utf-8")).hexdigest()[:16]
 
+def _parse_json_list(value):
+    try:
+        if isinstance(value, list):
+            return value
+        if value in (None, "", "nan"):
+            return []
+        return json.loads(value)
+    except Exception:
+        return []
 
-# -----------------------------
+def _recent_pick_frequency():
+    log_path = os.path.join(DATA_DIR, "picks_log.csv")
+    freq = Counter()
+    if not os.path.exists(log_path):
+        return freq
+
+    try:
+        df = pd.read_csv(log_path, dtype=str).tail(RECENT_LOG_WINDOW)
+        if "top12" not in df.columns:
+            return freq
+        for raw in df["top12"].tolist():
+            arr = _parse_json_list(raw)
+            for n in arr:
+                freq[_norm2(n)] += 1
+    except Exception:
+        return Counter()
+
+    return freq
+
+# =========================
 # State (robusto)
-# -----------------------------
+# =========================
 def _fresh_state():
     return {
         "last_updates": {},           # date|lottery|draw -> done
@@ -197,10 +245,9 @@ def save_state(state):
         json.dump(state, f, ensure_ascii=False, indent=2)
     os.replace(tmp, STATE_PATH)
 
-
-# -----------------------------
+# =========================
 # Dynamic time: Nacional Noche domingo = 18:00
-# -----------------------------
+# =========================
 def item_time(item: dict) -> str:
     """
     Ajusta horarios por reglas especiales.
@@ -221,10 +268,9 @@ def draw_datetime_today_from_item(item: dict) -> datetime:
     n = now_rd()
     return n.replace(hour=h, minute=m, second=0, microsecond=0)
 
-
-# -----------------------------
+# =========================
 # Scraper hooks (load by file path)
-# -----------------------------
+# =========================
 def fetch_result(lottery: str, draw: str, date: str):
     import importlib.util
 
@@ -251,20 +297,18 @@ def fetch_result(lottery: str, draw: str, date: str):
         raise AttributeError(f"El scraper {file_path} no tiene get_result(draw, date)")
     return module.get_result(draw, date)
 
-
-# -----------------------------
+# =========================
 # DUE logic
-# -----------------------------
+# =========================
 def _due_dt(item) -> datetime:
     return draw_datetime_today_from_item(item) + timedelta(minutes=item["update_after_minutes"])
 
 def _is_due(item, now: datetime) -> bool:
     return now >= _due_dt(item)
 
-
-# -----------------------------
+# =========================
 # XLSX truth checks
-# -----------------------------
+# =========================
 def _has_row_for_date(lottery: str, draw: str, date_str: str) -> bool:
     path = XLSX_FILES.get(lottery)
     if not path or not os.path.exists(path):
@@ -304,12 +348,15 @@ def _get_row_for_date(lottery: str, draw: str, date_str: str):
     if m.empty:
         return None
     r = m.iloc[-1]
-    return (normalize_2d(str(r["primero"])), normalize_2d(str(r["segundo"])), normalize_2d(str(r["tercero"])))
+    return (
+        normalize_2d(str(r["primero"])),
+        normalize_2d(str(r["segundo"])),
+        normalize_2d(str(r["tercero"]))
+    )
 
-
-# -----------------------------
+# =========================
 # Normal update (HOY, solo DUE)
-# -----------------------------
+# =========================
 def try_update_one(item, state) -> bool:
     n = now_rd()
     date_str = today_str()
@@ -349,10 +396,9 @@ def try_update_one(item, state) -> bool:
     state["last_updates"] = last_updates
     return True
 
-
-# -----------------------------
+# =========================
 # FORCE REFRESH + BACKFILL (HOY + AYER)
-# -----------------------------
+# =========================
 def _missing_for_date(date_str: str) -> list[dict]:
     missing = []
     n = now_rd()
@@ -432,10 +478,9 @@ def force_refresh_backfill(state: dict, days_back: int = 1, max_attempts: int = 
 
     return state
 
-
-# -----------------------------
+# =========================
 # GATE: no adivinar
-# -----------------------------
+# =========================
 def missing_due_updates_before_target(target_dt: datetime) -> list[str]:
     n = now_rd()
     date_str = today_str()
@@ -463,10 +508,9 @@ def missing_due_updates_global_today() -> list[str]:
                 missing.append(f"{item['lottery']} | {item['draw']} (due {_due_dt(item).strftime('%H:%M')})")
     return missing
 
-
-# -----------------------------
+# =========================
 # Next targets: empate en hora => procesa TODOS
-# -----------------------------
+# =========================
 def next_targets_same_time():
     n = now_rd()
     candidates = []
@@ -492,10 +536,9 @@ def next_targets_same_time():
     same = [it for (dt, it) in candidates if dt == dt_min]
     return dt_min, same
 
-
-# -----------------------------
-# Picks logging + grading (performance incluye ganadores + best_signal)
-# -----------------------------
+# =========================
+# Picks logging + grading
+# =========================
 def log_pick(payload: dict):
     _ensure_dir(DATA_DIR)
     log_path = os.path.join(DATA_DIR, "picks_log.csv")
@@ -608,9 +651,9 @@ def grade_picks_from_histories():
         row = match.iloc[-1]
         drawn = {row["primero"], row["segundo"], row["tercero"]}
 
-        top12 = json.loads(r.get("top12", "[]") or "[]")
-        topq  = json.loads(r.get("topq", "[]") or "[]")
-        pales = json.loads(r.get("pales", "[]") or "[]")
+        top12 = _parse_json_list(r.get("top12", "[]"))
+        topq = _parse_json_list(r.get("topq", "[]"))
+        pales = _parse_json_list(r.get("pales", "[]"))
 
         try:
             bs = float(r.get("best_signal")) if r.get("best_signal") not in (None, "", "nan") else None
@@ -660,10 +703,9 @@ def grade_picks_from_histories():
     if any_graded:
         df.to_csv(log_path, index=False, encoding="utf-8")
 
-
-# -----------------------------
+# =========================
 # Build exploded history
-# -----------------------------
+# =========================
 def build_exploded_history():
     frames = []
     for lot, path in XLSX_FILES.items():
@@ -677,10 +719,9 @@ def build_exploded_history():
     exp = exp.dropna(subset=["fecha_dt"])
     return exp
 
-
-# -----------------------------
-# NEW: obtener números observados HOY en sorteos previos (cross-match real)
-# -----------------------------
+# =========================
+# Intradía real
+# =========================
 def observed_nums_today_before(target_dt: datetime) -> set[str]:
     date_str = today_str()
     obs = set()
@@ -697,10 +738,25 @@ def observed_nums_today_before(target_dt: datetime) -> set[str]:
             obs.update({r[0], r[1], r[2]})
     return obs
 
+def intraday_counter_before(target_dt: datetime) -> Counter:
+    date_str = today_str()
+    counts = Counter()
+    for it in SCHEDULE:
+        dt = draw_datetime_today_from_item(it)
+        if dt.date() != target_dt.date():
+            continue
+        if dt >= target_dt:
+            continue
+        if not _has_row_for_date(it["lottery"], it["draw"], date_str):
+            continue
+        r = _get_row_for_date(it["lottery"], it["draw"], date_str)
+        if r:
+            counts.update([r[0], r[1], r[2]])
+    return counts
 
-# -----------------------------
-# Analysis per target (MI/Chi² histórico pero CONDICIONADO por secuencia de HOY)
-# -----------------------------
+# =========================
+# Analysis per target
+# =========================
 def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, target_item: dict, state: dict):
     target = target_item
     print("[INFO] Target:", target_dt.strftime("%Y-%m-%d %H:%M"), target["lottery"], target["draw"])
@@ -725,6 +781,12 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
 
     # 2) Números observados HOY en esos sorteos previos
     obs_nums = observed_nums_today_before(target_dt)
+    intraday_counts = intraday_counter_before(target_dt)
+
+    # 3) Tipo de día
+    if len(obs_nums) >= NO_PLAY_OBS_THRESHOLD and (not FORCE_NOTIFY):
+        print(f"[INFO] NO PLAY: día caótico obs_nums={len(obs_nums)}")
+        return None
 
     # ✅ Regla especial: PRIMER target del día
     if not prior_pairs:
@@ -746,7 +808,6 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         used_rows = int(recent_mask.sum())
         used_pairs = 0
     else:
-        # SOLO usa obs_nums si hay suficiente data intradía
         base_mask = exp.apply(lambda r: (r.get("lottery"), r.get("sorteo")) in prior_pairs, axis=1)
 
         if obs_nums and len(obs_nums) >= MIN_OBS_FOR_STRICT_NUM_MASK:
@@ -758,7 +819,6 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         target_dt_naive = target_dt.replace(tzinfo=None)
         used_pairs = len(prior_pairs)
 
-        # limitar por recencia si hay demasiado
         if mask.sum() > MAX_SOURCE_ROWS:
             cutoff = target_dt_naive - timedelta(days=RECENT_DAYS_CAP)
             mask = mask & (exp["fecha_dt"] >= cutoff)
@@ -771,7 +831,6 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         mask_idx = set(exp[mask].index.tolist())
         used_rows = len(mask_idx)
 
-        # si quedó demasiado corto, abrir a base_mask
         if len(mask_idx) < MIN_SOURCE_ROWS and prior_pairs:
             mask2 = base_mask
 
@@ -823,19 +882,55 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     rec["signal"] = pd.to_numeric(rec.get("signal", 0), errors="coerce").fillna(0.0)
     rec["a11"] = pd.to_numeric(rec.get("a11", 0), errors="coerce").fillna(0).astype(int)
 
-    # score híbrido ganador
+    # =========================
+    # SCORE OPTIMIZADO
+    # =========================
     rec["score"] = (rec["signal"] * SIGNAL_WEIGHT) + (rec["a11"] * A11_WEIGHT)
+
+    # Boost por números observados hoy
+    rec["is_hot"] = rec["num"].isin(obs_nums).astype(int)
+    rec["score"] += rec["is_hot"] * HOT_NUM_BOOST
+
+    # Boost adicional por frecuencia intradía real
+    rec["intraday_hits"] = rec["num"].map(lambda x: intraday_counts.get(x, 0))
+    rec["score"] += rec["intraday_hits"] * 0.06
+
+    # Penaliza signal bonito pero A11 flojo
+    rec["fake_signal"] = ((rec["signal"] > 0.02) & (rec["a11"] <= 3)).astype(int)
+    rec["score"] -= rec["fake_signal"] * FAKE_SIGNAL_PENALTY
+
+    # Penalización por repetición del último top12
+    last_top12 = set([_norm2(x) for x in state.get("last_top12", [])])
+    rec["repeat_penalty"] = rec["num"].isin(last_top12).astype(int)
+    rec["score"] -= rec["repeat_penalty"] * REPEAT_PENALTY
+
+    # Penalización por frecuencia reciente en logs
+    recent_freq = _recent_pick_frequency()
+    rec["recent_freq"] = rec["num"].map(lambda x: recent_freq.get(x, 0))
+    rec["score"] -= rec["recent_freq"] * FREQ_PENALTY_PER_HIT
+
+    # Castigo extra si el número ya salió demasiado últimamente
+    rec["burned_num"] = (rec["recent_freq"] >= MAX_RECENT_FREQ).astype(int)
+    rec["score"] -= rec["burned_num"] * 0.15
+
+    # Boost por combinación fuerte real
+    rec["power_combo"] = ((rec["signal"] >= 0.015) & (rec["a11"] >= 5)).astype(int)
+    rec["score"] += rec["power_combo"] * POWER_COMBO_BOOST
+
+    # Boost por números frescos
+    rec["fresh_num"] = (rec["recent_freq"] == 0).astype(int)
+    rec["score"] += rec["fresh_num"] * FRESH_NUM_BOOST
 
     rec = rec.sort_values(["score", "signal", "a11"], ascending=False)
     top12 = rec["num"].tolist()[:TOPK_FULL]
 
-    # anti-repetición
-    last_top12 = [_norm2(x) for x in state.get("last_top12", [])]
-    overlap = len(set(top12).intersection(set(last_top12)))
+    # Anti-repetición fuerte
+    overlap = len(set(top12).intersection(last_top12))
     if overlap >= TOP12_REPEAT_THRESHOLD:
         print(f"[INFO] Anti-repeat triggered overlap={overlap}")
-        rec = rec.sort_values(["a11", "signal", "score"], ascending=False)
+        rec = rec.sort_values(["a11", "signal", "intraday_hits", "score"], ascending=False)
         top12 = rec["num"].tolist()[:TOPK_FULL]
+        overlap = len(set(top12).intersection(last_top12))
 
     topq = top12[:TOPK_QUINIELA]
     pales = format_pales(top_pales(top12[:10], 40))[:PALES_OUT]
@@ -843,7 +938,7 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     best_signal_hist = float(rec["signal"].max()) if not rec.empty else None
     best_a11_hist = int(rec["a11"].max()) if not rec.empty else None
 
-    # thresholds dinámicos por lotería
+    # Thresholds dinámicos por lotería
     lottery_name = target["lottery"]
     min_signal = MIN_SIGNAL
     min_a11 = MIN_A11
@@ -859,6 +954,16 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
         min_a11 = 3
     elif lottery_name == "La Suerte":
         min_a11 = 8
+
+    # Bloque duro: días limpios exigen signal real
+    if len(obs_nums) <= 13 and (best_signal_hist or 0.0) < WEAK_SIGNAL_HARD_BLOCK and (not FORCE_NOTIFY):
+        print(f"[INFO] Hard block weak signal in structured day: signal={best_signal_hist}")
+        return None
+
+    # Calidad mínima de mercado
+    if best_a11_hist < NO_PLAY_MIN_A11 and len(obs_nums) >= 14 and (not FORCE_NOTIFY):
+        print(f"[INFO] NO PLAY by weak a11 in noisy day: a11={best_a11_hist}, obs={len(obs_nums)}")
+        return None
 
     ok = should_alert(rec_hist, min_signal=min_signal, min_count_hits=min_a11)
     fp = fingerprint(topq, top12, pales)
@@ -885,12 +990,11 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
             "debug": {
                 "best_signal_hist": best_signal_hist,
                 "best_a11_hist": best_a11_hist,
-                "has_intraday_sources": 0,
-                "intraday_events": 0,
                 "today_observed_nums": len(obs_nums),
                 "source_pairs_today": int(used_pairs),
                 "source_rows_hist_used": int(used_rows),
                 "top12_overlap_prev": overlap,
+                "top_intraday": intraday_counts.most_common(5),
             }
         }
     }
@@ -938,10 +1042,9 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     state["last_top12"] = top12
     return payload
 
-
-# -----------------------------
+# =========================
 # MAIN
-# -----------------------------
+# =========================
 def main():
     ensure_dir(DATA_DIR)
     ensure_dir(HIST_DIR)
@@ -972,7 +1075,7 @@ def main():
     except Exception as e:
         print(f"[WARN] grading failed: {e}")
 
-    # 4) Si faltan updates "due" de HOY, NO se analiza (no adivinar)
+    # 4) Si faltan updates "due" de HOY, NO se analiza
     missing_due_today = missing_due_updates_global_today()
     if missing_due_today and (not FORCE_NOTIFY):
         print("[INFO] Still missing due updates today. Skipping analysis.")
@@ -1018,7 +1121,7 @@ def main():
         print("[OK] runner finished")
         return
 
-    # 7) Build history + process next targets (handles dual 18:00 y dual 21:00)
+    # 7) Build history + process next targets
     exp = build_exploded_history()
     if exp is None:
         print("[INFO] No history loaded. Exiting.")
@@ -1050,8 +1153,12 @@ def main():
     ensure_dir(OUT_DIR)
     if picks_all:
         with open(os.path.join(OUT_DIR, "picks_all.json"), "w", encoding="utf-8") as f:
-            json.dump({"generated_at": now_rd().isoformat(), "event_key": event_key, "items": picks_all},
-                      f, ensure_ascii=False, indent=2)
+            json.dump(
+                {"generated_at": now_rd().isoformat(), "event_key": event_key, "items": picks_all},
+                f,
+                ensure_ascii=False,
+                indent=2,
+            )
 
         with open(os.path.join(OUT_DIR, "picks.json"), "w", encoding="utf-8") as f:
             json.dump(picks_all[-1], f, ensure_ascii=False, indent=2)
@@ -1063,7 +1170,6 @@ def main():
     state["last_event_key"] = event_key
     save_state(state)
     print("[OK] runner finished")
-
 
 if __name__ == "__main__":
     main()
