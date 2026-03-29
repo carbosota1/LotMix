@@ -1,51 +1,55 @@
 {
-  "generated_at": "2026-03-29T12:13:16.048717-04:00",
-  "event_key": "2026-03-29|La Primera|Quiniela La Primera",
+  "generated_at": "2026-03-29T12:50:16.408677-04:00",
+  "event_key": "2026-03-29|La Suerte|Quiniela La Suerte",
   "target": {
-    "time_rd": "2026-03-29 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte"
+    "time_rd": "2026-03-29 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM"
   },
   "best_play": {
-    "time_rd": "2026-03-29 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte",
+    "time_rd": "2026-03-29 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM",
     "top12": [
-      "43",
-      "08",
-      "18",
-      "03",
-      "90",
-      "57",
-      "58",
-      "15",
-      "99",
-      "07",
-      "14",
-      "97"
+      "52",
+      "11",
+      "73",
+      "78",
+      "68",
+      "21",
+      "16",
+      "77",
+      "69",
+      "83",
+      "02",
+      "63"
     ],
     "topq": [
-      "43",
-      "08",
-      "18"
+      "52",
+      "11",
+      "73"
     ],
     "pales": [
-      "08-43",
-      "18-43",
-      "03-43"
+      "11-52",
+      "52-73",
+      "52-78"
     ],
-    "fingerprint": "ef2f1b646a3e65ee",
+    "fingerprint": "6672256ce56de51e",
     "ok_alert": false,
-    "best_signal": 0.04146552595182252,
-    "best_a11": 4,
+    "best_signal": 0.007405474533558112,
+    "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.04146552595182252,
-      "best_a11_hist": 4,
-      "today_observed_nums": 6,
-      "source_pairs_today": 2,
-      "source_rows_hist_used": 1074,
-      "top12_overlap_prev": 2,
+      "best_signal_hist": 0.007405474533558112,
+      "best_a11_hist": 2,
+      "today_observed_nums": 8,
+      "source_pairs_today": 3,
+      "source_rows_hist_used": 1614,
+      "top12_overlap_prev": 0,
       "top_intraday": [
+        [
+          "43",
+          2
+        ],
         [
           "56",
           1
@@ -60,10 +64,6 @@
         ],
         [
           "00",
-          1
-        ],
-        [
-          "65",
           1
         ]
       ]
