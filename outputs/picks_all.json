@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-04-02T12:17:43.018060-04:00",
-  "event_key": "2026-04-02|La Primera|Quiniela La Primera",
+  "generated_at": "2026-04-02T12:38:07.736992-04:00",
+  "event_key": "2026-04-02|La Suerte|Quiniela La Suerte",
   "items": [
     {
-      "generated_at": "2026-04-02T12:17:42.440606-04:00",
-      "event_key": "2026-04-02|La Primera|Quiniela La Primera",
+      "generated_at": "2026-04-02T12:38:07.046171-04:00",
+      "event_key": "2026-04-02|La Suerte|Quiniela La Suerte",
       "target": {
         "time_rd": "2026-04-02 12:30",
         "lottery": "La Suerte",
@@ -18,15 +18,15 @@
           "08",
           "43",
           "18",
+          "14",
           "03",
           "90",
-          "60",
           "57",
-          "58",
           "15",
-          "99",
+          "58",
+          "34",
           "07",
-          "14"
+          "99"
         ],
         "topq": [
           "08",
@@ -36,19 +36,19 @@
         "pales": [
           "08-43",
           "08-18",
-          "03-08"
+          "08-14"
         ],
-        "fingerprint": "953d5d1a108eb097",
+        "fingerprint": "6c1a7710aaff3eb1",
         "ok_alert": false,
-        "best_signal": 0.04146552595182252,
+        "best_signal": 0.04135690043026715,
         "best_a11": 4,
         "debug": {
-          "best_signal_hist": 0.04146552595182252,
+          "best_signal_hist": 0.04135690043026715,
           "best_a11_hist": 4,
           "today_observed_nums": 6,
           "source_pairs_today": 2,
           "source_rows_hist_used": 1074,
-          "top12_overlap_prev": 1,
+          "top12_overlap_prev": 11,
           "top_intraday": [
             [
               "86",
