@@ -1,57 +1,57 @@
 {
-  "generated_at": "2026-04-02T12:46:21.786209-04:00",
-  "event_key": "2026-04-02|TEST|NO-UPDATE",
+  "generated_at": "2026-04-02T15:13:36.275836-04:00",
+  "event_key": "2026-04-02|Anguilla|Anguila 1PM",
   "target": {
-    "time_rd": "2026-04-02 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM"
+    "time_rd": "2026-04-02 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM"
   },
   "best_play": {
-    "time_rd": "2026-04-02 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM",
+    "time_rd": "2026-04-02 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM",
     "top12": [
-      "52",
-      "11",
-      "46",
-      "73",
-      "78",
-      "68",
-      "21",
-      "77",
-      "69",
-      "16",
+      "60",
+      "64",
+      "87",
+      "53",
+      "92",
+      "88",
+      "30",
+      "35",
       "02",
-      "63"
+      "07",
+      "21",
+      "66"
     ],
     "topq": [
-      "52",
-      "11",
-      "46"
+      "60",
+      "64",
+      "87"
     ],
     "pales": [
-      "11-52",
-      "46-52",
-      "52-73"
+      "60-64",
+      "60-87",
+      "53-60"
     ],
-    "fingerprint": "eefcd99871662cc5",
+    "fingerprint": "59d21a88b4711044",
     "ok_alert": false,
-    "best_signal": 0.007405474533558112,
-    "best_a11": 2,
+    "best_signal": 0.0027855250366987045,
+    "best_a11": 10,
     "debug": {
-      "best_signal_hist": 0.007405474533558112,
-      "best_a11_hist": 2,
-      "today_observed_nums": 9,
-      "source_pairs_today": 3,
-      "source_rows_hist_used": 1614,
-      "top12_overlap_prev": 0,
+      "best_signal_hist": 0.0027855250366987045,
+      "best_a11_hist": 10,
+      "today_observed_nums": 11,
+      "source_pairs_today": 5,
+      "source_rows_hist_used": 1936,
+      "top12_overlap_prev": 1,
       "top_intraday": [
         [
-          "86",
-          1
+          "62",
+          2
         ],
         [
-          "62",
+          "86",
           1
         ],
         [
@@ -59,11 +59,11 @@
           1
         ],
         [
-          "98",
+          "60",
           1
         ],
         [
-          "71",
+          "46",
           1
         ]
       ]
