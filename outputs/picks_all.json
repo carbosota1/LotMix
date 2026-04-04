@@ -1,128 +1,64 @@
 {
-  "generated_at": "2026-04-04T15:04:40.411762-04:00",
-  "event_key": "2026-04-04|Anguilla|Anguila 1PM",
+  "generated_at": "2026-04-04T18:14:35.185235-04:00",
+  "event_key": "2026-04-04|La Suerte|Quiniela La Suerte 6PM",
   "items": [
     {
-      "generated_at": "2026-04-04T15:04:34.250711-04:00",
-      "event_key": "2026-04-04|Anguilla|Anguila 1PM",
+      "generated_at": "2026-04-04T18:14:34.695285-04:00",
+      "event_key": "2026-04-04|La Suerte|Quiniela La Suerte 6PM",
       "target": {
-        "time_rd": "2026-04-04 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM"
+        "time_rd": "2026-04-04 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche"
       },
       "best_play": {
-        "time_rd": "2026-04-04 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM",
+        "time_rd": "2026-04-04 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche",
         "top12": [
-          "68",
-          "45",
-          "75",
-          "70",
-          "54",
-          "72",
+          "18",
+          "80",
+          "63",
           "59",
-          "03",
-          "48",
-          "66",
-          "46",
+          "37",
+          "68",
+          "49",
+          "76",
+          "58",
+          "34",
+          "54",
+          "21"
+        ],
+        "topq": [
+          "18",
+          "80",
           "63"
         ],
-        "topq": [
-          "68",
-          "45",
-          "75"
-        ],
         "pales": [
-          "45-68",
-          "68-75",
-          "68-70"
+          "18-80",
+          "18-63",
+          "18-59"
         ],
-        "fingerprint": "3652717ddac595c2",
-        "ok_alert": false,
-        "best_signal": 0.0008405302568789395,
+        "fingerprint": "d4c2861c38f2e904",
+        "ok_alert": true,
+        "best_signal": 0.036190997705473654,
         "best_a11": 5,
         "debug": {
-          "best_signal_hist": 0.0008405302568789395,
+          "best_signal_hist": 0.036190997705473654,
           "best_a11_hist": 5,
-          "today_observed_nums": 11,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 1987,
-          "top12_overlap_prev": 3,
-          "top_intraday": [
-            [
-              "89",
-              2
-            ],
-            [
-              "81",
-              1
-            ],
-            [
-              "40",
-              1
-            ],
-            [
-              "68",
-              1
-            ],
-            [
-              "22",
-              1
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "generated_at": "2026-04-04T15:04:39.760384-04:00",
-      "event_key": "2026-04-04|Anguilla|Anguila 1PM",
-      "target": {
-        "time_rd": "2026-04-04 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM"
-      },
-      "best_play": {
-        "time_rd": "2026-04-04 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM",
-        "top12": [
-          "89",
-          "79",
-          "87",
-          "53",
-          "92",
-          "30",
-          "88",
-          "35",
-          "02",
-          "07",
-          "21",
-          "66"
-        ],
-        "topq": [
-          "89",
-          "79",
-          "87"
-        ],
-        "pales": [
-          "79-89",
-          "87-89",
-          "53-89"
-        ],
-        "fingerprint": "f42cb76b3b5a0a58",
-        "ok_alert": false,
-        "best_signal": 0.001348092589482265,
-        "best_a11": 8,
-        "debug": {
-          "best_signal_hist": 0.001348092589482265,
-          "best_a11_hist": 8,
-          "today_observed_nums": 11,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 1987,
+          "today_observed_nums": 18,
+          "source_pairs_today": 7,
+          "source_rows_hist_used": 2600,
           "top12_overlap_prev": 1,
           "top_intraday": [
             [
+              "68",
+              2
+            ],
+            [
+              "22",
+              2
+            ],
+            [
               "89",
               2
             ],
@@ -132,14 +68,6 @@
             ],
             [
               "40",
-              1
-            ],
-            [
-              "68",
-              1
-            ],
-            [
-              "22",
               1
             ]
           ]
