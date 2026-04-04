@@ -1,54 +1,54 @@
 {
-  "generated_at": "2026-04-04T12:42:50.762935-04:00",
-  "event_key": "2026-04-04|La Suerte|Quiniela La Suerte",
+  "generated_at": "2026-04-04T15:04:40.411762-04:00",
+  "event_key": "2026-04-04|Anguilla|Anguila 1PM",
   "items": [
     {
-      "generated_at": "2026-04-04T12:42:50.127593-04:00",
-      "event_key": "2026-04-04|La Suerte|Quiniela La Suerte",
+      "generated_at": "2026-04-04T15:04:34.250711-04:00",
+      "event_key": "2026-04-04|Anguilla|Anguila 1PM",
       "target": {
-        "time_rd": "2026-04-04 13:00",
+        "time_rd": "2026-04-04 18:00",
         "lottery": "Anguilla",
-        "draw": "Anguila 1PM"
+        "draw": "Anguila 6PM"
       },
       "best_play": {
-        "time_rd": "2026-04-04 13:00",
+        "time_rd": "2026-04-04 18:00",
         "lottery": "Anguilla",
-        "draw": "Anguila 1PM",
+        "draw": "Anguila 6PM",
         "top12": [
           "68",
-          "62",
-          "52",
-          "11",
+          "45",
+          "75",
+          "70",
+          "54",
+          "72",
+          "59",
+          "03",
+          "48",
+          "66",
           "46",
-          "73",
-          "21",
-          "77",
-          "69",
-          "16",
-          "02",
           "63"
         ],
         "topq": [
           "68",
-          "62",
-          "52"
+          "45",
+          "75"
         ],
         "pales": [
-          "62-68",
-          "52-68",
-          "11-68"
+          "45-68",
+          "68-75",
+          "68-70"
         ],
-        "fingerprint": "a02504dd2f658687",
+        "fingerprint": "3652717ddac595c2",
         "ok_alert": false,
-        "best_signal": 0.009320552900995446,
-        "best_a11": 2,
+        "best_signal": 0.0008405302568789395,
+        "best_a11": 5,
         "debug": {
-          "best_signal_hist": 0.009320552900995446,
-          "best_a11_hist": 2,
-          "today_observed_nums": 8,
-          "source_pairs_today": 3,
-          "source_rows_hist_used": 1614,
-          "top12_overlap_prev": 0,
+          "best_signal_hist": 0.0008405302568789395,
+          "best_a11_hist": 5,
+          "today_observed_nums": 11,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 1987,
+          "top12_overlap_prev": 3,
           "top_intraday": [
             [
               "89",
@@ -67,7 +67,79 @@
               1
             ],
             [
-              "18",
+              "22",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "generated_at": "2026-04-04T15:04:39.760384-04:00",
+      "event_key": "2026-04-04|Anguilla|Anguila 1PM",
+      "target": {
+        "time_rd": "2026-04-04 18:00",
+        "lottery": "La Suerte",
+        "draw": "Quiniela La Suerte 6PM"
+      },
+      "best_play": {
+        "time_rd": "2026-04-04 18:00",
+        "lottery": "La Suerte",
+        "draw": "Quiniela La Suerte 6PM",
+        "top12": [
+          "89",
+          "79",
+          "87",
+          "53",
+          "92",
+          "30",
+          "88",
+          "35",
+          "02",
+          "07",
+          "21",
+          "66"
+        ],
+        "topq": [
+          "89",
+          "79",
+          "87"
+        ],
+        "pales": [
+          "79-89",
+          "87-89",
+          "53-89"
+        ],
+        "fingerprint": "f42cb76b3b5a0a58",
+        "ok_alert": false,
+        "best_signal": 0.001348092589482265,
+        "best_a11": 8,
+        "debug": {
+          "best_signal_hist": 0.001348092589482265,
+          "best_a11_hist": 8,
+          "today_observed_nums": 11,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 1987,
+          "top12_overlap_prev": 1,
+          "top_intraday": [
+            [
+              "89",
+              2
+            ],
+            [
+              "81",
+              1
+            ],
+            [
+              "40",
+              1
+            ],
+            [
+              "68",
+              1
+            ],
+            [
+              "22",
               1
             ]
           ]
