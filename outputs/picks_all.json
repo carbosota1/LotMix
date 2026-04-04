@@ -1,44 +1,44 @@
 {
-  "generated_at": "2026-04-03T08:56:26.635938-04:00",
-  "event_key": "2026-04-03|TEST|NO-UPDATE",
+  "generated_at": "2026-04-04T08:45:29.343538-04:00",
+  "event_key": "2026-04-04|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-04-03T08:56:26.173126-04:00",
-      "event_key": "2026-04-03|TEST|NO-UPDATE",
+      "generated_at": "2026-04-04T08:45:28.297728-04:00",
+      "event_key": "2026-04-04|TEST|NO-UPDATE",
       "target": {
-        "time_rd": "2026-04-03 10:00",
+        "time_rd": "2026-04-04 10:00",
         "lottery": "Anguilla",
         "draw": "Anguila 10AM"
       },
       "best_play": {
-        "time_rd": "2026-04-03 10:00",
+        "time_rd": "2026-04-04 10:00",
         "lottery": "Anguilla",
         "draw": "Anguila 10AM",
         "top12": [
           "08",
+          "34",
           "39",
+          "15",
           "65",
-          "74",
-          "19",
+          "76",
           "69",
           "44",
-          "56",
+          "19",
           "83",
-          "76",
-          "15",
-          "34"
+          "56",
+          "86"
         ],
         "topq": [
           "08",
-          "39",
-          "65"
+          "34",
+          "39"
         ],
         "pales": [
+          "08-34",
           "08-39",
-          "08-65",
-          "08-74"
+          "08-15"
         ],
-        "fingerprint": "5ebc45be075df5b8",
+        "fingerprint": "ff4620b7d2431041",
         "ok_alert": false,
         "best_signal": 0.055059767570514714,
         "best_a11": 4,
@@ -48,7 +48,7 @@
           "today_observed_nums": 0,
           "source_pairs_today": 0,
           "source_rows_hist_used": 3513,
-          "top12_overlap_prev": 2,
+          "top12_overlap_prev": 11,
           "top_intraday": []
         }
       }
