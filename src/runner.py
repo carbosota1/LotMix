@@ -698,6 +698,25 @@ def grade_picks_from_histories():
     if any_graded:
         df.to_csv(log_path, index=False, encoding="utf-8")
 
+
+# =========================
+# Build exploded history
+# =========================
+def build_exploded_history():
+    frames = []
+    for lot, path in XLSX_FILES.items():
+        df = read_history_xlsx(path)
+        if not df.empty:
+            frames.append(explode(df, lot))
+
+    if not frames:
+        return None
+
+    exp = pd.concat(frames, ignore_index=True).sort_values("fecha_dt").reset_index(drop=True)
+    exp["fecha_dt"] = pd.to_datetime(exp["fecha_dt"], errors="coerce")
+    exp = exp.dropna(subset=["fecha_dt"])
+    return exp
+
 # =========================
 # Intradía real
 # =========================
