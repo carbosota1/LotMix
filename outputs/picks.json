@@ -1,51 +1,55 @@
 {
-  "generated_at": "2026-04-05T18:44:04.326989-04:00",
-  "event_key": "2026-04-05|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-04-05T20:22:28.378525-04:00",
+  "event_key": "2026-04-05|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-04-05 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-04-05 21:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 9PM"
   },
   "best_play": {
-    "time_rd": "2026-04-05 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-04-05 21:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 9PM",
     "top12": [
-      "18",
-      "63",
-      "17",
+      "43",
+      "28",
+      "82",
+      "48",
       "34",
-      "37",
-      "49",
-      "54",
-      "38",
-      "44",
-      "92",
-      "68",
-      "21"
+      "09",
+      "72",
+      "06",
+      "08",
+      "98",
+      "88",
+      "68"
     ],
     "topq": [
-      "18",
-      "63",
-      "17"
+      "43",
+      "28",
+      "82"
     ],
     "pales": [
-      "18-63",
-      "17-18",
-      "18-34"
+      "28-43",
+      "43-82",
+      "43-48"
     ],
-    "fingerprint": "40fd8563006a3665",
-    "ok_alert": true,
-    "best_signal": 0.028259125574844203,
-    "best_a11": 5,
+    "fingerprint": "a093aaf6df90cf0e",
+    "ok_alert": false,
+    "best_signal": 0.03224511051340935,
+    "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.028259125574844203,
-      "best_a11_hist": 5,
-      "today_observed_nums": 21,
-      "source_pairs_today": 8,
+      "best_signal_hist": 0.03224511051340935,
+      "best_a11_hist": 2,
+      "today_observed_nums": 23,
+      "source_pairs_today": 9,
       "source_rows_hist_used": 2600,
       "top12_overlap_prev": 2,
       "top_intraday": [
+        [
+          "48",
+          2
+        ],
         [
           "63",
           2
@@ -60,10 +64,6 @@
         ],
         [
           "19",
-          1
-        ],
-        [
-          "40",
           1
         ]
       ]
