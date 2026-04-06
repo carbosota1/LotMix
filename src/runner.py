@@ -52,6 +52,7 @@ SCHEDULE = [
 
     # La Nacional (2)
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Gana Más", "time": "14:30", "update_after_minutes": UPDATE_AFTER},
+    # 👇 Nacional Noche cambia los domingos a 18:00
     {"lottery": "La Nacional", "draw": "Loteria Nacional- Noche", "time": "21:00", "update_after_minutes": UPDATE_AFTER},
 
     # La Suerte (2)
@@ -73,48 +74,45 @@ MIN_SIGNAL = 0.0075
 MIN_A11 = 11
 
 LOOKAHEAD_MINUTES = 5 * 60
-UPCOMING_GRACE_SECONDS = 10 * 60  # si ejecutas tarde manual, aún procesa
+UPCOMING_GRACE_SECONDS = 10 * 60
 
 FORCE_NOTIFY = os.getenv("FORCE_NOTIFY", "0").strip() == "1"
 
 # =========================
-# AJUSTES DE MEJORA
+# AJUSTES OPTIMIZADOS
 # =========================
 MIN_SOURCE_ROWS = 1500
-MAX_SOURCE_ROWS = 2600          # antes 3500; lo bajamos por lo visto en performance
+MAX_SOURCE_ROWS = 2400
 RECENT_DAYS_CAP = 180
 FIRST_TARGET_RECENT_DAYS = 120
 
-# Solo usar obs_nums si hay suficiente data intradía
+# solo usar obs_nums si hay suficiente data intradía
 MIN_OBS_FOR_STRICT_NUM_MASK = 5
 
-# Score híbrido
-SIGNAL_WEIGHT = 1.00            # signal manda más
-A11_WEIGHT = 0.08               # a11 acompaña, no manda
+# score híbrido pero con prioridad más fuerte al signal
+SIGNAL_WEIGHT = 1.00
+A11_WEIGHT = 0.08
 
-# Anti repetición
+# anti repetición
 TOP12_REPEAT_THRESHOLD = 8
 
-# Filtro de día
-NO_PLAY_OBS_THRESHOLD = 16      # días caóticos
-NO_PLAY_MIN_A11 = 4
+# decisión del día
+NO_PLAY_OBS_THRESHOLD = 16
+STRUCTURED_OBS_THRESHOLD = 13
 
-# Penalizaciones / boosts
-REPEAT_PENALTY = 0.22
+# calidad mínima
+WEAK_SIGNAL_HARD_BLOCK = 0.015
 FAKE_SIGNAL_PENALTY = 0.35
+REPEAT_PENALTY = 0.30
 HOT_NUM_BOOST = 0.20
+INTRADAY_HIT_BOOST = 0.05
 POWER_COMBO_BOOST = 0.20
 FRESH_NUM_BOOST = 0.05
 
-# Frecuencia reciente
+# frecuencia reciente
 RECENT_LOG_WINDOW = 80
-FREQ_PENALTY_PER_HIT = 0.0008
-MAX_RECENT_FREQ = 3             # si un número salió mucho, lo castigamos fuerte
-
-# Reglas de calidad
-STRUCTURED_SIGNAL_THRESHOLD = 0.018
-STRUCTURED_ROWS_MAX = 2600
-WEAK_SIGNAL_HARD_BLOCK = 0.015  # cuando el día está limpio y el signal es muy bajo, mejor no jugar
+FREQ_PENALTY_PER_HIT = 0.0012
+MAX_RECENT_FREQ = 2
 
 # =========================
 # Helpers
@@ -186,7 +184,7 @@ def _parse_json_list(value):
     except Exception:
         return []
 
-def _recent_pick_frequency():
+def _recent_pick_frequency() -> Counter:
     log_path = os.path.join(DATA_DIR, "picks_log.csv")
     freq = Counter()
     if not os.path.exists(log_path):
@@ -210,11 +208,11 @@ def _recent_pick_frequency():
 # =========================
 def _fresh_state():
     return {
-        "last_updates": {},           # date|lottery|draw -> done
+        "last_updates": {},
         "last_event_key": "",
-        "sent_by_target_fp": {},      # target_key -> fingerprint
+        "sent_by_target_fp": {},
         "last_wait_key": "",
-        "last_top12": [],             # para anti-repetición
+        "last_top12": [],
     }
 
 def load_state():
@@ -249,13 +247,9 @@ def save_state(state):
 # Dynamic time: Nacional Noche domingo = 18:00
 # =========================
 def item_time(item: dict) -> str:
-    """
-    Ajusta horarios por reglas especiales.
-    - Nacional Noche: domingo 18:00 (6PM), otros días usa el time definido.
-    """
     try:
         n = now_rd()
-        is_sun = (n.weekday() == 6)  # Monday=0 ... Sunday=6
+        is_sun = (n.weekday() == 6)
         if item["lottery"] == "La Nacional" and item["draw"] == "Loteria Nacional- Noche" and is_sun:
             return "18:00"
     except Exception:
@@ -373,7 +367,6 @@ def try_update_one(item, state) -> bool:
     p1, p2, p3 = fetch_result(item["lottery"], item["draw"], date_str)
     p1, p2, p3 = normalize_2d(p1), normalize_2d(p2), normalize_2d(p3)
 
-    # Anti-invención HOY: si devuelve exactamente lo mismo que AYER antes de tiempo, no insertamos.
     yday = (now_rd().date() - timedelta(days=1)).strftime("%Y-%m-%d")
     yres = _get_row_for_date(item["lottery"], item["draw"], yday)
     if yres is not None and (p1, p2, p3) == yres:
@@ -563,6 +556,7 @@ def log_pick(payload: dict):
         "best_signal": bp.get("best_signal"),
         "best_a11": bp.get("best_a11"),
         "ok_alert": bp.get("ok_alert"),
+        "decision": bp.get("decision", ""),
         "top12": json.dumps(bp.get("top12", []), ensure_ascii=False),
         "topq": json.dumps(bp.get("topq", []), ensure_ascii=False),
         "pales": json.dumps(bp.get("pales", []), ensure_ascii=False),
@@ -678,6 +672,7 @@ def grade_picks_from_histories():
             "best_signal": bs,
             "best_a11": ba,
             "ok_alert": r.get("ok_alert", ""),
+            "decision": r.get("decision", ""),
             "hits_quiniela_topq": hits(topq, drawn),
             "hits_quiniela_top12": hits(top12, drawn),
             "pale_hits": pale_hits(pales, drawn),
@@ -702,22 +697,6 @@ def grade_picks_from_histories():
 
     if any_graded:
         df.to_csv(log_path, index=False, encoding="utf-8")
-
-# =========================
-# Build exploded history
-# =========================
-def build_exploded_history():
-    frames = []
-    for lot, path in XLSX_FILES.items():
-        df = read_history_xlsx(path)
-        if not df.empty:
-            frames.append(explode(df, lot))
-    if not frames:
-        return None
-    exp = pd.concat(frames, ignore_index=True).sort_values("fecha_dt").reset_index(drop=True)
-    exp["fecha_dt"] = pd.to_datetime(exp["fecha_dt"], errors="coerce")
-    exp = exp.dropna(subset=["fecha_dt"])
-    return exp
 
 # =========================
 # Intradía real
@@ -761,7 +740,6 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     target = target_item
     print("[INFO] Target:", target_dt.strftime("%Y-%m-%d %H:%M"), target["lottery"], target["draw"])
 
-    # ✅ GATE: no picks si falta data previa debida (cross-match incompleto)
     missing = missing_due_updates_before_target(target_dt)
     if missing and (not FORCE_NOTIFY):
         print("[INFO] Missing due updates before this target. Skipping picks.")
@@ -769,7 +747,6 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
             print("[INFO] Missing:", m)
         return None
 
-    # 1) Fuentes permitidas = sorteos previos DEL DÍA (por hora) (secuencia)
     prior_pairs = set()
     for it in SCHEDULE:
         dt = draw_datetime_today_from_item(it)
@@ -779,16 +756,58 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
             continue
         prior_pairs.add((it["lottery"], it["draw"]))
 
-    # 2) Números observados HOY en esos sorteos previos
     obs_nums = observed_nums_today_before(target_dt)
     intraday_counts = intraday_counter_before(target_dt)
 
-    # 3) Tipo de día
+    # Día caótico = no jugar
     if len(obs_nums) >= NO_PLAY_OBS_THRESHOLD and (not FORCE_NOTIFY):
         print(f"[INFO] NO PLAY: día caótico obs_nums={len(obs_nums)}")
-        return None
+        decision = "❌ NO JUGAR"
+        payload = {
+            "generated_at": now_rd().isoformat(),
+            "event_key": event_key,
+            "target": {
+                "time_rd": target_dt.strftime("%Y-%m-%d %H:%M"),
+                "lottery": target["lottery"],
+                "draw": target["draw"],
+            },
+            "best_play": {
+                "time_rd": target_dt.strftime("%Y-%m-%d %H:%M"),
+                "lottery": target["lottery"],
+                "draw": target["draw"],
+                "top12": [],
+                "topq": [],
+                "pales": [],
+                "fingerprint": "",
+                "ok_alert": False,
+                "decision": decision,
+                "best_signal": None,
+                "best_a11": None,
+                "debug": {
+                    "today_observed_nums": len(obs_nums),
+                    "source_pairs_today": len(prior_pairs),
+                    "source_rows_hist_used": 0,
+                    "top12_overlap_prev": 0,
+                    "top_intraday": intraday_counts.most_common(5),
+                }
+            }
+        }
+        log_pick(payload)
+        msg = []
+        msg.append("🚨 OPV (Cross-Match SECUENCIAL / MI + Chi² HISTÓRICO)")
+        msg.append(f"🧩 Señal nueva: {event_key}")
+        msg.append(f"🎯 Target: {target['lottery']} | {target['draw']}")
+        msg.append(f"⏰ Hora: {target_dt.strftime('%H:%M')} RD")
+        msg.append("")
+        msg.append("❌ NO JUGAR")
+        msg.append("")
+        msg.append(f"📊 Debug: obs={len(obs_nums)} | día caótico")
+        send_telegram("\n".join(msg))
+        return payload
 
-    # ✅ Regla especial: PRIMER target del día
+    # =========================
+    # Construcción del filtro histórico
+    # =========================
     if not prior_pairs:
         target_dt_naive = target_dt.replace(tzinfo=None)
         cutoff = target_dt_naive - timedelta(days=FIRST_TARGET_RECENT_DAYS)
@@ -887,44 +906,35 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     # =========================
     rec["score"] = (rec["signal"] * SIGNAL_WEIGHT) + (rec["a11"] * A11_WEIGHT)
 
-    # Boost por números observados hoy
     rec["is_hot"] = rec["num"].isin(obs_nums).astype(int)
     rec["score"] += rec["is_hot"] * HOT_NUM_BOOST
 
-    # Boost adicional por frecuencia intradía real
     rec["intraday_hits"] = rec["num"].map(lambda x: intraday_counts.get(x, 0))
-    rec["score"] += rec["intraday_hits"] * 0.06
+    rec["score"] += rec["intraday_hits"] * INTRADAY_HIT_BOOST
 
-    # Penaliza signal bonito pero A11 flojo
     rec["fake_signal"] = ((rec["signal"] > 0.02) & (rec["a11"] <= 3)).astype(int)
     rec["score"] -= rec["fake_signal"] * FAKE_SIGNAL_PENALTY
 
-    # Penalización por repetición del último top12
     last_top12 = set([_norm2(x) for x in state.get("last_top12", [])])
     rec["repeat_penalty"] = rec["num"].isin(last_top12).astype(int)
     rec["score"] -= rec["repeat_penalty"] * REPEAT_PENALTY
 
-    # Penalización por frecuencia reciente en logs
     recent_freq = _recent_pick_frequency()
     rec["recent_freq"] = rec["num"].map(lambda x: recent_freq.get(x, 0))
     rec["score"] -= rec["recent_freq"] * FREQ_PENALTY_PER_HIT
 
-    # Castigo extra si el número ya salió demasiado últimamente
     rec["burned_num"] = (rec["recent_freq"] >= MAX_RECENT_FREQ).astype(int)
     rec["score"] -= rec["burned_num"] * 0.15
 
-    # Boost por combinación fuerte real
     rec["power_combo"] = ((rec["signal"] >= 0.015) & (rec["a11"] >= 5)).astype(int)
     rec["score"] += rec["power_combo"] * POWER_COMBO_BOOST
 
-    # Boost por números frescos
     rec["fresh_num"] = (rec["recent_freq"] == 0).astype(int)
     rec["score"] += rec["fresh_num"] * FRESH_NUM_BOOST
 
     rec = rec.sort_values(["score", "signal", "a11"], ascending=False)
     top12 = rec["num"].tolist()[:TOPK_FULL]
 
-    # Anti-repetición fuerte
     overlap = len(set(top12).intersection(last_top12))
     if overlap >= TOP12_REPEAT_THRESHOLD:
         print(f"[INFO] Anti-repeat triggered overlap={overlap}")
@@ -938,8 +948,9 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     best_signal_hist = float(rec["signal"].max()) if not rec.empty else None
     best_a11_hist = int(rec["a11"].max()) if not rec.empty else None
 
-    # Thresholds dinámicos por lotería
     lottery_name = target["lottery"]
+    draw_name = target["draw"]
+
     min_signal = MIN_SIGNAL
     min_a11 = MIN_A11
 
@@ -955,15 +966,25 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     elif lottery_name == "La Suerte":
         min_a11 = 8
 
-    # Bloque duro: días limpios exigen signal real
-    if len(obs_nums) <= 13 and (best_signal_hist or 0.0) < WEAK_SIGNAL_HARD_BLOCK and (not FORCE_NOTIFY):
-        print(f"[INFO] Hard block weak signal in structured day: signal={best_signal_hist}")
-        return None
+    # =========================
+    # DECISION ENGINE
+    # =========================
+    decision = "⚠️ JUGAR"
 
-    # Calidad mínima de mercado
-    if best_a11_hist < NO_PLAY_MIN_A11 and len(obs_nums) >= 14 and (not FORCE_NOTIFY):
-        print(f"[INFO] NO PLAY by weak a11 in noisy day: a11={best_a11_hist}, obs={len(obs_nums)}")
-        return None
+    if len(obs_nums) >= NO_PLAY_OBS_THRESHOLD:
+        decision = "❌ NO JUGAR"
+    elif draw_name == "Loteria Nacional- Gana Más" and best_a11_hist < 5:
+        decision = "❌ NO JUGAR"
+    elif best_a11_hist <= 3:
+        decision = "❌ NO JUGAR"
+    elif len(obs_nums) <= STRUCTURED_OBS_THRESHOLD and (best_signal_hist or 0.0) < WEAK_SIGNAL_HARD_BLOCK:
+        decision = "❌ NO JUGAR"
+    elif (best_signal_hist or 0.0) >= 0.025 and best_a11_hist >= 6 and len(obs_nums) <= 12 and used_rows <= STRUCTURED_ROWS_MAX:
+        decision = "🔥 JUGAR AGRESIVO"
+    elif (best_signal_hist or 0.0) >= 0.018 and best_a11_hist >= 4 and len(obs_nums) <= 13:
+        decision = "⚠️ JUGAR"
+    else:
+        decision = "❌ NO JUGAR"
 
     ok = should_alert(rec_hist, min_signal=min_signal, min_count_hits=min_a11)
     fp = fingerprint(topq, top12, pales)
@@ -985,6 +1006,7 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
             "pales": pales,
             "fingerprint": fp,
             "ok_alert": bool(ok),
+            "decision": decision,
             "best_signal": best_signal_hist,
             "best_a11": best_a11_hist,
             "debug": {
@@ -1002,43 +1024,41 @@ def analyze_target_and_maybe_notify(exp, event_key: str, target_dt: datetime, ta
     # Log SIEMPRE
     log_pick(payload)
 
-    # Telegram solo si cumple o TEST
-    if (not ok) and (not FORCE_NOTIFY):
-        print("[INFO] Thresholds not met. No message sent for this target.")
-        state["last_top12"] = top12
-        return payload
-
-    target_key = f"{payload['target']['time_rd']}|{payload['target']['lottery']}|{payload['target']['draw']}"
-    sent_map = state.get("sent_by_target_fp", {})
-    if sent_map.get(target_key, "") == fp and (not FORCE_NOTIFY):
-        print("[INFO] Same fingerprint already sent for this target.")
-        state["last_top12"] = top12
-        return payload
-
+    # Telegram SIEMPRE: NO JUGAR / JUGAR / JUGAR AGRESIVO
     msg = []
     msg.append("🚨 OPV (Cross-Match SECUENCIAL / MI + Chi² HISTÓRICO)")
     msg.append(f"🧩 Señal nueva: {event_key}")
     msg.append(f"🎯 Target: {target['lottery']} | {target['draw']}")
     msg.append(f"⏰ Hora: {target_dt.strftime('%H:%M')} RD")
     msg.append("")
-    msg.append(f"✅ QUINIELA Top{len(topq)}:")
-    msg.append(", ".join(topq))
+    msg.append(decision)
     msg.append("")
-    msg.append("📌 Top12:")
-    msg.append(", ".join(top12))
-    msg.append("")
-    msg.append(f"🎲 PALE Top{len(pales)}:")
-    msg.append(" | ".join(pales))
-    msg.append("")
+    if topq:
+        msg.append(f"✅ QUINIELA Top{len(topq)}:")
+        msg.append(", ".join(topq))
+        msg.append("")
+    if top12:
+        msg.append("📌 Top12:")
+        msg.append(", ".join(top12))
+        msg.append("")
+    if pales:
+        msg.append(f"🎲 PALE Top{len(pales)}:")
+        msg.append(" | ".join(pales))
+        msg.append("")
     msg.append("📊 Debug:")
     msg.append(f"best_signal={best_signal_hist} best_a11={best_a11_hist} ok_alert={bool(ok)}")
     msg.append(f"today_observed_nums={len(obs_nums)} source_rows_hist_used={int(used_rows)}")
 
-    send_telegram("\n".join(msg))
-    print("[OK] Telegram sent for target.")
+    target_key = f"{payload['target']['time_rd']}|{payload['target']['lottery']}|{payload['target']['draw']}"
+    sent_map = state.get("sent_by_target_fp", {})
+    if sent_map.get(target_key, "") != fp or FORCE_NOTIFY:
+        send_telegram("\n".join(msg))
+        print("[OK] Telegram sent for target.")
+        sent_map[target_key] = fp
+        state["sent_by_target_fp"] = sent_map
+    else:
+        print("[INFO] Same fingerprint already sent for this target.")
 
-    sent_map[target_key] = fp
-    state["sent_by_target_fp"] = sent_map
     state["last_top12"] = top12
     return payload
 
