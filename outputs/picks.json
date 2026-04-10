@@ -1,55 +1,55 @@
 {
-  "generated_at": "2026-04-10T14:17:27.998766-04:00",
-  "event_key": "2026-04-10|Anguilla|Anguila 1PM",
+  "generated_at": "2026-04-10T18:30:15.993033-04:00",
+  "event_key": "2026-04-10|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-04-10 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más"
+    "time_rd": "2026-04-10 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-04-10 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más",
+    "time_rd": "2026-04-10 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "61",
-      "25",
-      "33",
-      "94",
-      "78",
-      "91",
-      "13",
-      "56",
-      "20",
+      "18",
+      "63",
+      "49",
+      "37",
+      "38",
+      "44",
+      "34",
+      "59",
+      "54",
       "80",
-      "73",
+      "68",
       "21"
     ],
     "topq": [
-      "61",
-      "25",
-      "33"
+      "18",
+      "63",
+      "49"
     ],
     "pales": [
-      "25-61",
-      "33-61",
-      "61-94"
+      "18-63",
+      "18-49",
+      "18-37"
     ],
-    "fingerprint": "bbb42df14d4fe18e",
-    "ok_alert": false,
+    "fingerprint": "f77ec6ba70702ffc",
+    "ok_alert": true,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.017995531621280893,
-    "best_a11": 3,
+    "best_signal": 0.03054770616959999,
+    "best_a11": 5,
     "debug": {
-      "best_signal_hist": 0.017995531621280893,
-      "best_a11_hist": 3,
-      "today_observed_nums": 11,
-      "source_pairs_today": 4,
-      "source_rows_hist_used": 2148,
+      "best_signal_hist": 0.03054770616959999,
+      "best_a11_hist": 5,
+      "today_observed_nums": 19,
+      "source_pairs_today": 7,
+      "source_rows_hist_used": 2400,
       "top12_overlap_prev": 2,
       "top_intraday": [
         [
           "29",
-          2
+          3
         ],
         [
           "02",
