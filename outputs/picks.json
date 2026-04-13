@@ -1,70 +1,70 @@
 {
-  "generated_at": "2026-04-12T13:22:52.618213-04:00",
-  "event_key": "2026-04-12|Anguilla|Anguila 1PM",
+  "generated_at": "2026-04-12T20:10:30.151522-04:00",
+  "event_key": "2026-04-12|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-04-12 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más"
+    "time_rd": "2026-04-12 21:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 9PM"
   },
   "best_play": {
-    "time_rd": "2026-04-12 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más",
+    "time_rd": "2026-04-12 21:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 9PM",
     "top12": [
-      "64",
+      "80",
+      "00",
+      "09",
+      "78",
+      "34",
+      "72",
+      "43",
+      "73",
+      "02",
+      "48",
       "14",
-      "89",
-      "60",
-      "41",
-      "95",
-      "40",
-      "20",
-      "82",
-      "37",
-      "13",
-      "94"
+      "82"
     ],
     "topq": [
-      "64",
-      "14",
-      "89"
+      "80",
+      "00",
+      "09"
     ],
     "pales": [
-      "14-64",
-      "64-89",
-      "60-64"
+      "00-80",
+      "09-80",
+      "78-80"
     ],
-    "fingerprint": "7c56c1b4a9ebeff0",
+    "fingerprint": "6131d51e31984cc9",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.0011010307782586446,
+    "best_signal": 0.030680335884574784,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.0011010307782586446,
+      "best_signal_hist": 0.030680335884574784,
       "best_a11_hist": 3,
-      "today_observed_nums": 12,
-      "source_pairs_today": 4,
-      "source_rows_hist_used": 1503,
-      "top12_overlap_prev": 1,
+      "today_observed_nums": 24,
+      "source_pairs_today": 9,
+      "source_rows_hist_used": 2400,
+      "top12_overlap_prev": 2,
       "top_intraday": [
+        [
+          "50",
+          2
+        ],
+        [
+          "52",
+          2
+        ],
+        [
+          "88",
+          2
+        ],
         [
           "28",
           1
         ],
         [
           "60",
-          1
-        ],
-        [
-          "59",
-          1
-        ],
-        [
-          "66",
-          1
-        ],
-        [
-          "56",
           1
         ]
       ]
