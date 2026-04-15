@@ -1,54 +1,58 @@
 {
-  "generated_at": "2026-04-15T12:16:36.041464-04:00",
-  "event_key": "2026-04-15|La Primera|Quiniela La Primera",
+  "generated_at": "2026-04-15T14:31:35.323680-04:00",
+  "event_key": "2026-04-15|Anguilla|Anguila 1PM",
   "target": {
-    "time_rd": "2026-04-15 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte"
+    "time_rd": "2026-04-15 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más"
   },
   "best_play": {
-    "time_rd": "2026-04-15 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte",
+    "time_rd": "2026-04-15 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más",
     "top12": [
-      "89",
-      "18",
-      "34",
-      "03",
-      "43",
-      "57",
-      "97",
-      "27",
-      "15",
-      "08",
-      "14",
-      "58"
+      "25",
+      "05",
+      "73",
+      "68",
+      "33",
+      "91",
+      "94",
+      "78",
+      "13",
+      "44",
+      "80",
+      "21"
     ],
     "topq": [
-      "89",
-      "18",
-      "34"
+      "25",
+      "05",
+      "73"
     ],
     "pales": [
-      "18-89",
-      "34-89",
-      "03-89"
+      "05-25",
+      "25-73",
+      "25-68"
     ],
-    "fingerprint": "3fbd9a3a16686def",
+    "fingerprint": "c7a3be5115de6499",
     "ok_alert": false,
-    "decision": "⚠️ JUGAR",
-    "best_signal": 0.04146552595182252,
-    "best_a11": 4,
+    "decision": "❌ NO JUGAR",
+    "best_signal": 0.018753936051987226,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.04146552595182252,
-      "best_a11_hist": 4,
-      "today_observed_nums": 5,
-      "source_pairs_today": 2,
-      "source_rows_hist_used": 1074,
-      "top12_overlap_prev": 3,
+      "best_signal_hist": 0.018753936051987226,
+      "best_a11_hist": 3,
+      "today_observed_nums": 10,
+      "source_pairs_today": 4,
+      "source_rows_hist_used": 2148,
+      "top12_overlap_prev": 0,
       "top_intraday": [
         [
           "59",
+          2
+        ],
+        [
+          "55",
           2
         ],
         [
@@ -60,11 +64,7 @@
           1
         ],
         [
-          "55",
-          1
-        ],
-        [
-          "49",
+          "38",
           1
         ]
       ]
