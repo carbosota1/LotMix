@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-04-15T14:31:35.323680-04:00",
-  "event_key": "2026-04-15|Anguilla|Anguila 1PM",
+  "generated_at": "2026-04-15T15:57:53.493322-04:00",
+  "event_key": "2026-04-15|La Nacional|Loteria Nacional- Gana Más",
   "target": {
-    "time_rd": "2026-04-15 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más"
+    "time_rd": "2026-04-15 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM"
   },
   "best_play": {
-    "time_rd": "2026-04-15 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más",
+    "time_rd": "2026-04-15 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM",
     "top12": [
-      "25",
-      "05",
-      "73",
-      "68",
-      "33",
-      "91",
-      "94",
-      "78",
-      "13",
-      "44",
-      "80",
-      "21"
+      "89",
+      "53",
+      "30",
+      "38",
+      "07",
+      "88",
+      "35",
+      "92",
+      "02",
+      "21",
+      "87",
+      "66"
     ],
     "topq": [
-      "25",
-      "05",
-      "73"
+      "89",
+      "53",
+      "30"
     ],
     "pales": [
-      "05-25",
-      "25-73",
-      "25-68"
+      "53-89",
+      "30-89",
+      "38-89"
     ],
-    "fingerprint": "c7a3be5115de6499",
+    "fingerprint": "fb57b9ac88fbedb9",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.018753936051987226,
-    "best_a11": 3,
+    "best_signal": 0.0035905972335891693,
+    "best_a11": 8,
     "debug": {
-      "best_signal_hist": 0.018753936051987226,
-      "best_a11_hist": 3,
-      "today_observed_nums": 10,
-      "source_pairs_today": 4,
-      "source_rows_hist_used": 2148,
-      "top12_overlap_prev": 0,
+      "best_signal_hist": 0.0035905972335891693,
+      "best_a11_hist": 8,
+      "today_observed_nums": 13,
+      "source_pairs_today": 5,
+      "source_rows_hist_used": 2304,
+      "top12_overlap_prev": 2,
       "top_intraday": [
         [
           "59",
