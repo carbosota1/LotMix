@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-04-14T19:13:06.078645-04:00",
-  "event_key": "2026-04-14|La Primera|Quiniela La Primera Noche",
+  "generated_at": "2026-04-14T20:13:10.081609-04:00",
+  "event_key": "2026-04-14|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-04-14T19:12:55.389156-04:00",
-      "event_key": "2026-04-14|La Primera|Quiniela La Primera Noche",
+      "generated_at": "2026-04-14T20:13:01.274039-04:00",
+      "event_key": "2026-04-14|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-04-14 21:00",
         "lottery": "Anguilla",
@@ -15,30 +15,30 @@
         "lottery": "Anguilla",
         "draw": "Anguila 9PM",
         "top12": [
-          "09",
           "80",
+          "34",
           "70",
           "72",
           "43",
           "73",
           "02",
           "78",
-          "34",
+          "09",
           "82",
           "88",
           "08"
         ],
         "topq": [
-          "09",
           "80",
+          "34",
           "70"
         ],
         "pales": [
-          "09-80",
-          "09-70",
-          "09-72"
+          "34-80",
+          "70-80",
+          "72-80"
         ],
-        "fingerprint": "007e586ebe146613",
+        "fingerprint": "48c7d30f57d227df",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
         "best_signal": 0.03181683711360374,
@@ -76,8 +76,8 @@
       }
     },
     {
-      "generated_at": "2026-04-14T19:13:05.335266-04:00",
-      "event_key": "2026-04-14|La Primera|Quiniela La Primera Noche",
+      "generated_at": "2026-04-14T20:13:09.607162-04:00",
+      "event_key": "2026-04-14|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-04-14 21:00",
         "lottery": "La Nacional",
