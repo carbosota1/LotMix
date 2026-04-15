@@ -1,55 +1,128 @@
 {
-  "generated_at": "2026-04-15T18:37:19.119168-04:00",
-  "event_key": "2026-04-15|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-04-15T19:35:35.044993-04:00",
+  "event_key": "2026-04-15|La Primera|Quiniela La Primera Noche",
   "items": [
     {
-      "generated_at": "2026-04-15T18:37:18.422196-04:00",
-      "event_key": "2026-04-15|La Suerte|Quiniela La Suerte 6PM",
+      "generated_at": "2026-04-15T19:35:25.604615-04:00",
+      "event_key": "2026-04-15|La Primera|Quiniela La Primera Noche",
       "target": {
-        "time_rd": "2026-04-15 19:00",
-        "lottery": "La Primera",
-        "draw": "Quiniela La Primera Noche"
+        "time_rd": "2026-04-15 21:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 9PM"
       },
       "best_play": {
-        "time_rd": "2026-04-15 19:00",
-        "lottery": "La Primera",
-        "draw": "Quiniela La Primera Noche",
+        "time_rd": "2026-04-15 21:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 9PM",
         "top12": [
-          "18",
-          "49",
-          "59",
-          "54",
-          "61",
-          "44",
-          "68",
+          "73",
+          "09",
+          "80",
+          "70",
+          "72",
           "34",
-          "38",
-          "37",
-          "63",
-          "21"
+          "43",
+          "08",
+          "02",
+          "78",
+          "82",
+          "88"
         ],
         "topq": [
-          "18",
-          "49",
-          "59"
+          "73",
+          "09",
+          "80"
         ],
         "pales": [
-          "18-49",
-          "18-59",
-          "18-54"
+          "09-73",
+          "73-80",
+          "70-73"
         ],
-        "fingerprint": "782d143d4c607c12",
-        "ok_alert": true,
+        "fingerprint": "3c9e97f23f0190e2",
+        "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.03054770616959999,
-        "best_a11": 5,
+        "best_signal": 0.03181683711360374,
+        "best_a11": 3,
         "debug": {
-          "best_signal_hist": 0.03054770616959999,
-          "best_a11_hist": 5,
-          "today_observed_nums": 19,
-          "source_pairs_today": 7,
+          "best_signal_hist": 0.03181683711360374,
+          "best_a11_hist": 3,
+          "today_observed_nums": 22,
+          "source_pairs_today": 8,
           "source_rows_hist_used": 2400,
-          "top12_overlap_prev": 2,
+          "top12_overlap_prev": 1,
+          "top_intraday": [
+            [
+              "59",
+              2
+            ],
+            [
+              "55",
+              2
+            ],
+            [
+              "34",
+              1
+            ],
+            [
+              "68",
+              1
+            ],
+            [
+              "38",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "generated_at": "2026-04-15T19:35:34.606088-04:00",
+      "event_key": "2026-04-15|La Primera|Quiniela La Primera Noche",
+      "target": {
+        "time_rd": "2026-04-15 21:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche"
+      },
+      "best_play": {
+        "time_rd": "2026-04-15 21:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche",
+        "top12": [
+          "59",
+          "29",
+          "66",
+          "68",
+          "04",
+          "75",
+          "39",
+          "92",
+          "35",
+          "61",
+          "63",
+          "09"
+        ],
+        "topq": [
+          "59",
+          "29",
+          "66"
+        ],
+        "pales": [
+          "29-59",
+          "59-66",
+          "59-68"
+        ],
+        "fingerprint": "39c90e4cc6594012",
+        "ok_alert": false,
+        "decision": "❌ NO JUGAR",
+        "best_signal": 0.01758675480017615,
+        "best_a11": 3,
+        "debug": {
+          "best_signal_hist": 0.01758675480017615,
+          "best_a11_hist": 3,
+          "today_observed_nums": 22,
+          "source_pairs_today": 8,
+          "source_rows_hist_used": 2400,
+          "top12_overlap_prev": 1,
           "top_intraday": [
             [
               "59",
