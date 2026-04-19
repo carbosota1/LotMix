@@ -1,52 +1,65 @@
 {
-  "generated_at": "2026-04-19T08:54:10.706000-04:00",
-  "event_key": "2026-04-19|TEST|NO-UPDATE",
+  "generated_at": "2026-04-19T10:52:17.730901-04:00",
+  "event_key": "2026-04-19|Anguilla|Anguila 10AM",
   "target": {
-    "time_rd": "2026-04-19 10:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 10AM"
+    "time_rd": "2026-04-19 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera"
   },
   "best_play": {
-    "time_rd": "2026-04-19 10:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 10AM",
+    "time_rd": "2026-04-19 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera",
     "top12": [
-      "51",
-      "37",
+      "26",
+      "24",
+      "12",
+      "47",
+      "64",
+      "58",
+      "92",
+      "59",
+      "78",
+      "14",
       "76",
-      "69",
-      "74",
-      "83",
-      "48",
-      "02",
-      "39",
-      "08",
-      "34",
-      "15"
+      "08"
     ],
     "topq": [
-      "51",
-      "37",
-      "76"
+      "26",
+      "24",
+      "12"
     ],
     "pales": [
-      "37-51",
-      "51-76",
-      "51-69"
+      "24-26",
+      "12-26",
+      "26-47"
     ],
-    "fingerprint": "39442701cbc81377",
+    "fingerprint": "280f570eb75c61ac",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.04311147046277437,
-    "best_a11": 3,
+    "best_signal": 0.013430392476836514,
+    "best_a11": 1,
     "debug": {
-      "best_signal_hist": 0.04311147046277437,
-      "best_a11_hist": 3,
-      "today_observed_nums": 0,
-      "source_pairs_today": 0,
-      "source_rows_hist_used": 3513,
-      "top12_overlap_prev": 0,
-      "top_intraday": []
+      "best_signal_hist": 0.013430392476836514,
+      "best_a11_hist": 1,
+      "today_observed_nums": 3,
+      "source_pairs_today": 1,
+      "source_rows_hist_used": 534,
+      "top12_overlap_prev": 2,
+      "top_intraday": [
+        [
+          "11",
+          1
+        ],
+        [
+          "53",
+          1
+        ],
+        [
+          "55",
+          1
+        ]
+      ]
     }
   }
 }
