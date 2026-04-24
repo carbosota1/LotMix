@@ -1,70 +1,70 @@
 {
-  "generated_at": "2026-04-24T17:34:36.929819-04:00",
-  "event_key": "2026-04-24|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-04-24T18:12:02.546785-04:00",
+  "event_key": "2026-04-24|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-04-24 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-04-24 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-04-24 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-04-24 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "08",
-      "53",
-      "14",
-      "63",
-      "10",
-      "40",
-      "25",
-      "73",
-      "69",
-      "83",
-      "66",
-      "65"
+      "18",
+      "59",
+      "37",
+      "92",
+      "49",
+      "54",
+      "61",
+      "86",
+      "38",
+      "68",
+      "34",
+      "63"
     ],
     "topq": [
-      "08",
-      "53",
-      "14"
+      "18",
+      "59",
+      "37"
     ],
     "pales": [
-      "08-53",
-      "08-14",
-      "08-63"
+      "18-59",
+      "18-37",
+      "18-92"
     ],
-    "fingerprint": "3b94d4d4a0ba42ba",
-    "ok_alert": false,
+    "fingerprint": "8ab270d12290e7e8",
+    "ok_alert": true,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01552804091129818,
-    "best_a11": 3,
+    "best_signal": 0.030305653736506018,
+    "best_a11": 5,
     "debug": {
-      "best_signal_hist": 0.01552804091129818,
-      "best_a11_hist": 3,
-      "today_observed_nums": 15,
-      "source_pairs_today": 5,
+      "best_signal_hist": 0.030305653736506018,
+      "best_a11_hist": 5,
+      "today_observed_nums": 18,
+      "source_pairs_today": 7,
       "source_rows_hist_used": 2400,
       "top12_overlap_prev": 1,
       "top_intraday": [
+        [
+          "59",
+          2
+        ],
+        [
+          "23",
+          2
+        ],
+        [
+          "91",
+          2
+        ],
         [
           "19",
           1
         ],
         [
           "97",
-          1
-        ],
-        [
-          "27",
-          1
-        ],
-        [
-          "31",
-          1
-        ],
-        [
-          "50",
           1
         ]
       ]
