@@ -1,55 +1,128 @@
 {
-  "generated_at": "2026-04-27T18:18:37.193207-04:00",
-  "event_key": "2026-04-27|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-04-27T19:17:45.913812-04:00",
+  "event_key": "2026-04-27|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-04-27T18:18:36.733134-04:00",
-      "event_key": "2026-04-27|La Suerte|Quiniela La Suerte 6PM",
+      "generated_at": "2026-04-27T19:17:36.825775-04:00",
+      "event_key": "2026-04-27|TEST|NO-UPDATE",
       "target": {
-        "time_rd": "2026-04-27 19:00",
-        "lottery": "La Primera",
-        "draw": "Quiniela La Primera Noche"
+        "time_rd": "2026-04-27 21:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 9PM"
       },
       "best_play": {
-        "time_rd": "2026-04-27 19:00",
-        "lottery": "La Primera",
-        "draw": "Quiniela La Primera Noche",
+        "time_rd": "2026-04-27 21:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 9PM",
         "top12": [
-          "18",
-          "81",
-          "37",
-          "92",
-          "54",
-          "97",
-          "86",
-          "38",
-          "59",
-          "34",
-          "68",
-          "63"
+          "78",
+          "80",
+          "43",
+          "73",
+          "50",
+          "82",
+          "09",
+          "00",
+          "98",
+          "76",
+          "02",
+          "34"
         ],
         "topq": [
-          "18",
-          "81",
-          "37"
+          "78",
+          "80",
+          "43"
         ],
         "pales": [
-          "18-81",
-          "18-37",
-          "18-92"
+          "78-80",
+          "43-78",
+          "73-78"
         ],
-        "fingerprint": "525b588b0b65fe25",
-        "ok_alert": true,
+        "fingerprint": "936db7414d90a7e3",
+        "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.030305653736506018,
-        "best_a11": 5,
+        "best_signal": 0.016186143151140173,
+        "best_a11": 3,
         "debug": {
-          "best_signal_hist": 0.030305653736506018,
-          "best_a11_hist": 5,
+          "best_signal_hist": 0.016186143151140173,
+          "best_a11_hist": 3,
           "today_observed_nums": 18,
-          "source_pairs_today": 7,
+          "source_pairs_today": 8,
           "source_rows_hist_used": 2400,
           "top12_overlap_prev": 1,
+          "top_intraday": [
+            [
+              "28",
+              2
+            ],
+            [
+              "44",
+              2
+            ],
+            [
+              "31",
+              2
+            ],
+            [
+              "87",
+              1
+            ],
+            [
+              "75",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "generated_at": "2026-04-27T19:17:45.485604-04:00",
+      "event_key": "2026-04-27|TEST|NO-UPDATE",
+      "target": {
+        "time_rd": "2026-04-27 21:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche"
+      },
+      "best_play": {
+        "time_rd": "2026-04-27 21:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche",
+        "top12": [
+          "75",
+          "21",
+          "35",
+          "59",
+          "53",
+          "72",
+          "52",
+          "27",
+          "61",
+          "68",
+          "09",
+          "98"
+        ],
+        "topq": [
+          "75",
+          "21",
+          "35"
+        ],
+        "pales": [
+          "21-75",
+          "35-75",
+          "59-75"
+        ],
+        "fingerprint": "fd2bf01e1fa70595",
+        "ok_alert": false,
+        "decision": "❌ NO JUGAR",
+        "best_signal": 0.01663314626741236,
+        "best_a11": 4,
+        "debug": {
+          "best_signal_hist": 0.01663314626741236,
+          "best_a11_hist": 4,
+          "today_observed_nums": 18,
+          "source_pairs_today": 8,
+          "source_rows_hist_used": 2400,
+          "top12_overlap_prev": 2,
           "top_intraday": [
             [
               "28",
