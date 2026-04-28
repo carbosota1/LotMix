@@ -1,58 +1,58 @@
 {
-  "generated_at": "2026-04-28T15:07:04.913137-04:00",
-  "event_key": "2026-04-28|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-04-28T18:34:56.742178-04:00",
+  "event_key": "2026-04-28|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-04-28 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-04-28 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-04-28 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-04-28 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "14",
-      "63",
-      "40",
-      "10",
-      "72",
-      "91",
-      "69",
-      "08",
-      "53",
-      "64",
-      "66",
-      "65"
+      "61",
+      "86",
+      "18",
+      "92",
+      "54",
+      "97",
+      "38",
+      "59",
+      "81",
+      "34",
+      "68",
+      "63"
     ],
     "topq": [
-      "14",
-      "63",
-      "40"
+      "61",
+      "86",
+      "18"
     ],
     "pales": [
-      "14-63",
-      "14-40",
-      "10-14"
+      "61-86",
+      "18-61",
+      "61-92"
     ],
-    "fingerprint": "406df7fa3a307045",
-    "ok_alert": false,
+    "fingerprint": "0a166e2a154511c6",
+    "ok_alert": true,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01552804091129818,
-    "best_a11": 3,
+    "best_signal": 0.030305653736506018,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.01552804091129818,
-      "best_a11_hist": 3,
-      "today_observed_nums": 15,
-      "source_pairs_today": 5,
+      "best_signal_hist": 0.030305653736506018,
+      "best_a11_hist": 4,
+      "today_observed_nums": 20,
+      "source_pairs_today": 7,
       "source_rows_hist_used": 2400,
       "top12_overlap_prev": 1,
       "top_intraday": [
         [
-          "26",
-          1
+          "45",
+          2
         ],
         [
-          "45",
+          "26",
           1
         ],
         [
