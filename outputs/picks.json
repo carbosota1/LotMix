@@ -1,52 +1,56 @@
 {
-  "generated_at": "2026-04-29T17:03:01.461229-04:00",
-  "event_key": "2026-04-29|TEST|NO-UPDATE",
+  "generated_at": "2026-04-29T18:39:51.235204-04:00",
+  "event_key": "2026-04-29|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-04-29 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-04-29 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-04-29 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-04-29 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "40",
-      "14",
-      "63",
-      "45",
-      "10",
-      "72",
-      "91",
-      "08",
-      "53",
-      "66",
-      "64",
-      "65"
-    ],
-    "topq": [
-      "40",
-      "14",
+      "61",
+      "97",
+      "18",
+      "49",
+      "54",
+      "80",
+      "86",
+      "59",
+      "81",
+      "34",
+      "68",
       "63"
     ],
-    "pales": [
-      "14-40",
-      "40-63",
-      "40-45"
+    "topq": [
+      "61",
+      "97",
+      "18"
     ],
-    "fingerprint": "1c0e6be46b00b9ce",
-    "ok_alert": false,
+    "pales": [
+      "61-97",
+      "18-61",
+      "49-61"
+    ],
+    "fingerprint": "cbf32862f9d8de09",
+    "ok_alert": true,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01552804091129818,
-    "best_a11": 3,
+    "best_signal": 0.031225727684349208,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.01552804091129818,
-      "best_a11_hist": 3,
-      "today_observed_nums": 15,
-      "source_pairs_today": 5,
+      "best_signal_hist": 0.031225727684349208,
+      "best_a11_hist": 4,
+      "today_observed_nums": 20,
+      "source_pairs_today": 7,
       "source_rows_hist_used": 2400,
       "top12_overlap_prev": 1,
       "top_intraday": [
+        [
+          "33",
+          2
+        ],
         [
           "42",
           1
@@ -61,10 +65,6 @@
         ],
         [
           "21",
-          1
-        ],
-        [
-          "47",
           1
         ]
       ]
