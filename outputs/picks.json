@@ -1,73 +1,52 @@
 {
-  "generated_at": "2026-04-28T19:18:12.225310-04:00",
-  "event_key": "2026-04-28|La Primera|Quiniela La Primera Noche",
+  "generated_at": "2026-04-29T09:47:30.947416-04:00",
+  "event_key": "2026-04-29|TEST|NO-UPDATE",
   "target": {
-    "time_rd": "2026-04-28 21:00",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Noche"
+    "time_rd": "2026-04-29 10:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 10AM"
   },
   "best_play": {
-    "time_rd": "2026-04-28 21:00",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Noche",
+    "time_rd": "2026-04-29 10:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 10AM",
     "top12": [
-      "21",
-      "52",
-      "59",
-      "53",
-      "75",
-      "39",
-      "72",
-      "09",
-      "35",
-      "27",
-      "68",
-      "98"
+      "58",
+      "34",
+      "64",
+      "76",
+      "69",
+      "65",
+      "74",
+      "83",
+      "02",
+      "08",
+      "15",
+      "39"
     ],
     "topq": [
-      "21",
-      "52",
-      "59"
+      "58",
+      "34",
+      "64"
     ],
     "pales": [
-      "21-52",
-      "21-59",
-      "21-53"
+      "34-58",
+      "58-64",
+      "58-76"
     ],
-    "fingerprint": "d5eaf3764ec853a8",
+    "fingerprint": "c33d358a3f9d9b2f",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01758675480017615,
-    "best_a11": 4,
+    "best_signal": 0.04180273747486388,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.01758675480017615,
-      "best_a11_hist": 4,
-      "today_observed_nums": 23,
-      "source_pairs_today": 8,
-      "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 2,
-      "top_intraday": [
-        [
-          "45",
-          2
-        ],
-        [
-          "26",
-          1
-        ],
-        [
-          "73",
-          1
-        ],
-        [
-          "06",
-          1
-        ],
-        [
-          "94",
-          1
-        ]
-      ]
+      "best_signal_hist": 0.04180273747486388,
+      "best_a11_hist": 3,
+      "today_observed_nums": 0,
+      "source_pairs_today": 0,
+      "source_rows_hist_used": 3540,
+      "top12_overlap_prev": 1,
+      "top_intraday": []
     }
   }
 }
