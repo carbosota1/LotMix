@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-29T16:56:04.299984-04:00",
-  "event_key": "2026-04-29|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-04-29T17:03:01.461229-04:00",
+  "event_key": "2026-04-29|TEST|NO-UPDATE",
   "target": {
     "time_rd": "2026-04-29 18:00",
     "lottery": "La Suerte",
@@ -12,9 +12,9 @@
     "draw": "Quiniela La Suerte 6PM",
     "top12": [
       "40",
-      "45",
       "14",
       "63",
+      "45",
       "10",
       "72",
       "91",
@@ -26,15 +26,15 @@
     ],
     "topq": [
       "40",
-      "45",
-      "14"
+      "14",
+      "63"
     ],
     "pales": [
-      "40-45",
       "14-40",
-      "40-63"
+      "40-63",
+      "40-45"
     ],
-    "fingerprint": "d90aed1678ddda2e",
+    "fingerprint": "1c0e6be46b00b9ce",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
     "best_signal": 0.01552804091129818,
