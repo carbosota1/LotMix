@@ -1551,21 +1551,22 @@
     "2026-04-29 19:00|La Primera|Quiniela La Primera Noche": "cbf32862f9d8de09",
     "2026-04-29 21:00|Anguilla|Anguila 9PM": "ee4828f4f09f79f0",
     "2026-04-29 21:00|La Nacional|Loteria Nacional- Noche": "a37c4f00b9afd6c5",
-    "2026-04-30 10:00|Anguilla|Anguila 10AM": "54700e916027147a"
+    "2026-04-30 10:00|Anguilla|Anguila 10AM": "54700e916027147a",
+    "2026-04-30 12:00|La Primera|Quiniela La Primera": "3d2c6ce1cefce07a"
   },
   "last_wait_key": "",
   "last_top12": [
-    "42",
+    "26",
+    "76",
+    "12",
+    "24",
+    "47",
+    "92",
+    "23",
+    "59",
+    "68",
     "58",
-    "34",
     "64",
-    "69",
-    "65",
-    "74",
-    "83",
-    "02",
-    "08",
-    "15",
-    "39"
+    "08"
   ]
 }
