@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-04-30T10:18:43.248494-04:00",
+  "generated_at": "2026-04-30T10:29:19.539687-04:00",
   "event_key": "2026-04-30|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-04-30T10:18:42.715506-04:00",
+      "generated_at": "2026-04-30T10:29:19.027909-04:00",
       "event_key": "2026-04-30|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-04-30 12:00",
@@ -15,30 +15,30 @@
         "lottery": "La Primera",
         "draw": "Quiniela La Primera",
         "top12": [
-          "26",
           "76",
+          "26",
+          "92",
           "12",
           "24",
-          "47",
-          "92",
-          "23",
           "59",
-          "68",
+          "47",
           "58",
+          "68",
           "64",
-          "08"
+          "08",
+          "23"
         ],
         "topq": [
-          "26",
           "76",
-          "12"
+          "26",
+          "92"
         ],
         "pales": [
           "26-76",
-          "12-26",
-          "24-26"
+          "76-92",
+          "12-76"
         ],
-        "fingerprint": "3d2c6ce1cefce07a",
+        "fingerprint": "8cac928de51b4b47",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
         "best_signal": 0.01971384230081968,
@@ -49,7 +49,7 @@
           "today_observed_nums": 3,
           "source_pairs_today": 1,
           "source_rows_hist_used": 534,
-          "top12_overlap_prev": 3,
+          "top12_overlap_prev": 12,
           "top_intraday": [
             [
               "05",
