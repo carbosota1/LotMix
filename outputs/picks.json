@@ -1,58 +1,58 @@
 {
-  "generated_at": "2026-05-02T16:58:49.354669-04:00",
-  "event_key": "2026-05-02|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-05-02T18:22:52.265086-04:00",
+  "event_key": "2026-05-02|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-05-02 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-05-02 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-05-02 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-05-02 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "21",
-      "64",
-      "51",
-      "88",
-      "30",
-      "07",
-      "92",
-      "35",
-      "53",
-      "52",
-      "02",
-      "66"
+      "63",
+      "68",
+      "97",
+      "55",
+      "49",
+      "61",
+      "80",
+      "86",
+      "46",
+      "59",
+      "81",
+      "34"
     ],
     "topq": [
-      "21",
-      "64",
-      "51"
+      "63",
+      "68",
+      "97"
     ],
     "pales": [
-      "21-64",
-      "21-51",
-      "21-88"
+      "63-68",
+      "63-97",
+      "55-63"
     ],
-    "fingerprint": "ca1c55bb2f1af356",
+    "fingerprint": "000b44d997362c0b",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.0031581398447066695,
-    "best_a11": 8,
+    "best_signal": 0.028583285135874912,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.0031581398447066695,
-      "best_a11_hist": 8,
-      "today_observed_nums": 13,
-      "source_pairs_today": 5,
-      "source_rows_hist_used": 2391,
-      "top12_overlap_prev": 1,
+      "best_signal_hist": 0.028583285135874912,
+      "best_a11_hist": 3,
+      "today_observed_nums": 18,
+      "source_pairs_today": 7,
+      "source_rows_hist_used": 2400,
+      "top12_overlap_prev": 0,
       "top_intraday": [
         [
-          "64",
-          2
+          "20",
+          3
         ],
         [
-          "20",
+          "64",
           2
         ],
         [
