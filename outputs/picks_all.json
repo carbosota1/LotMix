@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-05-04T16:04:15.638057-04:00",
-  "event_key": "2026-05-04|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-05-04T16:38:09.647261-04:00",
+  "event_key": "2026-05-04|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-05-04T16:04:08.664637-04:00",
-      "event_key": "2026-05-04|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-05-04T16:38:02.681233-04:00",
+      "event_key": "2026-05-04|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-05-04 18:00",
         "lottery": "Anguilla",
@@ -15,30 +15,30 @@
         "lottery": "Anguilla",
         "draw": "Anguila 6PM",
         "top12": [
+          "22",
+          "62",
           "87",
           "65",
           "28",
           "46",
           "02",
-          "22",
           "38",
           "95",
           "56",
           "11",
-          "62",
           "98"
         ],
         "topq": [
-          "87",
-          "65",
-          "28"
+          "22",
+          "62",
+          "87"
         ],
         "pales": [
-          "65-87",
-          "28-87",
-          "46-87"
+          "22-62",
+          "22-87",
+          "22-65"
         ],
-        "fingerprint": "2fd733d9c2e44daf",
+        "fingerprint": "b88b630b979a446a",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
         "best_signal": 0.009274589630102702,
@@ -49,7 +49,7 @@
           "today_observed_nums": 14,
           "source_pairs_today": 5,
           "source_rows_hist_used": 2400,
-          "top12_overlap_prev": 3,
+          "top12_overlap_prev": 1,
           "top_intraday": [
             [
               "62",
@@ -76,8 +76,8 @@
       }
     },
     {
-      "generated_at": "2026-05-04T16:04:15.153836-04:00",
-      "event_key": "2026-05-04|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-05-04T16:38:09.098924-04:00",
+      "event_key": "2026-05-04|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-05-04 18:00",
         "lottery": "La Suerte",
