@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-05-04T16:38:09.647261-04:00",
-  "event_key": "2026-05-04|TEST|NO-UPDATE",
+  "generated_at": "2026-05-04T18:22:51.156730-04:00",
+  "event_key": "2026-05-04|La Suerte|Quiniela La Suerte 6PM",
   "items": [
     {
-      "generated_at": "2026-05-04T16:38:02.681233-04:00",
-      "event_key": "2026-05-04|TEST|NO-UPDATE",
+      "generated_at": "2026-05-04T18:22:50.543736-04:00",
+      "event_key": "2026-05-04|La Suerte|Quiniela La Suerte 6PM",
       "target": {
-        "time_rd": "2026-05-04 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM"
+        "time_rd": "2026-05-04 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche"
       },
       "best_play": {
-        "time_rd": "2026-05-04 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM",
+        "time_rd": "2026-05-04 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche",
         "top12": [
-          "22",
-          "62",
-          "87",
-          "65",
-          "28",
           "46",
-          "02",
-          "38",
-          "95",
-          "56",
-          "11",
-          "98"
+          "49",
+          "03",
+          "18",
+          "55",
+          "54",
+          "61",
+          "97",
+          "52",
+          "81",
+          "34",
+          "59"
         ],
         "topq": [
-          "22",
-          "62",
-          "87"
+          "46",
+          "49",
+          "03"
         ],
         "pales": [
-          "22-62",
-          "22-87",
-          "22-65"
+          "46-49",
+          "03-46",
+          "18-46"
         ],
-        "fingerprint": "b88b630b979a446a",
+        "fingerprint": "c26db2f7c570e655",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.009274589630102702,
+        "best_signal": 0.028583285135874912,
         "best_a11": 3,
         "debug": {
-          "best_signal_hist": 0.009274589630102702,
+          "best_signal_hist": 0.028583285135874912,
           "best_a11_hist": 3,
-          "today_observed_nums": 14,
-          "source_pairs_today": 5,
+          "today_observed_nums": 18,
+          "source_pairs_today": 7,
           "source_rows_hist_used": 2400,
           "top12_overlap_prev": 1,
           "top_intraday": [
@@ -56,76 +56,11 @@
               2
             ],
             [
-              "41",
-              1
+              "87",
+              2
             ],
             [
-              "95",
-              1
-            ],
-            [
-              "60",
-              1
-            ],
-            [
-              "22",
-              1
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "generated_at": "2026-05-04T16:38:09.098924-04:00",
-      "event_key": "2026-05-04|TEST|NO-UPDATE",
-      "target": {
-        "time_rd": "2026-05-04 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM"
-      },
-      "best_play": {
-        "time_rd": "2026-05-04 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM",
-        "top12": [
-          "14",
-          "63",
-          "45",
-          "10",
-          "59",
-          "73",
-          "91",
-          "69",
-          "95",
-          "66",
-          "53",
-          "64"
-        ],
-        "topq": [
-          "14",
-          "63",
-          "45"
-        ],
-        "pales": [
-          "14-63",
-          "14-45",
-          "10-14"
-        ],
-        "fingerprint": "824f8edfa6bbde99",
-        "ok_alert": false,
-        "decision": "❌ NO JUGAR",
-        "best_signal": 0.01639976429901607,
-        "best_a11": 3,
-        "debug": {
-          "best_signal_hist": 0.01639976429901607,
-          "best_a11_hist": 3,
-          "today_observed_nums": 14,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2400,
-          "top12_overlap_prev": 1,
-          "top_intraday": [
-            [
-              "62",
+              "23",
               2
             ],
             [
@@ -134,14 +69,6 @@
             ],
             [
               "95",
-              1
-            ],
-            [
-              "60",
-              1
-            ],
-            [
-              "22",
               1
             ]
           ]

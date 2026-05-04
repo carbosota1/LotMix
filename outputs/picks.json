@@ -1,49 +1,49 @@
 {
-  "generated_at": "2026-05-04T16:38:09.098924-04:00",
-  "event_key": "2026-05-04|TEST|NO-UPDATE",
+  "generated_at": "2026-05-04T18:22:50.543736-04:00",
+  "event_key": "2026-05-04|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-05-04 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-05-04 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-05-04 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-05-04 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "14",
-      "63",
-      "45",
-      "10",
-      "59",
-      "73",
-      "91",
-      "69",
-      "95",
-      "66",
-      "53",
-      "64"
+      "46",
+      "49",
+      "03",
+      "18",
+      "55",
+      "54",
+      "61",
+      "97",
+      "52",
+      "81",
+      "34",
+      "59"
     ],
     "topq": [
-      "14",
-      "63",
-      "45"
+      "46",
+      "49",
+      "03"
     ],
     "pales": [
-      "14-63",
-      "14-45",
-      "10-14"
+      "46-49",
+      "03-46",
+      "18-46"
     ],
-    "fingerprint": "824f8edfa6bbde99",
+    "fingerprint": "c26db2f7c570e655",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01639976429901607,
+    "best_signal": 0.028583285135874912,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.01639976429901607,
+      "best_signal_hist": 0.028583285135874912,
       "best_a11_hist": 3,
-      "today_observed_nums": 14,
-      "source_pairs_today": 5,
+      "today_observed_nums": 18,
+      "source_pairs_today": 7,
       "source_rows_hist_used": 2400,
       "top12_overlap_prev": 1,
       "top_intraday": [
@@ -52,19 +52,19 @@
           2
         ],
         [
+          "87",
+          2
+        ],
+        [
+          "23",
+          2
+        ],
+        [
           "41",
           1
         ],
         [
           "95",
-          1
-        ],
-        [
-          "60",
-          1
-        ],
-        [
-          "22",
           1
         ]
       ]
