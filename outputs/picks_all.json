@@ -1,55 +1,128 @@
 {
-  "generated_at": "2026-05-14T18:23:10.316248-04:00",
-  "event_key": "2026-05-14|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-05-14T19:18:27.896879-04:00",
+  "event_key": "2026-05-14|La Primera|Quiniela La Primera Noche",
   "items": [
     {
-      "generated_at": "2026-05-14T18:23:09.852234-04:00",
-      "event_key": "2026-05-14|La Suerte|Quiniela La Suerte 6PM",
+      "generated_at": "2026-05-14T19:18:17.409513-04:00",
+      "event_key": "2026-05-14|La Primera|Quiniela La Primera Noche",
       "target": {
-        "time_rd": "2026-05-14 19:00",
-        "lottery": "La Primera",
-        "draw": "Quiniela La Primera Noche"
+        "time_rd": "2026-05-14 21:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 9PM"
       },
       "best_play": {
-        "time_rd": "2026-05-14 19:00",
-        "lottery": "La Primera",
-        "draw": "Quiniela La Primera Noche",
+        "time_rd": "2026-05-14 21:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 9PM",
         "top12": [
-          "03",
-          "37",
-          "61",
-          "54",
-          "18",
-          "39",
-          "97",
-          "46",
-          "55",
-          "81",
+          "82",
+          "15",
+          "63",
           "34",
-          "59"
+          "28",
+          "00",
+          "43",
+          "11",
+          "87",
+          "06",
+          "90",
+          "98"
         ],
         "topq": [
-          "03",
-          "37",
-          "61"
+          "82",
+          "15",
+          "63"
         ],
         "pales": [
-          "03-37",
-          "03-61",
-          "03-54"
+          "15-82",
+          "63-82",
+          "34-82"
         ],
-        "fingerprint": "e3cc1612e80cad10",
+        "fingerprint": "ec7fa5c8688e35f6",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.02942622972175507,
+        "best_signal": 0.031098660733284808,
         "best_a11": 3,
         "debug": {
-          "best_signal_hist": 0.02942622972175507,
+          "best_signal_hist": 0.031098660733284808,
           "best_a11_hist": 3,
-          "today_observed_nums": 17,
-          "source_pairs_today": 7,
+          "today_observed_nums": 20,
+          "source_pairs_today": 8,
           "source_rows_hist_used": 2400,
           "top12_overlap_prev": 1,
+          "top_intraday": [
+            [
+              "56",
+              2
+            ],
+            [
+              "03",
+              2
+            ],
+            [
+              "13",
+              2
+            ],
+            [
+              "73",
+              2
+            ],
+            [
+              "21",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "generated_at": "2026-05-14T19:18:27.255140-04:00",
+      "event_key": "2026-05-14|La Primera|Quiniela La Primera Noche",
+      "target": {
+        "time_rd": "2026-05-14 21:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche"
+      },
+      "best_play": {
+        "time_rd": "2026-05-14 21:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche",
+        "top12": [
+          "21",
+          "75",
+          "68",
+          "24",
+          "53",
+          "32",
+          "97",
+          "52",
+          "35",
+          "00",
+          "39",
+          "98"
+        ],
+        "topq": [
+          "21",
+          "75",
+          "68"
+        ],
+        "pales": [
+          "21-75",
+          "21-68",
+          "21-24"
+        ],
+        "fingerprint": "c1df858f23454ec7",
+        "ok_alert": false,
+        "decision": "❌ NO JUGAR",
+        "best_signal": 0.03192448353547198,
+        "best_a11": 4,
+        "debug": {
+          "best_signal_hist": 0.03192448353547198,
+          "best_a11_hist": 4,
+          "today_observed_nums": 20,
+          "source_pairs_today": 8,
+          "source_rows_hist_used": 2400,
+          "top12_overlap_prev": 2,
           "top_intraday": [
             [
               "56",
