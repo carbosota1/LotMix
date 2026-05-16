@@ -1,52 +1,56 @@
 {
-  "generated_at": "2026-05-16T13:18:42.868361-04:00",
-  "event_key": "2026-05-16|Anguilla|Anguila 1PM",
+  "generated_at": "2026-05-16T19:16:49.036763-04:00",
+  "event_key": "2026-05-16|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-05-16 14:30",
+    "time_rd": "2026-05-16 21:00",
     "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más"
+    "draw": "Loteria Nacional- Noche"
   },
   "best_play": {
-    "time_rd": "2026-05-16 14:30",
+    "time_rd": "2026-05-16 21:00",
     "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más",
+    "draw": "Loteria Nacional- Noche",
     "top12": [
-      "41",
-      "82",
-      "94",
-      "95",
+      "53",
+      "21",
+      "35",
+      "24",
       "40",
-      "89",
-      "42",
-      "37",
-      "20",
-      "14",
-      "13",
-      "64"
+      "75",
+      "97",
+      "52",
+      "68",
+      "00",
+      "39",
+      "98"
     ],
     "topq": [
-      "41",
-      "82",
-      "94"
+      "53",
+      "21",
+      "35"
     ],
     "pales": [
-      "41-82",
-      "41-94",
-      "41-95"
+      "21-53",
+      "35-53",
+      "24-53"
     ],
-    "fingerprint": "3565e24b12a3bbea",
+    "fingerprint": "7e466524d19bd217",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.0004525890458757687,
-    "best_a11": 7,
+    "best_signal": 0.03300119404095613,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.0004525890458757687,
-      "best_a11_hist": 7,
-      "today_observed_nums": 12,
-      "source_pairs_today": 4,
-      "source_rows_hist_used": 1563,
-      "top12_overlap_prev": 0,
+      "best_signal_hist": 0.03300119404095613,
+      "best_a11_hist": 4,
+      "today_observed_nums": 23,
+      "source_pairs_today": 8,
+      "source_rows_hist_used": 2400,
+      "top12_overlap_prev": 2,
       "top_intraday": [
+        [
+          "71",
+          2
+        ],
         [
           "99",
           1
@@ -61,10 +65,6 @@
         ],
         [
           "18",
-          1
-        ],
-        [
-          "71",
           1
         ]
       ]
