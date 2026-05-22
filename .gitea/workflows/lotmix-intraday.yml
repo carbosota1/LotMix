@@ -1,0 +1,55 @@
+name: LotMix - Intraday Runner
+on:
+  schedule:
+    - cron: "30 15 * * *"  # 11:30 AM RD
+    - cron: "15 16 * * *"  # 12:15 PM RD
+    - cron: "40 16 * * *"  # 12:40 PM RD
+    - cron: "15 17 * * *"  # 1:15 PM RD
+    - cron: "10 20 * * *"  # 4:10 PM RD
+    - cron: "15 22 * * *"  # 6:15 PM RD
+    - cron: "15 23 * * *"  # 7:15 PM RD
+  workflow_dispatch:
+concurrency:
+  group: lotmix-runner
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-22.04
+    env:
+      TZ: America/Santo_Domingo
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      FORCE_NOTIFY: "1"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITEA_TOKEN }}
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            pip install pandas openpyxl requests beautifulsoup4 lxml
+          fi
+      - name: Run runner
+        run: |
+          python src/runner.py
+      - name: Commit and push changes (histories/state/outputs)
+        run: |
+          git config user.name "gitea-actions"
+          git config user.email "gitea-actions@noreply.local"
+          rm -rf src/__pycache__ src/scrapers/__pycache__ || true
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Auto update histories + intraday analysis"
+          git push
