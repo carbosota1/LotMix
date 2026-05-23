@@ -1,52 +1,56 @@
 {
-  "generated_at": "2026-05-23T11:43:22.364770-04:00",
-  "event_key": "2026-05-23|Anguilla|Anguila 10AM",
+  "generated_at": "2026-05-23T13:18:13.107574-04:00",
+  "event_key": "2026-05-23|Anguilla|Anguila 1PM",
   "target": {
-    "time_rd": "2026-05-23 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera"
+    "time_rd": "2026-05-23 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más"
   },
   "best_play": {
-    "time_rd": "2026-05-23 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera",
+    "time_rd": "2026-05-23 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más",
     "top12": [
-      "92",
-      "76",
-      "26",
-      "58",
-      "03",
-      "47",
-      "08",
-      "90",
-      "23",
-      "43",
-      "24",
-      "59"
+      "71",
+      "25",
+      "37",
+      "94",
+      "69",
+      "33",
+      "91",
+      "73",
+      "13",
+      "80",
+      "65",
+      "20"
     ],
     "topq": [
-      "92",
-      "76",
-      "26"
+      "71",
+      "25",
+      "37"
     ],
     "pales": [
-      "76-92",
-      "26-92",
-      "58-92"
+      "25-71",
+      "37-71",
+      "71-94"
     ],
-    "fingerprint": "256dc5ee0ef5eef0",
+    "fingerprint": "f907efdff71e8d0e",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.015390943699923786,
+    "best_signal": 0.010146179507580698,
     "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.015390943699923786,
+      "best_signal_hist": 0.010146179507580698,
       "best_a11_hist": 2,
-      "today_observed_nums": 3,
-      "source_pairs_today": 1,
-      "source_rows_hist_used": 534,
-      "top12_overlap_prev": 2,
+      "today_observed_nums": 11,
+      "source_pairs_today": 4,
+      "source_rows_hist_used": 2148,
+      "top12_overlap_prev": 0,
       "top_intraday": [
+        [
+          "27",
+          2
+        ],
         [
           "92",
           1
@@ -57,6 +61,10 @@
         ],
         [
           "61",
+          1
+        ],
+        [
+          "60",
           1
         ]
       ]
