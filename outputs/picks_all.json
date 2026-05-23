@@ -1,55 +1,55 @@
 {
-  "generated_at": "2026-05-23T16:14:34.891463-04:00",
-  "event_key": "2026-05-23|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-05-23T18:19:37.214334-04:00",
+  "event_key": "2026-05-23|La Suerte|Quiniela La Suerte 6PM",
   "items": [
     {
-      "generated_at": "2026-05-23T16:14:09.613904-04:00",
-      "event_key": "2026-05-23|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-05-23T18:19:36.496855-04:00",
+      "event_key": "2026-05-23|La Suerte|Quiniela La Suerte 6PM",
       "target": {
-        "time_rd": "2026-05-23 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM"
+        "time_rd": "2026-05-23 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche"
       },
       "best_play": {
-        "time_rd": "2026-05-23 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM",
+        "time_rd": "2026-05-23 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche",
         "top12": [
-          "87",
-          "63",
-          "70",
-          "47",
-          "66",
-          "48",
+          "37",
+          "54",
           "03",
-          "45",
-          "75",
+          "83",
+          "34",
+          "97",
+          "76",
+          "39",
           "46",
-          "59",
-          "33"
+          "55",
+          "65",
+          "81"
         ],
         "topq": [
-          "87",
-          "63",
-          "70"
+          "37",
+          "54",
+          "03"
         ],
         "pales": [
-          "63-87",
-          "70-87",
-          "47-87"
+          "37-54",
+          "03-37",
+          "37-83"
         ],
-        "fingerprint": "7bac5f49c6a3a04d",
+        "fingerprint": "57f65c2c6014dcab",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.0019122428168005642,
+        "best_signal": 0.026641637138801195,
         "best_a11": 3,
         "debug": {
-          "best_signal_hist": 0.0019122428168005642,
+          "best_signal_hist": 0.026641637138801195,
           "best_a11_hist": 3,
-          "today_observed_nums": 13,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2393,
-          "top12_overlap_prev": 1,
+          "today_observed_nums": 18,
+          "source_pairs_today": 7,
+          "source_rows_hist_used": 2400,
+          "top12_overlap_prev": 0,
           "top_intraday": [
             [
               "27",
@@ -60,76 +60,7 @@
               2
             ],
             [
-              "92",
-              1
-            ],
-            [
-              "72",
-              1
-            ],
-            [
-              "61",
-              1
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "generated_at": "2026-05-23T16:14:34.159223-04:00",
-      "event_key": "2026-05-23|La Nacional|Loteria Nacional- Gana Más",
-      "target": {
-        "time_rd": "2026-05-23 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM"
-      },
-      "best_play": {
-        "time_rd": "2026-05-23 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM",
-        "top12": [
-          "27",
-          "60",
-          "11",
-          "92",
-          "35",
-          "30",
-          "88",
-          "07",
-          "02",
-          "21",
-          "53",
-          "66"
-        ],
-        "topq": [
-          "27",
-          "60",
-          "11"
-        ],
-        "pales": [
-          "27-60",
-          "11-27",
-          "27-92"
-        ],
-        "fingerprint": "767e8f50c264c94a",
-        "ok_alert": false,
-        "decision": "❌ NO JUGAR",
-        "best_signal": 0.002701667415166803,
-        "best_a11": 10,
-        "debug": {
-          "best_signal_hist": 0.002701667415166803,
-          "best_a11_hist": 10,
-          "today_observed_nums": 13,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2393,
-          "top12_overlap_prev": 1,
-          "top_intraday": [
-            [
-              "27",
-              2
-            ],
-            [
-              "85",
+              "37",
               2
             ],
             [
@@ -138,10 +69,6 @@
             ],
             [
               "72",
-              1
-            ],
-            [
-              "61",
               1
             ]
           ]
