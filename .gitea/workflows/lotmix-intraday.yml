@@ -48,4 +48,5 @@ jobs:
             exit 0
           fi
           git commit -m "Auto update histories + intraday analysis"
+          git pull --rebase origin main || git pull --rebase origin master
           git push
