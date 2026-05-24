@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-05-24T18:20:28.361436-04:00",
-  "event_key": "2026-05-24|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-05-24T19:19:49.450033-04:00",
+  "event_key": "2026-05-24|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-05-24 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-05-24 21:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 9PM"
   },
   "best_play": {
-    "time_rd": "2026-05-24 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-05-24 21:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 9PM",
     "top12": [
-      "12",
-      "17",
-      "55",
-      "18",
-      "03",
-      "34",
+      "09",
+      "68",
+      "89",
+      "63",
       "59",
-      "61",
+      "87",
+      "06",
+      "76",
+      "82",
+      "43",
       "97",
-      "46",
-      "83",
       "81"
     ],
     "topq": [
-      "12",
-      "17",
-      "55"
+      "09",
+      "68",
+      "89"
     ],
     "pales": [
-      "12-17",
-      "12-55",
-      "12-18"
+      "09-68",
+      "09-89",
+      "09-63"
     ],
-    "fingerprint": "c0a3ababca49b9b6",
+    "fingerprint": "f174b030ee8a9d27",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.02517447023965821,
-    "best_a11": 3,
+    "best_signal": 0.032393504688837574,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.02517447023965821,
-      "best_a11_hist": 3,
-      "today_observed_nums": 21,
-      "source_pairs_today": 8,
+      "best_signal_hist": 0.032393504688837574,
+      "best_a11_hist": 4,
+      "today_observed_nums": 23,
+      "source_pairs_today": 9,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 0,
+      "top12_overlap_prev": 3,
       "top_intraday": [
         [
           "52",
@@ -56,15 +56,15 @@
           2
         ],
         [
+          "73",
+          2
+        ],
+        [
           "28",
           2
         ],
         [
           "10",
-          1
-        ],
-        [
-          "91",
           1
         ]
       ]
