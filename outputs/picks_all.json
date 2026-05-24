@@ -1,131 +1,62 @@
 {
-  "generated_at": "2026-05-24T16:17:12.868878-04:00",
-  "event_key": "2026-05-24|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-05-24T18:20:29.058210-04:00",
+  "event_key": "2026-05-24|La Suerte|Quiniela La Suerte 6PM",
   "items": [
     {
-      "generated_at": "2026-05-24T16:16:23.664386-04:00",
-      "event_key": "2026-05-24|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-05-24T18:20:28.361436-04:00",
+      "event_key": "2026-05-24|La Suerte|Quiniela La Suerte 6PM",
       "target": {
-        "time_rd": "2026-05-24 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM"
+        "time_rd": "2026-05-24 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche"
       },
       "best_play": {
-        "time_rd": "2026-05-24 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM",
+        "time_rd": "2026-05-24 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche",
         "top12": [
-          "90",
-          "47",
-          "45",
-          "42",
-          "66",
-          "48",
+          "12",
+          "17",
+          "55",
+          "18",
           "03",
-          "46",
-          "75",
-          "63",
+          "34",
           "59",
-          "33"
-        ],
-        "topq": [
-          "90",
-          "47",
-          "45"
-        ],
-        "pales": [
-          "47-90",
-          "45-90",
-          "42-90"
-        ],
-        "fingerprint": "d33fe14f1f8b99e6",
-        "ok_alert": false,
-        "decision": "❌ NO JUGAR",
-        "best_signal": 0.00436670466032641,
-        "best_a11": 6,
-        "debug": {
-          "best_signal_hist": 0.00436670466032641,
-          "best_a11_hist": 6,
-          "today_observed_nums": 13,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2374,
-          "top12_overlap_prev": 1,
-          "top_intraday": [
-            [
-              "52",
-              2
-            ],
-            [
-              "28",
-              2
-            ],
-            [
-              "10",
-              1
-            ],
-            [
-              "47",
-              1
-            ],
-            [
-              "91",
-              1
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "generated_at": "2026-05-24T16:16:48.036995-04:00",
-      "event_key": "2026-05-24|La Nacional|Loteria Nacional- Gana Más",
-      "target": {
-        "time_rd": "2026-05-24 18:00",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Noche"
-      },
-      "best_play": {
-        "time_rd": "2026-05-24 18:00",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Noche",
-        "top12": [
-          "91",
-          "49",
-          "90",
-          "27",
-          "07",
           "61",
-          "84",
-          "38",
-          "80",
-          "13",
-          "11",
-          "63"
+          "97",
+          "46",
+          "83",
+          "81"
         ],
         "topq": [
-          "91",
-          "49",
-          "90"
+          "12",
+          "17",
+          "55"
         ],
         "pales": [
-          "49-91",
-          "90-91",
-          "27-91"
+          "12-17",
+          "12-55",
+          "12-18"
         ],
-        "fingerprint": "dd7d5ccfee238a05",
+        "fingerprint": "c0a3ababca49b9b6",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.0015973889456854286,
-        "best_a11": 10,
+        "best_signal": 0.02517447023965821,
+        "best_a11": 3,
         "debug": {
-          "best_signal_hist": 0.0015973889456854286,
-          "best_a11_hist": 10,
-          "today_observed_nums": 13,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2374,
-          "top12_overlap_prev": 2,
+          "best_signal_hist": 0.02517447023965821,
+          "best_a11_hist": 3,
+          "today_observed_nums": 21,
+          "source_pairs_today": 8,
+          "source_rows_hist_used": 2400,
+          "top12_overlap_prev": 0,
           "top_intraday": [
             [
               "52",
+              2
+            ],
+            [
+              "47",
               2
             ],
             [
@@ -134,83 +65,6 @@
             ],
             [
               "10",
-              1
-            ],
-            [
-              "47",
-              1
-            ],
-            [
-              "91",
-              1
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "generated_at": "2026-05-24T16:17:12.057080-04:00",
-      "event_key": "2026-05-24|La Nacional|Loteria Nacional- Gana Más",
-      "target": {
-        "time_rd": "2026-05-24 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM"
-      },
-      "best_play": {
-        "time_rd": "2026-05-24 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM",
-        "top12": [
-          "78",
-          "52",
-          "27",
-          "30",
-          "88",
-          "92",
-          "66",
-          "35",
-          "73",
-          "21",
-          "53",
-          "07"
-        ],
-        "topq": [
-          "78",
-          "52",
-          "27"
-        ],
-        "pales": [
-          "52-78",
-          "27-78",
-          "30-78"
-        ],
-        "fingerprint": "5aa5323a261385bd",
-        "ok_alert": false,
-        "decision": "❌ NO JUGAR",
-        "best_signal": 0.0012595844438273245,
-        "best_a11": 8,
-        "debug": {
-          "best_signal_hist": 0.0012595844438273245,
-          "best_a11_hist": 8,
-          "today_observed_nums": 13,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2374,
-          "top12_overlap_prev": 2,
-          "top_intraday": [
-            [
-              "52",
-              2
-            ],
-            [
-              "28",
-              2
-            ],
-            [
-              "10",
-              1
-            ],
-            [
-              "47",
               1
             ],
             [
