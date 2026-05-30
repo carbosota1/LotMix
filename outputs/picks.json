@@ -1,50 +1,50 @@
 {
-  "generated_at": "2026-05-30T12:43:22.750368-04:00",
-  "event_key": "2026-05-30|La Suerte|Quiniela La Suerte",
+  "generated_at": "2026-05-30T13:19:20.570698-04:00",
+  "event_key": "2026-05-30|Anguilla|Anguila 1PM",
   "target": {
-    "time_rd": "2026-05-30 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM"
+    "time_rd": "2026-05-30 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más"
   },
   "best_play": {
-    "time_rd": "2026-05-30 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM",
+    "time_rd": "2026-05-30 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más",
     "top12": [
-      "05",
-      "81",
-      "62",
-      "96",
-      "01",
-      "52",
-      "37",
-      "46",
-      "21",
-      "53",
-      "02",
-      "43"
+      "82",
+      "88",
+      "30",
+      "41",
+      "95",
+      "64",
+      "40",
+      "89",
+      "20",
+      "94",
+      "13",
+      "37"
     ],
     "topq": [
-      "05",
-      "81",
-      "62"
+      "82",
+      "88",
+      "30"
     ],
     "pales": [
-      "05-81",
-      "05-62",
-      "05-96"
+      "82-88",
+      "30-82",
+      "41-82"
     ],
-    "fingerprint": "1c7129a63d80fefb",
+    "fingerprint": "d144078a8b1599ab",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.018571892848393955,
-    "best_a11": 3,
+    "best_signal": 0.00428130436121695,
+    "best_a11": 7,
     "debug": {
-      "best_signal_hist": 0.018571892848393955,
-      "best_a11_hist": 3,
-      "today_observed_nums": 9,
-      "source_pairs_today": 3,
-      "source_rows_hist_used": 1596,
+      "best_signal_hist": 0.00428130436121695,
+      "best_a11_hist": 7,
+      "today_observed_nums": 12,
+      "source_pairs_today": 4,
+      "source_rows_hist_used": 1528,
       "top12_overlap_prev": 1,
       "top_intraday": [
         [
@@ -60,11 +60,11 @@
           1
         ],
         [
-          "76",
+          "98",
           1
         ],
         [
-          "85",
+          "30",
           1
         ]
       ]
