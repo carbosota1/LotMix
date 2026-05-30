@@ -1,56 +1,60 @@
 {
-  "generated_at": "2026-05-30T16:14:19.627326-04:00",
-  "event_key": "2026-05-30|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-05-30T18:19:29.443674-04:00",
+  "event_key": "2026-05-30|Anguilla|Anguila 6PM",
   "items": [
     {
-      "generated_at": "2026-05-30T16:13:54.024181-04:00",
-      "event_key": "2026-05-30|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-05-30T18:19:28.704265-04:00",
+      "event_key": "2026-05-30|Anguilla|Anguila 6PM",
       "target": {
-        "time_rd": "2026-05-30 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM"
+        "time_rd": "2026-05-30 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche"
       },
       "best_play": {
-        "time_rd": "2026-05-30 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM",
+        "time_rd": "2026-05-30 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche",
         "top12": [
-          "47",
-          "98",
+          "90",
+          "76",
+          "41",
+          "54",
+          "34",
+          "03",
+          "97",
           "39",
-          "22",
-          "93",
-          "28",
           "46",
-          "14",
-          "08",
-          "56",
-          "62",
-          "13"
+          "55",
+          "65",
+          "81"
         ],
         "topq": [
-          "47",
-          "98",
-          "39"
+          "90",
+          "76",
+          "41"
         ],
         "pales": [
-          "47-98",
-          "39-47",
-          "22-47"
+          "76-90",
+          "41-90",
+          "54-90"
         ],
-        "fingerprint": "1b7777dcccae262c",
+        "fingerprint": "709f8c846e8dff12",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.014999272688695183,
+        "best_signal": 0.025452555798069664,
         "best_a11": 3,
         "debug": {
-          "best_signal_hist": 0.014999272688695183,
+          "best_signal_hist": 0.025452555798069664,
           "best_a11_hist": 3,
-          "today_observed_nums": 15,
-          "source_pairs_today": 5,
+          "today_observed_nums": 17,
+          "source_pairs_today": 7,
           "source_rows_hist_used": 2400,
-          "top12_overlap_prev": 1,
+          "top12_overlap_prev": 0,
           "top_intraday": [
+            [
+              "43",
+              2
+            ],
             [
               "90",
               1
@@ -65,83 +69,6 @@
             ],
             [
               "98",
-              1
-            ],
-            [
-              "30",
-              1
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "generated_at": "2026-05-30T16:14:18.835444-04:00",
-      "event_key": "2026-05-30|La Nacional|Loteria Nacional- Gana Más",
-      "target": {
-        "time_rd": "2026-05-30 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM"
-      },
-      "best_play": {
-        "time_rd": "2026-05-30 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM",
-        "top12": [
-          "72",
-          "69",
-          "63",
-          "67",
-          "45",
-          "23",
-          "59",
-          "64",
-          "02",
-          "53",
-          "14",
-          "56"
-        ],
-        "topq": [
-          "72",
-          "69",
-          "63"
-        ],
-        "pales": [
-          "69-72",
-          "63-72",
-          "67-72"
-        ],
-        "fingerprint": "e54918c8d243419c",
-        "ok_alert": false,
-        "decision": "❌ NO JUGAR",
-        "best_signal": 0.014703026153594688,
-        "best_a11": 3,
-        "debug": {
-          "best_signal_hist": 0.014703026153594688,
-          "best_a11_hist": 3,
-          "today_observed_nums": 15,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2400,
-          "top12_overlap_prev": 2,
-          "top_intraday": [
-            [
-              "90",
-              1
-            ],
-            [
-              "11",
-              1
-            ],
-            [
-              "92",
-              1
-            ],
-            [
-              "98",
-              1
-            ],
-            [
-              "30",
               1
             ]
           ]
