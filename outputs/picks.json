@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-31T13:12:15.877966-04:00",
-  "event_key": "2026-05-31|Anguilla|Anguila 1PM",
+  "generated_at": "2026-05-31T13:19:16.451839-04:00",
+  "event_key": "2026-05-31|TEST|NO-UPDATE",
   "target": {
     "time_rd": "2026-05-31 14:30",
     "lottery": "La Nacional",
@@ -45,7 +45,7 @@
       "today_observed_nums": 12,
       "source_pairs_today": 4,
       "source_rows_hist_used": 1557,
-      "top12_overlap_prev": 1,
+      "top12_overlap_prev": 12,
       "top_intraday": [
         [
           "31",
