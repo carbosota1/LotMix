@@ -1,52 +1,56 @@
 {
-  "generated_at": "2026-06-04T16:14:46.830496-04:00",
-  "event_key": "2026-06-04|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-06-04T18:19:21.511736-04:00",
+  "event_key": "2026-06-04|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-06-04 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-06-04 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-06-04 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-06-04 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "64",
-      "63",
-      "67",
-      "45",
-      "72",
-      "23",
-      "59",
-      "69",
-      "14",
-      "39",
-      "56",
-      "02"
+      "46",
+      "81",
+      "34",
+      "48",
+      "35",
+      "03",
+      "17",
+      "97",
+      "07",
+      "65",
+      "90",
+      "39"
     ],
     "topq": [
-      "64",
-      "63",
-      "67"
+      "46",
+      "81",
+      "34"
     ],
     "pales": [
-      "63-64",
-      "64-67",
-      "45-64"
+      "46-81",
+      "34-46",
+      "46-48"
     ],
-    "fingerprint": "8a3f87a4d87e4704",
+    "fingerprint": "4730a621d29aa779",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.013920120790425336,
+    "best_signal": 0.023473896054642143,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.013920120790425336,
+      "best_signal_hist": 0.023473896054642143,
       "best_a11_hist": 3,
-      "today_observed_nums": 15,
-      "source_pairs_today": 5,
+      "today_observed_nums": 20,
+      "source_pairs_today": 7,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 4,
+      "top12_overlap_prev": 1,
       "top_intraday": [
+        [
+          "04",
+          2
+        ],
         [
           "64",
           1
@@ -57,10 +61,6 @@
         ],
         [
           "73",
-          1
-        ],
-        [
-          "04",
           1
         ],
         [
