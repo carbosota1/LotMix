@@ -1206,6 +1206,7 @@ def main():
 
         # 9) Lotmix Caliente — números calientes por posición histórica
         try:
+            sys.path.insert(0, os.path.join(os.path.dirname(__file__), "src"))
             from lotmix_caliente import run as run_caliente
 
             # Construir lista de picks en el formato que espera lotmix_caliente
