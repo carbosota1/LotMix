@@ -164,9 +164,6 @@ def build_caliente(pick: dict) -> dict | None:
     Retorna dict con la entrada caliente, o None si el pick no aplica.
     """
     decision = pick.get("decision", "")
-    if decision not in DECISIONES_ACTIVAS:
-        return None
-
     draw = pick.get("draw", "")
     lottery = pick.get("lottery", "")
     signal = pick.get("best_signal") or 0.0
