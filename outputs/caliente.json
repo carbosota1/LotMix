@@ -1,5 +1,5 @@
 {
-  "generado_en": "2026-06-05T12:43:47.776895",
+  "generado_en": "2026-06-05T13:19:02.414028",
   "sistema": "Lotmix Caliente",
   "version": "1.0",
   "total_loterias": 1,
@@ -7,24 +7,22 @@
   "picks_activos": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Anguila 1PM": {
+    "Loteria Nacional- Gana Más": {
       "numeros": [
-        "02",
-        "43",
-        "21",
-        "81",
-        "96",
-        "62"
+        "64",
+        "95",
+        "48",
+        "32"
       ],
-      "signal": 0.017259,
-      "nivel_senal": "media",
+      "signal": 0.00111,
+      "nivel_senal": "baja",
       "decision": "❌ NO JUGAR",
-      "a11": 3,
+      "a11": 8,
       "ok_alert": false,
-      "hit_rate_historico": 15.9,
-      "draw": "Anguila 1PM",
-      "lottery": "Anguilla",
-      "n_numeros": 6
+      "hit_rate_historico": 12.0,
+      "draw": "Loteria Nacional- Gana Más",
+      "lottery": "La Nacional",
+      "n_numeros": 4
     }
   }
 }
