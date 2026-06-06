@@ -1,49 +1,29 @@
 {
-  "generado_en": "2026-06-05T19:20:09.263228",
+  "generado_en": "2026-06-06T11:33:49.119267",
   "sistema": "Lotmix Caliente",
   "version": "1.0",
-  "total_loterias": 2,
-  "picks_procesados": 2,
-  "picks_activos": 2,
+  "total_loterias": 1,
+  "picks_procesados": 1,
+  "picks_activos": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Anguila 9PM": {
+    "Quiniela La Primera": {
       "numeros": [
-        "97",
-        "59",
-        "89",
-        "82",
-        "06"
-      ],
-      "signal": 0.030989,
-      "nivel_senal": "alta",
-      "decision": "❌ NO JUGAR",
-      "a11": 4,
-      "ok_alert": false,
-      "hit_rate_historico": 17.3,
-      "draw": "Anguila 9PM",
-      "lottery": "Anguilla",
-      "n_numeros": 5
-    },
-    "Loteria Nacional- Noche": {
-      "numeros": [
-        "83",
-        "33",
-        "53",
-        "40",
+        "26",
+        "92",
         "47",
-        "68",
-        "60"
+        "76",
+        "43"
       ],
-      "signal": 0.036724,
-      "nivel_senal": "muy_alta",
+      "signal": 0.015744,
+      "nivel_senal": "media",
       "decision": "❌ NO JUGAR",
-      "a11": 3,
+      "a11": 2,
       "ok_alert": false,
-      "hit_rate_historico": 11.3,
-      "draw": "Loteria Nacional- Noche",
-      "lottery": "La Nacional",
-      "n_numeros": 7
+      "hit_rate_historico": 15.1,
+      "draw": "Quiniela La Primera",
+      "lottery": "La Primera",
+      "n_numeros": 5
     }
   }
 }
