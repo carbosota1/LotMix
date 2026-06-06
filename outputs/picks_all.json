@@ -1,128 +1,55 @@
 {
-  "generated_at": "2026-06-06T16:14:33.371538-04:00",
-  "event_key": "2026-06-06|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-06-06T18:19:41.181885-04:00",
+  "event_key": "2026-06-06|La Suerte|Quiniela La Suerte 6PM",
   "items": [
     {
-      "generated_at": "2026-06-06T16:14:07.739287-04:00",
-      "event_key": "2026-06-06|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-06-06T18:19:40.393661-04:00",
+      "event_key": "2026-06-06|La Suerte|Quiniela La Suerte 6PM",
       "target": {
-        "time_rd": "2026-06-06 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM"
+        "time_rd": "2026-06-06 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche"
       },
       "best_play": {
-        "time_rd": "2026-06-06 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM",
+        "time_rd": "2026-06-06 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche",
         "top12": [
-          "28",
-          "13",
+          "03",
           "46",
-          "43",
-          "56",
-          "47",
-          "93",
-          "22",
-          "02",
-          "14",
-          "39",
-          "98"
-        ],
-        "topq": [
-          "28",
-          "13",
-          "46"
-        ],
-        "pales": [
-          "13-28",
-          "28-46",
-          "28-43"
-        ],
-        "fingerprint": "a0613fef017daee9",
-        "ok_alert": false,
-        "decision": "❌ NO JUGAR",
-        "best_signal": 0.016173977960642388,
-        "best_a11": 4,
-        "debug": {
-          "best_signal_hist": 0.016173977960642388,
-          "best_a11_hist": 4,
-          "today_observed_nums": 14,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2400,
-          "top12_overlap_prev": 2,
-          "top_intraday": [
-            [
-              "38",
-              2
-            ],
-            [
-              "92",
-              1
-            ],
-            [
-              "56",
-              1
-            ],
-            [
-              "46",
-              1
-            ],
-            [
-              "43",
-              1
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "generated_at": "2026-06-06T16:14:32.662016-04:00",
-      "event_key": "2026-06-06|La Nacional|Loteria Nacional- Gana Más",
-      "target": {
-        "time_rd": "2026-06-06 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM"
-      },
-      "best_play": {
-        "time_rd": "2026-06-06 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM",
-        "top12": [
-          "63",
-          "45",
-          "67",
-          "72",
-          "23",
-          "59",
-          "56",
-          "69",
-          "64",
+          "07",
+          "55",
+          "90",
+          "81",
+          "34",
+          "18",
           "35",
-          "14",
+          "17",
+          "97",
           "39"
         ],
         "topq": [
-          "63",
-          "45",
-          "67"
+          "03",
+          "46",
+          "07"
         ],
         "pales": [
-          "45-63",
-          "63-67",
-          "63-72"
+          "03-46",
+          "03-07",
+          "03-55"
         ],
-        "fingerprint": "04b09943371d110d",
+        "fingerprint": "4b47c5a4d64c1456",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.01390234323240209,
+        "best_signal": 0.019710961658729046,
         "best_a11": 3,
         "debug": {
-          "best_signal_hist": 0.01390234323240209,
+          "best_signal_hist": 0.019710961658729046,
           "best_a11_hist": 3,
-          "today_observed_nums": 14,
-          "source_pairs_today": 5,
+          "today_observed_nums": 20,
+          "source_pairs_today": 7,
           "source_rows_hist_used": 2400,
-          "top12_overlap_prev": 3,
+          "top12_overlap_prev": 2,
           "top_intraday": [
             [
               "38",
