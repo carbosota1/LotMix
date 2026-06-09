@@ -1,52 +1,56 @@
 {
-  "generated_at": "2026-06-09T16:14:49.372595-04:00",
-  "event_key": "2026-06-09|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-06-09T18:19:32.736049-04:00",
+  "event_key": "2026-06-09|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-06-09 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-06-09 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-06-09 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-06-09 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "67",
-      "14",
-      "45",
-      "56",
-      "23",
-      "72",
-      "59",
-      "69",
-      "64",
-      "35",
-      "39",
-      "02"
+      "90",
+      "81",
+      "34",
+      "48",
+      "18",
+      "03",
+      "17",
+      "97",
+      "46",
+      "07",
+      "83",
+      "55"
     ],
     "topq": [
-      "67",
-      "14",
-      "45"
+      "90",
+      "81",
+      "34"
     ],
     "pales": [
-      "14-67",
-      "45-67",
-      "56-67"
+      "81-90",
+      "34-90",
+      "48-90"
     ],
-    "fingerprint": "d353743df8b17379",
+    "fingerprint": "f0bb226a4acd9b9b",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01390234323240209,
+    "best_signal": 0.018620361377748522,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.01390234323240209,
+      "best_signal_hist": 0.018620361377748522,
       "best_a11_hist": 3,
-      "today_observed_nums": 15,
-      "source_pairs_today": 5,
+      "today_observed_nums": 20,
+      "source_pairs_today": 7,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 3,
+      "top12_overlap_prev": 0,
       "top_intraday": [
+        [
+          "28",
+          2
+        ],
         [
           "74",
           1
@@ -61,10 +65,6 @@
         ],
         [
           "08",
-          1
-        ],
-        [
-          "32",
           1
         ]
       ]
