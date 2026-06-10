@@ -1,58 +1,58 @@
 {
-  "generated_at": "2026-06-10T16:14:44.648809-04:00",
-  "event_key": "2026-06-10|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-06-10T18:20:40.143095-04:00",
+  "event_key": "2026-06-10|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-06-10 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-06-10 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-06-10 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-06-10 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "79",
-      "30",
-      "02",
-      "73",
-      "51",
-      "88",
-      "07",
-      "92",
-      "21",
-      "53",
-      "35",
-      "66"
+      "18",
+      "17",
+      "97",
+      "90",
+      "81",
+      "34",
+      "48",
+      "03",
+      "46",
+      "55",
+      "83",
+      "07"
     ],
     "topq": [
-      "79",
-      "30",
-      "02"
+      "18",
+      "17",
+      "97"
     ],
     "pales": [
-      "30-79",
-      "02-79",
-      "73-79"
+      "17-18",
+      "18-97",
+      "18-90"
     ],
-    "fingerprint": "f8c7a3cc42bf819d",
+    "fingerprint": "5e5060912bcf0afa",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.0021260931587908432,
-    "best_a11": 7,
+    "best_signal": 0.018620361377748522,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.0021260931587908432,
-      "best_a11_hist": 7,
-      "today_observed_nums": 13,
-      "source_pairs_today": 5,
-      "source_rows_hist_used": 2376,
-      "top12_overlap_prev": 2,
+      "best_signal_hist": 0.018620361377748522,
+      "best_a11_hist": 3,
+      "today_observed_nums": 18,
+      "source_pairs_today": 7,
+      "source_rows_hist_used": 2400,
+      "top12_overlap_prev": 1,
       "top_intraday": [
         [
-          "54",
-          2
+          "79",
+          3
         ],
         [
-          "79",
+          "54",
           2
         ],
         [
