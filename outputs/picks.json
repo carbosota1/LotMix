@@ -1,49 +1,49 @@
 {
-  "generated_at": "2026-06-11T18:19:32.249727-04:00",
-  "event_key": "2026-06-11|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-06-11T19:20:08.863459-04:00",
+  "event_key": "2026-06-11|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-06-11 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-06-11 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche"
   },
   "best_play": {
-    "time_rd": "2026-06-11 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-06-11 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche",
     "top12": [
-      "34",
-      "33",
-      "81",
-      "48",
-      "18",
-      "03",
-      "17",
-      "97",
-      "46",
+      "59",
       "83",
-      "35",
-      "07"
+      "80",
+      "72",
+      "60",
+      "39",
+      "61",
+      "68",
+      "33",
+      "47",
+      "57",
+      "40"
     ],
     "topq": [
-      "34",
-      "33",
-      "81"
+      "59",
+      "83",
+      "80"
     ],
     "pales": [
-      "33-34",
-      "34-81",
-      "34-48"
+      "59-83",
+      "59-80",
+      "59-72"
     ],
-    "fingerprint": "2a19bfc81e36d294",
+    "fingerprint": "24282debc07a4e4e",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.018620361377748522,
+    "best_signal": 0.036724174852498036,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.018620361377748522,
+      "best_signal_hist": 0.036724174852498036,
       "best_a11_hist": 3,
-      "today_observed_nums": 16,
-      "source_pairs_today": 7,
+      "today_observed_nums": 18,
+      "source_pairs_today": 8,
       "source_rows_hist_used": 2400,
       "top12_overlap_prev": 2,
       "top_intraday": [
@@ -60,11 +60,11 @@
           2
         ],
         [
-          "49",
+          "53",
           2
         ],
         [
-          "33",
+          "49",
           2
         ]
       ]
