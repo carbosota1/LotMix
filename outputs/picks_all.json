@@ -1,54 +1,127 @@
 {
-  "generated_at": "2026-06-12T13:22:12.020424-04:00",
-  "event_key": "2026-06-12|TEST|NO-UPDATE",
+  "generated_at": "2026-06-12T16:14:47.370445-04:00",
+  "event_key": "2026-06-12|La Nacional|Loteria Nacional- Gana Más",
   "items": [
     {
-      "generated_at": "2026-06-12T13:22:11.279760-04:00",
-      "event_key": "2026-06-12|TEST|NO-UPDATE",
+      "generated_at": "2026-06-12T16:14:21.679530-04:00",
+      "event_key": "2026-06-12|La Nacional|Loteria Nacional- Gana Más",
       "target": {
-        "time_rd": "2026-06-12 14:30",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Gana Más"
+        "time_rd": "2026-06-12 18:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 6PM"
       },
       "best_play": {
-        "time_rd": "2026-06-12 14:30",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Gana Más",
+        "time_rd": "2026-06-12 18:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 6PM",
         "top12": [
-          "64",
-          "98",
-          "71",
-          "94",
-          "69",
-          "40",
-          "93",
-          "41",
-          "06",
-          "23",
+          "28",
+          "47",
+          "22",
+          "88",
+          "13",
+          "02",
+          "46",
+          "43",
+          "14",
           "39",
-          "37"
+          "93",
+          "98"
         ],
         "topq": [
-          "64",
-          "98",
-          "71"
+          "28",
+          "47",
+          "22"
         ],
         "pales": [
-          "64-98",
-          "64-71",
-          "64-94"
+          "28-47",
+          "22-28",
+          "28-88"
         ],
-        "fingerprint": "766d82378a6e56d5",
+        "fingerprint": "869b771ad8ec4729",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.010129945119469866,
+        "best_signal": 0.01708300770583653,
+        "best_a11": 4,
+        "debug": {
+          "best_signal_hist": 0.01708300770583653,
+          "best_a11_hist": 4,
+          "today_observed_nums": 14,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 2400,
+          "top12_overlap_prev": 3,
+          "top_intraday": [
+            [
+              "29",
+              2
+            ],
+            [
+              "36",
+              1
+            ],
+            [
+              "92",
+              1
+            ],
+            [
+              "04",
+              1
+            ],
+            [
+              "08",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "generated_at": "2026-06-12T16:14:46.600950-04:00",
+      "event_key": "2026-06-12|La Nacional|Loteria Nacional- Gana Más",
+      "target": {
+        "time_rd": "2026-06-12 18:00",
+        "lottery": "La Suerte",
+        "draw": "Quiniela La Suerte 6PM"
+      },
+      "best_play": {
+        "time_rd": "2026-06-12 18:00",
+        "lottery": "La Suerte",
+        "draw": "Quiniela La Suerte 6PM",
+        "top12": [
+          "59",
+          "00",
+          "64",
+          "35",
+          "33",
+          "45",
+          "67",
+          "56",
+          "23",
+          "69",
+          "21",
+          "39"
+        ],
+        "topq": [
+          "59",
+          "00",
+          "64"
+        ],
+        "pales": [
+          "00-59",
+          "59-64",
+          "35-59"
+        ],
+        "fingerprint": "b741d7096b4e039e",
+        "ok_alert": false,
+        "decision": "❌ NO JUGAR",
+        "best_signal": 0.013026894056181999,
         "best_a11": 3,
         "debug": {
-          "best_signal_hist": 0.010129945119469866,
+          "best_signal_hist": 0.013026894056181999,
           "best_a11_hist": 3,
-          "today_observed_nums": 8,
-          "source_pairs_today": 4,
-          "source_rows_hist_used": 2121,
+          "today_observed_nums": 14,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 2400,
           "top12_overlap_prev": 1,
           "top_intraday": [
             [
@@ -64,11 +137,11 @@
               1
             ],
             [
-              "64",
+              "04",
               1
             ],
             [
-              "00",
+              "08",
               1
             ]
           ]

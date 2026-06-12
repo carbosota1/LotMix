@@ -1,50 +1,50 @@
 {
-  "generated_at": "2026-06-12T13:22:11.279760-04:00",
-  "event_key": "2026-06-12|TEST|NO-UPDATE",
+  "generated_at": "2026-06-12T16:14:46.600950-04:00",
+  "event_key": "2026-06-12|La Nacional|Loteria Nacional- Gana Más",
   "target": {
-    "time_rd": "2026-06-12 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más"
+    "time_rd": "2026-06-12 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM"
   },
   "best_play": {
-    "time_rd": "2026-06-12 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más",
+    "time_rd": "2026-06-12 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM",
     "top12": [
+      "59",
+      "00",
       "64",
-      "98",
-      "71",
-      "94",
-      "69",
-      "40",
-      "93",
-      "41",
-      "06",
+      "35",
+      "33",
+      "45",
+      "67",
+      "56",
       "23",
-      "39",
-      "37"
+      "69",
+      "21",
+      "39"
     ],
     "topq": [
-      "64",
-      "98",
-      "71"
+      "59",
+      "00",
+      "64"
     ],
     "pales": [
-      "64-98",
-      "64-71",
-      "64-94"
+      "00-59",
+      "59-64",
+      "35-59"
     ],
-    "fingerprint": "766d82378a6e56d5",
+    "fingerprint": "b741d7096b4e039e",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.010129945119469866,
+    "best_signal": 0.013026894056181999,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.010129945119469866,
+      "best_signal_hist": 0.013026894056181999,
       "best_a11_hist": 3,
-      "today_observed_nums": 8,
-      "source_pairs_today": 4,
-      "source_rows_hist_used": 2121,
+      "today_observed_nums": 14,
+      "source_pairs_today": 5,
+      "source_rows_hist_used": 2400,
       "top12_overlap_prev": 1,
       "top_intraday": [
         [
@@ -60,11 +60,11 @@
           1
         ],
         [
-          "64",
+          "04",
           1
         ],
         [
-          "00",
+          "08",
           1
         ]
       ]
