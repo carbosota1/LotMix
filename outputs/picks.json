@@ -1,56 +1,52 @@
 {
-  "generated_at": "2026-06-12T19:20:32.501481-04:00",
-  "event_key": "2026-06-12|La Primera|Quiniela La Primera Noche",
+  "generated_at": "2026-06-13T11:33:42.487087-04:00",
+  "event_key": "2026-06-13|TEST|NO-UPDATE",
   "target": {
-    "time_rd": "2026-06-12 21:00",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Noche"
+    "time_rd": "2026-06-13 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera"
   },
   "best_play": {
-    "time_rd": "2026-06-12 21:00",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Noche",
+    "time_rd": "2026-06-13 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera",
     "top12": [
-      "60",
-      "68",
-      "47",
-      "59",
-      "83",
-      "40",
+      "92",
+      "76",
+      "26",
+      "08",
+      "24",
+      "58",
+      "90",
+      "03",
+      "23",
       "72",
-      "80",
-      "61",
-      "57",
-      "39",
-      "33"
+      "47",
+      "59"
     ],
     "topq": [
-      "60",
-      "68",
-      "47"
+      "92",
+      "76",
+      "26"
     ],
     "pales": [
-      "60-68",
-      "47-60",
-      "59-60"
+      "76-92",
+      "26-92",
+      "08-92"
     ],
-    "fingerprint": "338f26f7c08ab22e",
+    "fingerprint": "657d1367e3367529",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.035313932214747254,
-    "best_a11": 3,
+    "best_signal": 0.01574439463173827,
+    "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.035313932214747254,
-      "best_a11_hist": 3,
-      "today_observed_nums": 20,
-      "source_pairs_today": 8,
-      "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 2,
+      "best_signal_hist": 0.01574439463173827,
+      "best_a11_hist": 2,
+      "today_observed_nums": 3,
+      "source_pairs_today": 1,
+      "source_rows_hist_used": 528,
+      "top12_overlap_prev": 3,
       "top_intraday": [
-        [
-          "29",
-          2
-        ],
         [
           "36",
           1
@@ -60,11 +56,7 @@
           1
         ],
         [
-          "04",
-          1
-        ],
-        [
-          "08",
+          "29",
           1
         ]
       ]
