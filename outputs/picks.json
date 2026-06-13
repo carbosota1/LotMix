@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-06-13T11:33:42.487087-04:00",
-  "event_key": "2026-06-13|TEST|NO-UPDATE",
+  "generated_at": "2026-06-13T12:18:44.433385-04:00",
+  "event_key": "2026-06-13|La Primera|Quiniela La Primera",
   "target": {
-    "time_rd": "2026-06-13 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera"
+    "time_rd": "2026-06-13 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte"
   },
   "best_play": {
-    "time_rd": "2026-06-13 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera",
+    "time_rd": "2026-06-13 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte",
     "top12": [
-      "92",
-      "76",
-      "26",
+      "29",
+      "18",
+      "38",
+      "14",
+      "43",
+      "15",
       "08",
-      "24",
-      "58",
+      "76",
+      "57",
       "90",
       "03",
-      "23",
-      "72",
-      "47",
-      "59"
+      "58"
     ],
     "topq": [
-      "92",
-      "76",
-      "26"
+      "29",
+      "18",
+      "38"
     ],
     "pales": [
-      "76-92",
-      "26-92",
-      "08-92"
+      "18-29",
+      "29-38",
+      "14-29"
     ],
-    "fingerprint": "657d1367e3367529",
+    "fingerprint": "cf50120c59f6a31f",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01574439463173827,
-    "best_a11": 2,
+    "best_signal": 0.023096100344254293,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.01574439463173827,
-      "best_a11_hist": 2,
-      "today_observed_nums": 3,
-      "source_pairs_today": 1,
-      "source_rows_hist_used": 528,
-      "top12_overlap_prev": 3,
+      "best_signal_hist": 0.023096100344254293,
+      "best_a11_hist": 3,
+      "today_observed_nums": 6,
+      "source_pairs_today": 2,
+      "source_rows_hist_used": 1062,
+      "top12_overlap_prev": 5,
       "top_intraday": [
         [
           "36",
@@ -57,6 +57,14 @@
         ],
         [
           "29",
+          1
+        ],
+        [
+          "06",
+          1
+        ],
+        [
+          "73",
           1
         ]
       ]
