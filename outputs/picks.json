@@ -1,52 +1,56 @@
 {
-  "generated_at": "2026-06-14T11:33:48.382217-04:00",
-  "event_key": "2026-06-14|TEST|NO-UPDATE",
+  "generated_at": "2026-06-14T12:18:43.577629-04:00",
+  "event_key": "2026-06-14|La Primera|Quiniela La Primera",
   "target": {
-    "time_rd": "2026-06-14 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera"
+    "time_rd": "2026-06-14 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte"
   },
   "best_play": {
-    "time_rd": "2026-06-14 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera",
+    "time_rd": "2026-06-14 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte",
     "top12": [
-      "92",
-      "76",
-      "26",
+      "29",
+      "18",
+      "38",
+      "14",
+      "43",
+      "15",
       "08",
-      "24",
-      "58",
+      "76",
+      "57",
       "90",
       "03",
-      "23",
-      "72",
-      "47",
-      "59"
+      "58"
     ],
     "topq": [
-      "92",
-      "76",
-      "26"
+      "29",
+      "18",
+      "38"
     ],
     "pales": [
-      "76-92",
-      "26-92",
-      "08-92"
+      "18-29",
+      "29-38",
+      "14-29"
     ],
-    "fingerprint": "657d1367e3367529",
+    "fingerprint": "cf50120c59f6a31f",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01574439463173827,
-    "best_a11": 2,
+    "best_signal": 0.024399445617756005,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.01574439463173827,
-      "best_a11_hist": 2,
-      "today_observed_nums": 3,
-      "source_pairs_today": 1,
-      "source_rows_hist_used": 528,
-      "top12_overlap_prev": 3,
+      "best_signal_hist": 0.024399445617756005,
+      "best_a11_hist": 3,
+      "today_observed_nums": 5,
+      "source_pairs_today": 2,
+      "source_rows_hist_used": 1062,
+      "top12_overlap_prev": 5,
       "top_intraday": [
+        [
+          "29",
+          2
+        ],
         [
           "36",
           1
@@ -56,7 +60,11 @@
           1
         ],
         [
-          "29",
+          "26",
+          1
+        ],
+        [
+          "61",
           1
         ]
       ]
