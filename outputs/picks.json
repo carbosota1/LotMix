@@ -1,54 +1,58 @@
 {
-  "generated_at": "2026-06-14T16:15:10.056360-04:00",
-  "event_key": "2026-06-14|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-06-14T18:23:58.120214-04:00",
+  "event_key": "2026-06-14|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-06-14 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-06-14 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-06-14 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-06-14 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
+      "37",
+      "17",
+      "55",
+      "83",
+      "48",
+      "34",
+      "97",
+      "06",
+      "11",
+      "47",
       "33",
-      "39",
-      "45",
-      "67",
-      "56",
-      "23",
-      "59",
-      "69",
-      "64",
-      "21",
-      "53",
-      "35"
+      "59"
     ],
     "topq": [
-      "33",
-      "39",
-      "45"
+      "37",
+      "17",
+      "55"
     ],
     "pales": [
-      "33-39",
-      "33-45",
-      "33-67"
+      "17-37",
+      "37-55",
+      "37-83"
     ],
-    "fingerprint": "ba844f9b4b8d7ba5",
+    "fingerprint": "92ff47a9c7a99463",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.0135619097965243,
+    "best_signal": 0.01865660316452452,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.0135619097965243,
+      "best_signal_hist": 0.01865660316452452,
       "best_a11_hist": 3,
-      "today_observed_nums": 14,
-      "source_pairs_today": 5,
+      "today_observed_nums": 19,
+      "source_pairs_today": 8,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 1,
+      "top12_overlap_prev": 2,
       "top_intraday": [
         [
           "29",
+          2
+        ],
+        [
+          "03",
           2
         ],
         [
@@ -61,10 +65,6 @@
         ],
         [
           "84",
-          1
-        ],
-        [
-          "81",
           1
         ]
       ]
