@@ -1,52 +1,56 @@
 {
-  "generated_at": "2026-06-14T18:23:58.120214-04:00",
-  "event_key": "2026-06-14|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-06-14T19:20:03.134146-04:00",
+  "event_key": "2026-06-14|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-06-14 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-06-14 21:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 9PM"
   },
   "best_play": {
-    "time_rd": "2026-06-14 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-06-14 21:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 9PM",
     "top12": [
-      "37",
-      "17",
-      "55",
-      "83",
+      "09",
+      "82",
+      "65",
+      "63",
+      "89",
+      "59",
+      "94",
+      "68",
+      "24",
+      "43",
       "48",
-      "34",
-      "97",
-      "06",
-      "11",
-      "47",
-      "33",
-      "59"
+      "06"
     ],
     "topq": [
-      "37",
-      "17",
-      "55"
+      "09",
+      "82",
+      "65"
     ],
     "pales": [
-      "17-37",
-      "37-55",
-      "37-83"
+      "09-82",
+      "09-65",
+      "09-63"
     ],
-    "fingerprint": "92ff47a9c7a99463",
+    "fingerprint": "7f5b0378f23c2b52",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01865660316452452,
-    "best_a11": 3,
+    "best_signal": 0.03473110592549507,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.01865660316452452,
-      "best_a11_hist": 3,
-      "today_observed_nums": 19,
-      "source_pairs_today": 8,
+      "best_signal_hist": 0.03473110592549507,
+      "best_a11_hist": 4,
+      "today_observed_nums": 21,
+      "source_pairs_today": 9,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 2,
+      "top12_overlap_prev": 3,
       "top_intraday": [
+        [
+          "92",
+          2
+        ],
         [
           "29",
           2
@@ -57,10 +61,6 @@
         ],
         [
           "36",
-          1
-        ],
-        [
-          "92",
           1
         ],
         [
