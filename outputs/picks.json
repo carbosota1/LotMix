@@ -1,56 +1,52 @@
 {
-  "generated_at": "2026-06-13T19:20:28.073700-04:00",
-  "event_key": "2026-06-13|La Primera|Quiniela La Primera Noche",
+  "generated_at": "2026-06-14T11:33:48.382217-04:00",
+  "event_key": "2026-06-14|TEST|NO-UPDATE",
   "target": {
-    "time_rd": "2026-06-13 21:00",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Noche"
+    "time_rd": "2026-06-14 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera"
   },
   "best_play": {
-    "time_rd": "2026-06-13 21:00",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Noche",
+    "time_rd": "2026-06-14 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera",
     "top12": [
-      "40",
-      "83",
-      "60",
-      "61",
-      "47",
+      "92",
+      "76",
+      "26",
+      "08",
+      "24",
+      "58",
+      "90",
+      "03",
+      "23",
       "72",
-      "39",
-      "80",
-      "68",
-      "59",
-      "57",
-      "33"
+      "47",
+      "59"
     ],
     "topq": [
-      "40",
-      "83",
-      "60"
+      "92",
+      "76",
+      "26"
     ],
     "pales": [
-      "40-83",
-      "40-60",
-      "40-61"
+      "76-92",
+      "26-92",
+      "08-92"
     ],
-    "fingerprint": "7aa95012b06fb4fa",
+    "fingerprint": "657d1367e3367529",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.035313932214747254,
-    "best_a11": 3,
+    "best_signal": 0.01574439463173827,
+    "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.035313932214747254,
-      "best_a11_hist": 3,
-      "today_observed_nums": 20,
-      "source_pairs_today": 8,
-      "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 2,
+      "best_signal_hist": 0.01574439463173827,
+      "best_a11_hist": 2,
+      "today_observed_nums": 3,
+      "source_pairs_today": 1,
+      "source_rows_hist_used": 528,
+      "top12_overlap_prev": 3,
       "top_intraday": [
-        [
-          "41",
-          2
-        ],
         [
           "36",
           1
@@ -61,10 +57,6 @@
         ],
         [
           "29",
-          1
-        ],
-        [
-          "55",
           1
         ]
       ]
