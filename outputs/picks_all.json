@@ -1,54 +1,127 @@
 {
-  "generated_at": "2026-06-15T13:21:13.789811-04:00",
-  "event_key": "2026-06-15|TEST|NO-UPDATE",
+  "generated_at": "2026-06-15T16:14:51.482530-04:00",
+  "event_key": "2026-06-15|La Nacional|Loteria Nacional- Gana Más",
   "items": [
     {
-      "generated_at": "2026-06-15T13:21:13.055216-04:00",
-      "event_key": "2026-06-15|TEST|NO-UPDATE",
+      "generated_at": "2026-06-15T16:14:25.532170-04:00",
+      "event_key": "2026-06-15|La Nacional|Loteria Nacional- Gana Más",
       "target": {
-        "time_rd": "2026-06-15 14:30",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Gana Más"
+        "time_rd": "2026-06-15 18:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 6PM"
       },
       "best_play": {
-        "time_rd": "2026-06-15 14:30",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Gana Más",
+        "time_rd": "2026-06-15 18:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 6PM",
         "top12": [
-          "98",
-          "71",
-          "94",
-          "69",
-          "40",
-          "93",
-          "41",
-          "64",
-          "06",
-          "23",
+          "28",
+          "47",
+          "22",
+          "13",
+          "88",
+          "02",
+          "46",
+          "43",
+          "14",
           "39",
-          "37"
+          "93",
+          "98"
         ],
         "topq": [
-          "98",
-          "71",
-          "94"
+          "28",
+          "47",
+          "22"
         ],
         "pales": [
-          "71-98",
-          "94-98",
-          "69-98"
+          "28-47",
+          "22-28",
+          "13-28"
         ],
-        "fingerprint": "2485fb0c9d94115a",
+        "fingerprint": "d4b01c89a111e733",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.010129945119469866,
+        "best_signal": 0.016208879056394853,
+        "best_a11": 4,
+        "debug": {
+          "best_signal_hist": 0.016208879056394853,
+          "best_a11_hist": 4,
+          "today_observed_nums": 14,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 2400,
+          "top12_overlap_prev": 3,
+          "top_intraday": [
+            [
+              "24",
+              2
+            ],
+            [
+              "38",
+              1
+            ],
+            [
+              "54",
+              1
+            ],
+            [
+              "59",
+              1
+            ],
+            [
+              "84",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "generated_at": "2026-06-15T16:14:50.759090-04:00",
+      "event_key": "2026-06-15|La Nacional|Loteria Nacional- Gana Más",
+      "target": {
+        "time_rd": "2026-06-15 18:00",
+        "lottery": "La Suerte",
+        "draw": "Quiniela La Suerte 6PM"
+      },
+      "best_play": {
+        "time_rd": "2026-06-15 18:00",
+        "lottery": "La Suerte",
+        "draw": "Quiniela La Suerte 6PM",
+        "top12": [
+          "59",
+          "33",
+          "45",
+          "67",
+          "56",
+          "23",
+          "69",
+          "64",
+          "21",
+          "53",
+          "35",
+          "39"
+        ],
+        "topq": [
+          "59",
+          "33",
+          "45"
+        ],
+        "pales": [
+          "33-59",
+          "45-59",
+          "59-67"
+        ],
+        "fingerprint": "85a217d24d4135e7",
+        "ok_alert": false,
+        "decision": "❌ NO JUGAR",
+        "best_signal": 0.0135619097965243,
         "best_a11": 3,
         "debug": {
-          "best_signal_hist": 0.010129945119469866,
+          "best_signal_hist": 0.0135619097965243,
           "best_a11_hist": 3,
-          "today_observed_nums": 8,
-          "source_pairs_today": 4,
-          "source_rows_hist_used": 2121,
+          "today_observed_nums": 14,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 2400,
           "top12_overlap_prev": 1,
           "top_intraday": [
             [
@@ -68,7 +141,7 @@
               1
             ],
             [
-              "34",
+              "84",
               1
             ]
           ]
