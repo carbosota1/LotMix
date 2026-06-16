@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-06-16T13:18:53.352140-04:00",
-  "event_key": "2026-06-16|Anguilla|Anguila 1PM",
+  "generated_at": "2026-06-16T16:14:44.985196-04:00",
+  "event_key": "2026-06-16|La Nacional|Loteria Nacional- Gana Más",
   "target": {
-    "time_rd": "2026-06-16 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más"
+    "time_rd": "2026-06-16 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM"
   },
   "best_play": {
-    "time_rd": "2026-06-16 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más",
+    "time_rd": "2026-06-16 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM",
     "top12": [
-      "69",
-      "98",
+      "45",
       "23",
-      "71",
-      "94",
-      "40",
-      "41",
-      "93",
+      "59",
+      "69",
+      "33",
+      "67",
+      "35",
+      "21",
       "64",
-      "06",
+      "76",
       "39",
-      "37"
+      "56"
     ],
     "topq": [
-      "69",
-      "98",
-      "23"
+      "45",
+      "23",
+      "59"
     ],
     "pales": [
-      "69-98",
-      "23-69",
-      "69-71"
+      "23-45",
+      "45-59",
+      "45-69"
     ],
-    "fingerprint": "cd5bf682e9227314",
+    "fingerprint": "f4f6008c8276d6fe",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.010129945119469866,
+    "best_signal": 0.0135619097965243,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.010129945119469866,
+      "best_signal_hist": 0.0135619097965243,
       "best_a11_hist": 3,
-      "today_observed_nums": 11,
-      "source_pairs_today": 4,
-      "source_rows_hist_used": 2124,
-      "top12_overlap_prev": 1,
+      "today_observed_nums": 13,
+      "source_pairs_today": 5,
+      "source_rows_hist_used": 2400,
+      "top12_overlap_prev": 2,
       "top_intraday": [
         [
           "38",
@@ -53,7 +53,7 @@
         ],
         [
           "54",
-          1
+          2
         ],
         [
           "59",
