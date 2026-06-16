@@ -1,52 +1,73 @@
 {
-  "generated_at": "2026-06-16T10:33:52.226386-04:00",
-  "event_key": "2026-06-16|TEST|NO-UPDATE",
+  "generated_at": "2026-06-16T12:18:41.419722-04:00",
+  "event_key": "2026-06-16|La Primera|Quiniela La Primera",
   "target": {
-    "time_rd": "2026-06-16 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera"
+    "time_rd": "2026-06-16 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte"
   },
   "best_play": {
-    "time_rd": "2026-06-16 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera",
+    "time_rd": "2026-06-16 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte",
     "top12": [
-      "76",
+      "38",
+      "18",
+      "14",
+      "43",
+      "15",
+      "89",
       "29",
-      "26",
-      "92",
       "08",
-      "24",
-      "58",
-      "90",
+      "76",
+      "57",
       "03",
-      "23",
-      "72",
-      "59"
+      "58"
     ],
     "topq": [
-      "76",
-      "29",
-      "26"
+      "38",
+      "18",
+      "14"
     ],
     "pales": [
-      "29-76",
-      "26-76",
-      "76-92"
+      "18-38",
+      "14-38",
+      "38-43"
     ],
-    "fingerprint": "6a1b30901a7f1009",
+    "fingerprint": "6718d5a6186cc3c2",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01574439463173827,
-    "best_a11": 2,
+    "best_signal": 0.024399445617756005,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.01574439463173827,
-      "best_a11_hist": 2,
-      "today_observed_nums": 0,
-      "source_pairs_today": 1,
-      "source_rows_hist_used": 525,
-      "top12_overlap_prev": 2,
-      "top_intraday": []
+      "best_signal_hist": 0.024399445617756005,
+      "best_a11_hist": 3,
+      "today_observed_nums": 5,
+      "source_pairs_today": 2,
+      "source_rows_hist_used": 1062,
+      "top12_overlap_prev": 5,
+      "top_intraday": [
+        [
+          "38",
+          2
+        ],
+        [
+          "54",
+          1
+        ],
+        [
+          "59",
+          1
+        ],
+        [
+          "69",
+          1
+        ],
+        [
+          "13",
+          1
+        ]
+      ]
     }
   }
 }
