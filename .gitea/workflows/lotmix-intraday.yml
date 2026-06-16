@@ -4,7 +4,7 @@ on:
     paths-ignore:
       - '**'
   schedule:
-    - cron: "30 15 * * *"  # 11:30 AM RD
+    - cron: "30 14 * * *"  # 11:30 AM RD
     - cron: "15 16 * * *"  # 12:15 PM RD
     - cron: "40 16 * * *"  # 12:40 PM RD
     - cron: "15 17 * * *"  # 1:15 PM RD
