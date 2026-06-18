@@ -1,48 +1,29 @@
 {
-  "generado_en": "2026-06-18T16:14:41.767163",
+  "generado_en": "2026-06-18T18:19:42.426350",
   "sistema": "Lotmix Caliente",
   "version": "1.0",
-  "total_loterias": 2,
-  "picks_procesados": 2,
-  "picks_activos": 2,
+  "total_loterias": 1,
+  "picks_procesados": 1,
+  "picks_activos": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Anguila 6PM": {
+    "Quiniela La Primera Noche": {
       "numeros": [
-        "11",
-        "39",
-        "22",
-        "88",
+        "48",
+        "17",
+        "83",
         "46",
-        "28"
+        "97",
+        "41"
       ],
-      "signal": 0.021029,
-      "nivel_senal": "media",
-      "decision": "❌ NO JUGAR",
-      "a11": 4,
-      "ok_alert": false,
-      "hit_rate_historico": 11.9,
-      "draw": "Anguila 6PM",
-      "lottery": "Anguilla",
-      "n_numeros": 6
-    },
-    "Quiniela La Suerte 6PM": {
-      "numeros": [
-        "69",
-        "33",
-        "21",
-        "23",
-        "67",
-        "35"
-      ],
-      "signal": 0.023445,
+      "signal": 0.017594,
       "nivel_senal": "media",
       "decision": "❌ NO JUGAR",
       "a11": 3,
       "ok_alert": false,
-      "hit_rate_historico": 10.1,
-      "draw": "Quiniela La Suerte 6PM",
-      "lottery": "La Suerte",
+      "hit_rate_historico": 11.5,
+      "draw": "Quiniela La Primera Noche",
+      "lottery": "La Primera",
       "n_numeros": 6
     }
   }
