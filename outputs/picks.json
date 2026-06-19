@@ -1,62 +1,62 @@
 {
-  "generated_at": "2026-06-19T18:19:26.025382-04:00",
-  "event_key": "2026-06-19|TEST|NO-UPDATE",
+  "generated_at": "2026-06-19T19:19:45.346936-04:00",
+  "event_key": "2026-06-19|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-06-19 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-06-19 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche"
   },
   "best_play": {
-    "time_rd": "2026-06-19 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-06-19 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche",
     "top12": [
-      "17",
-      "81",
-      "41",
-      "34",
-      "48",
-      "03",
-      "97",
+      "87",
+      "72",
       "40",
-      "06",
-      "46",
-      "83",
-      "35"
+      "60",
+      "80",
+      "68",
+      "11",
+      "47",
+      "33",
+      "59",
+      "57",
+      "39"
     ],
     "topq": [
-      "17",
-      "81",
-      "41"
+      "87",
+      "72",
+      "40"
     ],
     "pales": [
-      "17-81",
-      "17-41",
-      "17-34"
+      "72-87",
+      "40-87",
+      "60-87"
     ],
-    "fingerprint": "b5b0c7ace615ad57",
+    "fingerprint": "df01a4b5e6a1adc9",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01759380193947093,
+    "best_signal": 0.03312099254456703,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.01759380193947093,
+      "best_signal_hist": 0.03312099254456703,
       "best_a11_hist": 3,
-      "today_observed_nums": 15,
-      "source_pairs_today": 7,
+      "today_observed_nums": 22,
+      "source_pairs_today": 8,
       "source_rows_hist_used": 2400,
       "top12_overlap_prev": 1,
       "top_intraday": [
         [
-          "17",
-          1
-        ],
-        [
           "27",
-          1
+          2
         ],
         [
           "15",
+          2
+        ],
+        [
+          "17",
           1
         ],
         [
