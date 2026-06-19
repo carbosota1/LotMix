@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-19T12:12:37.906538-04:00",
-  "event_key": "2026-06-19|La Primera|Quiniela La Primera",
+  "generated_at": "2026-06-19T12:18:09.716394-04:00",
+  "event_key": "2026-06-19|TEST|NO-UPDATE",
   "target": {
     "time_rd": "2026-06-19 12:30",
     "lottery": "La Suerte",
@@ -11,30 +11,30 @@
     "lottery": "La Suerte",
     "draw": "Quiniela La Suerte",
     "top12": [
-      "15",
       "18",
-      "38",
-      "29",
-      "58",
+      "57",
       "08",
-      "14",
+      "58",
+      "38",
       "76",
+      "29",
+      "14",
       "43",
+      "15",
       "89",
-      "03",
-      "57"
+      "03"
     ],
     "topq": [
-      "15",
       "18",
-      "38"
+      "57",
+      "08"
     ],
     "pales": [
-      "15-18",
-      "15-38",
-      "15-29"
+      "18-57",
+      "08-18",
+      "18-58"
     ],
-    "fingerprint": "c368c49228abec00",
+    "fingerprint": "fd995d9b2f065f34",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
     "best_signal": 0.024399445617756005,
@@ -45,7 +45,7 @@
       "today_observed_nums": 6,
       "source_pairs_today": 2,
       "source_rows_hist_used": 1062,
-      "top12_overlap_prev": 1,
+      "top12_overlap_prev": 12,
       "top_intraday": [
         [
           "17",
