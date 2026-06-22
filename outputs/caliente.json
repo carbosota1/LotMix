@@ -1,5 +1,5 @@
 {
-  "generado_en": "2026-06-21T19:19:39.620203",
+  "generado_en": "2026-06-22T10:32:54.235499",
   "sistema": "Lotmix Caliente",
   "version": "1.0",
   "total_loterias": 1,
@@ -7,25 +7,22 @@
   "picks_activos": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Anguila 9PM": {
+    "Quiniela La Primera": {
       "numeros": [
-        "94",
-        "59",
-        "43",
-        "89",
-        "65",
-        "79",
-        "44"
+        "90",
+        "26",
+        "23",
+        "29"
       ],
-      "signal": 0.061928,
-      "nivel_senal": "muy_alta",
+      "signal": 0.011643,
+      "nivel_senal": "baja",
       "decision": "❌ NO JUGAR",
-      "a11": 5,
+      "a11": 1,
       "ok_alert": false,
-      "hit_rate_historico": 17.3,
-      "draw": "Anguila 9PM",
-      "lottery": "Anguilla",
-      "n_numeros": 7
+      "hit_rate_historico": 15.1,
+      "draw": "Quiniela La Primera",
+      "lottery": "La Primera",
+      "n_numeros": 4
     }
   }
 }
