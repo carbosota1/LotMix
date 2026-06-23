@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-06-23T12:21:44.859095-04:00",
+  "generated_at": "2026-06-23T12:49:27.267836-04:00",
   "event_key": "2026-06-23|TEST|NO-UPDATE",
   "target": {
-    "time_rd": "2026-06-23 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte"
+    "time_rd": "2026-06-23 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM"
   },
   "best_play": {
-    "time_rd": "2026-06-23 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte",
+    "time_rd": "2026-06-23 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM",
     "top12": [
-      "18",
-      "58",
-      "14",
+      "78",
+      "81",
+      "52",
+      "96",
+      "62",
+      "01",
+      "37",
+      "21",
+      "46",
+      "53",
       "43",
-      "15",
-      "89",
-      "08",
-      "38",
-      "29",
-      "76",
-      "57",
-      "03"
+      "28"
     ],
     "topq": [
-      "18",
-      "58",
-      "14"
+      "78",
+      "81",
+      "52"
     ],
     "pales": [
-      "18-58",
-      "14-18",
-      "18-43"
+      "78-81",
+      "52-78",
+      "78-96"
     ],
-    "fingerprint": "60c5e30e299d34c4",
+    "fingerprint": "530fe36538f52e81",
     "ok_alert": false,
-    "decision": "❌ NO JUGAR",
-    "best_signal": 0.024399445617756005,
-    "best_a11": 3,
+    "decision": "⚠️ JUGAR",
+    "best_signal": 0.022934859806404227,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.024399445617756005,
-      "best_a11_hist": 3,
-      "today_observed_nums": 3,
-      "source_pairs_today": 2,
-      "source_rows_hist_used": 1062,
-      "top12_overlap_prev": 5,
+      "best_signal_hist": 0.022934859806404227,
+      "best_a11_hist": 4,
+      "today_observed_nums": 9,
+      "source_pairs_today": 3,
+      "source_rows_hist_used": 1599,
+      "top12_overlap_prev": 1,
       "top_intraday": [
         [
           "40",
@@ -57,6 +57,14 @@
         ],
         [
           "13",
+          1
+        ],
+        [
+          "12",
+          1
+        ],
+        [
+          "50",
           1
         ]
       ]
