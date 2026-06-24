@@ -1,52 +1,56 @@
 {
-  "generated_at": "2026-06-24T18:19:29.176441-04:00",
-  "event_key": "2026-06-24|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-06-24T19:20:18.479270-04:00",
+  "event_key": "2026-06-24|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-06-24 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-06-24 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche"
   },
   "best_play": {
-    "time_rd": "2026-06-24 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-06-24 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche",
     "top12": [
-      "41",
-      "37",
-      "34",
-      "48",
-      "90",
-      "40",
-      "17",
-      "97",
-      "06",
-      "83",
+      "60",
+      "84",
+      "12",
+      "72",
+      "80",
+      "47",
       "11",
-      "35"
+      "33",
+      "59",
+      "57",
+      "39",
+      "68"
     ],
     "topq": [
-      "41",
-      "37",
-      "34"
+      "60",
+      "84",
+      "12"
     ],
     "pales": [
-      "37-41",
-      "34-41",
-      "41-48"
+      "60-84",
+      "12-60",
+      "60-72"
     ],
-    "fingerprint": "10aae7be9e07f9a8",
+    "fingerprint": "39b343ad0692c998",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01759380193947093,
+    "best_signal": 0.030988522121933162,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.01759380193947093,
+      "best_signal_hist": 0.030988522121933162,
       "best_a11_hist": 3,
-      "today_observed_nums": 18,
-      "source_pairs_today": 7,
+      "today_observed_nums": 20,
+      "source_pairs_today": 8,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 1,
+      "top12_overlap_prev": 2,
       "top_intraday": [
+        [
+          "26",
+          2
+        ],
         [
           "21",
           2
@@ -58,10 +62,6 @@
         [
           "07",
           2
-        ],
-        [
-          "26",
-          1
         ],
         [
           "60",
