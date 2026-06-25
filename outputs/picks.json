@@ -1,70 +1,62 @@
 {
-  "generated_at": "2026-06-24T19:20:18.479270-04:00",
-  "event_key": "2026-06-24|La Primera|Quiniela La Primera Noche",
+  "generated_at": "2026-06-25T11:38:18.426879-04:00",
+  "event_key": "2026-06-25|Anguilla|Anguila 10AM",
   "target": {
-    "time_rd": "2026-06-24 21:00",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Noche"
+    "time_rd": "2026-06-25 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera"
   },
   "best_play": {
-    "time_rd": "2026-06-24 21:00",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Noche",
+    "time_rd": "2026-06-25 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera",
     "top12": [
-      "60",
-      "84",
-      "12",
+      "26",
+      "90",
+      "08",
+      "29",
+      "24",
+      "38",
+      "03",
+      "64",
+      "23",
+      "76",
       "72",
-      "80",
-      "47",
-      "11",
-      "33",
-      "59",
-      "57",
-      "39",
-      "68"
+      "59"
     ],
     "topq": [
-      "60",
-      "84",
-      "12"
+      "26",
+      "90",
+      "08"
     ],
     "pales": [
-      "60-84",
-      "12-60",
-      "60-72"
+      "26-90",
+      "08-26",
+      "26-29"
     ],
-    "fingerprint": "39b343ad0692c998",
+    "fingerprint": "9644211be7c31bfc",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.030988522121933162,
-    "best_a11": 3,
+    "best_signal": 0.01160786093394955,
+    "best_a11": 1,
     "debug": {
-      "best_signal_hist": 0.030988522121933162,
-      "best_a11_hist": 3,
-      "today_observed_nums": 20,
-      "source_pairs_today": 8,
-      "source_rows_hist_used": 2400,
+      "best_signal_hist": 0.01160786093394955,
+      "best_a11_hist": 1,
+      "today_observed_nums": 3,
+      "source_pairs_today": 1,
+      "source_rows_hist_used": 531,
       "top12_overlap_prev": 2,
       "top_intraday": [
         [
-          "26",
-          2
-        ],
-        [
-          "21",
-          2
+          "30",
+          1
         ],
         [
           "51",
-          2
+          1
         ],
         [
-          "07",
-          2
-        ],
-        [
-          "60",
+          "84",
           1
         ]
       ]
