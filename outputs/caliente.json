@@ -1,5 +1,5 @@
 {
-  "generado_en": "2026-06-27T13:19:13.685421",
+  "generado_en": "2026-06-27T18:11:11.043334",
   "sistema": "Lotmix Caliente",
   "version": "1.0",
   "total_loterias": 1,
@@ -7,22 +7,24 @@
   "picks_activos": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Loteria Nacional- Gana Más": {
+    "Quiniela La Primera Noche": {
       "numeros": [
-        "04",
-        "71",
-        "50",
-        "77"
+        "35",
+        "26",
+        "11",
+        "48",
+        "34",
+        "18"
       ],
-      "signal": 0.006619,
-      "nivel_senal": "baja",
+      "signal": 0.01862,
+      "nivel_senal": "media",
       "decision": "❌ NO JUGAR",
-      "a11": 2,
+      "a11": 3,
       "ok_alert": false,
-      "hit_rate_historico": 12.0,
-      "draw": "Loteria Nacional- Gana Más",
-      "lottery": "La Nacional",
-      "n_numeros": 4
+      "hit_rate_historico": 11.5,
+      "draw": "Quiniela La Primera Noche",
+      "lottery": "La Primera",
+      "n_numeros": 6
     }
   }
 }
