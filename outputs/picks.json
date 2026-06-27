@@ -1,52 +1,60 @@
 {
-  "generated_at": "2026-06-27T12:18:50.015546-04:00",
-  "event_key": "2026-06-27|La Primera|Quiniela La Primera",
+  "generated_at": "2026-06-27T12:43:24.067729-04:00",
+  "event_key": "2026-06-27|La Suerte|Quiniela La Suerte",
   "target": {
-    "time_rd": "2026-06-27 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte"
+    "time_rd": "2026-06-27 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM"
   },
   "best_play": {
-    "time_rd": "2026-06-27 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte",
+    "time_rd": "2026-06-27 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM",
     "top12": [
-      "14",
-      "18",
-      "43",
-      "38",
-      "15",
-      "89",
-      "58",
-      "08",
-      "29",
-      "76",
-      "57",
-      "03"
-    ],
-    "topq": [
-      "14",
-      "18",
+      "84",
+      "81",
+      "52",
+      "96",
+      "78",
+      "62",
+      "01",
+      "37",
+      "21",
+      "46",
+      "53",
       "43"
     ],
-    "pales": [
-      "14-18",
-      "14-43",
-      "14-38"
+    "topq": [
+      "84",
+      "81",
+      "52"
     ],
-    "fingerprint": "456dbf6290abbfc6",
+    "pales": [
+      "81-84",
+      "52-84",
+      "84-96"
+    ],
+    "fingerprint": "8b880fafe4f4d331",
     "ok_alert": false,
-    "decision": "❌ NO JUGAR",
-    "best_signal": 0.024399445617756005,
-    "best_a11": 3,
+    "decision": "⚠️ JUGAR",
+    "best_signal": 0.023938223880984533,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.024399445617756005,
-      "best_a11_hist": 3,
-      "today_observed_nums": 6,
-      "source_pairs_today": 2,
-      "source_rows_hist_used": 1065,
-      "top12_overlap_prev": 6,
+      "best_signal_hist": 0.023938223880984533,
+      "best_a11_hist": 4,
+      "today_observed_nums": 7,
+      "source_pairs_today": 3,
+      "source_rows_hist_used": 1599,
+      "top12_overlap_prev": 1,
       "top_intraday": [
+        [
+          "45",
+          2
+        ],
+        [
+          "72",
+          2
+        ],
         [
           "87",
           1
@@ -57,14 +65,6 @@
         ],
         [
           "85",
-          1
-        ],
-        [
-          "45",
-          1
-        ],
-        [
-          "51",
           1
         ]
       ]
