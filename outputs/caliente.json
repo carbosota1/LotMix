@@ -1,5 +1,5 @@
 {
-  "generado_en": "2026-06-27T18:11:11.043334",
+  "generado_en": "2026-06-27T18:19:32.495576",
   "sistema": "Lotmix Caliente",
   "version": "1.0",
   "total_loterias": 1,
@@ -9,12 +9,12 @@
   "loterias": {
     "Quiniela La Primera Noche": {
       "numeros": [
-        "35",
+        "90",
+        "97",
         "26",
-        "11",
         "48",
-        "34",
-        "18"
+        "37",
+        "34"
       ],
       "signal": 0.01862,
       "nivel_senal": "media",
