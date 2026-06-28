@@ -1,58 +1,58 @@
 {
-  "generated_at": "2026-06-28T12:20:16.878459-04:00",
-  "event_key": "2026-06-28|La Primera|Quiniela La Primera",
+  "generated_at": "2026-06-28T12:43:52.273544-04:00",
+  "event_key": "2026-06-28|La Suerte|Quiniela La Suerte",
   "target": {
-    "time_rd": "2026-06-28 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte"
+    "time_rd": "2026-06-28 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM"
   },
   "best_play": {
-    "time_rd": "2026-06-28 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte",
+    "time_rd": "2026-06-28 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM",
     "top12": [
-      "89",
-      "18",
-      "14",
-      "43",
-      "15",
-      "58",
-      "08",
-      "38",
-      "29",
-      "76",
-      "57",
-      "03"
+      "84",
+      "81",
+      "52",
+      "96",
+      "62",
+      "78",
+      "01",
+      "37",
+      "21",
+      "46",
+      "53",
+      "43"
     ],
     "topq": [
-      "89",
-      "18",
-      "14"
+      "84",
+      "81",
+      "52"
     ],
     "pales": [
-      "18-89",
-      "14-89",
-      "43-89"
+      "81-84",
+      "52-84",
+      "84-96"
     ],
-    "fingerprint": "024eb77c9c2349fa",
+    "fingerprint": "c35e714d14a8a540",
     "ok_alert": false,
-    "decision": "❌ NO JUGAR",
-    "best_signal": 0.024399445617756005,
-    "best_a11": 3,
+    "decision": "⚠️ JUGAR",
+    "best_signal": 0.023938223880984533,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.024399445617756005,
-      "best_a11_hist": 3,
-      "today_observed_nums": 6,
-      "source_pairs_today": 2,
-      "source_rows_hist_used": 1065,
-      "top12_overlap_prev": 6,
+      "best_signal_hist": 0.023938223880984533,
+      "best_a11_hist": 4,
+      "today_observed_nums": 8,
+      "source_pairs_today": 3,
+      "source_rows_hist_used": 1599,
+      "top12_overlap_prev": 1,
       "top_intraday": [
         [
-          "48",
-          1
+          "10",
+          2
         ],
         [
-          "10",
+          "48",
           1
         ],
         [
