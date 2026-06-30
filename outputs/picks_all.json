@@ -1,56 +1,60 @@
 {
-  "generated_at": "2026-06-30T13:18:37.568835-04:00",
-  "event_key": "2026-06-30|Anguilla|Anguila 1PM",
+  "generated_at": "2026-06-30T16:14:02.101201-04:00",
+  "event_key": "2026-06-30|La Nacional|Loteria Nacional- Gana Más",
   "items": [
     {
-      "generated_at": "2026-06-30T13:18:36.806308-04:00",
-      "event_key": "2026-06-30|Anguilla|Anguila 1PM",
+      "generated_at": "2026-06-30T16:13:35.349579-04:00",
+      "event_key": "2026-06-30|La Nacional|Loteria Nacional- Gana Más",
       "target": {
-        "time_rd": "2026-06-30 14:30",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Gana Más"
+        "time_rd": "2026-06-30 18:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 6PM"
       },
       "best_play": {
-        "time_rd": "2026-06-30 14:30",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Gana Más",
+        "time_rd": "2026-06-30 18:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 6PM",
         "top12": [
-          "40",
-          "60",
-          "30",
-          "62",
-          "42",
-          "20",
+          "47",
+          "98",
+          "28",
+          "39",
+          "43",
+          "22",
+          "88",
+          "46",
+          "11",
+          "93",
           "13",
-          "94",
-          "41",
-          "64",
-          "89",
-          "37"
+          "42"
         ],
         "topq": [
-          "40",
-          "60",
-          "30"
+          "47",
+          "98",
+          "28"
         ],
         "pales": [
-          "40-60",
-          "30-40",
-          "40-62"
+          "47-98",
+          "28-47",
+          "39-47"
         ],
-        "fingerprint": "dc4cd5fcff014434",
+        "fingerprint": "ffbc0ea9b7dda41d",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.0029547875976608583,
-        "best_a11": 9,
+        "best_signal": 0.026005796546047486,
+        "best_a11": 3,
         "debug": {
-          "best_signal_hist": 0.0029547875976608583,
-          "best_a11_hist": 9,
-          "today_observed_nums": 12,
-          "source_pairs_today": 4,
-          "source_rows_hist_used": 1569,
+          "best_signal_hist": 0.026005796546047486,
+          "best_a11_hist": 3,
+          "today_observed_nums": 14,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 2400,
           "top12_overlap_prev": 2,
           "top_intraday": [
+            [
+              "85",
+              2
+            ],
             [
               "98",
               1
@@ -64,7 +68,76 @@
               1
             ],
             [
+              "08",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "generated_at": "2026-06-30T16:14:01.320782-04:00",
+      "event_key": "2026-06-30|La Nacional|Loteria Nacional- Gana Más",
+      "target": {
+        "time_rd": "2026-06-30 18:00",
+        "lottery": "La Suerte",
+        "draw": "Quiniela La Suerte 6PM"
+      },
+      "best_play": {
+        "time_rd": "2026-06-30 18:00",
+        "lottery": "La Suerte",
+        "draw": "Quiniela La Suerte 6PM",
+        "top12": [
+          "59",
+          "33",
+          "56",
+          "45",
+          "67",
+          "69",
+          "51",
+          "00",
+          "53",
+          "64",
+          "35",
+          "23"
+        ],
+        "topq": [
+          "59",
+          "33",
+          "56"
+        ],
+        "pales": [
+          "33-59",
+          "56-59",
+          "45-59"
+        ],
+        "fingerprint": "ac24b9f4b5d19fa2",
+        "ok_alert": false,
+        "decision": "❌ NO JUGAR",
+        "best_signal": 0.03147780365161644,
+        "best_a11": 4,
+        "debug": {
+          "best_signal_hist": 0.03147780365161644,
+          "best_a11_hist": 4,
+          "today_observed_nums": 14,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 2400,
+          "top12_overlap_prev": 0,
+          "top_intraday": [
+            [
               "85",
+              2
+            ],
+            [
+              "98",
+              1
+            ],
+            [
+              "29",
+              1
+            ],
+            [
+              "30",
               1
             ],
             [
