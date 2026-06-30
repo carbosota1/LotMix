@@ -1,55 +1,55 @@
 {
-  "generated_at": "2026-06-30T12:43:33.066404-04:00",
-  "event_key": "2026-06-30|La Suerte|Quiniela La Suerte",
+  "generated_at": "2026-06-30T13:18:37.568835-04:00",
+  "event_key": "2026-06-30|Anguilla|Anguila 1PM",
   "items": [
     {
-      "generated_at": "2026-06-30T12:43:32.327151-04:00",
-      "event_key": "2026-06-30|La Suerte|Quiniela La Suerte",
+      "generated_at": "2026-06-30T13:18:36.806308-04:00",
+      "event_key": "2026-06-30|Anguilla|Anguila 1PM",
       "target": {
-        "time_rd": "2026-06-30 13:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 1PM"
+        "time_rd": "2026-06-30 14:30",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Gana Más"
       },
       "best_play": {
-        "time_rd": "2026-06-30 13:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 1PM",
+        "time_rd": "2026-06-30 14:30",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Gana Más",
         "top12": [
+          "40",
+          "60",
+          "30",
           "62",
-          "81",
-          "84",
-          "52",
-          "96",
-          "01",
-          "37",
-          "21",
-          "46",
-          "53",
-          "43",
-          "28"
+          "42",
+          "20",
+          "13",
+          "94",
+          "41",
+          "64",
+          "89",
+          "37"
         ],
         "topq": [
-          "62",
-          "81",
-          "84"
+          "40",
+          "60",
+          "30"
         ],
         "pales": [
-          "62-81",
-          "62-84",
-          "52-62"
+          "40-60",
+          "30-40",
+          "40-62"
         ],
-        "fingerprint": "67c2cec94bec5c71",
+        "fingerprint": "dc4cd5fcff014434",
         "ok_alert": false,
-        "decision": "⚠️ JUGAR",
-        "best_signal": 0.02392114363542097,
-        "best_a11": 4,
+        "decision": "❌ NO JUGAR",
+        "best_signal": 0.0029547875976608583,
+        "best_a11": 9,
         "debug": {
-          "best_signal_hist": 0.02392114363542097,
-          "best_a11_hist": 4,
-          "today_observed_nums": 9,
-          "source_pairs_today": 3,
-          "source_rows_hist_used": 1602,
-          "top12_overlap_prev": 1,
+          "best_signal_hist": 0.0029547875976608583,
+          "best_a11_hist": 9,
+          "today_observed_nums": 12,
+          "source_pairs_today": 4,
+          "source_rows_hist_used": 1569,
+          "top12_overlap_prev": 2,
           "top_intraday": [
             [
               "98",
@@ -64,11 +64,11 @@
               1
             ],
             [
-              "67",
+              "85",
               1
             ],
             [
-              "75",
+              "08",
               1
             ]
           ]
