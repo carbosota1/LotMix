@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-07-02T13:19:35.496489-04:00",
-  "event_key": "2026-07-02|TEST|NO-UPDATE",
+  "generated_at": "2026-07-02T16:14:49.127772-04:00",
+  "event_key": "2026-07-02|La Nacional|Loteria Nacional- Gana Más",
   "target": {
-    "time_rd": "2026-07-02 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más"
+    "time_rd": "2026-07-02 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM"
   },
   "best_play": {
-    "time_rd": "2026-07-02 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más",
+    "time_rd": "2026-07-02 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM",
     "top12": [
-      "85",
-      "41",
-      "04",
-      "94",
-      "71",
+      "59",
+      "33",
+      "56",
+      "45",
       "69",
-      "77",
-      "50",
-      "64",
+      "51",
+      "00",
+      "53",
+      "35",
+      "67",
       "23",
-      "37",
-      "21"
+      "64"
     ],
     "topq": [
-      "85",
-      "41",
-      "04"
+      "59",
+      "33",
+      "56"
     ],
     "pales": [
-      "41-85",
-      "04-85",
-      "85-94"
+      "33-59",
+      "56-59",
+      "45-59"
     ],
-    "fingerprint": "0f4b5d9dc2e3d81f",
+    "fingerprint": "75a798c13653150a",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.012421205907262065,
-    "best_a11": 3,
+    "best_signal": 0.031522865066211575,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.012421205907262065,
-      "best_a11_hist": 3,
-      "today_observed_nums": 11,
-      "source_pairs_today": 4,
-      "source_rows_hist_used": 2136,
-      "top12_overlap_prev": 2,
+      "best_signal_hist": 0.031522865066211575,
+      "best_a11_hist": 4,
+      "today_observed_nums": 14,
+      "source_pairs_today": 5,
+      "source_rows_hist_used": 2400,
+      "top12_overlap_prev": 1,
       "top_intraday": [
         [
           "17",
