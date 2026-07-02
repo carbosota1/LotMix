@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-07-02T12:44:00.511607-04:00",
-  "event_key": "2026-07-02|La Suerte|Quiniela La Suerte",
+  "generated_at": "2026-07-02T13:19:35.496489-04:00",
+  "event_key": "2026-07-02|TEST|NO-UPDATE",
   "target": {
-    "time_rd": "2026-07-02 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM"
+    "time_rd": "2026-07-02 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más"
   },
   "best_play": {
-    "time_rd": "2026-07-02 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM",
+    "time_rd": "2026-07-02 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más",
     "top12": [
-      "52",
-      "81",
-      "84",
-      "96",
-      "62",
-      "01",
-      "21",
-      "46",
+      "85",
+      "41",
+      "04",
+      "94",
+      "71",
+      "69",
+      "77",
+      "50",
+      "64",
+      "23",
       "37",
-      "53",
-      "43",
-      "28"
+      "21"
     ],
     "topq": [
-      "52",
-      "81",
-      "84"
+      "85",
+      "41",
+      "04"
     ],
     "pales": [
-      "52-81",
-      "52-84",
-      "52-96"
+      "41-85",
+      "04-85",
+      "85-94"
     ],
-    "fingerprint": "8d37a423e759ffb8",
+    "fingerprint": "0f4b5d9dc2e3d81f",
     "ok_alert": false,
-    "decision": "⚠️ JUGAR",
-    "best_signal": 0.02392114363542097,
-    "best_a11": 4,
+    "decision": "❌ NO JUGAR",
+    "best_signal": 0.012421205907262065,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.02392114363542097,
-      "best_a11_hist": 4,
-      "today_observed_nums": 8,
-      "source_pairs_today": 3,
-      "source_rows_hist_used": 1602,
-      "top12_overlap_prev": 1,
+      "best_signal_hist": 0.012421205907262065,
+      "best_a11_hist": 3,
+      "today_observed_nums": 11,
+      "source_pairs_today": 4,
+      "source_rows_hist_used": 2136,
+      "top12_overlap_prev": 2,
       "top_intraday": [
         [
           "17",
@@ -64,7 +64,7 @@
           1
         ],
         [
-          "13",
+          "41",
           1
         ]
       ]
