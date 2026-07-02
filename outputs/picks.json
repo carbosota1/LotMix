@@ -1,52 +1,56 @@
 {
-  "generated_at": "2026-07-02T12:18:50.425811-04:00",
-  "event_key": "2026-07-02|La Primera|Quiniela La Primera",
+  "generated_at": "2026-07-02T12:44:00.511607-04:00",
+  "event_key": "2026-07-02|La Suerte|Quiniela La Suerte",
   "target": {
-    "time_rd": "2026-07-02 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte"
+    "time_rd": "2026-07-02 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM"
   },
   "best_play": {
-    "time_rd": "2026-07-02 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte",
+    "time_rd": "2026-07-02 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM",
     "top12": [
-      "18",
-      "14",
+      "52",
+      "81",
+      "84",
+      "96",
+      "62",
+      "01",
+      "21",
+      "46",
+      "37",
+      "53",
       "43",
-      "10",
-      "15",
-      "03",
-      "58",
-      "08",
-      "29",
-      "38",
-      "76",
-      "57"
+      "28"
     ],
     "topq": [
-      "18",
-      "14",
-      "43"
+      "52",
+      "81",
+      "84"
     ],
     "pales": [
-      "14-18",
-      "18-43",
-      "10-18"
+      "52-81",
+      "52-84",
+      "52-96"
     ],
-    "fingerprint": "0733291a0268a30c",
+    "fingerprint": "8d37a423e759ffb8",
     "ok_alert": false,
-    "decision": "❌ NO JUGAR",
-    "best_signal": 0.024399445617756005,
-    "best_a11": 3,
+    "decision": "⚠️ JUGAR",
+    "best_signal": 0.02392114363542097,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.024399445617756005,
-      "best_a11_hist": 3,
-      "today_observed_nums": 6,
-      "source_pairs_today": 2,
-      "source_rows_hist_used": 1068,
-      "top12_overlap_prev": 6,
+      "best_signal_hist": 0.02392114363542097,
+      "best_a11_hist": 4,
+      "today_observed_nums": 8,
+      "source_pairs_today": 3,
+      "source_rows_hist_used": 1602,
+      "top12_overlap_prev": 1,
       "top_intraday": [
+        [
+          "17",
+          2
+        ],
         [
           "80",
           1
@@ -61,10 +65,6 @@
         ],
         [
           "13",
-          1
-        ],
-        [
-          "52",
           1
         ]
       ]
