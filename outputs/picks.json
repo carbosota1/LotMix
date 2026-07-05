@@ -1,54 +1,62 @@
 {
-  "generated_at": "2026-07-05T16:23:24.688681-04:00",
-  "event_key": "2026-07-05|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-07-05T18:19:58.684901-04:00",
+  "event_key": "2026-07-05|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-07-05 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-07-05 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-07-05 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-07-05 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "33",
-      "56",
-      "45",
-      "69",
-      "59",
-      "51",
-      "00",
+      "06",
+      "97",
+      "65",
+      "92",
+      "48",
+      "90",
+      "15",
+      "26",
       "35",
-      "64",
-      "67",
-      "23",
-      "53"
+      "42",
+      "00",
+      "59"
     ],
     "topq": [
-      "33",
-      "56",
-      "45"
+      "06",
+      "97",
+      "65"
     ],
     "pales": [
-      "33-56",
-      "33-45",
-      "33-69"
+      "06-97",
+      "06-65",
+      "06-92"
     ],
-    "fingerprint": "baeddef4a4d427f6",
+    "fingerprint": "b721b30aa49eb6f1",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.03250579977779457,
-    "best_a11": 4,
+    "best_signal": 0.02981873843071958,
+    "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.03250579977779457,
-      "best_a11_hist": 4,
-      "today_observed_nums": 14,
-      "source_pairs_today": 5,
+      "best_signal_hist": 0.02981873843071958,
+      "best_a11_hist": 2,
+      "today_observed_nums": 21,
+      "source_pairs_today": 8,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 2,
+      "top12_overlap_prev": 3,
       "top_intraday": [
         [
           "65",
+          2
+        ],
+        [
+          "09",
+          2
+        ],
+        [
+          "35",
           2
         ],
         [
@@ -57,14 +65,6 @@
         ],
         [
           "97",
-          1
-        ],
-        [
-          "66",
-          1
-        ],
-        [
-          "33",
           1
         ]
       ]
