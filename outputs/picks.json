@@ -1,49 +1,49 @@
 {
-  "generated_at": "2026-07-05T18:19:58.684901-04:00",
-  "event_key": "2026-07-05|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-07-05T19:20:05.437348-04:00",
+  "event_key": "2026-07-05|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-07-05 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-07-05 21:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 9PM"
   },
   "best_play": {
-    "time_rd": "2026-07-05 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-07-05 21:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 9PM",
     "top12": [
-      "06",
-      "97",
+      "63",
+      "94",
+      "46",
+      "58",
+      "44",
       "65",
-      "92",
-      "48",
-      "90",
-      "15",
-      "26",
-      "35",
-      "42",
-      "00",
-      "59"
+      "11",
+      "84",
+      "43",
+      "68",
+      "59",
+      "48"
     ],
     "topq": [
-      "06",
-      "97",
-      "65"
+      "63",
+      "94",
+      "46"
     ],
     "pales": [
-      "06-97",
-      "06-65",
-      "06-92"
+      "63-94",
+      "46-63",
+      "58-63"
     ],
-    "fingerprint": "b721b30aa49eb6f1",
+    "fingerprint": "1452237d87891c40",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.02981873843071958,
+    "best_signal": 0.031966651080810565,
     "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.02981873843071958,
+      "best_signal_hist": 0.031966651080810565,
       "best_a11_hist": 2,
-      "today_observed_nums": 21,
-      "source_pairs_today": 8,
+      "today_observed_nums": 22,
+      "source_pairs_today": 9,
       "source_rows_hist_used": 2400,
       "top12_overlap_prev": 3,
       "top_intraday": [
@@ -52,20 +52,20 @@
           2
         ],
         [
+          "83",
+          2
+        ],
+        [
           "09",
+          2
+        ],
+        [
+          "56",
           2
         ],
         [
           "35",
           2
-        ],
-        [
-          "83",
-          1
-        ],
-        [
-          "97",
-          1
         ]
       ]
     }
