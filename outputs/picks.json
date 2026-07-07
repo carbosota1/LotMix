@@ -1,54 +1,58 @@
 {
-  "generated_at": "2026-07-07T18:20:02.653737-04:00",
-  "event_key": "2026-07-07|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-07-07T19:20:20.054711-04:00",
+  "event_key": "2026-07-07|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-07-07 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-07-07 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche"
   },
   "best_play": {
-    "time_rd": "2026-07-07 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-07-07 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche",
     "top12": [
-      "37",
       "85",
-      "34",
-      "90",
-      "48",
-      "06",
-      "97",
-      "15",
-      "26",
+      "37",
+      "87",
+      "80",
+      "11",
+      "60",
+      "84",
+      "59",
+      "57",
+      "39",
       "65",
-      "92",
-      "35"
+      "47"
     ],
     "topq": [
-      "37",
       "85",
-      "34"
+      "37",
+      "87"
     ],
     "pales": [
       "37-85",
-      "34-37",
-      "37-90"
+      "85-87",
+      "80-85"
     ],
-    "fingerprint": "0e65b96f2b7611d6",
-    "ok_alert": true,
+    "fingerprint": "dac68ea5eb4df0ca",
+    "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.04118819283983179,
+    "best_signal": 0.03948947790236792,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.04118819283983179,
+      "best_signal_hist": 0.03948947790236792,
       "best_a11_hist": 3,
-      "today_observed_nums": 20,
-      "source_pairs_today": 7,
+      "today_observed_nums": 22,
+      "source_pairs_today": 8,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 1,
+      "top12_overlap_prev": 3,
       "top_intraday": [
         [
           "94",
+          2
+        ],
+        [
+          "85",
           2
         ],
         [
@@ -61,10 +65,6 @@
         ],
         [
           "46",
-          1
-        ],
-        [
-          "33",
           1
         ]
       ]
