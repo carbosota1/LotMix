@@ -1,50 +1,50 @@
 {
-  "generated_at": "2026-07-07T12:44:03.061127-04:00",
-  "event_key": "2026-07-07|La Suerte|Quiniela La Suerte",
+  "generated_at": "2026-07-07T13:19:22.663573-04:00",
+  "event_key": "2026-07-07|Anguilla|Anguila 1PM",
   "target": {
-    "time_rd": "2026-07-07 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM"
+    "time_rd": "2026-07-07 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más"
   },
   "best_play": {
-    "time_rd": "2026-07-07 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM",
+    "time_rd": "2026-07-07 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más",
     "top12": [
-      "96",
-      "62",
+      "78",
+      "95",
       "37",
-      "46",
-      "53",
-      "81",
-      "84",
-      "52",
-      "01",
-      "21",
-      "43",
-      "33"
+      "35",
+      "40",
+      "41",
+      "20",
+      "94",
+      "42",
+      "89",
+      "13",
+      "64"
     ],
     "topq": [
-      "96",
-      "62",
+      "78",
+      "95",
       "37"
     ],
     "pales": [
-      "62-96",
-      "37-96",
-      "46-96"
+      "78-95",
+      "37-78",
+      "35-78"
     ],
-    "fingerprint": "8a54e3f20cd3054b",
+    "fingerprint": "97c5ce6869d040d5",
     "ok_alert": false,
-    "decision": "⚠️ JUGAR",
-    "best_signal": 0.02392114363542097,
-    "best_a11": 4,
+    "decision": "❌ NO JUGAR",
+    "best_signal": 0.0018364078878438312,
+    "best_a11": 7,
     "debug": {
-      "best_signal_hist": 0.02392114363542097,
-      "best_a11_hist": 4,
-      "today_observed_nums": 9,
-      "source_pairs_today": 3,
-      "source_rows_hist_used": 1602,
+      "best_signal_hist": 0.0018364078878438312,
+      "best_a11_hist": 7,
+      "today_observed_nums": 12,
+      "source_pairs_today": 4,
+      "source_rows_hist_used": 1565,
       "top12_overlap_prev": 1,
       "top_intraday": [
         [
@@ -60,11 +60,11 @@
           1
         ],
         [
-          "00",
+          "33",
           1
         ],
         [
-          "96",
+          "78",
           1
         ]
       ]
