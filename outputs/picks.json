@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-07-08T12:18:57.331463-04:00",
-  "event_key": "2026-07-08|La Primera|Quiniela La Primera",
+  "generated_at": "2026-07-08T12:44:04.200977-04:00",
+  "event_key": "2026-07-08|La Suerte|Quiniela La Suerte",
   "target": {
-    "time_rd": "2026-07-08 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte"
+    "time_rd": "2026-07-08 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM"
   },
   "best_play": {
-    "time_rd": "2026-07-08 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte",
+    "time_rd": "2026-07-08 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM",
     "top12": [
-      "18",
-      "14",
+      "81",
+      "84",
+      "52",
+      "96",
+      "01",
+      "62",
+      "21",
+      "37",
+      "46",
+      "53",
       "43",
-      "15",
-      "45",
-      "08",
-      "29",
-      "58",
-      "76",
-      "38",
-      "57",
-      "03"
+      "33"
     ],
     "topq": [
-      "18",
-      "14",
-      "43"
+      "81",
+      "84",
+      "52"
     ],
     "pales": [
-      "14-18",
-      "18-43",
-      "15-18"
+      "81-84",
+      "52-81",
+      "81-96"
     ],
-    "fingerprint": "5054aaddebca7d14",
+    "fingerprint": "be1a4ccd900b3277",
     "ok_alert": false,
-    "decision": "❌ NO JUGAR",
-    "best_signal": 0.025883771208166075,
-    "best_a11": 3,
+    "decision": "⚠️ JUGAR",
+    "best_signal": 0.02392114363542097,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.025883771208166075,
-      "best_a11_hist": 3,
-      "today_observed_nums": 4,
-      "source_pairs_today": 2,
-      "source_rows_hist_used": 1068,
-      "top12_overlap_prev": 6,
+      "best_signal_hist": 0.02392114363542097,
+      "best_a11_hist": 4,
+      "today_observed_nums": 7,
+      "source_pairs_today": 3,
+      "source_rows_hist_used": 1602,
+      "top12_overlap_prev": 1,
       "top_intraday": [
         [
           "69",
@@ -61,6 +61,10 @@
         ],
         [
           "19",
+          1
+        ],
+        [
+          "50",
           1
         ]
       ]
