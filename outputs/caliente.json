@@ -1,30 +1,30 @@
 {
-  "generado_en": "2026-07-09T12:19:00.506855",
+  "generado_en": "2026-07-09T12:43:53.444775",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
   "total_loterias": 1,
   "picks_procesados": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Quiniela La Suerte": {
+    "Anguila 1PM": {
       "numeros": [
-        "57",
-        "08",
         "43",
-        "14",
-        "38",
-        "18"
+        "33",
+        "01",
+        "81",
+        "96",
+        "84"
       ],
-      "signal": 0.025884,
-      "cuartil_senal": "alta",
-      "decision": "❌ NO JUGAR",
-      "a11_grupo": "bajo",
+      "signal": 0.023921,
+      "cuartil_senal": "muy_alta",
+      "decision": "⚠️ JUGAR",
+      "a11_grupo": "medio",
       "ok_alert": false,
-      "hit_rate_historico": 12.1,
-      "hot_source": "general",
-      "draw": "Quiniela La Suerte",
-      "lottery": "La Suerte",
-      "perfil_fuente": "auto-calibrado (99 sorteos, 3 contextos)",
+      "hit_rate_historico": 17.2,
+      "hot_source": "contextual (muy_alta|medio, n=33, hit=18.2%)",
+      "draw": "Anguila 1PM",
+      "lottery": "Anguilla",
+      "perfil_fuente": "auto-calibrado (116 sorteos, 5 contextos)",
       "n_numeros": 6
     }
   }
