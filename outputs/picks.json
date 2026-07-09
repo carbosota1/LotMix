@@ -1,52 +1,73 @@
 {
-  "generated_at": "2026-07-09T10:33:45.263920-04:00",
-  "event_key": "2026-07-09|TEST|NO-UPDATE",
+  "generated_at": "2026-07-09T12:18:59.648555-04:00",
+  "event_key": "2026-07-09|La Primera|Quiniela La Primera",
   "target": {
-    "time_rd": "2026-07-09 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera"
+    "time_rd": "2026-07-09 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte"
   },
   "best_play": {
-    "time_rd": "2026-07-09 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera",
+    "time_rd": "2026-07-09 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte",
     "top12": [
-      "38",
-      "24",
-      "69",
+      "08",
+      "18",
+      "14",
+      "43",
+      "15",
+      "45",
       "29",
-      "92",
-      "03",
-      "90",
       "76",
-      "23",
       "58",
-      "64",
-      "59"
+      "38",
+      "57",
+      "03"
     ],
     "topq": [
-      "38",
-      "24",
-      "69"
+      "08",
+      "18",
+      "14"
     ],
     "pales": [
-      "24-38",
-      "38-69",
-      "29-38"
+      "08-18",
+      "08-14",
+      "08-43"
     ],
-    "fingerprint": "8ad39c16545cd395",
+    "fingerprint": "11377385049b00da",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.015390943699923786,
+    "best_signal": 0.025883771208166075,
     "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.015390943699923786,
+      "best_signal_hist": 0.025883771208166075,
       "best_a11_hist": 2,
-      "today_observed_nums": 0,
-      "source_pairs_today": 1,
-      "source_rows_hist_used": 531,
-      "top12_overlap_prev": 1,
-      "top_intraday": []
+      "today_observed_nums": 6,
+      "source_pairs_today": 2,
+      "source_rows_hist_used": 1068,
+      "top12_overlap_prev": 5,
+      "top_intraday": [
+        [
+          "28",
+          1
+        ],
+        [
+          "72",
+          1
+        ],
+        [
+          "95",
+          1
+        ],
+        [
+          "24",
+          1
+        ],
+        [
+          "70",
+          1
+        ]
+      ]
     }
   }
 }
