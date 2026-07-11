@@ -1,150 +1,56 @@
 {
-  "generated_at": "2026-07-10T19:20:30.670758-04:00",
-  "event_key": "2026-07-10|La Primera|Quiniela La Primera Noche",
+  "generated_at": "2026-07-11T10:33:54.426967-04:00",
+  "event_key": "2026-07-11|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-07-10T19:19:51.796319-04:00",
-      "event_key": "2026-07-10|La Primera|Quiniela La Primera Noche",
+      "generated_at": "2026-07-11T10:33:53.690591-04:00",
+      "event_key": "2026-07-11|TEST|NO-UPDATE",
       "target": {
-        "time_rd": "2026-07-10 21:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 9PM"
+        "time_rd": "2026-07-11 12:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera"
       },
       "best_play": {
-        "time_rd": "2026-07-10 21:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 9PM",
+        "time_rd": "2026-07-11 12:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera",
         "top12": [
-          "59",
-          "43",
-          "51",
-          "82",
-          "63",
-          "46",
-          "44",
-          "89",
+          "38",
+          "24",
+          "29",
+          "03",
+          "90",
+          "76",
+          "92",
+          "23",
           "58",
-          "84",
-          "48",
-          "65"
-        ],
-        "topq": [
-          "59",
-          "43",
-          "51"
-        ],
-        "pales": [
-          "43-59",
-          "51-59",
-          "59-82"
-        ],
-        "fingerprint": "dcdd5bd28f4efce3",
-        "ok_alert": false,
-        "decision": "❌ NO JUGAR",
-        "best_signal": 0.03282628425099261,
-        "best_a11": 4,
-        "debug": {
-          "best_signal_hist": 0.03282628425099261,
-          "best_a11_hist": 4,
-          "today_observed_nums": 20,
-          "source_pairs_today": 8,
-          "source_rows_hist_used": 2400,
-          "top12_overlap_prev": 2,
-          "top_intraday": [
-            [
-              "26",
-              3
-            ],
-            [
-              "83",
-              2
-            ],
-            [
-              "17",
-              2
-            ],
-            [
-              "39",
-              1
-            ],
-            [
-              "31",
-              1
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "generated_at": "2026-07-10T19:20:29.915486-04:00",
-      "event_key": "2026-07-10|La Primera|Quiniela La Primera Noche",
-      "target": {
-        "time_rd": "2026-07-10 21:00",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Noche"
-      },
-      "best_play": {
-        "time_rd": "2026-07-10 21:00",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Noche",
-        "top12": [
-          "27",
-          "59",
-          "60",
-          "57",
-          "39",
-          "80",
-          "87",
+          "64",
           "47",
-          "33",
-          "11",
-          "65",
-          "84"
+          "59"
         ],
         "topq": [
-          "27",
-          "59",
-          "60"
+          "38",
+          "24",
+          "29"
         ],
         "pales": [
-          "27-59",
-          "27-60",
-          "27-57"
+          "24-38",
+          "29-38",
+          "03-38"
         ],
-        "fingerprint": "ff6a2f21e412b541",
+        "fingerprint": "928f73ee5e5f799c",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.038063493573460574,
-        "best_a11": 3,
+        "best_signal": 0.015390943699923786,
+        "best_a11": 2,
         "debug": {
-          "best_signal_hist": 0.038063493573460574,
-          "best_a11_hist": 3,
-          "today_observed_nums": 20,
-          "source_pairs_today": 8,
-          "source_rows_hist_used": 2400,
-          "top12_overlap_prev": 3,
-          "top_intraday": [
-            [
-              "26",
-              3
-            ],
-            [
-              "83",
-              2
-            ],
-            [
-              "17",
-              2
-            ],
-            [
-              "39",
-              1
-            ],
-            [
-              "31",
-              1
-            ]
-          ]
+          "best_signal_hist": 0.015390943699923786,
+          "best_a11_hist": 2,
+          "today_observed_nums": 0,
+          "source_pairs_today": 1,
+          "source_rows_hist_used": 531,
+          "top12_overlap_prev": 2,
+          "top_intraday": []
         }
       }
     }
