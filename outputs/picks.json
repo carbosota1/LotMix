@@ -1,73 +1,52 @@
 {
-  "generated_at": "2026-07-11T19:20:41.782681-04:00",
-  "event_key": "2026-07-11|La Primera|Quiniela La Primera Noche",
+  "generated_at": "2026-07-12T10:33:59.968759-04:00",
+  "event_key": "2026-07-12|TEST|NO-UPDATE",
   "target": {
-    "time_rd": "2026-07-11 21:00",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Noche"
+    "time_rd": "2026-07-12 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera"
   },
   "best_play": {
-    "time_rd": "2026-07-11 21:00",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Noche",
+    "time_rd": "2026-07-12 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera",
     "top12": [
-      "87",
-      "84",
-      "60",
-      "57",
-      "80",
+      "38",
+      "24",
+      "29",
+      "03",
+      "90",
+      "76",
+      "23",
+      "92",
+      "58",
+      "64",
       "47",
-      "94",
-      "33",
-      "89",
-      "59",
-      "39",
-      "65"
+      "59"
     ],
     "topq": [
-      "87",
-      "84",
-      "60"
+      "38",
+      "24",
+      "29"
     ],
     "pales": [
-      "84-87",
-      "60-87",
-      "57-87"
+      "24-38",
+      "29-38",
+      "03-38"
     ],
-    "fingerprint": "c8e15266e9834278",
+    "fingerprint": "1ff5fd2e1597bad0",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.036724174852498036,
-    "best_a11": 3,
+    "best_signal": 0.015390943699923786,
+    "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.036724174852498036,
-      "best_a11_hist": 3,
-      "today_observed_nums": 24,
-      "source_pairs_today": 8,
-      "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 4,
-      "top_intraday": [
-        [
-          "96",
-          1
-        ],
-        [
-          "55",
-          1
-        ],
-        [
-          "84",
-          1
-        ],
-        [
-          "52",
-          1
-        ],
-        [
-          "31",
-          1
-        ]
-      ]
+      "best_signal_hist": 0.015390943699923786,
+      "best_a11_hist": 2,
+      "today_observed_nums": 0,
+      "source_pairs_today": 1,
+      "source_rows_hist_used": 531,
+      "top12_overlap_prev": 2,
+      "top_intraday": []
     }
   }
 }
