@@ -1,73 +1,52 @@
 {
-  "generated_at": "2026-07-12T19:20:00.461151-04:00",
-  "event_key": "2026-07-12|La Primera|Quiniela La Primera Noche",
+  "generated_at": "2026-07-13T10:33:48.408859-04:00",
+  "event_key": "2026-07-13|TEST|NO-UPDATE",
   "target": {
-    "time_rd": "2026-07-12 21:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 9PM"
+    "time_rd": "2026-07-13 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera"
   },
   "best_play": {
-    "time_rd": "2026-07-12 21:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 9PM",
+    "time_rd": "2026-07-13 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera",
     "top12": [
-      "12",
-      "02",
-      "63",
-      "46",
-      "44",
-      "59",
-      "94",
-      "51",
+      "38",
+      "69",
+      "24",
+      "29",
+      "03",
+      "90",
+      "76",
+      "23",
+      "92",
+      "64",
       "58",
-      "84",
-      "26",
-      "48"
+      "59"
     ],
     "topq": [
-      "12",
-      "02",
-      "63"
+      "38",
+      "69",
+      "24"
     ],
     "pales": [
-      "02-12",
-      "12-63",
-      "12-46"
+      "38-69",
+      "24-38",
+      "29-38"
     ],
-    "fingerprint": "ad2fdd9e35968a3e",
+    "fingerprint": "06de2a1de27ad82a",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.03081476875990016,
-    "best_a11": 3,
+    "best_signal": 0.017313438735077225,
+    "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.03081476875990016,
-      "best_a11_hist": 3,
-      "today_observed_nums": 25,
-      "source_pairs_today": 9,
-      "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 3,
-      "top_intraday": [
-        [
-          "37",
-          2
-        ],
-        [
-          "25",
-          2
-        ],
-        [
-          "32",
-          1
-        ],
-        [
-          "12",
-          1
-        ],
-        [
-          "57",
-          1
-        ]
-      ]
+      "best_signal_hist": 0.017313438735077225,
+      "best_a11_hist": 2,
+      "today_observed_nums": 0,
+      "source_pairs_today": 1,
+      "source_rows_hist_used": 531,
+      "top12_overlap_prev": 2,
+      "top_intraday": []
     }
   }
 }
