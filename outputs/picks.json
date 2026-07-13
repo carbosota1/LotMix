@@ -1,70 +1,70 @@
 {
-  "generated_at": "2026-07-13T13:19:35.915773-04:00",
-  "event_key": "2026-07-13|TEST|NO-UPDATE",
+  "generated_at": "2026-07-13T16:14:49.397057-04:00",
+  "event_key": "2026-07-13|La Nacional|Loteria Nacional- Gana Más",
   "target": {
-    "time_rd": "2026-07-13 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más"
+    "time_rd": "2026-07-13 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM"
   },
   "best_play": {
-    "time_rd": "2026-07-13 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más",
+    "time_rd": "2026-07-13 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM",
     "top12": [
-      "04",
-      "19",
-      "71",
+      "09",
+      "51",
+      "53",
+      "88",
+      "66",
+      "79",
+      "73",
+      "30",
       "07",
-      "69",
-      "94",
-      "77",
-      "41",
-      "23",
-      "64",
-      "33",
-      "21"
+      "21",
+      "35",
+      "92"
     ],
     "topq": [
-      "04",
-      "19",
-      "71"
+      "09",
+      "51",
+      "53"
     ],
     "pales": [
-      "04-19",
-      "04-71",
-      "04-07"
+      "09-51",
+      "09-53",
+      "09-88"
     ],
-    "fingerprint": "ddcc28d24c49b1d3",
+    "fingerprint": "2181ad165dfe3048",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.013060984835406624,
-    "best_a11": 3,
+    "best_signal": 0.001614005877702938,
+    "best_a11": 9,
     "debug": {
-      "best_signal_hist": 0.013060984835406624,
-      "best_a11_hist": 3,
-      "today_observed_nums": 8,
-      "source_pairs_today": 4,
-      "source_rows_hist_used": 2133,
+      "best_signal_hist": 0.001614005877702938,
+      "best_a11_hist": 9,
+      "today_observed_nums": 12,
+      "source_pairs_today": 5,
+      "source_rows_hist_used": 2272,
       "top12_overlap_prev": 2,
       "top_intraday": [
+        [
+          "53",
+          2
+        ],
         [
           "09",
           2
         ],
         [
-          "53",
-          1
+          "08",
+          2
         ],
         [
           "20",
           1
         ],
         [
-          "86",
-          1
-        ],
-        [
-          "51",
+          "72",
           1
         ]
       ]
