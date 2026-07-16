@@ -1,32 +1,31 @@
 {
-  "generado_en": "2026-07-16T12:44:02.972452",
+  "generado_en": "2026-07-16T13:19:27.640107",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
   "total_loterias": 1,
   "picks_procesados": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Anguila 1PM": {
+    "Loteria Nacional- Gana Más": {
       "numeros": [
-        "96",
-        "01",
-        "52",
+        "71",
+        "94",
         "21",
-        "84",
-        "81",
-        "37"
+        "77",
+        "85",
+        "04"
       ],
-      "signal": 0.020221,
-      "cuartil_senal": "muy_alta",
-      "decision": "⚠️ JUGAR",
+      "signal": 0.013405,
+      "cuartil_senal": "alta",
+      "decision": "❌ NO JUGAR",
       "a11_grupo": "medio",
       "ok_alert": false,
-      "hit_rate_historico": 17.9,
-      "hot_source": "contextual (muy_alta|medio, n=31, hit=19.4%)",
-      "draw": "Anguila 1PM",
-      "lottery": "Anguilla",
-      "perfil_fuente": "auto-calibrado (123 sorteos, 5 contextos)",
-      "n_numeros": 7
+      "hit_rate_historico": 11.9,
+      "hot_source": "contextual (alta|medio, n=32, hit=9.4%)",
+      "draw": "Loteria Nacional- Gana Más",
+      "lottery": "La Nacional",
+      "perfil_fuente": "auto-calibrado (151 sorteos, 6 contextos)",
+      "n_numeros": 6
     }
   }
 }
