@@ -1,54 +1,31 @@
 {
-  "generado_en": "2026-07-17T16:14:45.719919",
+  "generado_en": "2026-07-17T18:19:51.382578",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
-  "total_loterias": 2,
-  "picks_procesados": 2,
+  "total_loterias": 1,
+  "picks_procesados": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Anguila 6PM": {
+    "Quiniela La Primera Noche": {
       "numeros": [
-        "13",
-        "43",
-        "91",
-        "47",
-        "28",
-        "98"
-      ],
-      "signal": 0.026055,
-      "cuartil_senal": "muy_alta",
-      "decision": "⚠️ JUGAR",
-      "a11_grupo": "medio",
-      "ok_alert": false,
-      "hit_rate_historico": 9.8,
-      "hot_source": "contextual (muy_alta|medio, n=37, hit=8.1%)",
-      "draw": "Anguila 6PM",
-      "lottery": "Anguilla",
-      "perfil_fuente": "auto-calibrado (143 sorteos, 5 contextos)",
-      "n_numeros": 6,
-      "advertencia": "⚠️ Hit rate histórico bajo (9.8%) — precaución"
-    },
-    "Quiniela La Suerte 6PM": {
-      "numeros": [
+        "42",
+        "92",
+        "90",
         "35",
-        "59",
-        "33",
-        "45",
-        "56",
-        "00"
+        "50",
+        "06"
       ],
-      "signal": 0.029675,
-      "cuartil_senal": "muy_alta",
-      "decision": "⚠️ JUGAR",
-      "a11_grupo": "medio",
+      "signal": 0.018067,
+      "cuartil_senal": "media",
+      "decision": "❌ NO JUGAR",
+      "a11_grupo": "bajo",
       "ok_alert": false,
-      "hit_rate_historico": 9.9,
-      "hot_source": "contextual (muy_alta|medio, n=36, hit=8.3%)",
-      "draw": "Quiniela La Suerte 6PM",
-      "lottery": "La Suerte",
-      "perfil_fuente": "auto-calibrado (141 sorteos, 4 contextos)",
-      "n_numeros": 6,
-      "advertencia": "⚠️ Hit rate histórico bajo (9.9%) — precaución"
+      "hit_rate_historico": 10.9,
+      "hot_source": "general",
+      "draw": "Quiniela La Primera Noche",
+      "lottery": "La Primera",
+      "perfil_fuente": "auto-calibrado (129 sorteos, 5 contextos)",
+      "n_numeros": 6
     }
   }
 }
