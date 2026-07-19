@@ -1,29 +1,73 @@
 {
-  "generado_en": "2026-07-19T13:19:29.908218",
+  "generado_en": "2026-07-19T16:15:20.572633",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
-  "total_loterias": 1,
-  "picks_procesados": 1,
+  "total_loterias": 3,
+  "picks_procesados": 3,
   "picks_omitidos": 0,
   "loterias": {
-    "Loteria Nacional- Gana Más": {
+    "Anguila 6PM": {
       "numeros": [
-        "14",
-        "20",
-        "42",
-        "37"
+        "91",
+        "93",
+        "98",
+        "43",
+        "47",
+        "28"
       ],
-      "signal": 0.000735,
+      "signal": 0.036921,
+      "cuartil_senal": "muy_alta",
+      "decision": "❌ NO JUGAR",
+      "a11_grupo": "medio",
+      "ok_alert": false,
+      "hit_rate_historico": 10.3,
+      "hot_source": "contextual (muy_alta|medio, n=39, hit=10.3%)",
+      "draw": "Anguila 6PM",
+      "lottery": "Anguilla",
+      "perfil_fuente": "auto-calibrado (145 sorteos, 5 contextos)",
+      "n_numeros": 6
+    },
+    "Loteria Nacional- Noche": {
+      "numeros": [
+        "47",
+        "40",
+        "38",
+        "21",
+        "84"
+      ],
+      "signal": 0.011354,
       "cuartil_senal": "baja",
       "decision": "❌ NO JUGAR",
       "a11_grupo": "medio",
       "ok_alert": false,
-      "hit_rate_historico": 12.3,
-      "hot_source": "contextual (baja|medio, n=14, hit=7.1%)",
-      "draw": "Loteria Nacional- Gana Más",
+      "hit_rate_historico": 11.3,
+      "hot_source": "contextual (baja|medio, n=14, hit=28.6%)",
+      "draw": "Loteria Nacional- Noche",
       "lottery": "La Nacional",
-      "perfil_fuente": "auto-calibrado (154 sorteos, 6 contextos)",
-      "n_numeros": 4
+      "perfil_fuente": "auto-calibrado (151 sorteos, 5 contextos)",
+      "n_numeros": 5
+    },
+    "Quiniela La Suerte 6PM": {
+      "numeros": [
+        "51",
+        "45",
+        "92",
+        "33",
+        "14",
+        "56"
+      ],
+      "signal": 0.029675,
+      "cuartil_senal": "muy_alta",
+      "decision": "❌ NO JUGAR",
+      "a11_grupo": "medio",
+      "ok_alert": false,
+      "hit_rate_historico": 9.8,
+      "hot_source": "contextual (muy_alta|medio, n=38, hit=7.9%)",
+      "draw": "Quiniela La Suerte 6PM",
+      "lottery": "La Suerte",
+      "perfil_fuente": "auto-calibrado (143 sorteos, 4 contextos)",
+      "n_numeros": 6,
+      "advertencia": "⚠️ Hit rate histórico bajo (9.8%) — precaución"
     }
   }
 }
