@@ -1,52 +1,73 @@
 {
-  "generated_at": "2026-07-21T10:33:34.971886-04:00",
-  "event_key": "2026-07-21|TEST|NO-UPDATE",
+  "generated_at": "2026-07-21T12:18:40.711859-04:00",
+  "event_key": "2026-07-21|La Primera|Quiniela La Primera",
   "target": {
-    "time_rd": "2026-07-21 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera"
+    "time_rd": "2026-07-21 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte"
   },
   "best_play": {
-    "time_rd": "2026-07-21 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera",
+    "time_rd": "2026-07-21 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte",
     "top12": [
-      "38",
-      "99",
-      "09",
-      "24",
-      "12",
+      "61",
+      "18",
+      "08",
+      "58",
+      "43",
+      "57",
+      "48",
+      "21",
       "29",
-      "03",
-      "90",
-      "23",
-      "92",
-      "59",
-      "76"
+      "38",
+      "76",
+      "03"
     ],
     "topq": [
-      "38",
-      "99",
-      "09"
+      "61",
+      "18",
+      "08"
     ],
     "pales": [
-      "38-99",
-      "09-38",
-      "24-38"
+      "18-61",
+      "08-61",
+      "58-61"
     ],
-    "fingerprint": "0bbe84dad41a4f97",
+    "fingerprint": "26db2b1713c8a661",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.017313438735077225,
+    "best_signal": 0.024399445617756005,
     "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.017313438735077225,
+      "best_signal_hist": 0.024399445617756005,
       "best_a11_hist": 2,
-      "today_observed_nums": 0,
-      "source_pairs_today": 1,
-      "source_rows_hist_used": 531,
-      "top12_overlap_prev": 1,
-      "top_intraday": []
+      "today_observed_nums": 6,
+      "source_pairs_today": 2,
+      "source_rows_hist_used": 1068,
+      "top12_overlap_prev": 4,
+      "top_intraday": [
+        [
+          "52",
+          1
+        ],
+        [
+          "40",
+          1
+        ],
+        [
+          "61",
+          1
+        ],
+        [
+          "57",
+          1
+        ],
+        [
+          "07",
+          1
+        ]
+      ]
     }
   }
 }
