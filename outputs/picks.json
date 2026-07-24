@@ -1,73 +1,52 @@
 {
-  "generated_at": "2026-07-23T19:20:05.259560-04:00",
-  "event_key": "2026-07-23|La Primera|Quiniela La Primera Noche",
+  "generated_at": "2026-07-24T10:33:30.466788-04:00",
+  "event_key": "2026-07-24|TEST|NO-UPDATE",
   "target": {
-    "time_rd": "2026-07-23 21:00",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Noche"
+    "time_rd": "2026-07-24 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera"
   },
   "best_play": {
-    "time_rd": "2026-07-23 21:00",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Noche",
+    "time_rd": "2026-07-24 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera",
     "top12": [
-      "67",
-      "56",
-      "69",
-      "73",
-      "65",
-      "84",
-      "57",
-      "76",
-      "89",
-      "47",
-      "51",
-      "39"
+      "38",
+      "09",
+      "99",
+      "24",
+      "03",
+      "12",
+      "29",
+      "90",
+      "23",
+      "59",
+      "92",
+      "76"
     ],
     "topq": [
-      "67",
-      "56",
-      "69"
+      "38",
+      "09",
+      "99"
     ],
     "pales": [
-      "56-67",
-      "67-69",
-      "67-73"
+      "09-38",
+      "38-99",
+      "24-38"
     ],
-    "fingerprint": "61792d0bc27f28be",
+    "fingerprint": "2d75b5a16dd32153",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.028091949724126767,
-    "best_a11": 3,
+    "best_signal": 0.017313438735077225,
+    "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.028091949724126767,
-      "best_a11_hist": 3,
-      "today_observed_nums": 22,
-      "source_pairs_today": 8,
-      "source_rows_hist_used": 2400,
+      "best_signal_hist": 0.017313438735077225,
+      "best_a11_hist": 2,
+      "today_observed_nums": 0,
+      "source_pairs_today": 1,
+      "source_rows_hist_used": 531,
       "top12_overlap_prev": 1,
-      "top_intraday": [
-        [
-          "67",
-          2
-        ],
-        [
-          "21",
-          2
-        ],
-        [
-          "65",
-          1
-        ],
-        [
-          "69",
-          1
-        ],
-        [
-          "43",
-          1
-        ]
-      ]
+      "top_intraday": []
     }
   }
 }
