@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-07-24T12:43:40.792449-04:00",
-  "event_key": "2026-07-24|La Suerte|Quiniela La Suerte",
+  "generated_at": "2026-07-24T13:18:59.020644-04:00",
+  "event_key": "2026-07-24|Anguilla|Anguila 1PM",
   "target": {
-    "time_rd": "2026-07-24 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM"
+    "time_rd": "2026-07-24 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más"
   },
   "best_play": {
-    "time_rd": "2026-07-24 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM",
+    "time_rd": "2026-07-24 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más",
     "top12": [
-      "67",
-      "37",
-      "84",
-      "96",
-      "52",
-      "81",
-      "62",
-      "01",
-      "53",
-      "43",
-      "33",
-      "08"
+      "54",
+      "36",
+      "95",
+      "40",
+      "20",
+      "89",
+      "41",
+      "13",
+      "42",
+      "64",
+      "94",
+      "37"
     ],
     "topq": [
-      "67",
-      "37",
-      "84"
+      "54",
+      "36",
+      "95"
     ],
     "pales": [
-      "37-67",
-      "67-84",
-      "67-96"
+      "36-54",
+      "54-95",
+      "40-54"
     ],
-    "fingerprint": "ac6e2fac3915436e",
+    "fingerprint": "3bcec573d85a308f",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01722867653396078,
-    "best_a11": 4,
+    "best_signal": 0.0014911529943248875,
+    "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.01722867653396078,
-      "best_a11_hist": 4,
-      "today_observed_nums": 9,
-      "source_pairs_today": 3,
-      "source_rows_hist_used": 1602,
-      "top12_overlap_prev": 2,
+      "best_signal_hist": 0.0014911529943248875,
+      "best_a11_hist": 2,
+      "today_observed_nums": 12,
+      "source_pairs_today": 4,
+      "source_rows_hist_used": 1622,
+      "top12_overlap_prev": 1,
       "top_intraday": [
         [
           "95",
@@ -60,11 +60,11 @@
           1
         ],
         [
-          "36",
+          "06",
           1
         ],
         [
-          "65",
+          "07",
           1
         ]
       ]
