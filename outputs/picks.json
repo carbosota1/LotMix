@@ -1,50 +1,50 @@
 {
-  "generated_at": "2026-07-26T16:15:11.101339-04:00",
-  "event_key": "2026-07-26|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-07-26T18:20:21.162270-04:00",
+  "event_key": "2026-07-26|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-07-26 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-07-26 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-07-26 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-07-26 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "14",
-      "21",
-      "88",
-      "66",
-      "30",
-      "73",
-      "02",
+      "78",
+      "97",
+      "00",
+      "50",
+      "90",
+      "86",
+      "69",
+      "24",
+      "65",
+      "26",
       "35",
-      "53",
-      "51",
-      "92",
-      "07"
+      "92"
     ],
     "topq": [
-      "14",
-      "21",
-      "88"
+      "78",
+      "97",
+      "00"
     ],
     "pales": [
-      "14-21",
-      "14-88",
-      "14-66"
+      "78-97",
+      "00-78",
+      "50-78"
     ],
-    "fingerprint": "b76a5546aeaed7b2",
+    "fingerprint": "1f625b16f4bad8ab",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.0018124804026044621,
-    "best_a11": 9,
+    "best_signal": 0.02981873843071958,
+    "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.0018124804026044621,
-      "best_a11_hist": 9,
-      "today_observed_nums": 12,
-      "source_pairs_today": 5,
-      "source_rows_hist_used": 2353,
+      "best_signal_hist": 0.02981873843071958,
+      "best_a11_hist": 2,
+      "today_observed_nums": 17,
+      "source_pairs_today": 8,
+      "source_rows_hist_used": 2400,
       "top12_overlap_prev": 2,
       "top_intraday": [
         [
@@ -60,11 +60,11 @@
           2
         ],
         [
-          "01",
-          1
+          "62",
+          2
         ],
         [
-          "18",
+          "01",
           1
         ]
       ]
