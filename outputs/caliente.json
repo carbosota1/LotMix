@@ -1,32 +1,31 @@
 {
-  "generado_en": "2026-07-26T19:20:08.141440",
+  "generado_en": "2026-07-27T10:33:42.743935",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
   "total_loterias": 1,
   "picks_procesados": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Anguila 9PM": {
+    "Quiniela La Primera": {
       "numeros": [
-        "84",
-        "06",
-        "19",
-        "94",
-        "48",
-        "12",
-        "82"
+        "99",
+        "24",
+        "09",
+        "38",
+        "14",
+        "03"
       ],
-      "signal": 0.049153,
+      "signal": 0.017313,
       "cuartil_senal": "muy_alta",
       "decision": "❌ NO JUGAR",
-      "a11_grupo": "medio",
+      "a11_grupo": "bajo",
       "ok_alert": false,
-      "hit_rate_historico": 14.7,
-      "hot_source": "contextual (muy_alta|medio, n=34, hit=17.6%)",
-      "draw": "Anguila 9PM",
-      "lottery": "Anguilla",
-      "perfil_fuente": "auto-calibrado (156 sorteos, 5 contextos)",
-      "n_numeros": 7
+      "hit_rate_historico": 13.0,
+      "hot_source": "contextual (muy_alta|bajo, n=39, hit=7.7%)",
+      "draw": "Quiniela La Primera",
+      "lottery": "La Primera",
+      "perfil_fuente": "auto-calibrado (138 sorteos, 5 contextos)",
+      "n_numeros": 6
     }
   }
 }
