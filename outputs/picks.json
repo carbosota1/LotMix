@@ -1,52 +1,73 @@
 {
-  "generated_at": "2026-07-28T10:33:57.532507-04:00",
-  "event_key": "2026-07-28|TEST|NO-UPDATE",
+  "generated_at": "2026-07-28T12:19:01.471306-04:00",
+  "event_key": "2026-07-28|La Primera|Quiniela La Primera",
   "target": {
-    "time_rd": "2026-07-28 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera"
+    "time_rd": "2026-07-28 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte"
   },
   "best_play": {
-    "time_rd": "2026-07-28 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera",
+    "time_rd": "2026-07-28 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte",
     "top12": [
-      "38",
-      "09",
-      "99",
-      "14",
-      "23",
-      "29",
-      "12",
+      "61",
+      "18",
+      "08",
+      "06",
+      "48",
+      "21",
       "58",
-      "90",
-      "03",
+      "29",
+      "38",
       "76",
-      "59"
+      "57",
+      "03"
     ],
     "topq": [
-      "38",
-      "09",
-      "99"
+      "61",
+      "18",
+      "08"
     ],
     "pales": [
-      "09-38",
-      "38-99",
-      "14-38"
+      "18-61",
+      "08-61",
+      "06-61"
     ],
-    "fingerprint": "2e60433f34a54dbe",
+    "fingerprint": "28fdeaed40ff63b8",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.017313438735077225,
+    "best_signal": 0.021934996131511716,
     "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.017313438735077225,
+      "best_signal_hist": 0.021934996131511716,
       "best_a11_hist": 2,
-      "today_observed_nums": 0,
-      "source_pairs_today": 1,
-      "source_rows_hist_used": 531,
-      "top12_overlap_prev": 3,
-      "top_intraday": []
+      "today_observed_nums": 6,
+      "source_pairs_today": 2,
+      "source_rows_hist_used": 1068,
+      "top12_overlap_prev": 5,
+      "top_intraday": [
+        [
+          "81",
+          1
+        ],
+        [
+          "14",
+          1
+        ],
+        [
+          "42",
+          1
+        ],
+        [
+          "19",
+          1
+        ],
+        [
+          "01",
+          1
+        ]
+      ]
     }
   }
 }
