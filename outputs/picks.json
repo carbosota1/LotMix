@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-07-29T16:14:44.653189-04:00",
-  "event_key": "2026-07-29|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-07-29T18:19:53.504632-04:00",
+  "event_key": "2026-07-29|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-07-29 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-07-29 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-07-29 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-07-29 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "59",
-      "53",
-      "23",
-      "33",
-      "45",
-      "35",
-      "64",
+      "90",
+      "42",
+      "48",
       "00",
-      "51",
-      "92",
-      "56",
-      "67"
+      "11",
+      "86",
+      "24",
+      "50",
+      "65",
+      "97",
+      "26",
+      "92"
     ],
     "topq": [
-      "59",
-      "53",
-      "23"
+      "90",
+      "42",
+      "48"
     ],
     "pales": [
-      "53-59",
-      "23-59",
-      "33-59"
+      "42-90",
+      "48-90",
+      "00-90"
     ],
-    "fingerprint": "894a7d22e4030abb",
+    "fingerprint": "05a40591ab2feff4",
     "ok_alert": false,
-    "decision": "⚠️ JUGAR",
-    "best_signal": 0.04339169677133447,
-    "best_a11": 4,
+    "decision": "❌ NO JUGAR",
+    "best_signal": 0.030305653736506018,
+    "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.04339169677133447,
-      "best_a11_hist": 4,
-      "today_observed_nums": 13,
-      "source_pairs_today": 5,
+      "best_signal_hist": 0.030305653736506018,
+      "best_a11_hist": 2,
+      "today_observed_nums": 19,
+      "source_pairs_today": 7,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 1,
+      "top12_overlap_prev": 2,
       "top_intraday": [
         [
           "62",
