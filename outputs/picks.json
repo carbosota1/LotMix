@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-07-30T12:44:07.356788-04:00",
-  "event_key": "2026-07-30|La Suerte|Quiniela La Suerte",
+  "generated_at": "2026-07-30T13:19:18.367241-04:00",
+  "event_key": "2026-07-30|Anguilla|Anguila 1PM",
   "target": {
-    "time_rd": "2026-07-30 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM"
+    "time_rd": "2026-07-30 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más"
   },
   "best_play": {
-    "time_rd": "2026-07-30 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM",
+    "time_rd": "2026-07-30 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más",
     "top12": [
-      "43",
-      "37",
-      "84",
-      "96",
-      "52",
-      "01",
-      "62",
+      "19",
+      "13",
+      "00",
       "81",
-      "67",
-      "53",
-      "33",
-      "08"
+      "40",
+      "20",
+      "41",
+      "89",
+      "64",
+      "94",
+      "42",
+      "37"
     ],
     "topq": [
-      "43",
-      "37",
-      "84"
+      "19",
+      "13",
+      "00"
     ],
     "pales": [
-      "37-43",
-      "43-84",
-      "43-96"
+      "13-19",
+      "00-19",
+      "19-81"
     ],
-    "fingerprint": "2aa80e9c9d6068e0",
+    "fingerprint": "87bc5b0ab339383c",
     "ok_alert": false,
-    "decision": "⚠️ JUGAR",
-    "best_signal": 0.018220747859134166,
-    "best_a11": 4,
+    "decision": "❌ NO JUGAR",
+    "best_signal": 0.00150126904495436,
+    "best_a11": 6,
     "debug": {
-      "best_signal_hist": 0.018220747859134166,
-      "best_a11_hist": 4,
-      "today_observed_nums": 9,
-      "source_pairs_today": 3,
-      "source_rows_hist_used": 1602,
-      "top12_overlap_prev": 1,
+      "best_signal_hist": 0.00150126904495436,
+      "best_a11_hist": 6,
+      "today_observed_nums": 12,
+      "source_pairs_today": 4,
+      "source_rows_hist_used": 1578,
+      "top12_overlap_prev": 2,
       "top_intraday": [
         [
           "87",
@@ -60,11 +60,11 @@
           1
         ],
         [
-          "13",
+          "70",
           1
         ],
         [
-          "35",
+          "81",
           1
         ]
       ]
