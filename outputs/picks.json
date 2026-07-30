@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-07-30T18:19:46.959113-04:00",
-  "event_key": "2026-07-30|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-07-30T19:20:40.424135-04:00",
+  "event_key": "2026-07-30|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-07-30 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-07-30 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche"
   },
   "best_play": {
-    "time_rd": "2026-07-30 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-07-30 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche",
     "top12": [
-      "90",
-      "00",
-      "11",
-      "45",
-      "86",
-      "24",
+      "56",
       "50",
+      "37",
+      "76",
+      "89",
+      "47",
+      "33",
       "65",
-      "97",
-      "26",
-      "42",
-      "92"
+      "59",
+      "84",
+      "39",
+      "51"
     ],
     "topq": [
-      "90",
-      "00",
-      "11"
+      "56",
+      "50",
+      "37"
     ],
     "pales": [
-      "00-90",
-      "11-90",
-      "45-90"
+      "50-56",
+      "37-56",
+      "56-76"
     ],
-    "fingerprint": "f8b24083ccd48bd8",
+    "fingerprint": "231e2852e26349d0",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.030305653736506018,
-    "best_a11": 2,
+    "best_signal": 0.028091949724126767,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.030305653736506018,
-      "best_a11_hist": 2,
-      "today_observed_nums": 17,
-      "source_pairs_today": 7,
+      "best_signal_hist": 0.028091949724126767,
+      "best_a11_hist": 3,
+      "today_observed_nums": 19,
+      "source_pairs_today": 8,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 3,
+      "top12_overlap_prev": 2,
       "top_intraday": [
         [
           "87",
@@ -64,8 +64,8 @@
           2
         ],
         [
-          "34",
-          1
+          "74",
+          2
         ]
       ]
     }
