@@ -3173,21 +3173,22 @@
     "2026-07-31 13:00|Anguilla|Anguila 1PM": "d64c33afe8b31e3d",
     "2026-07-31 14:30|La Nacional|Loteria Nacional- Gana Más": "50c5b80dadae59b8",
     "2026-07-31 18:00|Anguilla|Anguila 6PM": "8ee4fd61be009bf4",
-    "2026-07-31 18:00|La Suerte|Quiniela La Suerte 6PM": "1ac926321560984c"
+    "2026-07-31 18:00|La Suerte|Quiniela La Suerte 6PM": "1ac926321560984c",
+    "2026-08-01 12:00|La Primera|Quiniela La Primera": "ebcf79e5ff0242a0"
   },
   "last_wait_key": "",
   "last_top12": [
-    "33",
-    "07",
-    "59",
+    "38",
+    "09",
+    "14",
+    "24",
+    "03",
+    "29",
+    "90",
+    "12",
+    "58",
+    "76",
     "23",
-    "00",
-    "56",
-    "88",
-    "35",
-    "53",
-    "51",
-    "92",
-    "67"
+    "59"
   ]
 }
