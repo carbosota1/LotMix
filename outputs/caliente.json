@@ -1,31 +1,30 @@
 {
-  "generado_en": "2026-08-01T10:34:47.375181",
+  "generado_en": "2026-08-01T13:26:45.395780",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
   "total_loterias": 1,
   "picks_procesados": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Quiniela La Primera": {
+    "Loteria Nacional- Gana Más": {
       "numeros": [
-        "14",
-        "03",
-        "09",
-        "38",
-        "24",
-        "29"
+        "37",
+        "42",
+        "25",
+        "40",
+        "98"
       ],
-      "signal": 0.017313,
-      "cuartil_senal": "muy_alta",
+      "signal": 0.001931,
+      "cuartil_senal": "media",
       "decision": "❌ NO JUGAR",
-      "a11_grupo": "bajo",
+      "a11_grupo": "alto",
       "ok_alert": false,
-      "hit_rate_historico": 12.6,
-      "hot_source": "contextual (muy_alta|bajo, n=44, hit=6.8%)",
-      "draw": "Quiniela La Primera",
-      "lottery": "La Primera",
-      "perfil_fuente": "auto-calibrado (143 sorteos, 5 contextos)",
-      "n_numeros": 6
+      "hit_rate_historico": 12.0,
+      "hot_source": "contextual (media|alto, n=18, hit=11.1%)",
+      "draw": "Loteria Nacional- Gana Más",
+      "lottery": "La Nacional",
+      "perfil_fuente": "auto-calibrado (167 sorteos, 6 contextos)",
+      "n_numeros": 5
     }
   }
 }
