@@ -1,74 +1,31 @@
 {
-  "generado_en": "2026-08-02T16:15:35.124228",
+  "generado_en": "2026-08-02T18:20:18.215538",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
-  "total_loterias": 3,
-  "picks_procesados": 3,
+  "total_loterias": 1,
+  "picks_procesados": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Anguila 6PM": {
+    "Quiniela La Primera Noche": {
       "numeros": [
-        "66",
-        "86",
+        "16",
         "11",
-        "98",
-        "93",
-        "47",
-        "28"
-      ],
-      "signal": 0.054539,
-      "cuartil_senal": "muy_alta",
-      "decision": "❌ NO JUGAR",
-      "a11_grupo": "medio",
-      "ok_alert": false,
-      "hit_rate_historico": 11.3,
-      "hot_source": "contextual (muy_alta|medio, n=40, hit=10.0%)",
-      "draw": "Anguila 6PM",
-      "lottery": "Anguilla",
-      "perfil_fuente": "auto-calibrado (159 sorteos, 5 contextos)",
-      "n_numeros": 7
-    },
-    "Loteria Nacional- Noche": {
-      "numeros": [
         "97",
-        "85",
-        "91",
-        "75",
-        "50",
-        "83"
+        "78",
+        "00",
+        "24",
+        "50"
       ],
-      "signal": 0.016558,
-      "cuartil_senal": "media",
-      "decision": "❌ NO JUGAR",
-      "a11_grupo": "medio",
-      "ok_alert": false,
-      "hit_rate_historico": 11.0,
-      "hot_source": "contextual (media|medio, n=37, hit=8.1%)",
-      "draw": "Loteria Nacional- Noche",
-      "lottery": "La Nacional",
-      "perfil_fuente": "auto-calibrado (164 sorteos, 5 contextos)",
-      "n_numeros": 6
-    },
-    "Quiniela La Suerte 6PM": {
-      "numeros": [
-        "53",
-        "59",
-        "67",
-        "07",
-        "92",
-        "23",
-        "56"
-      ],
-      "signal": 0.044309,
+      "signal": 0.032881,
       "cuartil_senal": "muy_alta",
       "decision": "❌ NO JUGAR",
-      "a11_grupo": "medio",
+      "a11_grupo": "bajo",
       "ok_alert": false,
-      "hit_rate_historico": 10.8,
-      "hot_source": "contextual (muy_alta|medio, n=41, hit=14.6%)",
-      "draw": "Quiniela La Suerte 6PM",
-      "lottery": "La Suerte",
-      "perfil_fuente": "auto-calibrado (157 sorteos, 4 contextos)",
+      "hit_rate_historico": 11.1,
+      "hot_source": "general",
+      "draw": "Quiniela La Primera Noche",
+      "lottery": "La Primera",
+      "perfil_fuente": "auto-calibrado (144 sorteos, 5 contextos)",
       "n_numeros": 7
     }
   }
