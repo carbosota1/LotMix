@@ -1,52 +1,56 @@
 {
-  "generated_at": "2026-08-02T18:20:17.369138-04:00",
-  "event_key": "2026-08-02|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-08-02T19:20:16.706946-04:00",
+  "event_key": "2026-08-02|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-08-02 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-08-02 21:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 9PM"
   },
   "best_play": {
-    "time_rd": "2026-08-02 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-08-02 21:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 9PM",
     "top12": [
-      "78",
-      "16",
-      "50",
-      "68",
+      "34",
+      "59",
+      "21",
+      "02",
+      "12",
+      "43",
+      "48",
+      "19",
+      "06",
+      "84",
       "95",
-      "11",
-      "86",
-      "24",
-      "97",
-      "26",
-      "00",
-      "92"
+      "94"
     ],
     "topq": [
-      "78",
-      "16",
-      "50"
+      "34",
+      "59",
+      "21"
     ],
     "pales": [
-      "16-78",
-      "50-78",
-      "68-78"
+      "34-59",
+      "21-34",
+      "02-34"
     ],
-    "fingerprint": "546efdac65d83edb",
+    "fingerprint": "fd244ae368a8d352",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.03288135611972645,
-    "best_a11": 2,
+    "best_signal": 0.050910630866429496,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.03288135611972645,
-      "best_a11_hist": 2,
-      "today_observed_nums": 21,
-      "source_pairs_today": 8,
+      "best_signal_hist": 0.050910630866429496,
+      "best_a11_hist": 3,
+      "today_observed_nums": 23,
+      "source_pairs_today": 9,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 2,
+      "top12_overlap_prev": 1,
       "top_intraday": [
+        [
+          "59",
+          2
+        ],
         [
           "02",
           2
@@ -61,10 +65,6 @@
         ],
         [
           "78",
-          1
-        ],
-        [
-          "57",
           1
         ]
       ]
