@@ -1,30 +1,51 @@
 {
-  "generado_en": "2026-08-06T18:20:45.115114",
+  "generado_en": "2026-08-06T19:21:22.752737",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
-  "total_loterias": 1,
-  "picks_procesados": 1,
+  "total_loterias": 2,
+  "picks_procesados": 2,
   "picks_omitidos": 0,
   "loterias": {
-    "Quiniela La Primera Noche": {
+    "Anguila 9PM": {
       "numeros": [
-        "65",
-        "86",
-        "26",
-        "95",
+        "63",
         "59",
-        "90"
+        "94",
+        "26",
+        "12",
+        "48"
       ],
-      "signal": 0.029426,
-      "cuartil_senal": "alta",
+      "signal": 0.017617,
+      "cuartil_senal": "media",
       "decision": "❌ NO JUGAR",
       "a11_grupo": "bajo",
       "ok_alert": false,
-      "hit_rate_historico": 10.9,
+      "hit_rate_historico": 13.9,
       "hot_source": "general",
-      "draw": "Quiniela La Primera Noche",
-      "lottery": "La Primera",
-      "perfil_fuente": "auto-calibrado (147 sorteos, 6 contextos)",
+      "draw": "Anguila 9PM",
+      "lottery": "Anguilla",
+      "perfil_fuente": "auto-calibrado (166 sorteos, 5 contextos)",
+      "n_numeros": 6
+    },
+    "Loteria Nacional- Noche": {
+      "numeros": [
+        "87",
+        "47",
+        "84",
+        "91",
+        "56",
+        "54"
+      ],
+      "signal": 0.029022,
+      "cuartil_senal": "alta",
+      "decision": "❌ NO JUGAR",
+      "a11_grupo": "medio",
+      "ok_alert": false,
+      "hit_rate_historico": 10.7,
+      "hot_source": "contextual (alta|medio, n=41, hit=12.2%)",
+      "draw": "Loteria Nacional- Noche",
+      "lottery": "La Nacional",
+      "perfil_fuente": "auto-calibrado (168 sorteos, 5 contextos)",
       "n_numeros": 6
     }
   }

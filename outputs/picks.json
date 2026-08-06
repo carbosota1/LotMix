@@ -1,63 +1,63 @@
 {
-  "generated_at": "2026-08-06T18:20:44.195182-04:00",
-  "event_key": "2026-08-06|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-08-06T19:21:21.804751-04:00",
+  "event_key": "2026-08-06|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-08-06 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-08-06 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche"
   },
   "best_play": {
-    "time_rd": "2026-08-06 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-08-06 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche",
     "top12": [
-      "95",
-      "65",
-      "90",
-      "68",
-      "11",
-      "86",
+      "56",
+      "54",
+      "87",
+      "37",
+      "91",
+      "39",
+      "76",
+      "89",
+      "33",
+      "84",
       "50",
-      "97",
-      "26",
-      "00",
-      "59",
-      "92"
+      "47"
     ],
     "topq": [
-      "95",
-      "65",
-      "90"
+      "56",
+      "54",
+      "87"
     ],
     "pales": [
-      "65-95",
-      "90-95",
-      "68-95"
+      "54-56",
+      "56-87",
+      "37-56"
     ],
-    "fingerprint": "add371b260751f1e",
+    "fingerprint": "e15d7dcfac3dbed5",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.02942622972175507,
-    "best_a11": 2,
+    "best_signal": 0.029022166434593804,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.02942622972175507,
-      "best_a11_hist": 2,
-      "today_observed_nums": 18,
-      "source_pairs_today": 7,
+      "best_signal_hist": 0.029022166434593804,
+      "best_a11_hist": 3,
+      "today_observed_nums": 20,
+      "source_pairs_today": 8,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 3,
+      "top12_overlap_prev": 1,
       "top_intraday": [
         [
           "53",
           3
         ],
         [
-          "32",
+          "65",
           2
         ],
         [
-          "65",
-          1
+          "32",
+          2
         ],
         [
           "56",
