@@ -1,62 +1,62 @@
 {
-  "generated_at": "2026-08-06T12:19:37.828560-04:00",
-  "event_key": "2026-08-06|La Primera|Quiniela La Primera",
+  "generated_at": "2026-08-06T12:44:30.292588-04:00",
+  "event_key": "2026-08-06|La Suerte|Quiniela La Suerte",
   "target": {
-    "time_rd": "2026-08-06 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte"
+    "time_rd": "2026-08-06 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM"
   },
   "best_play": {
-    "time_rd": "2026-08-06 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte",
+    "time_rd": "2026-08-06 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM",
     "top12": [
-      "61",
-      "57",
-      "18",
-      "08",
-      "06",
-      "48",
-      "51",
-      "38",
-      "29",
-      "58",
-      "76",
-      "03"
+      "53",
+      "43",
+      "37",
+      "84",
+      "01",
+      "62",
+      "81",
+      "64",
+      "21",
+      "67",
+      "33",
+      "08"
     ],
     "topq": [
-      "61",
-      "57",
-      "18"
+      "53",
+      "43",
+      "37"
     ],
     "pales": [
-      "57-61",
-      "18-61",
-      "08-61"
+      "43-53",
+      "37-53",
+      "53-84"
     ],
-    "fingerprint": "e97cff5fd4d91e74",
+    "fingerprint": "dec2be4d4cf79ebe",
     "ok_alert": false,
-    "decision": "❌ NO JUGAR",
-    "best_signal": 0.017356012970325806,
-    "best_a11": 2,
+    "decision": "⚠️ JUGAR",
+    "best_signal": 0.020397821024089272,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.017356012970325806,
-      "best_a11_hist": 2,
-      "today_observed_nums": 6,
-      "source_pairs_today": 2,
-      "source_rows_hist_used": 1068,
-      "top12_overlap_prev": 5,
+      "best_signal_hist": 0.020397821024089272,
+      "best_a11_hist": 4,
+      "today_observed_nums": 7,
+      "source_pairs_today": 3,
+      "source_rows_hist_used": 1602,
+      "top12_overlap_prev": 1,
       "top_intraday": [
+        [
+          "53",
+          3
+        ],
         [
           "65",
           1
         ],
         [
           "56",
-          1
-        ],
-        [
-          "53",
           1
         ],
         [
