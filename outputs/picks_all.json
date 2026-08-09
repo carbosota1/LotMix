@@ -1,204 +1,66 @@
 {
-  "generated_at": "2026-08-09T16:16:34.641226-04:00",
-  "event_key": "2026-08-09|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-08-09T18:21:53.890260-04:00",
+  "event_key": "2026-08-09|La Suerte|Quiniela La Suerte 6PM",
   "items": [
     {
-      "generated_at": "2026-08-09T16:15:21.710302-04:00",
-      "event_key": "2026-08-09|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-08-09T18:21:52.974746-04:00",
+      "event_key": "2026-08-09|La Suerte|Quiniela La Suerte 6PM",
       "target": {
-        "time_rd": "2026-08-09 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM"
+        "time_rd": "2026-08-09 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche"
       },
       "best_play": {
-        "time_rd": "2026-08-09 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM",
+        "time_rd": "2026-08-09 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche",
         "top12": [
-          "93",
-          "39",
-          "28",
-          "43",
-          "86",
-          "91",
-          "10",
-          "98",
-          "11",
-          "56",
-          "46",
-          "42"
-        ],
-        "topq": [
-          "93",
-          "39",
-          "28"
-        ],
-        "pales": [
-          "39-93",
-          "28-93",
-          "43-93"
-        ],
-        "fingerprint": "e3dc7cd4c3c8f608",
-        "ok_alert": false,
-        "decision": "❌ NO JUGAR",
-        "best_signal": 0.05453866861664853,
-        "best_a11": 4,
-        "debug": {
-          "best_signal_hist": 0.05453866861664853,
-          "best_a11_hist": 4,
-          "today_observed_nums": 14,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2400,
-          "top12_overlap_prev": 1,
-          "top_intraday": [
-            [
-              "03",
-              2
-            ],
-            [
-              "34",
-              1
-            ],
-            [
-              "57",
-              1
-            ],
-            [
-              "80",
-              1
-            ],
-            [
-              "97",
-              1
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "generated_at": "2026-08-09T16:15:57.669064-04:00",
-      "event_key": "2026-08-09|La Nacional|Loteria Nacional- Gana Más",
-      "target": {
-        "time_rd": "2026-08-09 18:00",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Noche"
-      },
-      "best_play": {
-        "time_rd": "2026-08-09 18:00",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Noche",
-        "top12": [
-          "85",
-          "40",
           "97",
-          "37",
-          "84",
-          "50",
-          "71",
+          "24",
+          "72",
           "78",
-          "61",
-          "47",
-          "59",
-          "91"
-        ],
-        "topq": [
-          "85",
-          "40",
-          "97"
-        ],
-        "pales": [
-          "40-85",
-          "85-97",
-          "37-85"
-        ],
-        "fingerprint": "da9a4fd215191db8",
-        "ok_alert": false,
-        "decision": "❌ NO JUGAR",
-        "best_signal": 0.016558040522295186,
-        "best_a11": 4,
-        "debug": {
-          "best_signal_hist": 0.016558040522295186,
-          "best_a11_hist": 4,
-          "today_observed_nums": 14,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2400,
-          "top12_overlap_prev": 1,
-          "top_intraday": [
-            [
-              "03",
-              2
-            ],
-            [
-              "34",
-              1
-            ],
-            [
-              "57",
-              1
-            ],
-            [
-              "80",
-              1
-            ],
-            [
-              "97",
-              1
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "generated_at": "2026-08-09T16:16:33.829918-04:00",
-      "event_key": "2026-08-09|La Nacional|Loteria Nacional- Gana Más",
-      "target": {
-        "time_rd": "2026-08-09 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM"
-      },
-      "best_play": {
-        "time_rd": "2026-08-09 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM",
-        "top12": [
-          "23",
-          "07",
-          "59",
-          "35",
+          "10",
+          "68",
+          "95",
+          "86",
+          "26",
           "00",
-          "53",
-          "92",
-          "42",
-          "64",
-          "51",
-          "67",
-          "33"
+          "59",
+          "92"
         ],
         "topq": [
-          "23",
-          "07",
-          "59"
+          "97",
+          "24",
+          "72"
         ],
         "pales": [
-          "07-23",
-          "23-59",
-          "23-35"
+          "24-97",
+          "72-97",
+          "78-97"
         ],
-        "fingerprint": "fa63d377fe068c8a",
+        "fingerprint": "6bb4c1ea57140d39",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.044308585030060924,
-        "best_a11": 4,
+        "best_signal": 0.03288135611972645,
+        "best_a11": 2,
         "debug": {
-          "best_signal_hist": 0.044308585030060924,
-          "best_a11_hist": 4,
-          "today_observed_nums": 14,
-          "source_pairs_today": 5,
+          "best_signal_hist": 0.03288135611972645,
+          "best_a11_hist": 2,
+          "today_observed_nums": 21,
+          "source_pairs_today": 8,
           "source_rows_hist_used": 2400,
-          "top12_overlap_prev": 1,
+          "top12_overlap_prev": 3,
           "top_intraday": [
             [
+              "57",
+              2
+            ],
+            [
               "03",
+              2
+            ],
+            [
+              "37",
               2
             ],
             [
@@ -206,15 +68,7 @@
               1
             ],
             [
-              "57",
-              1
-            ],
-            [
               "80",
-              1
-            ],
-            [
-              "97",
               1
             ]
           ]
