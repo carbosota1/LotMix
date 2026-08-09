@@ -1,31 +1,32 @@
 {
-  "generado_en": "2026-08-09T18:21:54.055587",
+  "generado_en": "2026-08-09T19:21:36.441135",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
   "total_loterias": 1,
   "picks_procesados": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Quiniela La Primera Noche": {
+    "Anguila 9PM": {
       "numeros": [
-        "97",
-        "24",
-        "72",
-        "78",
         "10",
-        "68"
+        "84",
+        "06",
+        "94",
+        "43",
+        "15",
+        "34"
       ],
-      "signal": 0.032881,
+      "signal": 0.054694,
       "cuartil_senal": "muy_alta",
       "decision": "❌ NO JUGAR",
-      "a11_grupo": "bajo",
+      "a11_grupo": "medio",
       "ok_alert": false,
-      "hit_rate_historico": 10.7,
-      "hot_source": "contextual (muy_alta|bajo, n=11, hit=9.1%)",
-      "draw": "Quiniela La Primera Noche",
-      "lottery": "La Primera",
-      "perfil_fuente": "auto-calibrado (149 sorteos, 6 contextos)",
-      "n_numeros": 6
+      "hit_rate_historico": 13.7,
+      "hot_source": "contextual (muy_alta|medio, n=39, hit=15.4%)",
+      "draw": "Anguila 9PM",
+      "lottery": "Anguilla",
+      "perfil_fuente": "auto-calibrado (168 sorteos, 5 contextos)",
+      "n_numeros": 7
     }
   }
 }
