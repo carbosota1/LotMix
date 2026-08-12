@@ -1,31 +1,30 @@
 {
-  "generado_en": "2026-08-12T10:34:19.855976",
+  "generado_en": "2026-08-12T12:19:25.695101",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
   "total_loterias": 1,
   "picks_procesados": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Quiniela La Primera": {
+    "Quiniela La Suerte": {
       "numeros": [
-        "59",
-        "09",
-        "03",
-        "29",
-        "38",
-        "90"
+        "76",
+        "08",
+        "18",
+        "61",
+        "38"
       ],
-      "signal": 0.015687,
-      "cuartil_senal": "media",
+      "signal": 0.01634,
+      "cuartil_senal": "baja",
       "decision": "❌ NO JUGAR",
       "a11_grupo": "bajo",
       "ok_alert": false,
-      "hit_rate_historico": 13.6,
-      "hot_source": "contextual (media|bajo, n=37, hit=16.2%)",
-      "draw": "Quiniela La Primera",
-      "lottery": "La Primera",
-      "perfil_fuente": "auto-calibrado (154 sorteos, 5 contextos)",
-      "n_numeros": 6
+      "hit_rate_historico": 10.7,
+      "hot_source": "general",
+      "draw": "Quiniela La Suerte",
+      "lottery": "La Suerte",
+      "perfil_fuente": "auto-calibrado (131 sorteos, 6 contextos)",
+      "n_numeros": 5
     }
   }
 }
