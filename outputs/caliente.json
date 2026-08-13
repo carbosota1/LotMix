@@ -1,31 +1,54 @@
 {
-  "generado_en": "2026-08-13T13:19:46.892387",
+  "generado_en": "2026-08-13T16:15:19.323407",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
-  "total_loterias": 1,
-  "picks_procesados": 1,
+  "total_loterias": 2,
+  "picks_procesados": 2,
   "picks_omitidos": 0,
   "loterias": {
-    "Loteria Nacional- Gana Más": {
+    "Anguila 6PM": {
       "numeros": [
-        "04",
-        "77",
-        "57",
-        "91",
-        "19",
-        "71",
-        "07"
+        "10",
+        "46",
+        "56",
+        "66",
+        "86",
+        "28",
+        "93",
+        "39"
       ],
-      "signal": 0.019085,
+      "signal": 0.053173,
       "cuartil_senal": "muy_alta",
-      "decision": "❌ NO JUGAR",
+      "decision": "⚠️ JUGAR",
       "a11_grupo": "medio",
       "ok_alert": false,
-      "hit_rate_historico": 11.2,
-      "hot_source": "contextual (muy_alta|medio, n=47, hit=10.6%)",
-      "draw": "Loteria Nacional- Gana Más",
-      "lottery": "La Nacional",
-      "perfil_fuente": "auto-calibrado (179 sorteos, 6 contextos)",
+      "hit_rate_historico": 11.9,
+      "hot_source": "contextual (muy_alta|medio, n=43, hit=14.0%)",
+      "draw": "Anguila 6PM",
+      "lottery": "Anguilla",
+      "perfil_fuente": "auto-calibrado (168 sorteos, 5 contextos)",
+      "n_numeros": 8
+    },
+    "Quiniela La Suerte 6PM": {
+      "numeros": [
+        "64",
+        "00",
+        "35",
+        "53",
+        "39",
+        "59",
+        "23"
+      ],
+      "signal": 0.04526,
+      "cuartil_senal": "muy_alta",
+      "decision": "⚠️ JUGAR",
+      "a11_grupo": "medio",
+      "ok_alert": false,
+      "hit_rate_historico": 10.2,
+      "hot_source": "contextual (muy_alta|medio, n=42, hit=14.3%)",
+      "draw": "Quiniela La Suerte 6PM",
+      "lottery": "La Suerte",
+      "perfil_fuente": "auto-calibrado (166 sorteos, 4 contextos)",
       "n_numeros": 7
     }
   }
