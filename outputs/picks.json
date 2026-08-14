@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-08-14T11:15:54.638372-04:00",
-  "event_key": "2026-08-14|Anguilla|Anguila 10AM",
+  "generated_at": "2026-08-14T12:18:42.392682-04:00",
+  "event_key": "2026-08-14|La Primera|Quiniela La Primera",
   "target": {
-    "time_rd": "2026-08-14 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera"
+    "time_rd": "2026-08-14 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte"
   },
   "best_play": {
-    "time_rd": "2026-08-14 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera",
+    "time_rd": "2026-08-14 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte",
     "top12": [
+      "61",
+      "18",
+      "57",
+      "08",
+      "06",
+      "48",
+      "51",
       "38",
-      "09",
-      "90",
-      "14",
-      "99",
-      "03",
-      "29",
       "58",
-      "12",
+      "29",
       "76",
-      "59",
-      "64"
+      "03"
     ],
     "topq": [
-      "38",
-      "09",
-      "90"
+      "61",
+      "18",
+      "57"
     ],
     "pales": [
-      "09-38",
-      "38-90",
-      "14-38"
+      "18-61",
+      "57-61",
+      "08-61"
     ],
-    "fingerprint": "c5338e3b272a5191",
+    "fingerprint": "54957bf4a80545d1",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01443454186792618,
+    "best_signal": 0.015417619551002737,
     "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.01443454186792618,
+      "best_signal_hist": 0.015417619551002737,
       "best_a11_hist": 2,
-      "today_observed_nums": 3,
-      "source_pairs_today": 1,
-      "source_rows_hist_used": 534,
-      "top12_overlap_prev": 1,
+      "today_observed_nums": 6,
+      "source_pairs_today": 2,
+      "source_rows_hist_used": 1068,
+      "top12_overlap_prev": 5,
       "top_intraday": [
         [
           "22",
@@ -57,6 +57,14 @@
         ],
         [
           "52",
+          1
+        ],
+        [
+          "32",
+          1
+        ],
+        [
+          "00",
           1
         ]
       ]
