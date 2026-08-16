@@ -1,52 +1,60 @@
 {
-  "generated_at": "2026-08-16T16:15:00.308305-04:00",
-  "event_key": "2026-08-16|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-08-16T18:19:58.524992-04:00",
+  "event_key": "2026-08-16|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-08-16 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-08-16 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-08-16 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-08-16 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "35",
-      "23",
-      "67",
-      "07",
-      "59",
-      "53",
-      "00",
-      "39",
-      "42",
-      "51",
-      "64",
-      "33"
+      "86",
+      "22",
+      "10",
+      "72",
+      "37",
+      "97",
+      "26",
+      "16",
+      "12",
+      "50",
+      "92",
+      "00"
     ],
     "topq": [
-      "35",
-      "23",
-      "67"
+      "86",
+      "22",
+      "10"
     ],
     "pales": [
-      "23-35",
-      "35-67",
-      "07-35"
+      "22-86",
+      "10-86",
+      "72-86"
     ],
-    "fingerprint": "0a8498478bbe9599",
+    "fingerprint": "282644ebc12530e4",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.046249002715905735,
-    "best_a11": 4,
+    "best_signal": 0.02981873843071958,
+    "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.046249002715905735,
-      "best_a11_hist": 4,
-      "today_observed_nums": 15,
-      "source_pairs_today": 5,
+      "best_signal_hist": 0.02981873843071958,
+      "best_a11_hist": 2,
+      "today_observed_nums": 19,
+      "source_pairs_today": 8,
       "source_rows_hist_used": 2400,
       "top12_overlap_prev": 1,
       "top_intraday": [
+        [
+          "86",
+          2
+        ],
+        [
+          "28",
+          2
+        ],
         [
           "96",
           1
@@ -56,15 +64,7 @@
           1
         ],
         [
-          "86",
-          1
-        ],
-        [
           "58",
-          1
-        ],
-        [
-          "30",
           1
         ]
       ]
