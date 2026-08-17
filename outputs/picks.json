@@ -1,52 +1,73 @@
 {
-  "generated_at": "2026-08-17T10:33:43.743398-04:00",
-  "event_key": "2026-08-17|TEST|NO-UPDATE",
+  "generated_at": "2026-08-17T12:18:28.465982-04:00",
+  "event_key": "2026-08-17|La Primera|Quiniela La Primera",
   "target": {
-    "time_rd": "2026-08-17 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera"
+    "time_rd": "2026-08-17 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte"
   },
   "best_play": {
-    "time_rd": "2026-08-17 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera",
+    "time_rd": "2026-08-17 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte",
     "top12": [
+      "51",
+      "61",
+      "18",
+      "57",
+      "48",
+      "08",
+      "06",
       "38",
-      "90",
-      "14",
-      "99",
-      "03",
-      "29",
       "58",
       "76",
-      "64",
-      "09",
-      "12",
-      "59"
+      "29",
+      "03"
     ],
     "topq": [
-      "38",
-      "90",
-      "14"
+      "51",
+      "61",
+      "18"
     ],
     "pales": [
-      "38-90",
-      "14-38",
-      "38-99"
+      "51-61",
+      "18-51",
+      "51-57"
     ],
-    "fingerprint": "14b456f603e7e74a",
+    "fingerprint": "3adb7abbf9b8d567",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01443454186792618,
+    "best_signal": 0.015417619551002737,
     "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.01443454186792618,
+      "best_signal_hist": 0.015417619551002737,
       "best_a11_hist": 2,
-      "today_observed_nums": 0,
-      "source_pairs_today": 1,
-      "source_rows_hist_used": 531,
-      "top12_overlap_prev": 3,
-      "top_intraday": []
+      "today_observed_nums": 6,
+      "source_pairs_today": 2,
+      "source_rows_hist_used": 1068,
+      "top12_overlap_prev": 5,
+      "top_intraday": [
+        [
+          "86",
+          1
+        ],
+        [
+          "51",
+          1
+        ],
+        [
+          "42",
+          1
+        ],
+        [
+          "80",
+          1
+        ],
+        [
+          "02",
+          1
+        ]
+      ]
     }
   }
 }
