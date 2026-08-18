@@ -1,56 +1,31 @@
 {
-  "generado_en": "2026-08-18T16:14:38.012961",
+  "generado_en": "2026-08-18T18:19:41.734976",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
-  "total_loterias": 2,
-  "picks_procesados": 2,
+  "total_loterias": 1,
+  "picks_procesados": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Anguila 6PM": {
+    "Quiniela La Primera Noche": {
       "numeros": [
-        "51",
-        "66",
-        "56",
-        "98",
-        "39",
-        "91",
-        "93",
-        "28"
+        "79",
+        "10",
+        "74",
+        "11",
+        "00",
+        "16"
       ],
-      "signal": 0.053173,
+      "signal": 0.030306,
       "cuartil_senal": "muy_alta",
       "decision": "❌ NO JUGAR",
-      "a11_grupo": "medio",
+      "a11_grupo": "bajo",
       "ok_alert": false,
-      "hit_rate_historico": 12.7,
-      "hot_source": "contextual (muy_alta|medio, n=45, hit=17.8%)",
-      "draw": "Anguila 6PM",
-      "lottery": "Anguilla",
-      "perfil_fuente": "auto-calibrado (173 sorteos, 5 contextos)",
-      "n_numeros": 8
-    },
-    "Quiniela La Suerte 6PM": {
-      "numeros": [
-        "64",
-        "23",
-        "07",
-        "35",
-        "42",
-        "59",
-        "00"
-      ],
-      "signal": 0.047278,
-      "cuartil_senal": "muy_alta",
-      "decision": "❌ NO JUGAR",
-      "a11_grupo": "medio",
-      "ok_alert": false,
-      "hit_rate_historico": 9.9,
-      "hot_source": "contextual (muy_alta|medio, n=44, hit=13.6%)",
-      "draw": "Quiniela La Suerte 6PM",
-      "lottery": "La Suerte",
-      "perfil_fuente": "auto-calibrado (171 sorteos, 5 contextos)",
-      "n_numeros": 7,
-      "advertencia": "⚠️ Hit rate histórico bajo (9.9%) — precaución"
+      "hit_rate_historico": 10.8,
+      "hot_source": "contextual (muy_alta|bajo, n=18, hit=11.1%)",
+      "draw": "Quiniela La Primera Noche",
+      "lottery": "La Primera",
+      "perfil_fuente": "auto-calibrado (158 sorteos, 7 contextos)",
+      "n_numeros": 6
     }
   }
 }
