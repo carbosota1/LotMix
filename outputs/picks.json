@@ -1,49 +1,49 @@
 {
-  "generated_at": "2026-08-18T18:19:40.851013-04:00",
-  "event_key": "2026-08-18|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-08-18T19:20:23.068552-04:00",
+  "event_key": "2026-08-18|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-08-18 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-08-18 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche"
   },
   "best_play": {
-    "time_rd": "2026-08-18 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-08-18 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche",
     "top12": [
-      "79",
-      "74",
-      "11",
-      "00",
-      "16",
-      "68",
-      "95",
-      "86",
-      "10",
-      "97",
-      "92",
-      "26"
+      "17",
+      "28",
+      "42",
+      "56",
+      "91",
+      "64",
+      "63",
+      "47",
+      "89",
+      "37",
+      "50",
+      "84"
     ],
     "topq": [
-      "79",
-      "74",
-      "11"
+      "17",
+      "28",
+      "42"
     ],
     "pales": [
-      "74-79",
-      "11-79",
-      "00-79"
+      "17-28",
+      "17-42",
+      "17-56"
     ],
-    "fingerprint": "676db1be1c0b4492",
+    "fingerprint": "873378bc7e859fdb",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.030305653736506018,
-    "best_a11": 2,
+    "best_signal": 0.028091949724126767,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.030305653736506018,
-      "best_a11_hist": 2,
-      "today_observed_nums": 18,
-      "source_pairs_today": 7,
+      "best_signal_hist": 0.028091949724126767,
+      "best_a11_hist": 3,
+      "today_observed_nums": 20,
+      "source_pairs_today": 8,
       "source_rows_hist_used": 2400,
       "top12_overlap_prev": 1,
       "top_intraday": [
@@ -60,11 +60,11 @@
           2
         ],
         [
-          "52",
-          1
+          "57",
+          2
         ],
         [
-          "02",
+          "52",
           1
         ]
       ]
