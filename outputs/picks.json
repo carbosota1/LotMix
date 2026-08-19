@@ -1,50 +1,50 @@
 {
-  "generated_at": "2026-08-19T12:43:42.650636-04:00",
-  "event_key": "2026-08-19|La Suerte|Quiniela La Suerte",
+  "generated_at": "2026-08-19T13:19:01.646434-04:00",
+  "event_key": "2026-08-19|Anguilla|Anguila 1PM",
   "target": {
-    "time_rd": "2026-08-19 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM"
+    "time_rd": "2026-08-19 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más"
   },
   "best_play": {
-    "time_rd": "2026-08-19 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM",
+    "time_rd": "2026-08-19 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más",
     "top12": [
-      "43",
-      "37",
-      "84",
-      "01",
-      "62",
-      "81",
-      "21",
-      "67",
-      "64",
-      "52",
-      "33",
-      "08"
+      "85",
+      "87",
+      "25",
+      "77",
+      "65",
+      "19",
+      "57",
+      "91",
+      "50",
+      "71",
+      "07",
+      "21"
     ],
     "topq": [
-      "43",
-      "37",
-      "84"
+      "85",
+      "87",
+      "25"
     ],
     "pales": [
-      "37-43",
-      "43-84",
-      "01-43"
+      "85-87",
+      "25-85",
+      "77-85"
     ],
-    "fingerprint": "9df046686205276e",
+    "fingerprint": "32da8ecf576c5fcf",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.017813947162958758,
-    "best_a11": 4,
+    "best_signal": 0.023098006083551878,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.017813947162958758,
-      "best_a11_hist": 4,
-      "today_observed_nums": 8,
-      "source_pairs_today": 3,
-      "source_rows_hist_used": 1602,
+      "best_signal_hist": 0.023098006083551878,
+      "best_a11_hist": 3,
+      "today_observed_nums": 11,
+      "source_pairs_today": 4,
+      "source_rows_hist_used": 2136,
       "top12_overlap_prev": 1,
       "top_intraday": [
         [
@@ -64,7 +64,7 @@
           1
         ],
         [
-          "85",
+          "88",
           1
         ]
       ]
