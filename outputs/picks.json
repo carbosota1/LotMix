@@ -1,52 +1,73 @@
 {
-  "generated_at": "2026-08-20T10:56:12.091492-04:00",
-  "event_key": "2026-08-20|TEST|NO-UPDATE",
+  "generated_at": "2026-08-20T12:18:33.799641-04:00",
+  "event_key": "2026-08-20|La Primera|Quiniela La Primera",
   "target": {
-    "time_rd": "2026-08-20 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera"
+    "time_rd": "2026-08-20 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte"
   },
   "best_play": {
-    "time_rd": "2026-08-20 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera",
+    "time_rd": "2026-08-20 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte",
     "top12": [
-      "38",
-      "90",
-      "14",
-      "09",
-      "99",
-      "03",
-      "76",
+      "61",
       "29",
+      "18",
+      "57",
+      "48",
+      "10",
+      "08",
+      "56",
+      "76",
+      "38",
       "58",
-      "12",
-      "59",
-      "64"
+      "03"
     ],
     "topq": [
-      "38",
-      "90",
-      "14"
+      "61",
+      "29",
+      "18"
     ],
     "pales": [
-      "38-90",
-      "14-38",
-      "09-38"
+      "29-61",
+      "18-61",
+      "57-61"
     ],
-    "fingerprint": "342e6b335ef94835",
+    "fingerprint": "f253deadf587771d",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01443454186792618,
+    "best_signal": 0.015417619551002737,
     "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.01443454186792618,
+      "best_signal_hist": 0.015417619551002737,
       "best_a11_hist": 2,
-      "today_observed_nums": 0,
-      "source_pairs_today": 1,
-      "source_rows_hist_used": 531,
-      "top12_overlap_prev": 1,
-      "top_intraday": []
+      "today_observed_nums": 6,
+      "source_pairs_today": 2,
+      "source_rows_hist_used": 1068,
+      "top12_overlap_prev": 5,
+      "top_intraday": [
+        [
+          "39",
+          1
+        ],
+        [
+          "80",
+          1
+        ],
+        [
+          "36",
+          1
+        ],
+        [
+          "06",
+          1
+        ],
+        [
+          "88",
+          1
+        ]
+      ]
     }
   }
 }
