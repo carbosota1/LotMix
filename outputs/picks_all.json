@@ -1,128 +1,55 @@
 {
-  "generated_at": "2026-08-21T16:15:12.019781-04:00",
-  "event_key": "2026-08-21|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-08-21T18:20:27.568733-04:00",
+  "event_key": "2026-08-21|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-08-21T16:14:45.027775-04:00",
-      "event_key": "2026-08-21|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-08-21T18:20:26.824424-04:00",
+      "event_key": "2026-08-21|TEST|NO-UPDATE",
       "target": {
-        "time_rd": "2026-08-21 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM"
+        "time_rd": "2026-08-21 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche"
       },
       "best_play": {
-        "time_rd": "2026-08-21 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM",
+        "time_rd": "2026-08-21 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche",
         "top12": [
-          "93",
-          "46",
-          "39",
-          "28",
-          "20",
+          "74",
+          "11",
+          "16",
           "86",
-          "51",
-          "91",
-          "66",
-          "98",
-          "56",
-          "43"
+          "13",
+          "68",
+          "95",
+          "10",
+          "50",
+          "92",
+          "26",
+          "00"
         ],
         "topq": [
-          "93",
-          "46",
-          "39"
+          "74",
+          "11",
+          "16"
         ],
         "pales": [
-          "46-93",
-          "39-93",
-          "28-93"
+          "11-74",
+          "16-74",
+          "74-86"
         ],
-        "fingerprint": "bcc4a47136076e0c",
+        "fingerprint": "f3919b78f9da579c",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.053173137955281946,
-        "best_a11": 4,
+        "best_signal": 0.02942622972175507,
+        "best_a11": 2,
         "debug": {
-          "best_signal_hist": 0.053173137955281946,
-          "best_a11_hist": 4,
+          "best_signal_hist": 0.02942622972175507,
+          "best_a11_hist": 2,
           "today_observed_nums": 14,
-          "source_pairs_today": 5,
+          "source_pairs_today": 7,
           "source_rows_hist_used": 2400,
           "top12_overlap_prev": 1,
-          "top_intraday": [
-            [
-              "54",
-              2
-            ],
-            [
-              "11",
-              1
-            ],
-            [
-              "97",
-              1
-            ],
-            [
-              "91",
-              1
-            ],
-            [
-              "86",
-              1
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "generated_at": "2026-08-21T16:15:11.234343-04:00",
-      "event_key": "2026-08-21|La Nacional|Loteria Nacional- Gana Más",
-      "target": {
-        "time_rd": "2026-08-21 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM"
-      },
-      "best_play": {
-        "time_rd": "2026-08-21 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM",
-        "top12": [
-          "59",
-          "23",
-          "67",
-          "46",
-          "07",
-          "53",
-          "35",
-          "00",
-          "42",
-          "56",
-          "33",
-          "51"
-        ],
-        "topq": [
-          "59",
-          "23",
-          "67"
-        ],
-        "pales": [
-          "23-59",
-          "59-67",
-          "46-59"
-        ],
-        "fingerprint": "1ebfbfbb0ea70117",
-        "ok_alert": false,
-        "decision": "❌ NO JUGAR",
-        "best_signal": 0.04727839183542098,
-        "best_a11": 4,
-        "debug": {
-          "best_signal_hist": 0.04727839183542098,
-          "best_a11_hist": 4,
-          "today_observed_nums": 14,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2400,
-          "top12_overlap_prev": 3,
           "top_intraday": [
             [
               "54",
