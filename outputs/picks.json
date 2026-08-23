@@ -1,62 +1,62 @@
 {
-  "generated_at": "2026-08-23T12:19:17.211667-04:00",
-  "event_key": "2026-08-23|La Primera|Quiniela La Primera",
+  "generated_at": "2026-08-23T12:44:19.869977-04:00",
+  "event_key": "2026-08-23|La Suerte|Quiniela La Suerte",
   "target": {
-    "time_rd": "2026-08-23 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte"
+    "time_rd": "2026-08-23 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM"
   },
   "best_play": {
-    "time_rd": "2026-08-23 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte",
+    "time_rd": "2026-08-23 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM",
     "top12": [
+      "43",
+      "33",
+      "37",
+      "84",
+      "62",
+      "81",
+      "67",
+      "64",
       "08",
-      "61",
-      "58",
-      "17",
-      "18",
-      "57",
-      "10",
-      "48",
-      "21",
-      "29",
-      "76",
-      "38"
+      "52",
+      "53",
+      "59"
     ],
     "topq": [
-      "08",
-      "61",
-      "58"
+      "43",
+      "33",
+      "37"
     ],
     "pales": [
-      "08-61",
-      "08-58",
-      "08-17"
+      "33-43",
+      "37-43",
+      "43-84"
     ],
-    "fingerprint": "b2e88f0f0b6eaee7",
+    "fingerprint": "32993cbf0e99bef0",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.018538424507504654,
-    "best_a11": 3,
+    "best_signal": 0.016720144465166318,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.018538424507504654,
-      "best_a11_hist": 3,
-      "today_observed_nums": 6,
-      "source_pairs_today": 2,
-      "source_rows_hist_used": 1068,
-      "top12_overlap_prev": 4,
+      "best_signal_hist": 0.016720144465166318,
+      "best_a11_hist": 4,
+      "today_observed_nums": 8,
+      "source_pairs_today": 3,
+      "source_rows_hist_used": 1602,
+      "top12_overlap_prev": 1,
       "top_intraday": [
+        [
+          "34",
+          2
+        ],
         [
           "08",
           1
         ],
         [
           "20",
-          1
-        ],
-        [
-          "34",
           1
         ],
         [
