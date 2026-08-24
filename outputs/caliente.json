@@ -1,33 +1,31 @@
 {
-  "generado_en": "2026-08-24T16:18:23.825911",
+  "generado_en": "2026-08-24T18:20:05.924866",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
   "total_loterias": 1,
   "picks_procesados": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Quiniela La Suerte 6PM": {
+    "Quiniela La Primera Noche": {
       "numeros": [
-        "00",
-        "07",
-        "59",
-        "67",
-        "33",
-        "73",
-        "23",
-        "56"
+        "74",
+        "16",
+        "60",
+        "22",
+        "92",
+        "00"
       ],
-      "signal": 0.047278,
+      "signal": 0.030306,
       "cuartil_senal": "muy_alta",
       "decision": "❌ NO JUGAR",
-      "a11_grupo": "medio",
+      "a11_grupo": "bajo",
       "ok_alert": false,
-      "hit_rate_historico": 10.7,
-      "hot_source": "contextual (muy_alta|medio, n=46, hit=17.4%)",
-      "draw": "Quiniela La Suerte 6PM",
-      "lottery": "La Suerte",
-      "perfil_fuente": "auto-calibrado (177 sorteos, 5 contextos)",
-      "n_numeros": 8
+      "hit_rate_historico": 11.0,
+      "hot_source": "contextual (muy_alta|bajo, n=19, hit=10.5%)",
+      "draw": "Quiniela La Primera Noche",
+      "lottery": "La Primera",
+      "perfil_fuente": "auto-calibrado (164 sorteos, 7 contextos)",
+      "n_numeros": 6
     }
   }
 }
