@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-08-28T12:44:22.804809-04:00",
-  "event_key": "2026-08-28|La Suerte|Quiniela La Suerte",
+  "generated_at": "2026-08-28T13:19:27.793452-04:00",
+  "event_key": "2026-08-28|Anguilla|Anguila 1PM",
   "target": {
-    "time_rd": "2026-08-28 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM"
+    "time_rd": "2026-08-28 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más"
   },
   "best_play": {
-    "time_rd": "2026-08-28 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM",
+    "time_rd": "2026-08-28 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más",
     "top12": [
-      "43",
+      "94",
+      "81",
+      "86",
+      "41",
+      "82",
+      "40",
+      "20",
+      "95",
+      "89",
+      "42",
       "37",
-      "84",
-      "59",
-      "62",
-      "46",
-      "67",
-      "64",
-      "71",
-      "52",
-      "53",
-      "33"
+      "64"
     ],
     "topq": [
-      "43",
-      "37",
-      "84"
+      "94",
+      "81",
+      "86"
     ],
     "pales": [
-      "37-43",
-      "43-84",
-      "43-59"
+      "81-94",
+      "86-94",
+      "41-94"
     ],
-    "fingerprint": "34b49f928e1eb3d8",
+    "fingerprint": "2213f9df7ca44230",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.014533080826753574,
-    "best_a11": 4,
+    "best_signal": 0.0016852596023943314,
+    "best_a11": 5,
     "debug": {
-      "best_signal_hist": 0.014533080826753574,
-      "best_a11_hist": 4,
-      "today_observed_nums": 9,
-      "source_pairs_today": 3,
-      "source_rows_hist_used": 1602,
-      "top12_overlap_prev": 0,
+      "best_signal_hist": 0.0016852596023943314,
+      "best_a11_hist": 5,
+      "today_observed_nums": 12,
+      "source_pairs_today": 4,
+      "source_rows_hist_used": 1694,
+      "top12_overlap_prev": 2,
       "top_intraday": [
         [
           "02",
@@ -60,11 +60,11 @@
           1
         ],
         [
-          "06",
+          "81",
           1
         ],
         [
-          "99",
+          "86",
           1
         ]
       ]
