@@ -1,52 +1,56 @@
 {
-  "generated_at": "2026-08-31T13:20:17.801267-04:00",
-  "event_key": "2026-08-31|Anguilla|Anguila 1PM",
+  "generated_at": "2026-08-31T16:17:38.905880-04:00",
+  "event_key": "2026-08-31|La Nacional|Loteria Nacional- Gana Más",
   "target": {
-    "time_rd": "2026-08-31 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más"
+    "time_rd": "2026-08-31 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM"
   },
   "best_play": {
-    "time_rd": "2026-08-31 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más",
+    "time_rd": "2026-08-31 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM",
     "top12": [
-      "19",
-      "89",
-      "14",
-      "82",
-      "41",
-      "40",
-      "94",
-      "95",
-      "20",
+      "67",
+      "23",
       "42",
-      "64",
-      "37"
+      "45",
+      "73",
+      "35",
+      "53",
+      "00",
+      "56",
+      "33",
+      "59",
+      "07"
     ],
     "topq": [
-      "19",
-      "89",
-      "14"
+      "67",
+      "23",
+      "42"
     ],
     "pales": [
-      "19-89",
-      "14-19",
-      "19-82"
+      "23-67",
+      "42-67",
+      "45-67"
     ],
-    "fingerprint": "8faebe15055d188a",
+    "fingerprint": "465dfcbbe1f40db8",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.002070908345857153,
-    "best_a11": 6,
+    "best_signal": 0.03511736134281103,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.002070908345857153,
-      "best_a11_hist": 6,
-      "today_observed_nums": 11,
-      "source_pairs_today": 4,
-      "source_rows_hist_used": 1535,
-      "top12_overlap_prev": 2,
+      "best_signal_hist": 0.03511736134281103,
+      "best_a11_hist": 3,
+      "today_observed_nums": 13,
+      "source_pairs_today": 5,
+      "source_rows_hist_used": 2400,
+      "top12_overlap_prev": 1,
       "top_intraday": [
+        [
+          "83",
+          2
+        ],
         [
           "77",
           2
@@ -57,10 +61,6 @@
         ],
         [
           "14",
-          1
-        ],
-        [
-          "83",
           1
         ],
         [
