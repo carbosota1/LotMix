@@ -1,63 +1,71 @@
 {
-  "generated_at": "2026-09-05T10:36:00.223359-04:00",
-  "event_key": "2026-09-05|Anguilla|Anguila 10AM",
+  "generated_at": "2026-09-06T19:02:41.986912-04:00",
+  "event_key": "2026-09-06|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-09-05 12:00",
+    "time_rd": "2026-09-06 19:00",
     "lottery": "La Primera",
-    "draw": "Quiniela La Primera"
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-09-05 12:00",
+    "time_rd": "2026-09-06 19:00",
     "lottery": "La Primera",
-    "draw": "Quiniela La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "38",
-      "90",
-      "03",
-      "09",
-      "99",
-      "73",
-      "54",
-      "14",
-      "76",
-      "29",
-      "12",
-      "59"
+      "83",
+      "89",
+      "23",
+      "97",
+      "60",
+      "80",
+      "20",
+      "22",
+      "42",
+      "86",
+      "72",
+      "26"
     ],
     "topq": [
-      "38",
-      "90",
-      "03"
+      "83",
+      "89",
+      "23"
     ],
     "pales": [
-      "38-90",
-      "03-38",
-      "09-38"
+      "83-89",
+      "23-83",
+      "83-97"
     ],
-    "fingerprint": "0cd7e7d7cb79b90b",
+    "fingerprint": "97299fb5bfd9e67f",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01443454186792618,
+    "best_signal": 0.025450801475638773,
     "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.01443454186792618,
+      "best_signal_hist": 0.025450801475638773,
       "best_a11_hist": 2,
-      "today_observed_nums": 3,
-      "source_pairs_today": 1,
-      "source_rows_hist_used": 534,
+      "today_observed_nums": 18,
+      "source_pairs_today": 8,
+      "source_rows_hist_used": 2400,
       "top12_overlap_prev": 0,
       "top_intraday": [
         [
-          "85",
-          1
+          "38",
+          3
         ],
         [
-          "13",
-          1
+          "18",
+          2
         ],
         [
-          "92",
-          1
+          "74",
+          2
+        ],
+        [
+          "01",
+          2
+        ],
+        [
+          "89",
+          2
         ]
       ]
     }
