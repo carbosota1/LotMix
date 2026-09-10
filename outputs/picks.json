@@ -1,52 +1,56 @@
 {
-  "generated_at": "2026-09-10T13:21:19.665755-04:00",
-  "event_key": "2026-09-10|TEST|NO-UPDATE",
+  "generated_at": "2026-09-10T16:15:38.994712-04:00",
+  "event_key": "2026-09-10|La Nacional|Loteria Nacional- Gana Más",
   "target": {
-    "time_rd": "2026-09-10 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más"
+    "time_rd": "2026-09-10 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM"
   },
   "best_play": {
-    "time_rd": "2026-09-10 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más",
+    "time_rd": "2026-09-10 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM",
     "top12": [
-      "25",
-      "41",
+      "23",
       "82",
-      "13",
-      "95",
-      "40",
-      "42",
-      "89",
-      "94",
-      "64",
-      "20",
-      "37"
+      "45",
+      "73",
+      "53",
+      "00",
+      "56",
+      "33",
+      "59",
+      "07",
+      "93",
+      "39"
     ],
     "topq": [
-      "25",
-      "41",
-      "82"
+      "23",
+      "82",
+      "45"
     ],
     "pales": [
-      "25-41",
-      "25-82",
-      "13-25"
+      "23-82",
+      "23-45",
+      "23-73"
     ],
-    "fingerprint": "89f9d8f546df59f5",
+    "fingerprint": "57e3322ef575c963",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.0013612291060824072,
-    "best_a11": 7,
+    "best_signal": 0.028047807800099543,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.0013612291060824072,
-      "best_a11_hist": 7,
-      "today_observed_nums": 12,
-      "source_pairs_today": 4,
-      "source_rows_hist_used": 1717,
-      "top12_overlap_prev": 1,
+      "best_signal_hist": 0.028047807800099543,
+      "best_a11_hist": 3,
+      "today_observed_nums": 14,
+      "source_pairs_today": 5,
+      "source_rows_hist_used": 2400,
+      "top12_overlap_prev": 3,
       "top_intraday": [
+        [
+          "47",
+          2
+        ],
         [
           "52",
           1
@@ -61,10 +65,6 @@
         ],
         [
           "26",
-          1
-        ],
-        [
-          "83",
           1
         ]
       ]
