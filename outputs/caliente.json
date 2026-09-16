@@ -1,32 +1,51 @@
 {
-  "generado_en": "2026-09-16T13:21:33.036542",
+  "generado_en": "2026-09-16T17:05:01.007127",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
-  "total_loterias": 1,
-  "picks_procesados": 1,
+  "total_loterias": 2,
+  "picks_procesados": 2,
   "picks_omitidos": 0,
   "loterias": {
-    "Loteria Nacional- Gana Más": {
+    "Anguila 6PM": {
       "numeros": [
-        "16",
-        "21",
+        "43",
+        "51",
         "13",
-        "20",
-        "57",
-        "65",
-        "71"
+        "88",
+        "39",
+        "28"
       ],
-      "signal": 0.024162,
-      "cuartil_senal": "muy_alta",
+      "signal": 0.021951,
+      "cuartil_senal": "alta",
+      "decision": "⚠️ JUGAR",
+      "a11_grupo": "medio",
+      "ok_alert": false,
+      "hit_rate_historico": 12.1,
+      "hot_source": "contextual (alta|medio, n=50, hit=10.0%)",
+      "draw": "Anguila 6PM",
+      "lottery": "Anguilla",
+      "perfil_fuente": "auto-calibrado (199 sorteos, 6 contextos)",
+      "n_numeros": 6
+    },
+    "Quiniela La Suerte 6PM": {
+      "numeros": [
+        "33",
+        "59",
+        "73",
+        "56",
+        "23"
+      ],
+      "signal": 0.028812,
+      "cuartil_senal": "alta",
       "decision": "❌ NO JUGAR",
       "a11_grupo": "medio",
       "ok_alert": false,
-      "hit_rate_historico": 12.4,
-      "hot_source": "contextual (muy_alta|medio, n=57, hit=8.8%)",
-      "draw": "Loteria Nacional- Gana Más",
-      "lottery": "La Nacional",
-      "perfil_fuente": "auto-calibrado (209 sorteos, 6 contextos)",
-      "n_numeros": 7
+      "hit_rate_historico": 11.7,
+      "hot_source": "contextual (alta|medio, n=48, hit=8.3%)",
+      "draw": "Quiniela La Suerte 6PM",
+      "lottery": "La Suerte",
+      "perfil_fuente": "auto-calibrado (197 sorteos, 5 contextos)",
+      "n_numeros": 5
     }
   }
 }

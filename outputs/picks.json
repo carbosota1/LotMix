@@ -1,54 +1,58 @@
 {
-  "generated_at": "2026-09-16T13:21:32.121594-04:00",
-  "event_key": "2026-09-16|TEST|NO-UPDATE",
+  "generated_at": "2026-09-16T17:05:00.131487-04:00",
+  "event_key": "2026-09-16|La Nacional|Loteria Nacional- Gana Más",
   "target": {
-    "time_rd": "2026-09-16 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más"
+    "time_rd": "2026-09-16 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM"
   },
   "best_play": {
-    "time_rd": "2026-09-16 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más",
+    "time_rd": "2026-09-16 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM",
     "top12": [
-      "57",
-      "65",
-      "71",
-      "16",
-      "79",
-      "21",
+      "56",
+      "23",
+      "59",
       "82",
-      "13",
-      "20",
+      "45",
+      "73",
+      "00",
+      "53",
+      "33",
       "07",
-      "77",
-      "37"
+      "93",
+      "51"
     ],
     "topq": [
-      "57",
-      "65",
-      "71"
+      "56",
+      "23",
+      "59"
     ],
     "pales": [
-      "57-65",
-      "57-71",
-      "16-57"
+      "23-56",
+      "56-59",
+      "56-82"
     ],
-    "fingerprint": "d06b2bf00535f049",
+    "fingerprint": "658bf5e0bab362c0",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.024162398424725087,
+    "best_signal": 0.02881210150630007,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.024162398424725087,
+      "best_signal_hist": 0.02881210150630007,
       "best_a11_hist": 3,
-      "today_observed_nums": 8,
-      "source_pairs_today": 4,
-      "source_rows_hist_used": 2133,
+      "today_observed_nums": 13,
+      "source_pairs_today": 5,
+      "source_rows_hist_used": 2400,
       "top12_overlap_prev": 2,
       "top_intraday": [
         [
           "57",
+          2
+        ],
+        [
+          "11",
           2
         ],
         [
@@ -61,10 +65,6 @@
         ],
         [
           "42",
-          1
-        ],
-        [
-          "15",
           1
         ]
       ]
