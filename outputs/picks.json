@@ -1,54 +1,58 @@
 {
-  "generated_at": "2026-09-19T13:20:14.495035-04:00",
-  "event_key": "2026-09-19|Anguilla|Anguila 1PM",
+  "generated_at": "2026-09-19T16:15:51.832377-04:00",
+  "event_key": "2026-09-19|La Nacional|Loteria Nacional- Gana Más",
   "target": {
-    "time_rd": "2026-09-19 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más"
+    "time_rd": "2026-09-19 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM"
   },
   "best_play": {
-    "time_rd": "2026-09-19 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más",
+    "time_rd": "2026-09-19 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM",
     "top12": [
-      "13",
-      "60",
-      "41",
-      "64",
-      "95",
-      "42",
-      "40",
-      "94",
+      "23",
+      "59",
+      "56",
       "82",
-      "89",
-      "20",
-      "37"
+      "45",
+      "73",
+      "00",
+      "53",
+      "33",
+      "07",
+      "93",
+      "51"
     ],
     "topq": [
-      "13",
-      "60",
-      "41"
+      "23",
+      "59",
+      "56"
     ],
     "pales": [
-      "13-60",
-      "13-41",
-      "13-64"
+      "23-59",
+      "23-56",
+      "23-82"
     ],
-    "fingerprint": "8c2f23f4d99f9e6b",
+    "fingerprint": "1287654dc76b0819",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.0008840969942883284,
-    "best_a11": 5,
+    "best_signal": 0.02881210150630007,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.0008840969942883284,
-      "best_a11_hist": 5,
-      "today_observed_nums": 11,
-      "source_pairs_today": 4,
-      "source_rows_hist_used": 1586,
-      "top12_overlap_prev": 1,
+      "best_signal_hist": 0.02881210150630007,
+      "best_a11_hist": 3,
+      "today_observed_nums": 13,
+      "source_pairs_today": 5,
+      "source_rows_hist_used": 2400,
+      "top12_overlap_prev": 2,
       "top_intraday": [
         [
           "72",
+          2
+        ],
+        [
+          "43",
           2
         ],
         [
@@ -57,10 +61,6 @@
         ],
         [
           "03",
-          1
-        ],
-        [
-          "43",
           1
         ],
         [
