@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-09-19T16:15:51.832377-04:00",
-  "event_key": "2026-09-19|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-09-19T18:21:12.864550-04:00",
+  "event_key": "2026-09-19|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-09-19 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-09-19 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-09-19 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-09-19 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "23",
-      "59",
-      "56",
-      "82",
-      "45",
-      "73",
-      "00",
-      "53",
-      "33",
-      "07",
-      "93",
-      "51"
+      "60",
+      "72",
+      "13",
+      "83",
+      "26",
+      "20",
+      "89",
+      "16",
+      "95",
+      "12",
+      "86",
+      "23"
     ],
     "topq": [
-      "23",
-      "59",
-      "56"
+      "60",
+      "72",
+      "13"
     ],
     "pales": [
-      "23-59",
-      "23-56",
-      "23-82"
+      "60-72",
+      "13-60",
+      "60-83"
     ],
-    "fingerprint": "1287654dc76b0819",
+    "fingerprint": "a0061c8a0f9faaa5",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.02881210150630007,
-    "best_a11": 3,
+    "best_signal": 0.014996782125803822,
+    "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.02881210150630007,
-      "best_a11_hist": 3,
-      "today_observed_nums": 13,
-      "source_pairs_today": 5,
+      "best_signal_hist": 0.014996782125803822,
+      "best_a11_hist": 2,
+      "today_observed_nums": 17,
+      "source_pairs_today": 7,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 2,
+      "top12_overlap_prev": 1,
       "top_intraday": [
         [
           "72",
@@ -56,15 +56,15 @@
           2
         ],
         [
+          "80",
+          2
+        ],
+        [
+          "13",
+          2
+        ],
+        [
           "22",
-          1
-        ],
-        [
-          "03",
-          1
-        ],
-        [
-          "02",
           1
         ]
       ]
