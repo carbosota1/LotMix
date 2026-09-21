@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-09-21T10:34:51.743656-04:00",
-  "event_key": "2026-09-21|Anguilla|Anguila 10AM",
+  "generated_at": "2026-09-21T12:19:52.434389-04:00",
+  "event_key": "2026-09-21|La Primera|Quiniela La Primera",
   "target": {
-    "time_rd": "2026-09-21 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera"
+    "time_rd": "2026-09-21 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte"
   },
   "best_play": {
-    "time_rd": "2026-09-21 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera",
+    "time_rd": "2026-09-21 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte",
     "top12": [
+      "61",
+      "34",
       "76",
-      "54",
-      "38",
-      "03",
-      "18",
-      "99",
-      "09",
+      "66",
+      "52",
+      "06",
+      "10",
+      "21",
+      "48",
+      "51",
       "29",
-      "59",
-      "14",
-      "73",
-      "12"
-    ],
-    "topq": [
-      "76",
-      "54",
       "38"
     ],
-    "pales": [
-      "54-76",
-      "38-76",
-      "03-76"
+    "topq": [
+      "61",
+      "34",
+      "76"
     ],
-    "fingerprint": "00a0c3be3e0a052d",
+    "pales": [
+      "34-61",
+      "61-76",
+      "61-66"
+    ],
+    "fingerprint": "5012ba38963a5542",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.012417864671074341,
-    "best_a11": 2,
+    "best_signal": 0.018538424507504654,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.012417864671074341,
-      "best_a11_hist": 2,
-      "today_observed_nums": 3,
-      "source_pairs_today": 1,
-      "source_rows_hist_used": 534,
-      "top12_overlap_prev": 1,
+      "best_signal_hist": 0.018538424507504654,
+      "best_a11_hist": 3,
+      "today_observed_nums": 6,
+      "source_pairs_today": 2,
+      "source_rows_hist_used": 1068,
+      "top12_overlap_prev": 3,
       "top_intraday": [
         [
           "32",
@@ -57,6 +57,14 @@
         ],
         [
           "76",
+          1
+        ],
+        [
+          "60",
+          1
+        ],
+        [
+          "59",
           1
         ]
       ]
