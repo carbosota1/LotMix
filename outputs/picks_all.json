@@ -1,129 +1,64 @@
 {
-  "generated_at": "2026-09-21T16:16:03.459052-04:00",
-  "event_key": "2026-09-21|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-09-21T18:21:20.908053-04:00",
+  "event_key": "2026-09-21|La Suerte|Quiniela La Suerte 6PM",
   "items": [
     {
-      "generated_at": "2026-09-21T16:15:29.220340-04:00",
-      "event_key": "2026-09-21|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-09-21T18:21:16.749614-04:00",
+      "event_key": "2026-09-21|La Suerte|Quiniela La Suerte 6PM",
       "target": {
-        "time_rd": "2026-09-21 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM"
+        "time_rd": "2026-09-21 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche"
       },
       "best_play": {
-        "time_rd": "2026-09-21 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM",
+        "time_rd": "2026-09-21 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche",
         "top12": [
-          "39",
-          "43",
-          "28",
-          "93",
-          "46",
-          "88",
-          "31",
+          "80",
           "86",
-          "51",
-          "48",
+          "67",
+          "83",
+          "20",
+          "16",
+          "95",
+          "72",
+          "12",
           "13",
-          "20"
-        ],
-        "topq": [
-          "39",
-          "43",
-          "28"
-        ],
-        "pales": [
-          "39-43",
-          "28-39",
-          "39-93"
-        ],
-        "fingerprint": "d473d703b4ffd34c",
-        "ok_alert": false,
-        "decision": "❌ NO JUGAR",
-        "best_signal": 0.018924114559980616,
-        "best_a11": 4,
-        "debug": {
-          "best_signal_hist": 0.018924114559980616,
-          "best_a11_hist": 4,
-          "today_observed_nums": 15,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2400,
-          "top12_overlap_prev": 2,
-          "top_intraday": [
-            [
-              "32",
-              1
-            ],
-            [
-              "56",
-              1
-            ],
-            [
-              "76",
-              1
-            ],
-            [
-              "40",
-              1
-            ],
-            [
-              "30",
-              1
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "generated_at": "2026-09-21T16:16:02.670836-04:00",
-      "event_key": "2026-09-21|La Nacional|Loteria Nacional- Gana Más",
-      "target": {
-        "time_rd": "2026-09-21 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM"
-      },
-      "best_play": {
-        "time_rd": "2026-09-21 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM",
-        "top12": [
-          "59",
-          "56",
-          "35",
           "23",
-          "82",
-          "45",
-          "73",
-          "00",
-          "33",
-          "07",
-          "93",
           "51"
         ],
         "topq": [
-          "59",
-          "56",
-          "35"
+          "80",
+          "86",
+          "67"
         ],
         "pales": [
-          "56-59",
-          "35-59",
-          "23-59"
+          "80-86",
+          "67-80",
+          "80-83"
         ],
-        "fingerprint": "538ea181f019dd42",
+        "fingerprint": "4c1a2b959e05810d",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.02881210150630007,
-        "best_a11": 3,
+        "best_signal": 0.015520411490153704,
+        "best_a11": 2,
         "debug": {
-          "best_signal_hist": 0.02881210150630007,
-          "best_a11_hist": 3,
-          "today_observed_nums": 15,
-          "source_pairs_today": 5,
+          "best_signal_hist": 0.015520411490153704,
+          "best_a11_hist": 2,
+          "today_observed_nums": 19,
+          "source_pairs_today": 7,
           "source_rows_hist_used": 2400,
           "top12_overlap_prev": 2,
           "top_intraday": [
+            [
+              "30",
+              2
+            ],
+            [
+              "75",
+              2
+            ],
             [
               "32",
               1
@@ -134,14 +69,6 @@
             ],
             [
               "76",
-              1
-            ],
-            [
-              "40",
-              1
-            ],
-            [
-              "30",
               1
             ]
           ]
