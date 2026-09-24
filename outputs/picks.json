@@ -1,52 +1,73 @@
 {
-  "generated_at": "2026-09-24T11:25:19.042216-04:00",
-  "event_key": "2026-09-24|TEST|NO-UPDATE",
+  "generated_at": "2026-09-24T13:51:01.430073-04:00",
+  "event_key": "2026-09-24|Anguilla|Anguila 1PM",
   "target": {
-    "time_rd": "2026-09-24 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera"
+    "time_rd": "2026-09-24 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más"
   },
   "best_play": {
-    "time_rd": "2026-09-24 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera",
+    "time_rd": "2026-09-24 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más",
     "top12": [
-      "54",
-      "38",
-      "18",
-      "99",
-      "09",
-      "76",
-      "29",
-      "14",
-      "73",
-      "12",
-      "03",
-      "59"
+      "41",
+      "13",
+      "86",
+      "64",
+      "42",
+      "95",
+      "94",
+      "37",
+      "40",
+      "82",
+      "89",
+      "20"
     ],
     "topq": [
-      "54",
-      "38",
-      "18"
+      "41",
+      "13",
+      "86"
     ],
     "pales": [
-      "38-54",
-      "18-54",
-      "54-99"
+      "13-41",
+      "41-86",
+      "41-64"
     ],
-    "fingerprint": "63f3edefe4b5cb88",
+    "fingerprint": "7afbd5907e47eff0",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.012417864671074341,
-    "best_a11": 2,
+    "best_signal": 0.001994603709943479,
+    "best_a11": 6,
     "debug": {
-      "best_signal_hist": 0.012417864671074341,
-      "best_a11_hist": 2,
-      "today_observed_nums": 0,
-      "source_pairs_today": 1,
-      "source_rows_hist_used": 531,
-      "top12_overlap_prev": 2,
-      "top_intraday": []
+      "best_signal_hist": 0.001994603709943479,
+      "best_a11_hist": 6,
+      "today_observed_nums": 11,
+      "source_pairs_today": 4,
+      "source_rows_hist_used": 1597,
+      "top12_overlap_prev": 0,
+      "top_intraday": [
+        [
+          "02",
+          2
+        ],
+        [
+          "39",
+          1
+        ],
+        [
+          "66",
+          1
+        ],
+        [
+          "13",
+          1
+        ],
+        [
+          "65",
+          1
+        ]
+      ]
     }
   }
 }
