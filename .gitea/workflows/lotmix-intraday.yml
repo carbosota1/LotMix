@@ -32,11 +32,15 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then
-            pip install --retries 5 --timeout 60 -r requirements.txt
-          else
-            pip install --retries 5 --timeout 60 pandas openpyxl requests beautifulsoup4 lxml
-          fi
+          for i in 1 2 3 4 5; do
+            if [ -f requirements.txt ]; then
+              pip install --timeout 60 -r requirements.txt && break
+            else
+              pip install --timeout 60 pandas openpyxl requests beautifulsoup4 lxml && break
+            fi
+            echo "pip install falló, reintentando en 10s..."
+            sleep 10
+          done
       - name: Run runner
         run: |
           python src/runner.py
