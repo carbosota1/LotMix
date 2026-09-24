@@ -4,13 +4,13 @@ on:
     paths-ignore:
       - '**'
   schedule:
-    - cron: "30 14 * * *"  # 11:30 AM RD
-    - cron: "15 16 * * *"  # 12:15 PM RD
-    - cron: "40 16 * * *"  # 12:40 PM RD
-    - cron: "15 17 * * *"  # 1:15 PM RD
-    - cron: "10 20 * * *"  # 4:10 PM RD
-    - cron: "15 22 * * *"  # 6:15 PM RD
-    - cron: "15 23 * * *"  # 7:15 PM RD
+    - cron: "30 14 * * *"
+    - cron: "15 16 * * *"
+    - cron: "40 16 * * *"
+    - cron: "15 17 * * *"
+    - cron: "10 20 * * *"
+    - cron: "15 22 * * *"
+    - cron: "15 23 * * *"
   workflow_dispatch:
 concurrency:
   group: lotmix-runner
@@ -27,15 +27,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           token: ${{ secrets.GITEA_TOKEN }}
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
+            pip install --retries 5 --timeout 60 -r requirements.txt
           else
-            pip install pandas openpyxl requests beautifulsoup4 lxml
+            pip install --retries 5 --timeout 60 pandas openpyxl requests beautifulsoup4 lxml
           fi
       - name: Run runner
         run: |
@@ -51,4 +51,4 @@ jobs:
             exit 0
           fi
           git commit -m "Auto update histories + intraday analysis"
-          git push --force
+          for i in 1 2 3 4 5; do git push --force && break || sleep 10; done
