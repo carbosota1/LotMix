@@ -1,56 +1,60 @@
 {
-  "generated_at": "2026-09-25T18:20:46.430593-04:00",
-  "event_key": "2026-09-25|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-09-25T19:21:11.251153-04:00",
+  "event_key": "2026-09-25|La Primera|Quiniela La Primera Noche",
   "items": [
     {
-      "generated_at": "2026-09-25T18:20:45.365540-04:00",
-      "event_key": "2026-09-25|La Suerte|Quiniela La Suerte 6PM",
+      "generated_at": "2026-09-25T19:20:24.736209-04:00",
+      "event_key": "2026-09-25|La Primera|Quiniela La Primera Noche",
       "target": {
-        "time_rd": "2026-09-25 19:00",
-        "lottery": "La Primera",
-        "draw": "Quiniela La Primera Noche"
+        "time_rd": "2026-09-25 21:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 9PM"
       },
       "best_play": {
-        "time_rd": "2026-09-25 19:00",
-        "lottery": "La Primera",
-        "draw": "Quiniela La Primera Noche",
+        "time_rd": "2026-09-25 21:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 9PM",
         "top12": [
-          "02",
-          "67",
+          "57",
+          "92",
+          "56",
+          "69",
+          "26",
+          "94",
+          "40",
           "51",
-          "14",
+          "50",
           "83",
-          "16",
-          "72",
-          "95",
-          "86",
-          "12",
-          "13",
-          "23"
+          "49",
+          "12"
         ],
         "topq": [
-          "02",
-          "67",
-          "51"
+          "57",
+          "92",
+          "56"
         ],
         "pales": [
-          "02-67",
-          "02-51",
-          "02-14"
+          "57-92",
+          "56-57",
+          "57-69"
         ],
-        "fingerprint": "b18653306387e6a2",
+        "fingerprint": "6f5b6b4b4b9826b8",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.015520411490153704,
+        "best_signal": 0.04243844410485144,
         "best_a11": 3,
         "debug": {
-          "best_signal_hist": 0.015520411490153704,
+          "best_signal_hist": 0.04243844410485144,
           "best_a11_hist": 3,
-          "today_observed_nums": 20,
-          "source_pairs_today": 7,
+          "today_observed_nums": 22,
+          "source_pairs_today": 8,
           "source_rows_hist_used": 2400,
-          "top12_overlap_prev": 1,
+          "top12_overlap_prev": 3,
           "top_intraday": [
+            [
+              "57",
+              2
+            ],
             [
               "73",
               2
@@ -66,9 +70,78 @@
             [
               "51",
               1
-            ],
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "generated_at": "2026-09-25T19:21:10.374898-04:00",
+      "event_key": "2026-09-25|La Primera|Quiniela La Primera Noche",
+      "target": {
+        "time_rd": "2026-09-25 21:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche"
+      },
+      "best_play": {
+        "time_rd": "2026-09-25 21:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche",
+        "top12": [
+          "53",
+          "66",
+          "22",
+          "07",
+          "97",
+          "63",
+          "03",
+          "89",
+          "42",
+          "28",
+          "13",
+          "56"
+        ],
+        "topq": [
+          "53",
+          "66",
+          "22"
+        ],
+        "pales": [
+          "53-66",
+          "22-53",
+          "07-53"
+        ],
+        "fingerprint": "132e43b9b27882ae",
+        "ok_alert": false,
+        "decision": "❌ NO JUGAR",
+        "best_signal": 0.04302928415308799,
+        "best_a11": 3,
+        "debug": {
+          "best_signal_hist": 0.04302928415308799,
+          "best_a11_hist": 3,
+          "today_observed_nums": 22,
+          "source_pairs_today": 8,
+          "source_rows_hist_used": 2400,
+          "top12_overlap_prev": 1,
+          "top_intraday": [
             [
               "57",
+              2
+            ],
+            [
+              "73",
+              2
+            ],
+            [
+              "53",
+              1
+            ],
+            [
+              "07",
+              1
+            ],
+            [
+              "51",
               1
             ]
           ]
