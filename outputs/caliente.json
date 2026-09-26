@@ -1,54 +1,32 @@
 {
-  "generado_en": "2026-09-25T19:21:11.359747",
+  "generado_en": "2026-09-26T13:38:51.633912",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
-  "total_loterias": 2,
-  "picks_procesados": 2,
+  "total_loterias": 1,
+  "picks_procesados": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Anguila 9PM": {
+    "Loteria Nacional- Gana Más": {
       "numeros": [
-        "51",
-        "12",
-        "49",
-        "83",
-        "56",
-        "69",
+        "71",
+        "77",
+        "37",
+        "33",
         "57",
-        "92"
+        "65",
+        "82"
       ],
-      "signal": 0.042438,
+      "signal": 0.022105,
       "cuartil_senal": "muy_alta",
       "decision": "❌ NO JUGAR",
       "a11_grupo": "medio",
       "ok_alert": false,
-      "hit_rate_historico": 14.1,
-      "hot_source": "contextual (muy_alta|medio, n=51, hit=17.6%)",
-      "draw": "Anguila 9PM",
-      "lottery": "Anguilla",
-      "perfil_fuente": "auto-calibrado (213 sorteos, 5 contextos)",
-      "n_numeros": 8
-    },
-    "Loteria Nacional- Noche": {
-      "numeros": [
-        "97",
-        "66",
-        "53",
-        "22",
-        "07",
-        "63"
-      ],
-      "signal": 0.043029,
-      "cuartil_senal": "muy_alta",
-      "decision": "❌ NO JUGAR",
-      "a11_grupo": "medio",
-      "ok_alert": false,
-      "hit_rate_historico": 14.0,
-      "hot_source": "contextual (muy_alta|medio, n=54, hit=9.3%)",
-      "draw": "Loteria Nacional- Noche",
+      "hit_rate_historico": 12.4,
+      "hot_source": "contextual (muy_alta|medio, n=58, hit=8.6%)",
+      "draw": "Loteria Nacional- Gana Más",
       "lottery": "La Nacional",
-      "perfil_fuente": "auto-calibrado (214 sorteos, 5 contextos)",
-      "n_numeros": 6
+      "perfil_fuente": "auto-calibrado (218 sorteos, 7 contextos)",
+      "n_numeros": 7
     }
   }
 }
