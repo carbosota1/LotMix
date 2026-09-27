@@ -4202,21 +4202,22 @@
     "2026-09-26 18:00|La Suerte|Quiniela La Suerte 6PM": "39a928aa4348cc67",
     "2026-09-26 21:00|Anguilla|Anguila 9PM": "2043c566f84a6c56",
     "2026-09-26 21:00|La Nacional|Loteria Nacional- Noche": "0bf3d0fb6eab9775",
-    "2026-09-27 10:00|Anguilla|Anguila 10AM": "7abd2d10c0b6836b"
+    "2026-09-27 10:00|Anguilla|Anguila 10AM": "7abd2d10c0b6836b",
+    "2026-09-27 12:00|La Primera|Quiniela La Primera": "a63768dc8d6ed68b"
   },
   "last_wait_key": "",
   "last_top12": [
-    "83",
-    "92",
-    "29",
-    "70",
-    "75",
+    "54",
+    "38",
+    "18",
+    "09",
+    "03",
+    "76",
+    "14",
+    "73",
+    "59",
+    "12",
     "99",
-    "93",
-    "85",
-    "50",
-    "94",
-    "20",
-    "84"
+    "29"
   ]
 }

@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-09-27T09:46:46.675340-04:00",
+  "generated_at": "2026-09-27T10:36:16.255454-04:00",
   "event_key": "2026-09-27|TEST|NO-UPDATE",
   "target": {
-    "time_rd": "2026-09-27 10:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 10AM"
+    "time_rd": "2026-09-27 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera"
   },
   "best_play": {
-    "time_rd": "2026-09-27 10:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 10AM",
+    "time_rd": "2026-09-27 12:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera",
     "top12": [
-      "83",
-      "92",
-      "29",
-      "70",
-      "75",
+      "54",
+      "38",
+      "18",
+      "09",
+      "03",
+      "76",
+      "14",
+      "73",
+      "59",
+      "12",
       "99",
-      "93",
-      "85",
-      "50",
-      "94",
-      "20",
-      "84"
-    ],
-    "topq": [
-      "83",
-      "92",
       "29"
     ],
-    "pales": [
-      "83-92",
-      "29-83",
-      "70-83"
+    "topq": [
+      "54",
+      "38",
+      "18"
     ],
-    "fingerprint": "7abd2d10c0b6836b",
+    "pales": [
+      "38-54",
+      "18-54",
+      "09-54"
+    ],
+    "fingerprint": "a63768dc8d6ed68b",
     "ok_alert": false,
-    "decision": "⚠️ JUGAR",
-    "best_signal": 0.04807116296795364,
-    "best_a11": 4,
+    "decision": "❌ NO JUGAR",
+    "best_signal": 0.011993387766158095,
+    "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.04807116296795364,
-      "best_a11_hist": 4,
+      "best_signal_hist": 0.011993387766158095,
+      "best_a11_hist": 2,
       "today_observed_nums": 0,
-      "source_pairs_today": 0,
-      "source_rows_hist_used": 3570,
-      "top12_overlap_prev": 0,
+      "source_pairs_today": 1,
+      "source_rows_hist_used": 531,
+      "top12_overlap_prev": 2,
       "top_intraday": []
     }
   }
