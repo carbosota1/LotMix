@@ -1,59 +1,59 @@
 {
-  "generated_at": "2026-09-29T16:17:56.585957-04:00",
-  "event_key": "2026-09-29|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-09-29T18:20:47.830152-04:00",
+  "event_key": "2026-09-29|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-09-29 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-09-29 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-09-29 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-09-29 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "35",
-      "23",
-      "56",
-      "59",
-      "75",
-      "45",
-      "07",
-      "70",
-      "73",
-      "33",
-      "82",
-      "93"
+      "16",
+      "72",
+      "80",
+      "92",
+      "83",
+      "64",
+      "51",
+      "61",
+      "95",
+      "86",
+      "13",
+      "23"
     ],
     "topq": [
-      "35",
-      "23",
-      "56"
+      "16",
+      "72",
+      "80"
     ],
     "pales": [
-      "23-35",
-      "35-56",
-      "35-59"
+      "16-72",
+      "16-80",
+      "16-92"
     ],
-    "fingerprint": "05e1fd94aadd7109",
+    "fingerprint": "3d0be2af9984fede",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.038487794725286836,
+    "best_signal": 0.017164650839037822,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.038487794725286836,
+      "best_signal_hist": 0.017164650839037822,
       "best_a11_hist": 3,
-      "today_observed_nums": 14,
-      "source_pairs_today": 5,
+      "today_observed_nums": 19,
+      "source_pairs_today": 7,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 2,
+      "top12_overlap_prev": 1,
       "top_intraday": [
         [
-          "65",
+          "87",
           2
         ],
         [
-          "87",
-          1
+          "65",
+          2
         ],
         [
           "35",
