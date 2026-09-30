@@ -1,52 +1,56 @@
 {
-  "generated_at": "2026-09-30T18:04:41.510221-04:00",
-  "event_key": "2026-09-30|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-09-30T18:23:32.090680-04:00",
+  "event_key": "2026-09-30|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-09-30 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-09-30 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-09-30 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-09-30 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "23",
-      "56",
-      "59",
-      "75",
-      "45",
-      "35",
-      "73",
-      "33",
+      "92",
+      "95",
+      "83",
+      "64",
+      "51",
+      "16",
+      "61",
+      "80",
+      "86",
+      "13",
       "07",
-      "82",
-      "70",
-      "93"
+      "23"
     ],
     "topq": [
-      "23",
-      "56",
-      "59"
+      "92",
+      "95",
+      "83"
     ],
     "pales": [
-      "23-56",
-      "23-59",
-      "23-75"
+      "92-95",
+      "83-92",
+      "64-92"
     ],
-    "fingerprint": "5055ec3d6e0860ac",
+    "fingerprint": "0412c88d616864db",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.038487794725286836,
+    "best_signal": 0.017164650839037822,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.038487794725286836,
+      "best_signal_hist": 0.017164650839037822,
       "best_a11_hist": 3,
-      "today_observed_nums": 15,
-      "source_pairs_today": 5,
+      "today_observed_nums": 20,
+      "source_pairs_today": 7,
       "source_rows_hist_used": 2400,
       "top12_overlap_prev": 2,
       "top_intraday": [
+        [
+          "46",
+          2
+        ],
         [
           "08",
           1
@@ -61,10 +65,6 @@
         ],
         [
           "38",
-          1
-        ],
-        [
-          "12",
           1
         ]
       ]
