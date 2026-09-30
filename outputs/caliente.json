@@ -1,29 +1,31 @@
 {
-  "generado_en": "2026-09-30T12:19:49.929035",
+  "generado_en": "2026-09-30T13:20:11.986903",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
   "total_loterias": 1,
   "picks_procesados": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Quiniela La Suerte": {
+    "Loteria Nacional- Gana Más": {
       "numeros": [
-        "61",
-        "34",
-        "29",
-        "10"
+        "20",
+        "13",
+        "94",
+        "82",
+        "78",
+        "19"
       ],
-      "signal": 0.020451,
+      "signal": 0.001717,
       "cuartil_senal": "media",
       "decision": "❌ NO JUGAR",
-      "a11_grupo": "medio",
+      "a11_grupo": "alto",
       "ok_alert": false,
-      "hit_rate_historico": 10.0,
-      "hot_source": "contextual (media|medio, n=33, hit=9.1%)",
-      "draw": "Quiniela La Suerte",
-      "lottery": "La Suerte",
-      "perfil_fuente": "auto-calibrado (170 sorteos, 6 contextos)",
-      "n_numeros": 4
+      "hit_rate_historico": 12.2,
+      "hot_source": "contextual (media|alto, n=33, hit=15.2%)",
+      "draw": "Loteria Nacional- Gana Más",
+      "lottery": "La Nacional",
+      "perfil_fuente": "auto-calibrado (221 sorteos, 8 contextos)",
+      "n_numeros": 6
     }
   }
 }

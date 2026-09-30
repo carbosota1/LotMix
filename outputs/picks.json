@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-09-30T12:19:48.894223-04:00",
-  "event_key": "2026-09-30|La Primera|Quiniela La Primera",
+  "generated_at": "2026-09-30T13:20:11.125975-04:00",
+  "event_key": "2026-09-30|Anguilla|Anguila 1PM",
   "target": {
-    "time_rd": "2026-09-30 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte"
+    "time_rd": "2026-09-30 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más"
   },
   "best_play": {
-    "time_rd": "2026-09-30 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte",
+    "time_rd": "2026-09-30 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más",
     "top12": [
-      "10",
-      "34",
-      "61",
-      "21",
-      "06",
-      "52",
-      "45",
-      "48",
-      "51",
-      "76",
-      "38",
-      "29"
+      "78",
+      "19",
+      "95",
+      "41",
+      "64",
+      "40",
+      "94",
+      "89",
+      "42",
+      "82",
+      "20",
+      "13"
     ],
     "topq": [
-      "10",
-      "34",
-      "61"
+      "78",
+      "19",
+      "95"
     ],
     "pales": [
-      "10-34",
-      "10-61",
-      "10-21"
+      "19-78",
+      "78-95",
+      "41-78"
     ],
-    "fingerprint": "ea2c766a0ee3d23f",
+    "fingerprint": "f66e45bcb4b77d2a",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.02045072335874115,
-    "best_a11": 3,
+    "best_signal": 0.0017173944448989802,
+    "best_a11": 7,
     "debug": {
-      "best_signal_hist": 0.02045072335874115,
-      "best_a11_hist": 3,
-      "today_observed_nums": 6,
-      "source_pairs_today": 2,
-      "source_rows_hist_used": 1068,
-      "top12_overlap_prev": 3,
+      "best_signal_hist": 0.0017173944448989802,
+      "best_a11_hist": 7,
+      "today_observed_nums": 12,
+      "source_pairs_today": 4,
+      "source_rows_hist_used": 1667,
+      "top12_overlap_prev": 0,
       "top_intraday": [
         [
           "08",
@@ -60,11 +60,11 @@
           1
         ],
         [
-          "97",
+          "38",
           1
         ],
         [
-          "50",
+          "12",
           1
         ]
       ]
