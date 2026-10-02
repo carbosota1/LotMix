@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-02T13:22:04.204710-04:00",
-  "event_key": "2026-10-02|Anguilla|Anguila 1PM",
+  "generated_at": "2026-10-02T13:36:19.718084-04:00",
+  "event_key": "2026-10-02|TEST|NO-UPDATE",
   "target": {
     "time_rd": "2026-10-02 14:30",
     "lottery": "La Nacional",
@@ -13,8 +13,8 @@
     "top12": [
       "25",
       "82",
-      "94",
       "20",
+      "94",
       "60",
       "86",
       "41",
@@ -27,14 +27,14 @@
     "topq": [
       "25",
       "82",
-      "94"
+      "20"
     ],
     "pales": [
       "25-82",
-      "25-94",
-      "20-25"
+      "20-25",
+      "25-94"
     ],
-    "fingerprint": "fd45e9991945891d",
+    "fingerprint": "3785237a3f034d4a",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
     "best_signal": 0.0025392403583680023,
@@ -45,7 +45,7 @@
       "today_observed_nums": 12,
       "source_pairs_today": 4,
       "source_rows_hist_used": 1704,
-      "top12_overlap_prev": 0,
+      "top12_overlap_prev": 12,
       "top_intraday": [
         [
           "98",
