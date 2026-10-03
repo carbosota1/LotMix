@@ -1,62 +1,62 @@
 {
-  "generated_at": "2026-10-03T13:19:18.637628-04:00",
-  "event_key": "2026-10-03|Anguilla|Anguila 1PM",
+  "generated_at": "2026-10-03T16:15:03.667136-04:00",
+  "event_key": "2026-10-03|La Nacional|Loteria Nacional- Gana Más",
   "target": {
-    "time_rd": "2026-10-03 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más"
+    "time_rd": "2026-10-03 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM"
   },
   "best_play": {
-    "time_rd": "2026-10-03 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más",
+    "time_rd": "2026-10-03 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM",
     "top12": [
-      "94",
-      "37",
-      "41",
-      "22",
-      "64",
-      "40",
-      "89",
-      "95",
-      "20",
-      "42",
-      "13",
-      "82"
+      "35",
+      "56",
+      "59",
+      "75",
+      "45",
+      "07",
+      "23",
+      "73",
+      "33",
+      "82",
+      "70",
+      "93"
     ],
     "topq": [
-      "94",
-      "37",
-      "41"
+      "35",
+      "56",
+      "59"
     ],
     "pales": [
-      "37-94",
-      "41-94",
-      "22-94"
+      "35-56",
+      "35-59",
+      "35-75"
     ],
-    "fingerprint": "86377ea653f990c6",
+    "fingerprint": "f9f893e1e2a8ee12",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.00010840799908359337,
-    "best_a11": 5,
+    "best_signal": 0.03758731417197581,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.00010840799908359337,
-      "best_a11_hist": 5,
-      "today_observed_nums": 12,
-      "source_pairs_today": 4,
-      "source_rows_hist_used": 1752,
+      "best_signal_hist": 0.03758731417197581,
+      "best_a11_hist": 3,
+      "today_observed_nums": 14,
+      "source_pairs_today": 5,
+      "source_rows_hist_used": 2400,
       "top12_overlap_prev": 2,
       "top_intraday": [
+        [
+          "16",
+          2
+        ],
         [
           "52",
           1
         ],
         [
           "24",
-          1
-        ],
-        [
-          "16",
           1
         ],
         [
