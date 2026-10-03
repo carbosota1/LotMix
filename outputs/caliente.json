@@ -1,29 +1,29 @@
 {
-  "generado_en": "2026-10-02T18:35:36.068453",
+  "generado_en": "2026-10-03T10:35:43.390236",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
   "total_loterias": 1,
   "picks_procesados": 1,
   "picks_omitidos": 0,
   "loterias": {
-    "Quiniela La Primera Noche": {
+    "Quiniela La Primera": {
       "numeros": [
-        "51",
-        "80",
-        "86",
-        "07",
-        "92"
+        "38",
+        "62",
+        "76",
+        "18",
+        "54"
       ],
-      "signal": 0.017165,
-      "cuartil_senal": "baja",
+      "signal": 0.011932,
+      "cuartil_senal": "media",
       "decision": "❌ NO JUGAR",
-      "a11_grupo": "medio",
+      "a11_grupo": "bajo",
       "ok_alert": false,
-      "hit_rate_historico": 11.5,
-      "hot_source": "contextual (baja|medio, n=25, hit=16.0%)",
-      "draw": "Quiniela La Primera Noche",
+      "hit_rate_historico": 12.4,
+      "hot_source": "contextual (media|bajo, n=48, hit=12.5%)",
+      "draw": "Quiniela La Primera",
       "lottery": "La Primera",
-      "perfil_fuente": "auto-calibrado (200 sorteos, 9 contextos)",
+      "perfil_fuente": "auto-calibrado (201 sorteos, 5 contextos)",
       "n_numeros": 5
     }
   }
