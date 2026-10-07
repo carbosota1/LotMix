@@ -1,52 +1,56 @@
 {
-  "generated_at": "2026-10-07T12:30:57.667320-04:00",
-  "event_key": "2026-10-07|La Primera|Quiniela La Primera",
+  "generated_at": "2026-10-07T12:44:46.711505-04:00",
+  "event_key": "2026-10-07|La Suerte|Quiniela La Suerte",
   "target": {
-    "time_rd": "2026-10-07 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte"
+    "time_rd": "2026-10-07 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM"
   },
   "best_play": {
-    "time_rd": "2026-10-07 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte",
+    "time_rd": "2026-10-07 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM",
     "top12": [
-      "02",
-      "34",
-      "61",
-      "21",
-      "06",
-      "52",
-      "48",
-      "10",
-      "45",
-      "51",
-      "38",
-      "29"
+      "01",
+      "84",
+      "85",
+      "00",
+      "67",
+      "37",
+      "81",
+      "43",
+      "44",
+      "77",
+      "49",
+      "59"
     ],
     "topq": [
-      "02",
-      "34",
-      "61"
+      "01",
+      "84",
+      "85"
     ],
     "pales": [
-      "02-34",
-      "02-61",
-      "02-21"
+      "01-84",
+      "01-85",
+      "00-01"
     ],
-    "fingerprint": "671f82369b35134e",
+    "fingerprint": "9eb91880e20bf393",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.016809534844295326,
-    "best_a11": 2,
+    "best_signal": 0.013528609701716154,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.016809534844295326,
-      "best_a11_hist": 2,
-      "today_observed_nums": 6,
-      "source_pairs_today": 2,
-      "source_rows_hist_used": 1068,
-      "top12_overlap_prev": 2,
+      "best_signal_hist": 0.013528609701716154,
+      "best_a11_hist": 3,
+      "today_observed_nums": 8,
+      "source_pairs_today": 3,
+      "source_rows_hist_used": 1602,
+      "top12_overlap_prev": 0,
       "top_intraday": [
+        [
+          "01",
+          2
+        ],
         [
           "27",
           1
@@ -57,10 +61,6 @@
         ],
         [
           "62",
-          1
-        ],
-        [
-          "01",
           1
         ],
         [
