@@ -1,62 +1,62 @@
 {
-  "generated_at": "2026-10-07T18:21:16.862806-04:00",
-  "event_key": "2026-10-07|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-10-07T19:27:22.365393-04:00",
+  "event_key": "2026-10-07|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-10-07 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-10-07 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche"
   },
   "best_play": {
-    "time_rd": "2026-10-07 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-10-07 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche",
     "top12": [
-      "92",
-      "05",
-      "86",
-      "97",
-      "09",
-      "23",
-      "80",
-      "95",
-      "13",
-      "53",
-      "83",
-      "07"
+      "30",
+      "77",
+      "28",
+      "81",
+      "66",
+      "65",
+      "22",
+      "10",
+      "03",
+      "82",
+      "42",
+      "29"
     ],
     "topq": [
-      "92",
-      "05",
-      "86"
+      "30",
+      "77",
+      "28"
     ],
     "pales": [
-      "05-92",
-      "86-92",
-      "92-97"
+      "30-77",
+      "28-30",
+      "30-81"
     ],
-    "fingerprint": "838ded76d7081185",
+    "fingerprint": "7fe06675282ba6b1",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.030305653736506018,
+    "best_signal": 0.03192448353547198,
     "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.030305653736506018,
+      "best_signal_hist": 0.03192448353547198,
       "best_a11_hist": 2,
-      "today_observed_nums": 18,
-      "source_pairs_today": 7,
+      "today_observed_nums": 20,
+      "source_pairs_today": 8,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 2,
+      "top12_overlap_prev": 0,
       "top_intraday": [
+        [
+          "01",
+          3
+        ],
         [
           "78",
           2
         ],
         [
           "62",
-          2
-        ],
-        [
-          "01",
           2
         ],
         [
