@@ -1,52 +1,55 @@
 {
-  "generado_en": "2026-10-08T16:15:12.989588",
+  "generado_en": "2026-10-08T20:49:38.599650",
   "sistema": "Lotmix Caliente",
   "version": "3.0-dynamic",
   "total_loterias": 2,
   "picks_procesados": 2,
   "picks_omitidos": 0,
   "loterias": {
-    "Anguila 6PM": {
+    "Anguila 9PM": {
       "numeros": [
-        "86",
-        "39",
-        "43",
-        "70",
-        "93",
-        "28",
-        "69"
+        "27",
+        "51",
+        "94",
+        "69",
+        "49",
+        "40",
+        "08",
+        "17"
       ],
-      "signal": 0.022009,
-      "cuartil_senal": "alta",
+      "signal": 0.065204,
+      "cuartil_senal": "muy_alta",
       "decision": "❌ NO JUGAR",
       "a11_grupo": "medio",
       "ok_alert": false,
-      "hit_rate_historico": 11.9,
-      "hot_source": "contextual (alta|medio, n=45, hit=11.1%)",
-      "draw": "Anguila 6PM",
+      "hit_rate_historico": 13.8,
+      "hot_source": "contextual (muy_alta|medio, n=54, hit=16.7%)",
+      "draw": "Anguila 9PM",
       "lottery": "Anguilla",
-      "perfil_fuente": "auto-calibrado (219 sorteos, 6 contextos)",
-      "n_numeros": 7
+      "perfil_fuente": "auto-calibrado (224 sorteos, 5 contextos)",
+      "n_numeros": 8
     },
-    "Quiniela La Suerte 6PM": {
+    "Loteria Nacional- Noche": {
       "numeros": [
-        "53",
-        "59",
-        "35",
-        "46",
-        "56"
+        "22",
+        "29",
+        "77",
+        "81",
+        "66",
+        "82",
+        "28"
       ],
-      "signal": 0.02538,
-      "cuartil_senal": "alta",
+      "signal": 0.033001,
+      "cuartil_senal": "muy_alta",
       "decision": "❌ NO JUGAR",
-      "a11_grupo": "medio",
+      "a11_grupo": "bajo",
       "ok_alert": false,
-      "hit_rate_historico": 11.5,
-      "hot_source": "contextual (alta|medio, n=54, hit=7.4%)",
-      "draw": "Quiniela La Suerte 6PM",
-      "lottery": "La Suerte",
-      "perfil_fuente": "auto-calibrado (217 sorteos, 5 contextos)",
-      "n_numeros": 5
+      "hit_rate_historico": 14.2,
+      "hot_source": "general",
+      "draw": "Loteria Nacional- Noche",
+      "lottery": "La Nacional",
+      "perfil_fuente": "auto-calibrado (226 sorteos, 5 contextos)",
+      "n_numeros": 7
     }
   }
 }
