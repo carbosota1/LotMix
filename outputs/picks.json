@@ -1,59 +1,59 @@
 {
-  "generated_at": "2026-10-10T16:15:52.903129-04:00",
-  "event_key": "2026-10-10|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-10-10T18:21:07.731365-04:00",
+  "event_key": "2026-10-10|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-10-10 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-10-10 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-10-10 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-10-10 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "35",
-      "56",
-      "73",
-      "59",
-      "75",
+      "01",
+      "31",
+      "13",
+      "97",
+      "09",
+      "92",
+      "23",
       "07",
-      "33",
-      "53",
-      "00",
-      "82",
-      "93",
-      "70"
+      "95",
+      "86",
+      "83",
+      "53"
     ],
     "topq": [
-      "35",
-      "56",
-      "73"
+      "01",
+      "31",
+      "13"
     ],
     "pales": [
-      "35-56",
-      "35-73",
-      "35-59"
+      "01-31",
+      "01-13",
+      "01-97"
     ],
-    "fingerprint": "ba92bbf2a81d15b8",
+    "fingerprint": "cebab17cf6ab9cc5",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.025996571022792438,
+    "best_signal": 0.030305653736506018,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.025996571022792438,
+      "best_signal_hist": 0.030305653736506018,
       "best_a11_hist": 3,
-      "today_observed_nums": 14,
-      "source_pairs_today": 5,
+      "today_observed_nums": 19,
+      "source_pairs_today": 7,
       "source_rows_hist_used": 2400,
       "top12_overlap_prev": 2,
       "top_intraday": [
         [
-          "35",
+          "57",
           2
         ],
         [
-          "57",
-          1
+          "35",
+          2
         ],
         [
           "41",
