@@ -1,55 +1,128 @@
 {
-  "generated_at": "2026-10-13T13:36:08.088033-04:00",
-  "event_key": "2026-10-13|Anguilla|Anguila 1PM",
+  "generated_at": "2026-10-13T17:53:24.905432-04:00",
+  "event_key": "2026-10-13|La Nacional|Loteria Nacional- Gana Más",
   "items": [
     {
-      "generated_at": "2026-10-13T13:36:07.221832-04:00",
-      "event_key": "2026-10-13|Anguilla|Anguila 1PM",
+      "generated_at": "2026-10-13T17:52:52.230621-04:00",
+      "event_key": "2026-10-13|La Nacional|Loteria Nacional- Gana Más",
       "target": {
-        "time_rd": "2026-10-13 14:30",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Gana Más"
+        "time_rd": "2026-10-13 18:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 6PM"
       },
       "best_play": {
-        "time_rd": "2026-10-13 14:30",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Gana Más",
+        "time_rd": "2026-10-13 18:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 6PM",
         "top12": [
-          "16",
-          "36",
+          "39",
+          "55",
+          "69",
+          "93",
+          "62",
+          "86",
+          "51",
+          "43",
           "88",
-          "41",
-          "64",
-          "89",
-          "40",
-          "20",
-          "95",
-          "13",
-          "42",
-          "82"
+          "48",
+          "66",
+          "70"
         ],
         "topq": [
-          "16",
-          "36",
-          "88"
+          "39",
+          "55",
+          "69"
         ],
         "pales": [
-          "16-36",
-          "16-88",
-          "16-41"
+          "39-55",
+          "39-69",
+          "39-93"
         ],
-        "fingerprint": "d46337dc673a5fcf",
+        "fingerprint": "a2f984f94da6cbc3",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.004666271968141542,
-        "best_a11": 6,
+        "best_signal": 0.023051251046673694,
+        "best_a11": 4,
         "debug": {
-          "best_signal_hist": 0.004666271968141542,
-          "best_a11_hist": 6,
-          "today_observed_nums": 12,
-          "source_pairs_today": 4,
-          "source_rows_hist_used": 1765,
-          "top12_overlap_prev": 0,
+          "best_signal_hist": 0.023051251046673694,
+          "best_a11_hist": 4,
+          "today_observed_nums": 15,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 2400,
+          "top12_overlap_prev": 1,
+          "top_intraday": [
+            [
+              "76",
+              1
+            ],
+            [
+              "65",
+              1
+            ],
+            [
+              "55",
+              1
+            ],
+            [
+              "36",
+              1
+            ],
+            [
+              "45",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "generated_at": "2026-10-13T17:53:24.107830-04:00",
+      "event_key": "2026-10-13|La Nacional|Loteria Nacional- Gana Más",
+      "target": {
+        "time_rd": "2026-10-13 18:00",
+        "lottery": "La Suerte",
+        "draw": "Quiniela La Suerte 6PM"
+      },
+      "best_play": {
+        "time_rd": "2026-10-13 18:00",
+        "lottery": "La Suerte",
+        "draw": "Quiniela La Suerte 6PM",
+        "top12": [
+          "56",
+          "73",
+          "75",
+          "07",
+          "35",
+          "00",
+          "94",
+          "53",
+          "33",
+          "82",
+          "70",
+          "93"
+        ],
+        "topq": [
+          "56",
+          "73",
+          "75"
+        ],
+        "pales": [
+          "56-73",
+          "56-75",
+          "07-56"
+        ],
+        "fingerprint": "e751b0b742f189a2",
+        "ok_alert": false,
+        "decision": "❌ NO JUGAR",
+        "best_signal": 0.025379509144970575,
+        "best_a11": 3,
+        "debug": {
+          "best_signal_hist": 0.025379509144970575,
+          "best_a11_hist": 3,
+          "today_observed_nums": 15,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 2400,
+          "top12_overlap_prev": 2,
           "top_intraday": [
             [
               "76",
