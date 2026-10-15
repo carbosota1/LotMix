@@ -1,70 +1,70 @@
 {
-  "generated_at": "2026-10-15T13:19:56.149499-04:00",
-  "event_key": "2026-10-15|Anguilla|Anguila 1PM",
+  "generated_at": "2026-10-15T19:57:53.520086-04:00",
+  "event_key": "2026-10-15|Anguilla|Anguila 6PM",
   "target": {
-    "time_rd": "2026-10-15 14:30",
+    "time_rd": "2026-10-15 21:00",
     "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más"
+    "draw": "Loteria Nacional- Noche"
   },
   "best_play": {
-    "time_rd": "2026-10-15 14:30",
+    "time_rd": "2026-10-15 21:00",
     "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más",
+    "draw": "Loteria Nacional- Noche",
     "top12": [
+      "71",
+      "28",
+      "81",
       "42",
-      "36",
-      "00",
-      "30",
-      "41",
-      "89",
-      "64",
-      "40",
-      "20",
-      "95",
-      "94",
-      "13"
+      "66",
+      "22",
+      "65",
+      "10",
+      "59",
+      "82",
+      "29",
+      "83"
     ],
     "topq": [
-      "42",
-      "36",
-      "00"
+      "71",
+      "28",
+      "81"
     ],
     "pales": [
-      "36-42",
-      "00-42",
-      "30-42"
+      "28-71",
+      "71-81",
+      "42-71"
     ],
-    "fingerprint": "ad09a23ce8870be8",
+    "fingerprint": "27c8612121db4b65",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.0031900698391417884,
-    "best_a11": 6,
+    "best_signal": 0.03412885470777714,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.0031900698391417884,
-      "best_a11_hist": 6,
-      "today_observed_nums": 12,
-      "source_pairs_today": 4,
-      "source_rows_hist_used": 1691,
-      "top12_overlap_prev": 0,
+      "best_signal_hist": 0.03412885470777714,
+      "best_a11_hist": 3,
+      "today_observed_nums": 20,
+      "source_pairs_today": 8,
+      "source_rows_hist_used": 2400,
+      "top12_overlap_prev": 2,
       "top_intraday": [
         [
+          "85",
+          2
+        ],
+        [
+          "51",
+          2
+        ],
+        [
+          "42",
+          2
+        ],
+        [
+          "30",
+          2
+        ],
+        [
           "37",
-          1
-        ],
-        [
-          "91",
-          1
-        ],
-        [
-          "00",
-          1
-        ],
-        [
-          "36",
-          1
-        ],
-        [
-          "01",
           1
         ]
       ]
