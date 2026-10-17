@@ -1,50 +1,50 @@
 {
-  "generated_at": "2026-10-17T10:34:38.054987-04:00",
-  "event_key": "2026-10-17|Anguilla|Anguila 10AM",
+  "generated_at": "2026-10-17T12:20:15.430016-04:00",
+  "event_key": "2026-10-17|La Primera|Quiniela La Primera",
   "target": {
-    "time_rd": "2026-10-17 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera"
+    "time_rd": "2026-10-17 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte"
   },
   "best_play": {
-    "time_rd": "2026-10-17 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera",
+    "time_rd": "2026-10-17 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte",
     "top12": [
+      "34",
+      "61",
       "38",
-      "54",
-      "18",
-      "99",
-      "12",
-      "14",
-      "73",
-      "03",
-      "09",
-      "62",
-      "29",
-      "82"
+      "74",
+      "21",
+      "45",
+      "52",
+      "48",
+      "51",
+      "01",
+      "10",
+      "29"
     ],
     "topq": [
-      "38",
-      "54",
-      "18"
+      "34",
+      "61",
+      "38"
     ],
     "pales": [
-      "38-54",
-      "18-38",
-      "38-99"
+      "34-61",
+      "34-38",
+      "34-74"
     ],
-    "fingerprint": "c2f02ad7710b6cb3",
+    "fingerprint": "19a03aac9d9cbf2e",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.011932404435039758,
+    "best_signal": 0.013790956332908635,
     "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.011932404435039758,
+      "best_signal_hist": 0.013790956332908635,
       "best_a11_hist": 2,
-      "today_observed_nums": 3,
-      "source_pairs_today": 1,
-      "source_rows_hist_used": 534,
+      "today_observed_nums": 6,
+      "source_pairs_today": 2,
+      "source_rows_hist_used": 1068,
       "top12_overlap_prev": 2,
       "top_intraday": [
         [
@@ -57,6 +57,14 @@
         ],
         [
           "38",
+          1
+        ],
+        [
+          "72",
+          1
+        ],
+        [
+          "94",
           1
         ]
       ]
