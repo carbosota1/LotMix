@@ -1203,67 +1203,6 @@ def main():
             json.dump(picks_all[-1], f, ensure_ascii=False, indent=2)
 
         print("[OK] Wrote outputs/picks_all.json and outputs/picks.json")
-
-        # 9) Lotmix Caliente — números calientes por posición histórica
-        try:
-            sys.path.insert(0, os.path.join(os.path.dirname(__file__), "src"))
-            from lotmix_caliente import run as run_caliente
-
-            # Construir lista de picks en el formato que espera lotmix_caliente
-            picks_para_caliente = []
-            for p in picks_all:
-                bp = p.get("best_play", {})
-                picks_para_caliente.append({
-                    "draw":        bp.get("draw", ""),
-                    "lottery":     bp.get("lottery", ""),
-                    "decision":    bp.get("decision", ""),
-                    "best_signal": bp.get("best_signal"),
-                    "best_a11":    bp.get("best_a11"),
-                    "ok_alert":    bp.get("ok_alert", False),
-                    "top12":       bp.get("top12", []),
-                    "topq":        bp.get("topq", []),
-                    "date":        p.get("generated_at", "")[:10],
-                })
-
-            caliente_path = os.path.join(OUT_DIR, "caliente.json")
-            caliente = run_caliente(picks=picks_para_caliente, output_path=caliente_path)
-            print(f"[OK] Lotmix Caliente generado → {caliente_path}")
-
-            # Telegram con los números calientes
-            loterias_caliente = caliente.get("loterias", {})
-            if loterias_caliente:
-                msg = []
-                msg.append("🔥 LOTMIX CALIENTE")
-                msg.append(f"📅 {now_rd().strftime('%Y-%m-%d %H:%M')} RD")
-                msg.append("")
-
-                for draw_name, data in loterias_caliente.items():
-                    numeros   = data.get("numeros", [])
-                    nivel     = data.get("nivel_senal", "")
-                    decision  = data.get("decision", "")
-                    hit_rate  = data.get("hit_rate_historico", 0)
-                    signal    = data.get("signal", 0)
-                    a11       = data.get("a11", 0)
-                    advertencia = data.get("advertencia", "")
-
-                    nivel_emoji = {"muy_alta": "🔥", "alta": "⚡", "media": "✅", "baja": "📉"}.get(nivel, "")
-
-                    msg.append(f"🎯 {draw_name}")
-                    msg.append(f"{decision}  {nivel_emoji} Señal {nivel} ({signal:.4f}) | a11={a11}")
-                    msg.append(f"🎰 Calientes: {', '.join(numeros)}")
-                    msg.append(f"📊 Hit rate histórico: {hit_rate}%")
-                    if advertencia:
-                        msg.append(f"{advertencia}")
-                    msg.append("")
-
-                send_telegram("\n".join(msg))
-                print("[OK] Lotmix Caliente enviado por Telegram.")
-            else:
-                print("[INFO] Lotmix Caliente: ningún pick activo para enviar.")
-
-        except Exception as e:
-            print(f"[WARN] Lotmix Caliente falló: {e}")
-
     else:
         print("[INFO] No payloads produced.")
 
