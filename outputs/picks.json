@@ -1,54 +1,58 @@
 {
-  "generated_at": "2026-10-19T16:15:32.603146-04:00",
-  "event_key": "2026-10-19|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-10-19T18:21:55.159160-04:00",
+  "event_key": "2026-10-19|La Suerte|Quiniela La Suerte 6PM",
   "target": {
-    "time_rd": "2026-10-19 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-10-19 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-10-19 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-10-19 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "33",
-      "56",
-      "75",
-      "07",
-      "82",
-      "35",
-      "73",
-      "00",
-      "53",
-      "93",
-      "70",
-      "69"
+      "31",
+      "47",
+      "86",
+      "97",
+      "20",
+      "01",
+      "44",
+      "83",
+      "80",
+      "13",
+      "95",
+      "53"
     ],
     "topq": [
-      "33",
-      "56",
-      "75"
+      "31",
+      "47",
+      "86"
     ],
     "pales": [
-      "33-56",
-      "33-75",
-      "07-33"
+      "31-47",
+      "31-86",
+      "31-97"
     ],
-    "fingerprint": "17dbda3aefd976ed",
+    "fingerprint": "6ac01c27c6bd0b0c",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.021259418307881143,
+    "best_signal": 0.02942622972175507,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.021259418307881143,
+      "best_signal_hist": 0.02942622972175507,
       "best_a11_hist": 3,
-      "today_observed_nums": 14,
-      "source_pairs_today": 5,
+      "today_observed_nums": 18,
+      "source_pairs_today": 7,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 3,
+      "top12_overlap_prev": 1,
       "top_intraday": [
         [
           "57",
+          3
+        ],
+        [
+          "86",
           2
         ],
         [
@@ -61,10 +65,6 @@
         ],
         [
           "27",
-          1
-        ],
-        [
-          "30",
           1
         ]
       ]
