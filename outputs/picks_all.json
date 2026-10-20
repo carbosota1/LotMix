@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-20T13:23:57.447183-04:00",
-  "event_key": "2026-10-20|Anguilla|Anguila 1PM",
+  "generated_at": "2026-10-20T13:38:53.731483-04:00",
+  "event_key": "2026-10-20|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-10-20T13:23:53.356242-04:00",
-      "event_key": "2026-10-20|Anguilla|Anguila 1PM",
+      "generated_at": "2026-10-20T13:38:47.679946-04:00",
+      "event_key": "2026-10-20|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-10-20 14:30",
         "lottery": "La Nacional",
@@ -17,8 +17,8 @@
         "top12": [
           "40",
           "48",
-          "20",
           "94",
+          "20",
           "41",
           "64",
           "89",
@@ -31,14 +31,14 @@
         "topq": [
           "40",
           "48",
-          "20"
+          "94"
         ],
         "pales": [
           "40-48",
-          "20-40",
-          "40-94"
+          "40-94",
+          "20-40"
         ],
-        "fingerprint": "9a4f6912c44183d0",
+        "fingerprint": "014c81913b7b9e87",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
         "best_signal": 0.001616240603263797,
@@ -49,7 +49,7 @@
           "today_observed_nums": 11,
           "source_pairs_today": 4,
           "source_rows_hist_used": 1541,
-          "top12_overlap_prev": 0,
+          "top12_overlap_prev": 12,
           "top_intraday": [
             [
               "61",
