@@ -1,54 +1,58 @@
 {
-  "generated_at": "2026-10-20T18:22:06.730778-04:00",
-  "event_key": "2026-10-20|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-10-20T19:23:50.271499-04:00",
+  "event_key": "2026-10-20|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-10-20 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-10-20 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche"
   },
   "best_play": {
-    "time_rd": "2026-10-20 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-10-20 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche",
     "top12": [
-      "20",
-      "44",
-      "97",
-      "31",
-      "67",
-      "01",
-      "80",
-      "86",
-      "13",
-      "95",
-      "83",
-      "53"
+      "71",
+      "23",
+      "28",
+      "81",
+      "77",
+      "66",
+      "65",
+      "10",
+      "22",
+      "29",
+      "07",
+      "82"
     ],
     "topq": [
-      "20",
-      "44",
-      "97"
+      "71",
+      "23",
+      "28"
     ],
     "pales": [
-      "20-44",
-      "20-97",
-      "20-31"
+      "23-71",
+      "28-71",
+      "71-81"
     ],
-    "fingerprint": "f5c8b5ac72ba1da0",
+    "fingerprint": "afb7f75f3fd2e7e9",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.028583285135874912,
+    "best_signal": 0.03300119404095613,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.028583285135874912,
+      "best_signal_hist": 0.03300119404095613,
       "best_a11_hist": 3,
-      "today_observed_nums": 20,
-      "source_pairs_today": 7,
+      "today_observed_nums": 22,
+      "source_pairs_today": 8,
       "source_rows_hist_used": 2400,
       "top12_overlap_prev": 1,
       "top_intraday": [
         [
           "61",
+          2
+        ],
+        [
+          "05",
           2
         ],
         [
@@ -61,10 +65,6 @@
         ],
         [
           "48",
-          1
-        ],
-        [
-          "20",
           1
         ]
       ]
