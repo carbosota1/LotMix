@@ -1,55 +1,55 @@
 {
-  "generated_at": "2026-10-25T16:17:34.079883-04:00",
-  "event_key": "2026-10-25|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-10-25T18:21:48.458819-04:00",
+  "event_key": "2026-10-25|La Nacional|Loteria Nacional- Noche",
   "target": {
-    "time_rd": "2026-10-25 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-10-25 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-10-25 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-10-25 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "56",
-      "35",
-      "07",
-      "41",
-      "93",
-      "33",
-      "70",
-      "00",
-      "73",
-      "53",
-      "94",
-      "82"
+      "60",
+      "97",
+      "64",
+      "31",
+      "55",
+      "14",
+      "50",
+      "01",
+      "44",
+      "13",
+      "91",
+      "57"
     ],
     "topq": [
-      "56",
-      "35",
-      "07"
+      "60",
+      "97",
+      "64"
     ],
     "pales": [
-      "35-56",
-      "07-56",
-      "41-56"
+      "60-97",
+      "60-64",
+      "31-60"
     ],
-    "fingerprint": "181430696a95f822",
+    "fingerprint": "ea5188bc04004d44",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.020820306136323515,
-    "best_a11": 2,
+    "best_signal": 0.037543275727927455,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.020820306136323515,
-      "best_a11_hist": 2,
-      "today_observed_nums": 13,
-      "source_pairs_today": 5,
+      "best_signal_hist": 0.037543275727927455,
+      "best_a11_hist": 4,
+      "today_observed_nums": 18,
+      "source_pairs_today": 8,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 1,
+      "top12_overlap_prev": 0,
       "top_intraday": [
         [
           "76",
-          3
+          4
         ],
         [
           "60",
