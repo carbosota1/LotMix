@@ -1,126 +1,53 @@
 {
-  "generated_at": "2026-10-30T16:22:08.799036-04:00",
-  "event_key": "2026-10-30|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-10-30T18:29:37.205734-04:00",
+  "event_key": "2026-10-30|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-10-30T16:21:35.853420-04:00",
-      "event_key": "2026-10-30|La Nacional|Loteria Nacional- Gana Más",
+      "generated_at": "2026-10-30T18:29:36.323042-04:00",
+      "event_key": "2026-10-30|TEST|NO-UPDATE",
       "target": {
-        "time_rd": "2026-10-30 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM"
+        "time_rd": "2026-10-30 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche"
       },
       "best_play": {
-        "time_rd": "2026-10-30 18:00",
-        "lottery": "Anguilla",
-        "draw": "Anguila 6PM",
+        "time_rd": "2026-10-30 19:00",
+        "lottery": "La Primera",
+        "draw": "Quiniela La Primera Noche",
         "top12": [
-          "69",
-          "66",
-          "39",
-          "43",
-          "88",
-          "51",
-          "28",
-          "93",
-          "29",
-          "48",
-          "62",
-          "27"
-        ],
-        "topq": [
-          "69",
-          "66",
-          "39"
-        ],
-        "pales": [
-          "66-69",
-          "39-69",
-          "43-69"
-        ],
-        "fingerprint": "c88849bddface5d1",
-        "ok_alert": false,
-        "decision": "❌ NO JUGAR",
-        "best_signal": 0.011727636098844993,
-        "best_a11": 3,
-        "debug": {
-          "best_signal_hist": 0.011727636098844993,
-          "best_a11_hist": 3,
-          "today_observed_nums": 12,
-          "source_pairs_today": 5,
-          "source_rows_hist_used": 2400,
-          "top12_overlap_prev": 2,
-          "top_intraday": [
-            [
-              "74",
-              2
-            ],
-            [
-              "92",
-              2
-            ],
-            [
-              "79",
-              2
-            ],
-            [
-              "23",
-              1
-            ],
-            [
-              "66",
-              1
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "generated_at": "2026-10-30T16:22:07.695791-04:00",
-      "event_key": "2026-10-30|La Nacional|Loteria Nacional- Gana Más",
-      "target": {
-        "time_rd": "2026-10-30 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM"
-      },
-      "best_play": {
-        "time_rd": "2026-10-30 18:00",
-        "lottery": "La Suerte",
-        "draw": "Quiniela La Suerte 6PM",
-        "top12": [
-          "35",
-          "53",
-          "56",
-          "07",
-          "33",
-          "70",
+          "31",
+          "13",
+          "36",
+          "57",
+          "60",
+          "01",
+          "44",
+          "80",
+          "95",
           "58",
-          "00",
-          "73",
-          "94",
-          "93",
-          "82"
+          "97",
+          "91"
         ],
         "topq": [
-          "35",
-          "53",
-          "56"
+          "31",
+          "13",
+          "36"
         ],
         "pales": [
-          "35-53",
-          "35-56",
-          "07-35"
+          "13-31",
+          "31-36",
+          "31-57"
         ],
-        "fingerprint": "a04a1c576e5dabbc",
+        "fingerprint": "70a06958c77f62ab",
         "ok_alert": false,
-        "decision": "❌ NO JUGAR",
-        "best_signal": 0.020820306136323515,
-        "best_a11": 2,
+        "decision": "⚠️ JUGAR",
+        "best_signal": 0.02942622972175507,
+        "best_a11": 4,
         "debug": {
-          "best_signal_hist": 0.020820306136323515,
-          "best_a11_hist": 2,
+          "best_signal_hist": 0.02942622972175507,
+          "best_a11_hist": 4,
           "today_observed_nums": 12,
-          "source_pairs_today": 5,
+          "source_pairs_today": 7,
           "source_rows_hist_used": 2400,
           "top12_overlap_prev": 1,
           "top_intraday": [
