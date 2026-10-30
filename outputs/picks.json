@@ -1,73 +1,52 @@
 {
-  "generated_at": "2026-10-29T18:22:23.196501-04:00",
-  "event_key": "2026-10-29|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-10-30T10:40:21.573209-04:00",
+  "event_key": "2026-10-30|TEST|NO-UPDATE",
   "target": {
-    "time_rd": "2026-10-29 19:00",
+    "time_rd": "2026-10-30 12:00",
     "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "draw": "Quiniela La Primera"
   },
   "best_play": {
-    "time_rd": "2026-10-29 19:00",
+    "time_rd": "2026-10-30 12:00",
     "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "draw": "Quiniela La Primera",
     "top12": [
-      "58",
-      "31",
-      "80",
-      "13",
-      "57",
-      "36",
-      "60",
-      "01",
-      "44",
-      "95",
-      "97",
-      "91"
+      "54",
+      "38",
+      "18",
+      "03",
+      "99",
+      "14",
+      "06",
+      "09",
+      "73",
+      "62",
+      "29",
+      "82"
     ],
     "topq": [
-      "58",
-      "31",
-      "80"
+      "54",
+      "38",
+      "18"
     ],
     "pales": [
-      "31-58",
-      "58-80",
-      "13-58"
+      "38-54",
+      "18-54",
+      "03-54"
     ],
-    "fingerprint": "10af1c51c4a9c72b",
+    "fingerprint": "d6c25593eb458430",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.02942622972175507,
-    "best_a11": 4,
+    "best_signal": 0.012417864671074341,
+    "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.02942622972175507,
-      "best_a11_hist": 4,
-      "today_observed_nums": 18,
-      "source_pairs_today": 7,
-      "source_rows_hist_used": 2400,
+      "best_signal_hist": 0.012417864671074341,
+      "best_a11_hist": 2,
+      "today_observed_nums": 0,
+      "source_pairs_today": 1,
+      "source_rows_hist_used": 531,
       "top12_overlap_prev": 0,
-      "top_intraday": [
-        [
-          "74",
-          2
-        ],
-        [
-          "30",
-          2
-        ],
-        [
-          "98",
-          2
-        ],
-        [
-          "23",
-          1
-        ],
-        [
-          "66",
-          1
-        ]
-      ]
+      "top_intraday": []
     }
   }
 }
