@@ -1,55 +1,55 @@
 {
-  "generated_at": "2026-10-31T13:53:33.319521-04:00",
-  "event_key": "2026-10-31|TEST|NO-UPDATE",
+  "generated_at": "2026-10-31T16:23:52.518953-04:00",
+  "event_key": "2026-10-31|La Nacional|Loteria Nacional- Gana Más",
   "target": {
-    "time_rd": "2026-10-31 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más"
+    "time_rd": "2026-10-31 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM"
   },
   "best_play": {
-    "time_rd": "2026-10-31 14:30",
-    "lottery": "La Nacional",
-    "draw": "Loteria Nacional- Gana Más",
+    "time_rd": "2026-10-31 18:00",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte 6PM",
     "top12": [
-      "40",
-      "13",
-      "20",
-      "60",
-      "88",
-      "89",
-      "42",
-      "64",
+      "33",
       "41",
+      "56",
+      "07",
+      "70",
+      "35",
+      "00",
+      "53",
+      "73",
       "94",
-      "95",
+      "93",
       "82"
     ],
     "topq": [
-      "40",
-      "13",
-      "20"
+      "33",
+      "41",
+      "56"
     ],
     "pales": [
-      "13-40",
-      "20-40",
-      "40-60"
+      "33-41",
+      "33-56",
+      "07-33"
     ],
-    "fingerprint": "0c85487c179d73dd",
+    "fingerprint": "7a5bd2f369ee0d5c",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.005035447766531294,
-    "best_a11": 9,
+    "best_signal": 0.020820306136323515,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.005035447766531294,
-      "best_a11_hist": 9,
-      "today_observed_nums": 11,
-      "source_pairs_today": 4,
-      "source_rows_hist_used": 1579,
-      "top12_overlap_prev": 12,
+      "best_signal_hist": 0.020820306136323515,
+      "best_a11_hist": 3,
+      "today_observed_nums": 13,
+      "source_pairs_today": 5,
+      "source_rows_hist_used": 2400,
+      "top12_overlap_prev": 1,
       "top_intraday": [
         [
           "60",
-          2
+          3
         ],
         [
           "20",
