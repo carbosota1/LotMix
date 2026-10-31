@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-31T13:28:24.246457-04:00",
-  "event_key": "2026-10-31|Anguilla|Anguila 1PM",
+  "generated_at": "2026-10-31T13:53:34.958793-04:00",
+  "event_key": "2026-10-31|TEST|NO-UPDATE",
   "items": [
     {
-      "generated_at": "2026-10-31T13:28:08.576133-04:00",
-      "event_key": "2026-10-31|Anguilla|Anguila 1PM",
+      "generated_at": "2026-10-31T13:53:33.319521-04:00",
+      "event_key": "2026-10-31|TEST|NO-UPDATE",
       "target": {
         "time_rd": "2026-10-31 14:30",
         "lottery": "La Nacional",
@@ -16,8 +16,8 @@
         "draw": "Loteria Nacional- Gana Más",
         "top12": [
           "40",
-          "20",
           "13",
+          "20",
           "60",
           "88",
           "89",
@@ -30,15 +30,15 @@
         ],
         "topq": [
           "40",
-          "20",
-          "13"
+          "13",
+          "20"
         ],
         "pales": [
-          "20-40",
           "13-40",
+          "20-40",
           "40-60"
         ],
-        "fingerprint": "1fe5e305e656feb2",
+        "fingerprint": "0c85487c179d73dd",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
         "best_signal": 0.005035447766531294,
@@ -49,7 +49,7 @@
           "today_observed_nums": 11,
           "source_pairs_today": 4,
           "source_rows_hist_used": 1579,
-          "top12_overlap_prev": 0,
+          "top12_overlap_prev": 12,
           "top_intraday": [
             [
               "60",
