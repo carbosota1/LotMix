@@ -1,56 +1,60 @@
 {
-  "generated_at": "2026-11-01T13:23:21.988244-04:00",
-  "event_key": "2026-11-01|TEST|NO-UPDATE",
+  "generated_at": "2026-11-01T16:18:00.717129-04:00",
+  "event_key": "2026-11-01|La Nacional|Loteria Nacional- Gana Más",
   "items": [
     {
-      "generated_at": "2026-11-01T13:23:01.884485-04:00",
-      "event_key": "2026-11-01|TEST|NO-UPDATE",
+      "generated_at": "2026-11-01T16:17:02.563871-04:00",
+      "event_key": "2026-11-01|La Nacional|Loteria Nacional- Gana Más",
       "target": {
-        "time_rd": "2026-11-01 14:30",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Gana Más"
+        "time_rd": "2026-11-01 18:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 6PM"
       },
       "best_play": {
-        "time_rd": "2026-11-01 14:30",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Gana Más",
+        "time_rd": "2026-11-01 18:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 6PM",
         "top12": [
-          "62",
-          "07",
-          "65",
-          "27",
-          "18",
-          "57",
-          "88",
-          "22",
-          "13",
-          "82",
+          "33",
+          "54",
+          "26",
+          "63",
+          "46",
+          "36",
+          "03",
+          "00",
+          "70",
+          "66",
           "71",
-          "77"
+          "07"
         ],
         "topq": [
-          "62",
-          "07",
-          "65"
+          "33",
+          "54",
+          "26"
         ],
         "pales": [
-          "07-62",
-          "62-65",
-          "27-62"
+          "33-54",
+          "26-33",
+          "33-63"
         ],
-        "fingerprint": "c1cafc1d96265ab5",
+        "fingerprint": "83012bae0ceca4b2",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.03120526564485588,
-        "best_a11": 3,
+        "best_signal": 0.004682100344631921,
+        "best_a11": 12,
         "debug": {
-          "best_signal_hist": 0.03120526564485588,
-          "best_a11_hist": 3,
-          "today_observed_nums": 6,
-          "source_pairs_today": 4,
-          "source_rows_hist_used": 2130,
-          "top12_overlap_prev": 1,
+          "best_signal_hist": 0.004682100344631921,
+          "best_a11_hist": 12,
+          "today_observed_nums": 8,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 1683,
+          "top12_overlap_prev": 2,
           "top_intraday": [
+            [
+              "10",
+              2
+            ],
             [
               "54",
               1
@@ -64,11 +68,153 @@
               1
             ],
             [
-              "02",
+              "14",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "generated_at": "2026-11-01T16:17:29.921830-04:00",
+      "event_key": "2026-11-01|La Nacional|Loteria Nacional- Gana Más",
+      "target": {
+        "time_rd": "2026-11-01 18:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche"
+      },
+      "best_play": {
+        "time_rd": "2026-11-01 18:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche",
+        "top12": [
+          "68",
+          "90",
+          "11",
+          "87",
+          "80",
+          "84",
+          "61",
+          "37",
+          "38",
+          "13",
+          "63",
+          "07"
+        ],
+        "topq": [
+          "68",
+          "90",
+          "11"
+        ],
+        "pales": [
+          "68-90",
+          "11-68",
+          "68-87"
+        ],
+        "fingerprint": "dd0e717a6c2e4437",
+        "ok_alert": false,
+        "decision": "❌ NO JUGAR",
+        "best_signal": 0.0017920892174368755,
+        "best_a11": 2,
+        "debug": {
+          "best_signal_hist": 0.0017920892174368755,
+          "best_a11_hist": 2,
+          "today_observed_nums": 8,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 1683,
+          "top12_overlap_prev": 2,
+          "top_intraday": [
+            [
+              "10",
+              2
+            ],
+            [
+              "54",
               1
             ],
             [
-              "68",
+              "33",
+              1
+            ],
+            [
+              "19",
+              1
+            ],
+            [
+              "14",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "generated_at": "2026-11-01T16:17:55.501033-04:00",
+      "event_key": "2026-11-01|La Nacional|Loteria Nacional- Gana Más",
+      "target": {
+        "time_rd": "2026-11-01 18:00",
+        "lottery": "La Suerte",
+        "draw": "Quiniela La Suerte 6PM"
+      },
+      "best_play": {
+        "time_rd": "2026-11-01 18:00",
+        "lottery": "La Suerte",
+        "draw": "Quiniela La Suerte 6PM",
+        "top12": [
+          "68",
+          "19",
+          "30",
+          "21",
+          "35",
+          "92",
+          "51",
+          "53",
+          "00",
+          "66",
+          "73",
+          "07"
+        ],
+        "topq": [
+          "68",
+          "19",
+          "30"
+        ],
+        "pales": [
+          "19-68",
+          "30-68",
+          "21-68"
+        ],
+        "fingerprint": "e925fe7c9dd3db3b",
+        "ok_alert": false,
+        "decision": "❌ NO JUGAR",
+        "best_signal": 0.003223447464537979,
+        "best_a11": 6,
+        "debug": {
+          "best_signal_hist": 0.003223447464537979,
+          "best_a11_hist": 6,
+          "today_observed_nums": 8,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 1683,
+          "top12_overlap_prev": 2,
+          "top_intraday": [
+            [
+              "10",
+              2
+            ],
+            [
+              "54",
+              1
+            ],
+            [
+              "33",
+              1
+            ],
+            [
+              "19",
+              1
+            ],
+            [
+              "14",
               1
             ]
           ]
