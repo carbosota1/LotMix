@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-11-01T18:24:50.743550-04:00",
-  "event_key": "2026-11-01|La Nacional|Loteria Nacional- Noche",
+  "generated_at": "2026-11-01T19:25:11.532833-04:00",
+  "event_key": "2026-11-01|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-11-01 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-11-01 21:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 9PM"
   },
   "best_play": {
-    "time_rd": "2026-11-01 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-11-01 21:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 9PM",
     "top12": [
-      "97",
-      "31",
-      "98",
+      "54",
+      "92",
+      "49",
+      "24",
+      "17",
+      "99",
+      "60",
+      "55",
+      "95",
       "50",
-      "37",
-      "44",
       "01",
-      "80",
-      "13",
-      "91",
-      "57",
       "94"
     ],
     "topq": [
-      "97",
-      "31",
-      "98"
+      "54",
+      "92",
+      "49"
     ],
     "pales": [
-      "31-97",
-      "97-98",
-      "50-97"
+      "54-92",
+      "49-54",
+      "24-54"
     ],
-    "fingerprint": "2265ac6d9e9a6233",
+    "fingerprint": "2c20cb7628c80a3d",
     "ok_alert": false,
-    "decision": "⚠️ JUGAR",
-    "best_signal": 0.037543275727927455,
+    "decision": "❌ NO JUGAR",
+    "best_signal": 0.03005419485825766,
     "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.037543275727927455,
+      "best_signal_hist": 0.03005419485825766,
       "best_a11_hist": 4,
-      "today_observed_nums": 11,
-      "source_pairs_today": 8,
+      "today_observed_nums": 14,
+      "source_pairs_today": 9,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 0,
+      "top12_overlap_prev": 3,
       "top_intraday": [
         [
           "10",
@@ -64,7 +64,7 @@
           1
         ],
         [
-          "14",
+          "15",
           1
         ]
       ]
