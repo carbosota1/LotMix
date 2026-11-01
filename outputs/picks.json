@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-11-01T16:17:55.501033-04:00",
-  "event_key": "2026-11-01|La Nacional|Loteria Nacional- Gana Más",
+  "generated_at": "2026-11-01T18:24:50.743550-04:00",
+  "event_key": "2026-11-01|La Nacional|Loteria Nacional- Noche",
   "target": {
-    "time_rd": "2026-11-01 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM"
+    "time_rd": "2026-11-01 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche"
   },
   "best_play": {
-    "time_rd": "2026-11-01 18:00",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte 6PM",
+    "time_rd": "2026-11-01 19:00",
+    "lottery": "La Primera",
+    "draw": "Quiniela La Primera Noche",
     "top12": [
-      "68",
-      "19",
-      "30",
-      "21",
-      "35",
-      "92",
-      "51",
-      "53",
-      "00",
-      "66",
-      "73",
-      "07"
+      "97",
+      "31",
+      "98",
+      "50",
+      "37",
+      "44",
+      "01",
+      "80",
+      "13",
+      "91",
+      "57",
+      "94"
     ],
     "topq": [
-      "68",
-      "19",
-      "30"
+      "97",
+      "31",
+      "98"
     ],
     "pales": [
-      "19-68",
-      "30-68",
-      "21-68"
+      "31-97",
+      "97-98",
+      "50-97"
     ],
-    "fingerprint": "e925fe7c9dd3db3b",
+    "fingerprint": "2265ac6d9e9a6233",
     "ok_alert": false,
-    "decision": "❌ NO JUGAR",
-    "best_signal": 0.003223447464537979,
-    "best_a11": 6,
+    "decision": "⚠️ JUGAR",
+    "best_signal": 0.037543275727927455,
+    "best_a11": 4,
     "debug": {
-      "best_signal_hist": 0.003223447464537979,
-      "best_a11_hist": 6,
-      "today_observed_nums": 8,
-      "source_pairs_today": 5,
-      "source_rows_hist_used": 1683,
-      "top12_overlap_prev": 2,
+      "best_signal_hist": 0.037543275727927455,
+      "best_a11_hist": 4,
+      "today_observed_nums": 11,
+      "source_pairs_today": 8,
+      "source_rows_hist_used": 2400,
+      "top12_overlap_prev": 0,
       "top_intraday": [
         [
           "10",
