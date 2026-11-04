@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-11-04T10:41:47.442878-04:00",
-  "event_key": "2026-11-04|Anguilla|Anguila 10AM",
+  "generated_at": "2026-11-04T12:29:10.542271-04:00",
+  "event_key": "2026-11-04|La Primera|Quiniela La Primera",
   "target": {
-    "time_rd": "2026-11-04 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera"
+    "time_rd": "2026-11-04 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte"
   },
   "best_play": {
-    "time_rd": "2026-11-04 12:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera",
+    "time_rd": "2026-11-04 12:30",
+    "lottery": "La Suerte",
+    "draw": "Quiniela La Suerte",
     "top12": [
-      "38",
-      "54",
-      "03",
-      "14",
-      "18",
-      "99",
-      "09",
-      "06",
-      "62",
-      "80",
-      "73",
+      "21",
+      "76",
+      "34",
+      "61",
+      "45",
+      "04",
+      "74",
+      "01",
+      "52",
+      "48",
+      "35",
       "29"
     ],
     "topq": [
-      "38",
-      "54",
-      "03"
+      "21",
+      "76",
+      "34"
     ],
     "pales": [
-      "38-54",
-      "03-38",
-      "14-38"
+      "21-76",
+      "21-34",
+      "21-61"
     ],
-    "fingerprint": "ddd3c26af8d4b987",
+    "fingerprint": "1ebeca77880559fa",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.013302490913821697,
+    "best_signal": 0.01663773848985446,
     "best_a11": 2,
     "debug": {
-      "best_signal_hist": 0.013302490913821697,
+      "best_signal_hist": 0.01663773848985446,
       "best_a11_hist": 2,
-      "today_observed_nums": 3,
-      "source_pairs_today": 1,
-      "source_rows_hist_used": 534,
-      "top12_overlap_prev": 2,
+      "today_observed_nums": 6,
+      "source_pairs_today": 2,
+      "source_rows_hist_used": 1068,
+      "top12_overlap_prev": 1,
       "top_intraday": [
         [
           "89",
@@ -57,6 +57,14 @@
         ],
         [
           "21",
+          1
+        ],
+        [
+          "27",
+          1
+        ],
+        [
+          "13",
           1
         ]
       ]
