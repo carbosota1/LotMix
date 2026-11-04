@@ -1,52 +1,56 @@
 {
-  "generated_at": "2026-11-04T18:27:23.394138-04:00",
-  "event_key": "2026-11-04|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-11-04T19:28:59.368199-04:00",
+  "event_key": "2026-11-04|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-11-04 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-11-04 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche"
   },
   "best_play": {
-    "time_rd": "2026-11-04 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-11-04 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche",
     "top12": [
-      "31",
-      "57",
-      "13",
-      "36",
-      "60",
-      "91",
-      "98",
-      "50",
-      "44",
-      "01",
-      "95",
-      "97"
+      "73",
+      "28",
+      "53",
+      "81",
+      "23",
+      "65",
+      "66",
+      "93",
+      "71",
+      "61",
+      "48",
+      "29"
     ],
     "topq": [
-      "31",
-      "57",
-      "13"
+      "73",
+      "28",
+      "53"
     ],
     "pales": [
-      "31-57",
-      "13-31",
-      "31-36"
+      "28-73",
+      "53-73",
+      "73-81"
     ],
-    "fingerprint": "a4afc6c8513d9e77",
+    "fingerprint": "530d5643ac312bf5",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.02942622972175507,
-    "best_a11": 4,
+    "best_signal": 0.03788900012883999,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.02942622972175507,
-      "best_a11_hist": 4,
-      "today_observed_nums": 17,
-      "source_pairs_today": 7,
+      "best_signal_hist": 0.03788900012883999,
+      "best_a11_hist": 3,
+      "today_observed_nums": 22,
+      "source_pairs_today": 8,
       "source_rows_hist_used": 2400,
       "top12_overlap_prev": 0,
       "top_intraday": [
+        [
+          "37",
+          2
+        ],
         [
           "91",
           2
@@ -61,10 +65,6 @@
         ],
         [
           "21",
-          1
-        ],
-        [
-          "62",
           1
         ]
       ]
