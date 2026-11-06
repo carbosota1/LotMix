@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-11-06T12:30:16.823811-04:00",
-  "event_key": "2026-11-06|La Primera|Quiniela La Primera",
+  "generated_at": "2026-11-06T14:59:13.880431-04:00",
+  "event_key": "2026-11-06|La Nacional|Loteria Nacional- Gana Más",
   "target": {
-    "time_rd": "2026-11-06 12:30",
+    "time_rd": "2026-11-06 18:00",
     "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte"
+    "draw": "Quiniela La Suerte 6PM"
   },
   "best_play": {
-    "time_rd": "2026-11-06 12:30",
+    "time_rd": "2026-11-06 18:00",
     "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte",
+    "draw": "Quiniela La Suerte 6PM",
     "top12": [
-      "34",
-      "45",
-      "76",
-      "61",
-      "04",
-      "21",
-      "74",
-      "01",
-      "52",
-      "48",
-      "06",
-      "29"
+      "41",
+      "07",
+      "70",
+      "33",
+      "82",
+      "80",
+      "35",
+      "22",
+      "53",
+      "00",
+      "94",
+      "93"
     ],
     "topq": [
-      "34",
-      "45",
-      "76"
+      "41",
+      "07",
+      "70"
     ],
     "pales": [
-      "34-45",
-      "34-76",
-      "34-61"
+      "07-41",
+      "41-70",
+      "33-41"
     ],
-    "fingerprint": "a5406fd4b88fe010",
+    "fingerprint": "747893588181aa05",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.01663773848985446,
-    "best_a11": 2,
+    "best_signal": 0.013570565615800534,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.01663773848985446,
-      "best_a11_hist": 2,
-      "today_observed_nums": 5,
-      "source_pairs_today": 2,
-      "source_rows_hist_used": 1068,
-      "top12_overlap_prev": 2,
+      "best_signal_hist": 0.013570565615800534,
+      "best_a11_hist": 3,
+      "today_observed_nums": 14,
+      "source_pairs_today": 5,
+      "source_rows_hist_used": 2400,
+      "top12_overlap_prev": 1,
       "top_intraday": [
         [
           "45",
@@ -56,15 +56,15 @@
           1
         ],
         [
-          "28",
+          "10",
           1
         ],
         [
-          "36",
+          "75",
           1
         ],
         [
-          "34",
+          "85",
           1
         ]
       ]
