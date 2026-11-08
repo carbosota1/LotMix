@@ -11,6 +11,8 @@ on:
     - cron: "10 20 * * *"
     - cron: "15 22 * * *"
     - cron: "15 23 * * *"
+    # Domingo 9:15PM RD (lunes 01:15 UTC): resultado de La Suerte que sale a las 9PM
+    - cron: "15 1 * * 1"
   workflow_dispatch:
 concurrency:
   group: lotmix-runner
@@ -43,7 +45,7 @@ jobs:
           done
       - name: Run runner
         run: |
-          python src/runner.py
+          python src/run_sunday_aware.py runner
       - name: Commit and push changes (histories/state/outputs)
         run: |
           git config user.name "gitea-actions"
