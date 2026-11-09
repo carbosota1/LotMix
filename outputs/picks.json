@@ -1,62 +1,62 @@
 {
-  "generated_at": "2026-11-09T18:23:38.100207-04:00",
-  "event_key": "2026-11-09|TEST|NO-UPDATE",
+  "generated_at": "2026-11-09T19:21:47.063332-04:00",
+  "event_key": "2026-11-09|La Primera|Quiniela La Primera Noche",
   "target": {
-    "time_rd": "2026-11-09 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche"
+    "time_rd": "2026-11-09 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche"
   },
   "best_play": {
-    "time_rd": "2026-11-09 19:00",
-    "lottery": "La Primera",
-    "draw": "Quiniela La Primera Noche",
+    "time_rd": "2026-11-09 21:00",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Noche",
     "top12": [
-      "31",
-      "97",
-      "59",
-      "37",
-      "98",
-      "44",
-      "50",
-      "01",
-      "13",
-      "91",
-      "57",
-      "00"
+      "23",
+      "65",
+      "45",
+      "28",
+      "71",
+      "53",
+      "29",
+      "81",
+      "48",
+      "66",
+      "93",
+      "61"
     ],
     "topq": [
-      "31",
-      "97",
-      "59"
+      "23",
+      "65",
+      "45"
     ],
     "pales": [
-      "31-97",
-      "31-59",
-      "31-37"
+      "23-65",
+      "23-45",
+      "23-28"
     ],
-    "fingerprint": "4730cabbf25571c6",
+    "fingerprint": "969ac46e0c44ce2c",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.028583285135874912,
-    "best_a11": 4,
+    "best_signal": 0.0503743592017558,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.028583285135874912,
-      "best_a11_hist": 4,
-      "today_observed_nums": 14,
-      "source_pairs_today": 7,
+      "best_signal_hist": 0.0503743592017558,
+      "best_a11_hist": 3,
+      "today_observed_nums": 22,
+      "source_pairs_today": 8,
       "source_rows_hist_used": 2400,
-      "top12_overlap_prev": 1,
+      "top12_overlap_prev": 0,
       "top_intraday": [
+        [
+          "95",
+          2
+        ],
         [
           "48",
           2
         ],
         [
           "94",
-          1
-        ],
-        [
-          "95",
           1
         ],
         [
