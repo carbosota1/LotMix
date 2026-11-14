@@ -1,55 +1,128 @@
 {
-  "generated_at": "2026-11-14T18:22:16.434618-04:00",
-  "event_key": "2026-11-14|La Suerte|Quiniela La Suerte 6PM",
+  "generated_at": "2026-11-14T19:21:35.869904-04:00",
+  "event_key": "2026-11-14|La Primera|Quiniela La Primera Noche",
   "items": [
     {
-      "generated_at": "2026-11-14T18:22:15.546001-04:00",
-      "event_key": "2026-11-14|La Suerte|Quiniela La Suerte 6PM",
+      "generated_at": "2026-11-14T19:20:38.711680-04:00",
+      "event_key": "2026-11-14|La Primera|Quiniela La Primera Noche",
       "target": {
-        "time_rd": "2026-11-14 19:00",
-        "lottery": "La Primera",
-        "draw": "Quiniela La Primera Noche"
+        "time_rd": "2026-11-14 21:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 9PM"
       },
       "best_play": {
-        "time_rd": "2026-11-14 19:00",
-        "lottery": "La Primera",
-        "draw": "Quiniela La Primera Noche",
+        "time_rd": "2026-11-14 21:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 9PM",
         "top12": [
-          "44",
-          "31",
-          "13",
-          "97",
-          "59",
-          "98",
-          "91",
-          "50",
-          "01",
-          "37",
-          "57",
-          "00"
+          "92",
+          "83",
+          "49",
+          "46",
+          "54",
+          "09",
+          "60",
+          "84",
+          "55",
+          "95",
+          "94",
+          "50"
         ],
         "topq": [
-          "44",
-          "31",
-          "13"
+          "92",
+          "83",
+          "49"
         ],
         "pales": [
-          "31-44",
-          "13-44",
-          "44-97"
+          "83-92",
+          "49-92",
+          "46-92"
         ],
-        "fingerprint": "c8b222ac7f0dd8b1",
+        "fingerprint": "f693047298418366",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.03428349014215169,
+        "best_signal": 0.03213869613040814,
         "best_a11": 4,
         "debug": {
-          "best_signal_hist": 0.03428349014215169,
+          "best_signal_hist": 0.03213869613040814,
           "best_a11_hist": 4,
-          "today_observed_nums": 17,
-          "source_pairs_today": 7,
+          "today_observed_nums": 23,
+          "source_pairs_today": 8,
           "source_rows_hist_used": 2400,
           "top12_overlap_prev": 1,
+          "top_intraday": [
+            [
+              "13",
+              2
+            ],
+            [
+              "44",
+              1
+            ],
+            [
+              "87",
+              1
+            ],
+            [
+              "92",
+              1
+            ],
+            [
+              "60",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "generated_at": "2026-11-14T19:21:34.736285-04:00",
+      "event_key": "2026-11-14|La Primera|Quiniela La Primera Noche",
+      "target": {
+        "time_rd": "2026-11-14 21:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche"
+      },
+      "best_play": {
+        "time_rd": "2026-11-14 21:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche",
+        "top12": [
+          "65",
+          "31",
+          "35",
+          "45",
+          "71",
+          "28",
+          "93",
+          "34",
+          "66",
+          "48",
+          "61",
+          "29"
+        ],
+        "topq": [
+          "65",
+          "31",
+          "35"
+        ],
+        "pales": [
+          "31-65",
+          "35-65",
+          "45-65"
+        ],
+        "fingerprint": "e44d898d1505ebcb",
+        "ok_alert": false,
+        "decision": "❌ NO JUGAR",
+        "best_signal": 0.04243844410485144,
+        "best_a11": 2,
+        "debug": {
+          "best_signal_hist": 0.04243844410485144,
+          "best_a11_hist": 2,
+          "today_observed_nums": 23,
+          "source_pairs_today": 8,
+          "source_rows_hist_used": 2400,
+          "top12_overlap_prev": 0,
           "top_intraday": [
             [
               "13",
