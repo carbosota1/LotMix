@@ -1,54 +1,58 @@
 {
-  "generated_at": "2026-11-15T12:44:19.583188-04:00",
-  "event_key": "2026-11-15|TEST|NO-UPDATE",
+  "generated_at": "2026-11-15T13:20:56.300089-04:00",
+  "event_key": "2026-11-15|Anguilla|Anguila 1PM",
   "target": {
-    "time_rd": "2026-11-15 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM"
+    "time_rd": "2026-11-15 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más"
   },
   "best_play": {
-    "time_rd": "2026-11-15 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM",
+    "time_rd": "2026-11-15 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más",
     "top12": [
-      "92",
-      "78",
-      "67",
-      "49",
-      "06",
-      "77",
-      "00",
-      "12",
-      "59",
-      "74",
-      "52",
-      "02"
+      "18",
+      "07",
+      "27",
+      "62",
+      "71",
+      "73",
+      "42",
+      "70",
+      "76",
+      "22",
+      "13",
+      "65"
     ],
     "topq": [
-      "92",
-      "78",
-      "67"
+      "18",
+      "07",
+      "27"
     ],
     "pales": [
-      "78-92",
-      "67-92",
-      "49-92"
+      "07-18",
+      "18-27",
+      "18-62"
     ],
-    "fingerprint": "4456956e3be22341",
+    "fingerprint": "d2811a61c4248eb1",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.023098006083551878,
+    "best_signal": 0.0234948718086738,
     "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.023098006083551878,
+      "best_signal_hist": 0.0234948718086738,
       "best_a11_hist": 3,
-      "today_observed_nums": 8,
-      "source_pairs_today": 3,
-      "source_rows_hist_used": 1602,
-      "top12_overlap_prev": 2,
+      "today_observed_nums": 10,
+      "source_pairs_today": 4,
+      "source_rows_hist_used": 2136,
+      "top12_overlap_prev": 0,
       "top_intraday": [
         [
           "92",
+          2
+        ],
+        [
+          "10",
           2
         ],
         [
@@ -60,11 +64,7 @@
           1
         ],
         [
-          "45",
-          1
-        ],
-        [
-          "18",
+          "38",
           1
         ]
       ]
