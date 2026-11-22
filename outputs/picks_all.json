@@ -1,56 +1,60 @@
 {
-  "generated_at": "2026-11-22T13:20:46.040507-04:00",
-  "event_key": "2026-11-22|Anguilla|Anguila 1PM",
+  "generated_at": "2026-11-22T16:15:49.495221-04:00",
+  "event_key": "2026-11-22|La Nacional|Loteria Nacional- Gana Más",
   "items": [
     {
-      "generated_at": "2026-11-22T13:20:45.017126-04:00",
-      "event_key": "2026-11-22|Anguilla|Anguila 1PM",
+      "generated_at": "2026-11-22T16:15:13.797781-04:00",
+      "event_key": "2026-11-22|La Nacional|Loteria Nacional- Gana Más",
       "target": {
-        "time_rd": "2026-11-22 14:30",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Gana Más"
+        "time_rd": "2026-11-22 18:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 6PM"
       },
       "best_play": {
-        "time_rd": "2026-11-22 14:30",
-        "lottery": "La Nacional",
-        "draw": "Loteria Nacional- Gana Más",
+        "time_rd": "2026-11-22 18:00",
+        "lottery": "Anguilla",
+        "draw": "Anguila 6PM",
         "top12": [
-          "40",
-          "09",
-          "20",
-          "89",
-          "64",
-          "42",
-          "22",
-          "95",
-          "13",
-          "94",
-          "41",
-          "82"
+          "62",
+          "08",
+          "80",
+          "51",
+          "57",
+          "48",
+          "56",
+          "69",
+          "21",
+          "66",
+          "02",
+          "41"
         ],
         "topq": [
-          "40",
-          "09",
-          "20"
+          "62",
+          "08",
+          "80"
         ],
         "pales": [
-          "09-40",
-          "20-40",
-          "40-89"
+          "08-62",
+          "62-80",
+          "51-62"
         ],
-        "fingerprint": "5f982ee7933be5ca",
+        "fingerprint": "c37c442033067834",
         "ok_alert": false,
         "decision": "❌ NO JUGAR",
-        "best_signal": 0.002379139946660048,
-        "best_a11": 9,
+        "best_signal": 0.025181079579321565,
+        "best_a11": 4,
         "debug": {
-          "best_signal_hist": 0.002379139946660048,
-          "best_a11_hist": 9,
-          "today_observed_nums": 12,
-          "source_pairs_today": 4,
-          "source_rows_hist_used": 1755,
-          "top12_overlap_prev": 0,
+          "best_signal_hist": 0.025181079579321565,
+          "best_a11_hist": 4,
+          "today_observed_nums": 14,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 2400,
+          "top12_overlap_prev": 1,
           "top_intraday": [
+            [
+              "32",
+              2
+            ],
             [
               "06",
               1
@@ -66,9 +70,78 @@
             [
               "46",
               1
-            ],
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "generated_at": "2026-11-22T16:15:48.633907-04:00",
+      "event_key": "2026-11-22|La Nacional|Loteria Nacional- Gana Más",
+      "target": {
+        "time_rd": "2026-11-22 18:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche"
+      },
+      "best_play": {
+        "time_rd": "2026-11-22 18:00",
+        "lottery": "La Nacional",
+        "draw": "Loteria Nacional- Noche",
+        "top12": [
+          "81",
+          "71",
+          "98",
+          "13",
+          "63",
+          "83",
+          "34",
+          "07",
+          "82",
+          "29",
+          "48",
+          "66"
+        ],
+        "topq": [
+          "81",
+          "71",
+          "98"
+        ],
+        "pales": [
+          "71-81",
+          "81-98",
+          "13-81"
+        ],
+        "fingerprint": "056af207c2aa5f9f",
+        "ok_alert": false,
+        "decision": "❌ NO JUGAR",
+        "best_signal": 0.024790292272906092,
+        "best_a11": 3,
+        "debug": {
+          "best_signal_hist": 0.024790292272906092,
+          "best_a11_hist": 3,
+          "today_observed_nums": 14,
+          "source_pairs_today": 5,
+          "source_rows_hist_used": 2400,
+          "top12_overlap_prev": 2,
+          "top_intraday": [
             [
               "32",
+              2
+            ],
+            [
+              "06",
+              1
+            ],
+            [
+              "90",
+              1
+            ],
+            [
+              "40",
+              1
+            ],
+            [
+              "46",
               1
             ]
           ]
