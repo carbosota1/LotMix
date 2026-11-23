@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-11-23T12:44:39.825520-04:00",
-  "event_key": "2026-11-23|La Suerte|Quiniela La Suerte",
+  "generated_at": "2026-11-23T13:20:11.900475-04:00",
+  "event_key": "2026-11-23|Anguilla|Anguila 1PM",
   "target": {
-    "time_rd": "2026-11-23 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM"
+    "time_rd": "2026-11-23 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más"
   },
   "best_play": {
-    "time_rd": "2026-11-23 13:00",
-    "lottery": "Anguilla",
-    "draw": "Anguila 1PM",
+    "time_rd": "2026-11-23 14:30",
+    "lottery": "La Nacional",
+    "draw": "Loteria Nacional- Gana Más",
     "top12": [
-      "78",
-      "49",
-      "67",
-      "06",
-      "77",
-      "71",
-      "86",
-      "12",
-      "92",
-      "59",
-      "74",
-      "76"
+      "41",
+      "13",
+      "36",
+      "20",
+      "89",
+      "64",
+      "40",
+      "42",
+      "22",
+      "95",
+      "94",
+      "82"
     ],
     "topq": [
-      "78",
-      "49",
-      "67"
+      "41",
+      "13",
+      "36"
     ],
     "pales": [
-      "49-78",
-      "67-78",
-      "06-78"
+      "13-41",
+      "36-41",
+      "20-41"
     ],
-    "fingerprint": "e553a5fba09f61a6",
+    "fingerprint": "4f2ca6745f6e544f",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.02114480033890793,
-    "best_a11": 3,
+    "best_signal": 0.0013444098505449478,
+    "best_a11": 6,
     "debug": {
-      "best_signal_hist": 0.02114480033890793,
-      "best_a11_hist": 3,
-      "today_observed_nums": 8,
-      "source_pairs_today": 3,
-      "source_rows_hist_used": 1611,
-      "top12_overlap_prev": 1,
+      "best_signal_hist": 0.0013444098505449478,
+      "best_a11_hist": 6,
+      "today_observed_nums": 11,
+      "source_pairs_today": 4,
+      "source_rows_hist_used": 1665,
+      "top12_overlap_prev": 0,
       "top_intraday": [
         [
           "14",
@@ -60,11 +60,11 @@
           1
         ],
         [
-          "84",
+          "46",
           1
         ],
         [
-          "13",
+          "28",
           1
         ]
       ]
