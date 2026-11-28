@@ -1,52 +1,56 @@
 {
-  "generated_at": "2026-11-28T12:19:38.636814-04:00",
-  "event_key": "2026-11-28|La Primera|Quiniela La Primera",
+  "generated_at": "2026-11-28T12:44:40.395581-04:00",
+  "event_key": "2026-11-28|La Suerte|Quiniela La Suerte",
   "target": {
-    "time_rd": "2026-11-28 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte"
+    "time_rd": "2026-11-28 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM"
   },
   "best_play": {
-    "time_rd": "2026-11-28 12:30",
-    "lottery": "La Suerte",
-    "draw": "Quiniela La Suerte",
+    "time_rd": "2026-11-28 13:00",
+    "lottery": "Anguilla",
+    "draw": "Anguila 1PM",
     "top12": [
-      "34",
-      "29",
-      "01",
-      "76",
-      "21",
-      "70",
-      "61",
-      "02",
-      "51",
+      "78",
+      "86",
+      "67",
+      "85",
+      "06",
+      "77",
+      "12",
+      "59",
+      "92",
+      "74",
       "49",
-      "46",
-      "38"
+      "02"
     ],
     "topq": [
-      "34",
-      "29",
-      "01"
+      "78",
+      "86",
+      "67"
     ],
     "pales": [
-      "29-34",
-      "01-34",
-      "34-76"
+      "78-86",
+      "67-78",
+      "78-85"
     ],
-    "fingerprint": "d405a6a170f9ca28",
+    "fingerprint": "2eafe19ecb7ee515",
     "ok_alert": false,
     "decision": "❌ NO JUGAR",
-    "best_signal": 0.013755046943001309,
-    "best_a11": 2,
+    "best_signal": 0.021115176906790874,
+    "best_a11": 3,
     "debug": {
-      "best_signal_hist": 0.013755046943001309,
-      "best_a11_hist": 2,
-      "today_observed_nums": 6,
-      "source_pairs_today": 2,
-      "source_rows_hist_used": 1080,
-      "top12_overlap_prev": 1,
+      "best_signal_hist": 0.021115176906790874,
+      "best_a11_hist": 3,
+      "today_observed_nums": 8,
+      "source_pairs_today": 3,
+      "source_rows_hist_used": 1620,
+      "top12_overlap_prev": 2,
       "top_intraday": [
+        [
+          "78",
+          2
+        ],
         [
           "16",
           1
@@ -57,10 +61,6 @@
         ],
         [
           "22",
-          1
-        ],
-        [
-          "78",
           1
         ],
         [
